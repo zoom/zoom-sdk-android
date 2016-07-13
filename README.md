@@ -8,6 +8,6 @@ This sample app is an Android Studio project. To use it:
    - Update the API key and secret in the project
    - Build the project
    
-   If you need assistance, please visit Zoom developer portal
+If you need assistance, please visit Zoom developer portal
    
-   Copyright ©2016 Zoom Video Communications, Inc. 
+Copyright ©2016 Zoom Video Communications, Inc. 
