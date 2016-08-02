@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="edtPhoneNumber" type="id"/>
+    <item name="edtExtension" type="id"/>
+    <item name="btnLogoutRingCentral" type="id"/>
+    <item name="loginInternational" type="id"/>
+    <item name="optionCountry" type="id"/>
+    <item name="txtCountry" type="id"/>
+    
+    <item name="zm_rc_alert_meetings_feature_is_not_enabled" type="string"/>
+    <item name="zm_rc_alert_logout" type="string"/>
+    <item name="zm_rc_hint_login_phone_number" type="string"/>
+    <item name="zm_rc_hint_login_extension" type="string"/>
+    <item name="zm_rc_hint_login_password" type="string"/>
+    <item name="zm_rc_lbl_login_extension" type="string"/>
+    
+</resources>

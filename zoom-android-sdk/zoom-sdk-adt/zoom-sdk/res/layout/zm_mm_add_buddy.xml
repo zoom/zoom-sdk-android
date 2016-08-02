@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMDialogRootLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_white"
+    android:orientation="vertical" >
+
+    <!-- Fix width to 340dp if screen is wider than it. -->
+    <View
+        android:layout_width="340dp"
+        android:layout_height="0dp"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/layoutInput"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="@string/zm_hint_enter_email"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:maxLength="128"
+                android:gravity="center"
+                android:singleLine="true" >
+            </EditText>
+
+            <View
+                android:layout_width="210dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/zm_dialog_btn_bg" />
+
+            <TextView
+                style="@style/ZMTextView.Small.Dimmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:singleLine="false"
+                android:text="@string/zm_description_add_buddy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutResult"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:visibility="gone" 
+            android:background="@color/zm_white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <com.zipow.videobox.view.AvatarView
+                android:id="@+id/avatarView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                style="@style/ZMTextView.Normal.Dimmed"
+                android:id="@+id/txtResultDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnResultAction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            style="@style/ZMTextView.Large.OnDark"
+            android:text="@string/zm_btn_add_contact" />
+    </LinearLayout>
+
+</us.zoom.androidlib.widget.ZMDialogRootLayout>

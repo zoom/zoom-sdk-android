@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="zm_panel_background">#f9f9f9</color>
+    <color name="zm_dot_panel_background">#00000000</color>
+    <color name="zm_transparent">#00FFFFFF</color>
+    <color name="zm_im_buddyname_online">#333333</color>
+    <color name="zm_im_buddyname_offline">#333333</color>
+    <color name="zm_im_mentioned">@color/zm_pure_red</color>
+    <color name="zm_video_border_normal">#ffe0e0e0</color>
+    <color name="zm_video_border_active">#ff8cbf26</color>
+    <color name="zm_video_border_locked">#ffffa200</color>
+    <color name="zm_sharing_title_bg">#80000000</color>
+    <color name="zm_im_chat_message_divider">#FFdddddd</color>
+    <color name="zm_link">#39b6fc</color>
+    <color name="zm_meetinglistitem_time_today">@color/zm_highlight</color>
+    <color name="zm_meetinglistitem_time_normal">#343434</color>
+    <color name="zm_meetinglistitem_topic">#595959</color>
+    <color name="zm_meetinglistitem_host">#595959</color>
+    <color name="zm_meetinglistitem_id">#595959</color>
+    <color name="zm_meetinglistitem_pmi_id">#404040</color>
+    <color name="zm_abbr_avatar_bg_1">#27ae60</color>
+    <color name="zm_abbr_avatar_bg_2">#16a085</color>
+    <color name="zm_abbr_avatar_bg_3">#2980b9</color>
+    <color name="zm_abbr_avatar_bg_4">#8e44ad</color>
+    <color name="zm_abbr_avatar_bg_5">#34495e</color>
+    <color name="zm_abbr_avatar_bg_6">#f39c12</color>
+    <color name="zm_abbr_avatar_bg_7">#d35400</color>
+    <color name="zm_abbr_avatar_bg_8">#c0392b</color>
+    <color name="zm_abbr_avatar_fg">#ffffff</color>
+    <color name="zm_mm_presence_available">#4bc800</color>
+    <color name="zm_mm_presence_busy">#dc0000</color>
+    <color name="zm_mm_presence_away">#ff8c00</color>
+    <color name="zm_mm_presence_offline">#b2b4b6</color>
+    <color name="zm_dimmed_forground">#a0000000</color>
+    <color name="zm_drivermode_text_color_highlight">@color/zm_highlight</color>
+    <color name="zm_drivermode_btn_done_speak_color">@color/zm_highlight</color>
+    <color name="zm_toolbar_annotation_noraml">#803A3C3E</color>
+    <color name="zm_toolbar_annotation_press">#E63A3C3E</color>
+    <color name="zm_toolbar_annotation_focus">#C03A3C3E</color>
+    <color name="zm_toolbar_stopshare_noraml">#ff7977</color>
+    <color name="zm_toolbar_stopshare_press">#ea0500</color>
+    <color name="zm_toolbar_stopshare_focus">#ff7977</color>
+    <color name="zm_toolbar_stopannotation_noraml">#2da5ff</color>
+    <color name="zm_toolbar_stopannotation_press">#2d8cff</color>
+    <color name="zm_toolbar_stopannotation_focus">#2dd7ff</color>
+    <color name="zm_toolbar_screenshare_bg">#e63a3c3e</color>
+    <color name="zm_notification_icon_bg">#9e9e9e</color>
+    <color name="zm_addbuddy_name">#4a4a4a</color>
+    <color name="zm_message_tip_background">#c0000000</color>
+    <color name="zm_message_tip_border">#00000000</color>
+    <color name="zm_message_tip_shadow">#a0000000</color>
+    <color name="zm_message_warn_bg">#e6fef17f</color>
+    <color name="zm_message_hint_bg">#e62d8cff</color>
+    
+    <color name="zm_text_listemptyview">#afbecd</color>
+    
+    
+    <color name="zm_chat_msg_bg_plain_normal">#E9E9E9</color>
+    <color name="zm_chat_msg_bg_plain_press">#A2A2A2</color>
+    <color name="zm_chat_msg_bg_e2e_success_normal">#2D8CFF</color>
+    <color name="zm_chat_msg_bg_e2e_success_press">#1F61B2</color>
+    <color name="zm_chat_msg_bg_e2e_pending_normal">#B7DEFF</color>
+    <color name="zm_chat_msg_bg_e2e_pending_press">#7F9AB2</color>
+    <color name="zm_chat_msg_bg_e2e_warn_normal">#FFEEED</color>
+    <color name="zm_chat_msg_bg_e2e_warn_press">#C2B6B7</color>
+    <color name="zm_chat_msg_txt_e2e_warn">@color/zm_pure_red</color>
+    
+</resources>
