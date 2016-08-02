@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="0dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.BuddyName.Medium.OnLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Reed Yang" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            style="@style/ZMTextView.Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:maxLines="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/zm_ic_decline"
+            android:id="@+id/btnDecline"
+            android:visibility="gone" />
+        
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAccept"
+            android:src="@drawable/zm_ic_accept"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/txtDeclined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            style="@style/ZMTextView.MMSystemNotification.txtState"
+            android:text="@string/zm_description_contact_request_decline" />
+        
+
+        <TextView
+            android:id="@+id/txtpending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ZMTextView.MMSystemNotification.txtState"
+            android:text="@string/zm_description_contact_request_pending" />
+        
+        <TextView
+            android:id="@+id/txtChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            style="@style/ZMTextView.MMSystemNotification.btnState"
+            android:text="@string/zm_description_contact_request_chat" />
+    </LinearLayout>
+
+</LinearLayout>

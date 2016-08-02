@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="3dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="3dp"
+    android:gravity="left|center_vertical" >
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="top" />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        style="@style/ZMTextView.MMMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:background="@drawable/zm_chatfrom_bg"
+        android:clickable="true"
+        android:duplicateParentState="false"
+        android:focusable="true"
+        android:gravity="left|center_vertical"
+        android:maxWidth="225dp"
+        android:text="Hi, Zoom. I like you!" />
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zm_url_webdomain_default">https://zoom.us</string>
+    <string name="zm_url_update">%s/support/download?os=android</string>
+    <string name="zm_url_join_conf">join.zoom.us</string>
+    <string name="zm_zoom_scheme">zoomus</string>
+    
+    <string name="zm_firewall_support_url">https://support.zoom.us/hc/en-us/articles/201362683</string>
+</resources>

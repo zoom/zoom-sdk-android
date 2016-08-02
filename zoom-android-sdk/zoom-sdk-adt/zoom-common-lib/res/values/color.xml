@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="zm_panel_background">#eeeef3</color>
+    <color name="zm_transparent">#00FFFFFF</color>
+    <color name="zm_setting_option">#333333</color>
+    
+    <color name="zm_highlight">#2da5ff</color>
+    <color name="zm_highlight_pressed">#2d8cff</color>
+    <color name="zm_highlight_focused">#2dd7ff</color>
+    <color name="zm_highlight_disabled">#c0c0c0</color>
+    <color name="zm_bright">#f9f9f9</color>
+    <color name="zm_dim">#33000000</color>
+    <color name="zm_red">#fc3d39</color>
+    <color name="zm_pure_red">#ff0000</color>
+    <color name="zm_white">#ffffff</color>
+    <color name="zm_black">#000000</color>
+    <color name="zm_dark">#555555</color>
+    <color name="zm_text_dim">#939393</color>
+    <color name="zm_text_disable">#b3333333</color>
+    <color name="zm_text_on_light">#333333</color>
+    <color name="zm_text_on_dark">#ffffff</color>
+    <color name="zm_warn">#fd3d39</color>
+    <color name="zm_warn_pressed">#cd0d09</color>
+    <color name="zm_gray_1">#eef0f2</color>
+    <color name="zm_gray_2">#d0d2d4</color>
+    <color name="zm_gray_3">#76787a</color>
+    <color name="zm_gray_4">#3a3c3e</color>
+    <color name="zm_gray_5">#f0f1f3</color>
+    <color name="zm_txt_warn">#FF7800</color>
+    <color name="zm_notification_background">#ffe280</color>
+    <color name="zm_notification_background_pressed">#eed069</color>
+    <color name="zm_notification_background_green">#4bcb00</color>
+    <color name="zm_notification_font_red">#ff3a30</color>
+    <color name="zm_settings_category_background">#ffffff</color>    
+    <color name="zm_split_bg">#7f7f7f</color>  
+    <color name="zm_dialog_btn">#007aff</color>
+    <color name="zm_dialog_option_titlebg">#00FFFFFF</color>
+</resources>

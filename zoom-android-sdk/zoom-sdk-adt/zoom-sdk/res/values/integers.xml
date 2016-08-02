@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="integer" name="zm_group_chat_topic_max_length" format="integer">25</item>
+    
+</resources>
