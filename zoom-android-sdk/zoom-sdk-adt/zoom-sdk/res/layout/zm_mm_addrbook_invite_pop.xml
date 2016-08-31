@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/zm_pop_menu_bg"
+        android:minWidth="200dp"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:id="@+id/panelAddContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/zm_setting_item_padding_top"
+            android:paddingTop="@dimen/zm_setting_item_padding_top" >
+
+            <TextView
+                style="@style/ZMTextView.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/zm_lbl_add_contact" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelNewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/zm_setting_item_padding_top"
+            android:paddingTop="@dimen/zm_setting_item_padding_top" >
+
+            <TextView
+                style="@style/ZMTextView.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/zm_mm_title_new_group" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelJoinPublicGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/zm_setting_item_padding_top"
+            android:paddingTop="@dimen/zm_setting_item_padding_top">
+
+            <TextView
+                style="@style/ZMTextView.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="@string/zm_btn_join_public_group" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

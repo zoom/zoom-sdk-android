@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+        android:id="@+id/panelTitleBar"
+        style="@style/ZMTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zm_pt_titlebar_height"
+        android:weightSum="1"
+        zoom:zm_leftButton="@+id/btnBack"
+        zoom:zm_rightButton="@+id/btnUploadFile"
+        zoom:zm_title="@+id/txtTitle" >
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/ZMBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/ZMTextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/zm_mm_lbl_group_files" />
+
+        <ImageButton
+            android:id="@+id/btnUploadFile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:contentDescription="@string/zm_description_mm_btn_add_contacts"
+            android:padding="5dp"
+            android:visibility="invisible"
+            android:src="@drawable/zm_ic_add" />
+    </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+
+    <FrameLayout
+        android:id="@+id/listContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.zipow.videobox.view.mm.MMContentFilesListView
+            android:id="@+id/listViewFiles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/zm_listview_bg" />
+
+        <com.zipow.videobox.view.mm.MMContentImagesListview
+            android:id="@+id/listViewImages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:background="@drawable/zm_listview_bg" />
+
+        <LinearLayout
+            android:id="@+id/panelEmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtEmptyView"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/zm_lbl_content_search_result_empty"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtLoadingError"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/zm_lbl_content_load_error"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtContentLoading"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/zm_ic_conent_loading"
+                android:gravity="center"
+                android:text="@string/zm_lbl_pull_down_refresh_list_loading" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

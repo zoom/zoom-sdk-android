@@ -20,8 +20,7 @@
             style="@style/ZMBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/zm_title_setting" />
+            android:layout_centerVertical="true" />
         
         <View
             android:id="@+id/viewRight"

@@ -174,7 +174,7 @@
             android:text="@string/zm_btn_raise_hand" />
         
     </LinearLayout>
-    -->
+
 
     <LinearLayout
         android:id="@+id/panelLoginAsHost"
@@ -196,5 +196,5 @@
             android:layout_gravity="center"
             android:text="@string/zm_btn_login_as_host" />
     </LinearLayout>
-
+    -->
 </LinearLayout>

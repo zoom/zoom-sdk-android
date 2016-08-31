@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/zm_pt_titlebar_height"
             zoom:zm_leftButton="@+id/btnBack"
-            zoom:zm_rightButton="@+id/btnManage"
+            zoom:zm_rightButton="@+id/panelTitleRight"
             zoom:zm_title="@+id/panelTitleCenter" >
 
             <Button
@@ -36,14 +36,36 @@
                 android:layout_centerVertical="true"
                 android:text=""
                 android:contentDescription="@string/zm_btn_back" />
-
-            <ImageButton
-                android:id="@+id/btnManage"
-                style="@style/ZMButton.TitleBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/zm_mm_title_btn_contact"
-                android:contentDescription="@string/zm_description_mm_btn_chat_options" />
+            
+			<LinearLayout android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:id="@+id/panelTitleRight"
+			    android:orientation="horizontal">
+			    
+			    <ImageButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:layout_marginLeft="10dp"
+                    android:contentDescription="@string/zm_description_mm_btn_search"
+                    android:src="@drawable/zm_ic_search_blue_ondark" />
+			    
+	            <ImageButton
+	                android:id="@+id/btnManage"
+	                style="@style/ZMButton.TitleBar"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/zm_mm_title_btn_contact"
+	                android:contentDescription="@string/zm_description_mm_btn_chat_options" />
+	            
+	            <Button android:id="@+id/btnJump"
+	                style="@style/ZMButton.TitleBar"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:visibility="gone"
+	                android:text="@string/zm_btn_jump"/>
+			</LinearLayout>
 
             <LinearLayout
                 android:id="@+id/panelTitleCenter"
@@ -201,6 +223,33 @@
                         
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/panelMsgContextEmptyView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="vertical" >
+                
+                <TextView
+                    android:id="@+id/txtMsgContextLoadingError"
+                    style="@style/ZMTextView.SettingsItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/zm_lbl_content_load_error"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtMsgContextContentLoading"
+                    style="@style/ZMTextView.SettingsItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/zm_ic_conent_loading"
+                    android:gravity="center"
+                    android:text="@string/zm_lbl_pull_down_refresh_list_loading" />
+            </LinearLayout>
         </RelativeLayout>
 
         <LinearLayout
@@ -265,7 +314,7 @@
                         android:inputType="textMultiLine"
                         android:maxLines="3"
                         android:text=""
-                        android:maxLength="1024" >
+                        android:maxLength="4096" >
 
                         <!--
 				             Do not use requestFocus tag here. Else the soft keyboard cannot be opened
@@ -365,7 +414,7 @@
                         android:layout_marginRight="0.2dp"
                         android:layout_marginBottom="0.2dp"
                         android:layout_weight="1"
-                        android:background="#f9f9f9">
+                        android:background="@color/zm_white">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -405,7 +454,7 @@
                         android:layout_marginRight="0.2dp"
                         android:layout_marginBottom="0.2dp"
                         android:layout_weight="1"
-                        android:background="#f9f9f9">
+                        android:background="@color/zm_white">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -445,7 +494,7 @@
                         android:layout_marginBottom="0.2dp"
                         android:layout_weight="1"
                         android:id="@+id/panelCamera"
-                        android:background="#f9f9f9">
+                        android:background="@color/zm_white">
                         
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -491,7 +540,7 @@
                         android:layout_marginTop="0.2dp"
                         android:layout_marginBottom="0.5dp"
                         android:layout_weight="1"
-                        android:background="#f9f9f9">
+                        android:background="@color/zm_white">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -533,7 +582,35 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
-                        android:background="#f9f9f9" >
+                        android:background="@color/zm_white" >
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:layout_gravity="center"
+                            android:orientation="vertical" >
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:src="@drawable/zm_mm_opt_panel_file_icon" />
+
+                            <TextView
+                                style="@style/ZMTextView.Small.OnLight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/zm_mm_opt_file" />
+                        </LinearLayout>
+                        
+                        <ImageView
+                            android:id="@+id/btnSendFile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/zm_mm_opt_btn_overlay"
+                            android:contentDescription="@string/zm_mm_opt_file" />
                     </FrameLayout>
                     
                     <FrameLayout
@@ -545,7 +622,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
-                        android:background="#f9f9f9" >
+                        android:background="@color/zm_white" >
                     </FrameLayout>
                     
                 </TableRow>

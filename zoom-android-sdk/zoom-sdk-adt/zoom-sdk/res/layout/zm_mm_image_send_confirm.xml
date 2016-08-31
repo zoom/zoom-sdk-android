@@ -8,7 +8,13 @@
         android:id="@+id/viewImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000" />
+        android:background="@color/zm_black" />
+    
+    <us.zoom.androidlib.widget.ZMGifView 
+        android:id="@+id/viewGif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/zm_black"/>
     
     <LinearLayout
         android:id="@+id/viewPlaceHolder"

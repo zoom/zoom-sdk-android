@@ -291,6 +291,36 @@
         </us.zoom.androidlib.widget.ZMSettingsCategory>
 
         <us.zoom.androidlib.widget.ZMSettingsCategory
+            android:id="@+id/panelNonHostAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            zoom:zm_dividerHeight="0dp">
+        
+            <TextView
+                android:id="@+id/btnLoginAsHost"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zm_settings_item_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="start|center_vertical"
+                android:text="@string/zm_btn_login_as_host" />
+            
+            <TextView
+                android:id="@+id/btnClaimHost"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zm_settings_item_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="start|center_vertical"
+                android:text="@string/zm_btn_claim_as_host" />            
+        </us.zoom.androidlib.widget.ZMSettingsCategory>   
+
+        <us.zoom.androidlib.widget.ZMSettingsCategory
             android:id="@+id/panelHandAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

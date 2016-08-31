@@ -102,6 +102,10 @@
 		<item name="android:textSize">14sp</item>
 	</style>
 	
+	<style name="ZMButton.TitleBar.Small.OnDark">
+		<item name="android:textColor">@drawable/zm_button_text_color_on_dark</item>
+	</style>
+	
 	<style name="ZMButton.TitleBar.OnDark">
 		<item name="android:textColor">@drawable/zm_button_text_color_on_dark</item>
 	</style>
@@ -371,6 +375,7 @@
 	
 	<style name="ZMTextView.Title" parent="ZMTextView.ExtremLarge.OnLight">
 		<item name="android:textColor">@color/zm_text_on_light</item>
+		<item name="android:textStyle">bold</item>
 	</style>
 	
 	<style name="ZMTextView.Title.OnDark">
@@ -490,7 +495,7 @@
 		<item name="android:background">@drawable/zm_listview_bg</item>
 		<item name="android:cacheColorHint">@android:color/transparent</item>
 		<item name="android:dividerHeight">0.5dip</item>
-		<item name="android:divider">@drawable/zm_list_divider</item>
+		<item name="android:divider">@color/zm_listview_divider</item>
 		<item name="android:fadeScrollbars">true</item>
  		<item name="android:listSelector">@drawable/zm_list_selector_background</item>
  		<item name="android:overScrollFooter">@null</item>
@@ -569,6 +574,13 @@
 	
  	<style name="ZMTitleBar">
  		<item name="android:background">@drawable/zm_titlebar_bg</item>
+ 		<item name="android:paddingLeft">3dip</item>
+ 		<item name="android:paddingRight">3dip</item>
+ 		<item name="android:gravity">center_vertical</item>
+ 	</style>
+ 	
+ 	<style name="ZMTitleBar.Dark">
+ 		<item name="android:background">@color/zm_title_bar_dark_bg</item>
  		<item name="android:paddingLeft">3dip</item>
  		<item name="android:paddingRight">3dip</item>
  		<item name="android:gravity">center_vertical</item>

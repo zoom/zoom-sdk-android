@@ -28,12 +28,12 @@
 
     <RelativeLayout
         android:id="@+id/panelMessage"
-        android:layout_width="@dimen/zm_mm_bubble_width"
+        android:layout_width="@dimen/zm_mm_bubble_file_width"
         android:layout_height="wrap_content"
-        android:paddingLeft="3dp"
-        android:paddingTop="3dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="4dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="8dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="8dp"
         android:background="@drawable/zm_chatto_bg" >
 
         <RelativeLayout
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@color/zm_white"
+            android:layout_toLeftOf="@id/btnCancel"
             android:padding="2dp">
 
             <ImageView
@@ -51,11 +51,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
                 android:src="@drawable/zm_ic_filetype_pdf" />
 
             <TextView
                 android:id="@+id/txtFileName"
-                style="@style/ZMTextView.Normal.OnLight"
+                style="@style/ZMTextView.MMMessage.OnDark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -66,7 +67,7 @@
 
             <TextView
                 android:id="@+id/txtFileSize"
-                style="@style/ZMTextView.ExSmall.Dimmed"
+                style="@style/ZMTextView.ExSmall.OnDark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -88,7 +89,7 @@
         
         <ProgressBar
             android:id="@+id/downloadPercent"
-            style="@style/DownloadingProgress"
+            style="@style/UploadingProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/panelContent"
@@ -96,10 +97,11 @@
         
         <Button
             android:id="@+id/btnCancel"
-            style="@style/ZMButton.TitleBar"
-            android:layout_width="match_parent"
+            style="@style/ZMButton.TitleBar.Small.OnDark"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/downloadPercent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:text="@string/zm_btn_cancel" />
     </RelativeLayout>
 

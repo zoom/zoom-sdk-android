@@ -22,6 +22,7 @@
     <string name="zm_btn_ok">OK</string>
     <string name="zm_btn_cancel">Cancel</string>
     <string name="zm_btn_continue">Continue</string>
+    <string name="zm_btn_retry">Retry</string>
     
     <string name="zm_lbl_internal_storage">Device storage</string>
     <string name="zm_alert_no_sdcard">No media card</string>
@@ -182,6 +183,7 @@
     <string name="zm_lbl_allow_join_specified_domains">From Specified domains</string>
     <string name="zm_lbl_allow_join_choose_type">Choose a User Type</string>
     <string name="zm_lbl_allow_join_qualified_domain">Qualified domain</string>
+    <string name="zm_lbl_content_set_file_name_instructions">Please enter file name</string>
     
     <string name="zm_lbl_add_invitees">Add Invitees via</string>
     <string name="zm_lbl_sso_login"><a href="zoomus://null">SSO Login</a></string>
@@ -274,6 +276,9 @@
     <string name="zm_lbl_desktop_offline">Desktop</string>
     <string name="zm_lbl_mobile_offline">Mobile</string>
     <string name="zm_lbl_room_offline">Room</string>
+    <string name="zm_lbl_room_status_available">Available</string>
+    <string name="zm_lbl_room_status_offline">Offline</string>
+    <string name="zm_lbl_room_status_busy">Busy</string>
     <string name="zm_lbl_show_offline_buddies">Show Offline Buddies</string>
     <string name="zm_lbl_buddy_added">Added</string>
     <string name="zm_lbl_video_on">Video On</string>
@@ -296,7 +301,41 @@
     <string name="zm_lbl_search_category_chat_groups">CHAT GROUPS</string>
     <string name="zm_lbl_search_result_empty">No Results</string>
     <string name="zm_lbl_notify_everyone">Notify everyone in the group</string>
-    
+    <string name="zm_lbl_hostkey_error_desc">The Host Key you entered is invalid.</string>
+    <string name="zm_lbl_contact_group_description">Created by %1$s</string>
+    <string name="zm_lbl_contact_private_groups">Private Groups(%s)</string>
+    <string name="zm_lbl_contact_public_groups">Public Groups(%s)</string>
+    <string name="zm_lbl_create_private_group_des">A Private Social Network A private online community that is exclusive to a club\'s members, trainers, and staff.</string>
+    <string name="zm_lbl_create_public_group_des">Others in your organization can join from Join Public Groups or you can invite some contacts to public group.</string>
+    <string name="zm_lbl_file_type_images">Images</string>
+    <string name="zm_lbl_file_type_files">All Files</string>
+    <string name="zm_lbl_add_contact">Add a Contact</string>
+    <string name="zm_lbl_content_share_by_me">%1$s,%2$s</string>
+    <string name="zm_lbl_content_share_by">Shared by %1$s,%2$s</string>
+    <string name="zm_lbl_content_share_in_group">Shared in %s</string>
+    <string name="zm_lbl_content_share_in_more_group">other %s groups</string>
+    <string name="zm_lbl_content_share_in_buddy">%s shared with you</string>
+    <string name="zm_lbl_content_no_share">private</string>
+    <string name="zm_lbl_content_me">me</string>
+    <string name="zm_lbl_content_time_today_format">Today at %s</string>
+    <string name="zm_lbl_content_time_other_day_format">%1$s at %2$s</string>
+    <string name="zm_lbl_content_upload_file">Upload photos or files to your personal container, then you can share it to others or groups later.</string>
+    <string name="zm_lbl_groups">Groups</string>
+    <string name="zm_lbl_content_not_support_preview">The file can not be previewed in zoom, do you want to download it and open with other app?</string>
+    <string name="zm_lbl_system_not_support_preview">Sorry, the file can not be previewed in system.</string>
+    <string name="zm_lbl_translate_speed">%1$s of %2$s(%3$s/sec)</string>
+    <string name="zm_lbl_instructions_share_to">Select contacts to share</string>
+    <string name="zm_lbl_instructions_forward_to">Select contacts to forward</string>
+    <string name="zm_lbl_forward_to">Forward to</string>
+    <string name="zm_lbl_create_public_group">Create a Public Group</string>
+    <string name="zm_lbl_create_private_group">Create a Pravite Group</string>
+    <string name="zm_lbl_share_category_contact">Contacts</string>
+    <string name="zm_lbl_share_category_groups_chats">Groups &amp;  Chats</string>
+    <string name="zm_lbl_content_search_result_empty">No Contents.</string>
+    <string name="zm_lbl_content_load_error">Loading Error, <![CDATA[<font color="#2da5ff">Retry</font>]]></string>
+    <string name="zm_lbl_allow_new_member_see_chat_history">Allow new member access chat history</string>
+    <string name="zm_lbl_content_send_to">Send to %s</string>
+
     <string name="zm_lbl_lock_meeting_desc">When enabled, new attendee can\'t join this meeting.</string>
     <string name="zm_lbl_lock_share_desc">When enabled, only host can share content.</string>
     
@@ -375,6 +414,7 @@
     <string name="zm_btn_configure_account">Configure Account</string>
     <string name="zm_btn_repeat_forever">Repeat Forever</string>
     <string name="zm_btn_login_as_host">Login as Host</string>
+    <string name="zm_btn_claim_as_host">Claim Host Role…</string>
     <string name="zm_btn_enable_addrbook">Enable</string>
     <string name="zm_btn_next">Next</string>
     <string name="zm_btn_disable">Disable</string>
@@ -412,10 +452,12 @@
     <string name="zm_btn_no_camera">No Camera</string>
     <string name="zm_btn_usb_camera">USB Camera %s</string>
     <string name="zm_btn_new_group">New Group</string>
+    <string name="zm_btn_join_public_group">Join Public Group</string>
     <string name="zm_btn_create">Create</string>
     <string name="zm_btn_mm_add_buddy">Invite</string>
     <string name="zm_btn_share">Share</string>
     <string name="zm_btn_stop_share">Stop Share</string>
+    <string name="zm_btn_upload">Upload</string>
 
     <string name="zm_btn_share_image">Photo</string>
     <string name="zm_btn_share_url">Web URL</string>
@@ -426,6 +468,7 @@
     <string name="zm_btn_share_one_drive">OneDrive</string>
     <string name="zm_btn_share_screen">Screen</string>
     <string name="zm_btn_share_google_drive">Google Drive</string>
+    <string name="zm_btn_share_all_file">File</string>
 
     <string name="zm_btn_start_a_meeting">Start a Meeting</string>
     <string name="zm_btn_upcoming_meetings">Upcoming Meetings</string>
@@ -468,18 +511,25 @@
     <string name="zm_btn_use_meeting_id">Join with meeting ID</string>
     <string name="zm_btn_clear_history">Clear History</string>
     <string name="zm_btn_got_it">Got it</string>
-    
+    <string name="zm_btn_enter_again">Re-enter</string>
+    <string name="zm_btn_claim">Claim</string>
+    <string name="zm_btn_view_file">View File</string>
+    <string name="zm_btn_convert_private_group">Convert to Private Group</string>
+    <string name="zm_btn_unshare_group">Unshare in this group</string>
+    <string name="zm_btn_jump_group">Jump to this group</string>
+    <string name="zm_btn_jump">Jump</string>
     <string name="zm_chk_enable_jbh">Participants Can Join Before Host</string>
     <string name="zm_chk_add_to_calendar">Add to Calendar</string>
     <string name="zm_chk_always_use_pmi">Use PMI for instant meetings</string>
     <string name="zm_chk_host_video_on">Host Video On</string>
     <string name="zm_chk_attendee_video_on">Attendee Video On</string>
     <string name="zm_chk_schedule_use_pmi">Use PMI (%s)</string>
-	<string name="zm_chk_host_cn_meeting">Host meeting in China</string>
-	<string name="zm_chk_only_sign_join">Only signed-in users can join this meeting</string>
+    <string name="zm_chk_host_cn_meeting">Host meeting in China</string>
+    <string name="zm_chk_only_sign_join">Only signed-in users can join this meeting</string>
     
     <string name="zm_tab_chats">Meet &amp; Chat</string>
     <string name="zm_tab_addrbook">Contacts</string>
+    <string name="zm_tab_content">Contents</string>
     <string name="zm_tab_meeting">Home</string>
     <string name="zm_tab_buddylist_google">Google IM</string>
     <string name="zm_tab_buddylist_facebook">Facebook IM</string>
@@ -487,10 +537,23 @@
     <string name="zm_tab_scheduled_meetings">Upcoming</string>
     <string name="zm_tab_recent_meetings">Recent</string>
     <string name="zm_tab_chats_no_messenger">Meet</string>
+    <string name="zm_tab_content_contact">Contacts</string>
+    <string name="zm_tab_content_groups">Groups</string>
+    <string name="zm_tab_content_rooms">Rooms</string>
+    <string name="zm_tab_content_shared">All Files</string>
+    <string name="zm_tab_content_person">Just My</string>
+    <string name="zm_tab_content_search_contents">Contents</string>
+    <string name="zm_tab_content_search_messages">Messages</string>
     
     <string name="zm_hint_meeting_number">Meeting ID</string>
     <string name="zm_hint_screen_name">Your Name</string>
     <string name="zm_hint_search">Search</string>
+    <string name="zm_hint_search_content">Search for files</string>
+    <string name="zm_hint_search_im">Search for contacts, chats, and groups</string>
+    <string name="zm_hint_search_jump_chat">Jump to chat...</string>
+    <string name="zm_hint_search_contacts">Search for contacts</string>
+    <string name="zm_hint_search_groups">Search for groups</string>
+    <string name="zm_hint_search_zoom_room">Search for Zoom Rooms</string>
     <string name="zm_hint_zoom_account">Email Address</string>
     <string name="zm_hint_zoom_pwd">Password</string>
     <string name="zm_hint_meeting_password">Meeting Password</string>
@@ -520,7 +583,12 @@
     <string name="zm_hint_company_domain">companydomain</string>
     <string name="zm_hint_company_email">your company email address</string>
     <string name="zm_hint_vanity_url">Meeting Room Name</string>
-    
+    <string name="zm_hint_hostkey">Hostkey is 6-digit number</string>
+    <string name="zm_hint_name_group">Name your group</string>
+    <string name="zm_hint_file_name">File Name</string>
+    <string name="zm_hintl_not_set">Not set yet</string>
+
+
     <string name="zm_title_login">Sign In</string>
     <string name="zm_title_signup">Sign Up</string>
     <string name="zm_title_forgetpwd">Forgot Password</string>
@@ -532,8 +600,8 @@
     <string name="zm_title_plist">Participants (%s)</string>
     <string name="zm_title_setting">Settings</string>
     <string name="zm_title_setting_my_profile">My Profile</string>
-    <string name="zm_title_setting_meeting">Meeting</string>
-    <string name="zm_title_setting_messenger">Group Message</string>
+    <string name="zm_title_setting_meeting">Meeting Settings</string>
+    <string name="zm_title_setting_messenger">Group Message Settings</string>
     <string name="zm_title_feedback">Feedback</string>
     <!-- The string "%s" will be replaced by Meeting ID, which is a 9, 10, or 11 digits of number. Example: "888 799 9666"  -->
     <string name="zm_title_conf">%s</string>
@@ -557,7 +625,7 @@
     <string name="zm_title_meeting_information">Meeting Information</string>
     <string name="zm_title_select_phone_number">Select a Phone Number</string>
     <string name="zm_title_select_country">Select a Country</string>
-    <string name="zm_title_my_profile">My Profile</string>
+    <string name="zm_title_my_profile">My Profile Settings</string>
     <string name="zm_title_change_profile_photo">Change Profile Photo</string>
     <string name="zm_title_mymeetings">My Meetings</string>
     <string name="zm_title_linked_account">My Account</string>
@@ -588,7 +656,11 @@
     <string name="zm_title_unable_access_camera">Unable to access camera</string>
     <string name="zm_title_unable_access_mic">Unable to access microphone</string>
     <string name="zm_title_unable_access_storage">Unable to access storage</string>
-    
+    <string name="zm_title_enter_hostkey">Enter Host Key to claim the host role</string>
+
+    <string name="zm_title_join_public_group">Join Public Group</string>
+    <string name="zm_title_group_information">Group Information</string>
+    <string name="zm_title_sharer_action">%1$s shared in %2$s</string>
     <string name="zm_alert_login_failed">Login Failed</string>
     <string name="zm_alert_connect_facebook_failed_msg">Failed to connect to Facebook.</string>
     <string name="zm_alert_auth_zoom_failed_msg">Invalid email or password.</string>
@@ -635,7 +707,17 @@
     <string name="zm_alert_unsupported_format">Unsupported document type, please select an image or PDF document!</string>
     <string name="zm_alert_start_share_fail">Failed to start share!</string>
     <string name="zm_alert_select_count_reach_max">You have reached the maximum number of group members.</string>
-    
+    <string name="zm_alert_upload_file_failed">Failed to upload file.</string>
+    <string name="zm_alert_download_file_failed">Failed to download file.</string>
+    <string name="zm_alert_share_file_failed">Failed to share file.</string>
+    <string name="zm_alert_unshare_file_failed">Failed to unshare file.</string>
+    <string name="zm_alert_delete_file_failed">Failed to delete file.</string>
+    <string name="zm_alert_msg_context_failed">Failed to get message context.</string>
+    <string name="zm_alert_msg_success">Success</string>
+    <string name="zm_alert_upload_files_failed">Failed to upload files</string>
+    <string name="zm_alert_unshare_msg">Unshare will not delete your file, but current group members will not be able to access the file anymore.</string>
+
+
     <string name="zm_msg_no_buddies_fb">No Online Buddies</string>
     <string name="zm_msg_no_buddies_google">No Online Buddies</string>
     <string name="zm_msg_no_favorite_contacts">No Company Contacts</string>
@@ -699,6 +781,7 @@
     <string name="zm_msg_conffail_webinar_register_denied">Host has denied your webinar registration.</string>
     <string name="zm_msg_conffail_signin_join">Please sign in with your company account to join</string>
     <string name="zm_msg_conffail_meeting_name_unvalid">This meeting room name is not valid. Please check and try again.</string>
+    <string name="zm_msg_conffail_join_webinar_withsameemail">The email address has been registered by another user, please use a different one.</string>
     <string name="zm_msg_user_joined">%s\njoined</string>
     <string name="zm_msg_user_left">%s\nleft</string>
     <string name="zm_msg_waiting">Please wait…</string>
@@ -796,6 +879,7 @@
     <string name="zm_msg_mute_all_confirm">All and new participants will be muted</string>
     <string name="zm_msg_mute_all_allow_unmute_self">Allow participants unmute themselves</string>
     <string name="zm_msg_new_group_chat_instructions">Create a name for this group</string>
+    <string name="zm_msg_verifying_hostkey">Verifying Host Key…</string>
     
     <plurals name="zm_msg_charactors_left">
         <item quantity="one">1 character left</item>
@@ -805,6 +889,7 @@
     <string name="zm_msg_select_buddies_to_join_group_instructions">Select contacts to join this group</string>
     <string name="zm_msg_select_buddies_to_chat_instructions">Select contacts to start a chat</string>
     <string name="zm_msg_select_people_to_invite_to_meeting_instructions">Select contacts and invite to this meeting</string>
+    <string name="zm_msg_select_zoomrooms_to_invite_to_meeting_instructions">Select Zoom Rooms and invite to this meeting</string>
     <string name="zm_msg_select_people_to_add_to_contacts_instructions">Select people to add to your Contacts</string>
     <string name="zm_msg_share_web_url">Input the URL and press share to let everyone see it</string>
     <string name="zm_msg_share_video_stopped_promt">Your video is paused during mobile screen share</string>
@@ -863,6 +948,9 @@
     <string name="zm_msg_confirm_group_call">You are about to start a meeting and invite all members of this group to join. Are you sure?</string>
     <string name="zm_msg_unknow_company_domain">I don\'t know the company domain</string>
     <string name="zm_msg_manualy_enter_domain">Mannually enter domain</string>
+    <string name="zm_msg_img_too_large">The image size exceeds the limit allow(4MB). Please send it as a file.</string>
+    <string name="zm_msg_file_too_large">The file size exceeds the limit allow(512MB) and cannot be uploaded.</string>
+    <string name="zm_msg_convert_private_group">Are you sure to convert this group to private group.</string>
     
     <!-- Example: "Today, 10:37 PM", "tomorrow, 10:37 PM", "yesterday, 10:37 PM", "Sep 12, 2014, 10:37 PM"   -->
     <string formatted="false" name="zm_today_time">Today, ${time}</string>
@@ -874,6 +962,8 @@
     <string formatted="false" name="zm_msg_decline_call">%1$s declined your call at %2$s.</string>
     
     <!-- Mobile Messenger -->
+    <string name="zm_mm_setting_meeting">Meeting</string>
+    <string name="zm_mm_setting_messenger">Group Message</string>
     <string name="zm_mm_btn_hold_to_talk">Hold to Talk</string>
     <string name="zm_mm_btn_release_to_send">Release to Send</string>
     <string name="zm_mm_btn_clear_chat_history">Clear Chat History</string>
@@ -907,7 +997,23 @@
     <string name="zm_mm_lbl_saved_session">Save to Contacts List</string>
     <string name="zm_mm_lbl_saved_session_list_empty_hint">You can save a group here by turning on \"Save to Contacts List\" in the group chat options.</string>
     <string name="zm_lbl_saved_sessions">Groups</string>
+    <string name="zm_mm_lbl_group_images">Images</string>
+    <string name="zm_mm_lbl_group_files">Files</string>
+    <string name="zm_mm_lbl_public_group_list_empty_hint">There are no public groups</string>
+    <string name="zm_mm_lbl_chat_topic">Chat Topic</string>
+    <string name="zm_mm_lbl_group_type">Group Type</string>
+    <string name="zm_mm_lbl_group_type_private">Private Group</string>
+    <string name="zm_mm_lbl_group_type_public">Public Group</string>
+    <string name="zm_mm_lbl_group_type_private_tips">Invited member only</string>
+    <string name="zm_mm_lbl_group_type_public_tips">Anyone in your organization can join</string>
+    <string name="zm_mm_lbl_privte">Private</string>
+    <string name="zm_mm_lbl_public">Public</string>
+    <string name="zm_mm_lbl_group_information">Group Information</string>
+    <string name="zm_mm_lbl_only_organization">Members in your organization only</string>
+    <string name="zm_mm_lbl_allow_new_see_history">Allow new member see history</string>
+    <string name="zm_mm_lbl_private_group_des">By converting this chat session to a private group, you will make the entire message history and all shared files visible to the new memebers that you invite to the group.</string>
     
+    <string name="zm_mm_opt_file">Send a File</string>
     <string name="zm_mm_opt_photo">Photo Album</string>
     <string name="zm_mm_opt_camera">Take a Photo</string>
     <string name="zm_mm_opt_voice_call">Free Phone Call</string>
@@ -925,17 +1031,23 @@
     <string name="zm_mm_title_image_viewer">View Image</string>
     <string name="zm_mm_title_image_send_confirm">Preview</string>
     <string name="zm_mm_title_new_chat">New Chat</string>
-    
+    <string name="zm_mm_title_new_group">Create a New Group</string>
     <string name="zm_mm_title_send_to">Send to</string>
+    <string name="zm_mm_title_share_to">Select and Share in...</string>
+    <string name="zm_mm_title_forward_to">Forward to...</string>
+    <string name="zm_mm_title_invite_member">Invite Members</string>
     
     <string name="zm_mm_msg_rcd_hint_move_up_to_cancel">Move up to cancel</string>
     <string name="zm_mm_msg_rcd_hint_release_to_cancel">Release to cancel</string>
     <string name="zm_mm_msg_audio_too_short">Message is too short.</string>
     <string name="zm_mm_msg_record_voice_failed">Failed to record your voice. Audio device is busy.</string>
     <string name="zm_mm_msg_make_group_failed">Unable to start a group message. (Error Code: %d)</string>
+    <string name="zm_mm_msg_join_group_failed">Unable to join a public group. (Error Code: %d)</string>
     <string name="zm_mm_msg_make_group_failed_too_many_buddies">Failed to start a group message for more members.</string>
     <string name="zm_mm_msg_change_group_topic_failed">Unable to change the topic.</string>
+    <string name="zm_mm_msg_convert_private_group_failed">Unable to convert to private group.</string>
     <string name="zm_mm_msg_add_buddies_to_group_failed">Unable to add contacts to the group message. (Error Code: %d)</string>
+    <string name="zm_mm_msg_add_buddies_not_allowed">%s can not be invited to this internal group</string>
     <string name="zm_mm_msg_add_buddies_to_group_failed_too_many_buddies">You have reached the maximum number of group members.</string>
     <string name="zm_mm_msg_quit_group_failed">Unable to leave this group message. (Error Code: %d)</string>
     <string name="zm_mm_msg_remove_buddy_from_group_failed">Unable to remove the contact from this group message. (Error Code: %d)</string>
@@ -956,6 +1068,9 @@
     <string name="zm_mm_msg_add_contact_request_sent">Your request has been sent successfully!</string>
     <string name="zm_mm_msg_search_contact_result_is_buddy">%1$s is already in your contacts.</string>
     <string name="zm_mm_msg_no_emoji">[emoji]</string>
+    <string name="zm_mm_msg_upload_file_prompt">Choose and upload a file to your personal container.</string>
+    <string name="zm_mm_msg_file_unshared">%1$s unshared %2$s</string>
+    <string name="zm_mm_msg_file_deleted">%1$s deleted %2$s</string>
     
     <string name="zm_mm_group_names_list_comma">,</string>
     <string name="zm_mm_group_names_list_and">%1$s and %2$s</string>
@@ -965,12 +1080,16 @@
     <string name="zm_mm_group_action_make_group">%1$s invited %2$s to this group message</string>
     <string name="zm_mm_group_action_make_group_owner_is_me">You invited %1$s to this group message</string>
     <string name="zm_mm_group_action_make_group_buddies_is_me">%1$s invited you to this group message</string>
+    <string name="zm_mm_group_action_make_group_exception">You\'ve created this group chat %s</string>
 
     <string name="zm_mm_group_action_modify_group_name_you">You changed the group name to \"%s\"</string>
     <string name="zm_mm_group_action_modify_group_name_other">%1$s changed the group name to \"%2$s\"</string>
     
     <string name="zm_mm_group_action_quit_group_you">You left this group message</string>
     <string name="zm_mm_group_action_quit_group_other">%1$s left this group message</string>
+    
+    <string name="zm_mm_group_action_modify_group_option_you">You convert this group to private group</string>
+    <string name="zm_mm_group_action_modify_group_option_other">%1$s convert this group to private group</string>
     
     <string name="zm_mm_group_action_add_buddies">%1$s invited %2$s to this group message</string>
     <string name="zm_mm_group_action_add_buddies_owner_is_me">You invited %1$s to this group message</string>
@@ -1010,6 +1129,7 @@
     <string name="zm_description_mm_btn_chat_options">Chat options.</string>
     <string name="zm_description_mm_btn_group_message_options">Group Message Options.</string>
     <string name="zm_description_mm_btn_add_contacts">Add contacts.</string>
+    <string name="zm_description_mm_btn_search">Search.</string>
     <string name="zm_description_mm_btn_system_notification">System Notification.</string>
     <string name="zm_description_mm_btn_add_buddy">Add buddy.</string>
     <string name="zm_description_mm_btn_remove_buddy">Remove buddy.</string>
@@ -1017,6 +1137,7 @@
     
     <string name="zm_description_tab_chats">Meet and Chat tab</string>
     <string name="zm_description_tab_addrbook">Contacts tab.</string>
+    <string name="zm_description_tab_content">Contents tab.</string>
     <string name="zm_description_tab_meeting">Home tab.</string>
     <string name="zm_description_tab_buddylist_google">Google IM tab.</string>
     <string name="zm_description_tab_buddylist_facebook">Facebook IM tab.</string>
@@ -1208,8 +1329,8 @@
     <string name="zm_record_btn_pause">Pause</string>
     <string name="zm_record_btn_resume">Resume</string>
     <string name="zm_record_msg_start_cmr_timeout">Failed to connect to the cloud recording server.</string>
-    <string name="zm_record_status_preparing">Preparing...</string>
-    <string name="zm_record_status_recording">Recording...</string>
+    <string name="zm_record_status_preparing">Preparing…</string>
+    <string name="zm_record_status_recording">Recording…</string>
     <string name="zm_record_status_paused">Recording Paused</string>
 <!--
     <string name="zm_record_cmr_notification">You will receive an email when cloud recording is available.</string>
@@ -1262,14 +1383,16 @@
     <string name="zm_bo_msg_close">You will be returned to the main session automatically.</string>
     <string name="zm_bo_msg_end_all_bo">All participants have been given %d seconds to leave their Breakout Rooms.</string>
     <string name="zm_bo_msg_been_ended">The Breakout Room has been ended by the host.</string>
-    <string name="zm_bo_msg_start_request">The host is inviting you to join Breakout Rooms.</string>
+    <string name="zm_bo_msg_start_request">The host is inviting you to join Breakout Rooms: %s</string>
     <string name="zm_bo_msg_host_been_in_session">The host is currently in this room.</string>
-    <string name="zm_bo_lbl_joining_prompt">Joining Breakout Rooms…</string>
+    <string name="zm_bo_lbl_joining_prompt">Joining Breakout Rooms…\n%s</string>
+    <string name="zm_bo_lbl_join_by_host_prompt">The host has moved you to\n%s</string>
     <string name="zm_bo_lbl_leaving_prompt">Returning to Main Session…</string>
     <string name="zm_bo_lbl_waiting_prompt">This may take a few moments.</string>
     <string name="zm_bo_lbl_leave_bo">Do you want to leave this Breakout Room and return to the main session?</string>
     <string name="zm_bo_lbl_join_bo">Tap to join the started Breakout Room.</string>
     <string name="zm_bo_lbl_wait_assigned">The host has opened Breakout Rooms. Please wait to be assigned.</string>
+    <string name="zm_bo_msg_to_everyone">From %s to everyone:</string>
     
     <string name="zm_kubi_status_connected">Kubi Connected</string>
     <string name="zm_kubi_status_disconnected">Kubi Disconnected</string>
@@ -1334,12 +1457,15 @@
     <string name="zm_mi_enable_auto_answer">Enable Auto Answer</string>
     <string name="zm_mi_disable_auto_answer">Disable Auto Answer</string>
     <string name="zm_lbl_invite_buddy_zoom">Invite Zoom Contacts</string>
+    <string name="zm_lbl_invite_zoom_rooms">Invite Zoom Rooms</string>
     <string name="zm_lbl_enable_address_book_instructions">Enable phone contacts matching helps you find more contacts on Zoom</string>
     <string name="zm_lbl_people_using_zoom">Contacts On Zoom</string>
     <string name="zm_lbl_people_not_using_zoom">Invite To Get Zoom</string>
     <string name="zm_lbl_zoom_sso_domail">.zoom.us</string>
     <string name="zm_title_enable_addrbook">Find Contacts Using Zoom</string>
     <string name="zm_msg_no_zoom_contacts">No Zoom contacts yet</string>
+    <string name="zm_msg_no_zoom_groups">No Zoom groups yet</string>
+    <string name="zm_msg_no_zoom_rooms">No Rooms yet</string>
     <string name="zm_msg_configure_account_indication">You need to have colleagues in your zoom account so you can add them to your company contacts. Please click Configure Account to add colleagues.</string>
     <string name="zm_msg_conffail_webinar_register_enforce_login">You need to be signed in with the specified Zoom account to join this meeting. Please contact the host for more information.</string>
     <string name="zm_msg_addrbook_enabled">We can show your phone\'s Contacts using Zoom.</string>
@@ -1367,8 +1493,8 @@
     <!-- Parameters: joinMeetingUrl, meetingId  -->
     <string formatted="false" name="zm_msg_sms_invite_scheduled_meeting">Click ${joinMeetingUrl} to start or join a scheduled Zoom meeting.</string>
     
-    <string formatted="false" name="zm_msg_invitation_message_template">%s is calling you from Zoom, click link to join.\r\n%s</string>
-
+    <string formatted="false" name="zm_msg_invitation_message_template">%1$s is calling you from Zoom, click link to join.\r\n%2$s</string>
+    
     <string name="zm_msg_meeting_permission">For the best meeting experience, You may be asked to need access to your microphone, camera and storage.</string>
     <string name="zm_title_permission_prompt">Please allow Zoom\'s access permission</string>
     <string name="zm_msg_unable_access_camera">Please allow Zoom to access your camera from device settings.</string>
@@ -1383,7 +1509,8 @@
     <string name="zm_permission_read_config_label">Read Zoom application configurations</string>
     <string name="zm_permission_read_config_desc">Read Zoom application configurations.</string>
     <string name="zm_permission_group">Zoom Application Tools</string>
-    
+    <string name="zm_alert_non_annotation_joined">Because annotation is disabled, your participants need to upgrade to the latest version of Zoom to share their screen.</string>
+
 <!--Branding-able END-->
 
 </resources>

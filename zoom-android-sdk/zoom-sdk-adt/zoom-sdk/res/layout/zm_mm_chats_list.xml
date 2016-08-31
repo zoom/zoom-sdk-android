@@ -10,29 +10,45 @@
         android:id="@+id/panelTitleBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/zm_pt_titlebar_height"
-        style="@style/ZMTitleBar"
+        style="@style/ZMTitleBar.Dark"
         zoom:zm_leftButton="@+id/btnNewGroup"
-        zoom:zm_rightButton="@+id/btnNewChat"
+        zoom:zm_rightButton="@+id/panelTitleRight"
         zoom:zm_title="@+id/txtTitle" >
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/panelTitleRight">
         
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/zm_description_mm_btn_search"
+                android:src="@drawable/zm_ic_search_ondark" />
+        
+	        <ImageButton
+	            android:id="@+id/btnNewChat"
+	            style="@style/ZMButton.TitleBar"
+	            android:layout_width="wrap_content"
+	            android:layout_height="match_parent"
+	            android:src="@drawable/zm_mm_title_btn_new_chat_ondark"
+	            android:contentDescription="@string/zm_description_btn_new_chat" />
+        </LinearLayout>
+        
+            
         <Button
-            style="@style/ZMButton.TitleBar"
+            style="@style/ZMButton.TitleBar.OnDark"
             android:id="@+id/btnNewGroup"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/zm_btn_new_group" />
         
-        <ImageButton
-            android:id="@+id/btnNewChat"
-            style="@style/ZMButton.TitleBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/zm_mm_title_btn_new_chat"
-            android:contentDescription="@string/zm_description_btn_new_chat" />
-        
         <us.zoom.androidlib.widget.ZMDynTextSizeTextView
             android:id="@+id/txtTitle"
-            style="@style/ZMTextView.Title"
+            style="@style/ZMTextView.Title.OnDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -52,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/zm_search_bg_normal"
-            android:hint="@string/zm_hint_search"
+            android:hint="@string/zm_hint_search_jump_chat"
             android:singleLine="true"
             android:focusable="false"
             android:imeOptions="actionDone" />
@@ -65,6 +81,10 @@
             android:layout_centerVertical="true"
             android:background="@drawable/zm_btn_clear_search_view"
             android:contentDescription="@string/zm_description_mm_btn_clear_search" />
+        
+        <ImageView android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/zm_ic_titlebar_shadow"/>
     </RelativeLayout>
     
     <LinearLayout
@@ -120,6 +140,8 @@
 
         <com.zipow.videobox.view.mm.MMChatsListView
             android:id="@+id/chatsListView"
+            android:divider="@null"
+            android:dividerHeight="0dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         
