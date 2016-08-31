@@ -1,8 +1,6 @@
 package us.zoom.sdkexample;
 
-import us.zoom.sdk.MeetingViewsOptions;
 import us.zoom.sdk.JoinMeetingOptions;
-import us.zoom.sdk.InviteOptions;
 import us.zoom.sdk.MeetingError;
 import us.zoom.sdk.MeetingEvent;
 import us.zoom.sdk.MeetingService;
@@ -109,10 +107,13 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 //		opts.no_dial_in_via_phone = true;
 //		opts.no_dial_out_to_phone = true;
 //		opts.no_disconnect_audio = true;
+//		opts.no_share = true;
 //		opts.invite_options = InviteOptions.INVITE_VIA_EMAIL + InviteOptions.INVITE_VIA_SMS;
-//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE;
 //		opts.no_audio = true;
 //		opts.no_video = true;
+//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE;
+//		opts.no_meeting_error_message = true;
+//		opts.participant_id = "participant id";
 
 		int ret = meetingService.joinMeeting(this, meetingNo, DISPLAY_NAME, meetingPassword, opts);
 		
@@ -145,11 +146,13 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 //		opts.no_dial_in_via_phone = true;
 //		opts.no_dial_out_to_phone = true;
 //		opts.no_disconnect_audio = true;
+//		opts.no_share = true;
 //		opts.invite_options = InviteOptions.INVITE_ENABLE_ALL;
-//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
 //		opts.no_audio = true;
 //		opts.no_video = true;
-
+//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
+//		opts.no_meeting_error_message = true;
+		
 		int ret = meetingService.startMeeting(this, USER_ID, ZOOM_TOKEN, STYPE, meetingNo, DISPLAY_NAME, opts);
 		
 		Log.i(TAG, "onClickBtnStartMeeting, ret=" + ret);
@@ -158,6 +161,9 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 	@Override
 	public void onMeetingEvent(int meetingEvent, int errorCode,
 			int internalErrorCode) {
+		
+		Log.i(TAG, "onMeetingEvent, meetingEvent=" + meetingEvent + ", errorCode=" + errorCode
+				+ ", internalErrorCode=" + internalErrorCode);
 		
 		if(meetingEvent == MeetingEvent.MEETING_CONNECT_FAILED && errorCode == MeetingError.MEETING_ERROR_CLIENT_INCOMPATIBLE) {
 			Toast.makeText(this, "Version of ZoomSDK is too low!", Toast.LENGTH_LONG).show();

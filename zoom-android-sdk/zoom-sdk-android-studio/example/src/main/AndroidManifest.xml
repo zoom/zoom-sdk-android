@@ -60,6 +60,15 @@
             </intent-filter>
         </activity>
         
+        <activity android:name="us.zoom.sdkexample.MyWaitJoinActivity"
+                  android:icon="@drawable/ic_launcher"
+                  android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="us.zoom.sdkexample.intent.action.JoinBeforeHost" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name="com.dropbox.client2.android.AuthActivity"
             android:configChanges="orientation|keyboard"
@@ -125,7 +134,13 @@
             android:configChanges="orientation|screenSize"
             android:theme="@style/ZMTheme.SubWindow"
             android:process=":zoom_meeting" />
-        
+            
+        <activity
+            android:name="com.zipow.videobox.CallInActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:process=":zoom_meeting" />
+            
         <activity
             android:name="com.zipow.videobox.SimpleActivity"
             android:configChanges="orientation|screenSize"
