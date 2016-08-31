@@ -18,14 +18,18 @@
     <color name="zm_meetinglistitem_host">#595959</color>
     <color name="zm_meetinglistitem_id">#595959</color>
     <color name="zm_meetinglistitem_pmi_id">#404040</color>
-    <color name="zm_abbr_avatar_bg_1">#27ae60</color>
-    <color name="zm_abbr_avatar_bg_2">#16a085</color>
-    <color name="zm_abbr_avatar_bg_3">#2980b9</color>
-    <color name="zm_abbr_avatar_bg_4">#8e44ad</color>
-    <color name="zm_abbr_avatar_bg_5">#34495e</color>
-    <color name="zm_abbr_avatar_bg_6">#f39c12</color>
-    <color name="zm_abbr_avatar_bg_7">#d35400</color>
-    <color name="zm_abbr_avatar_bg_8">#c0392b</color>
+    <color name="zm_abbr_avatar_bg_1">#FFDE32</color>
+    <color name="zm_abbr_avatar_bg_2">#AFD784</color>
+    <color name="zm_abbr_avatar_bg_3">#82C786</color>
+    <color name="zm_abbr_avatar_bg_4">#4EB7AD</color>
+    <color name="zm_abbr_avatar_bg_5">#4FD1E2</color>
+    <color name="zm_abbr_avatar_bg_6">#51C5F7</color>
+    <color name="zm_abbr_avatar_bg_7">#65B6F7</color>
+    <color name="zm_abbr_avatar_bg_8">#7A86CC</color>
+    <color name="zm_abbr_avatar_bg_9">#9576CD</color>
+    <color name="zm_abbr_avatar_bg_10">#C182D1</color>
+    <color name="zm_abbr_avatar_bg_11">#E58AB5</color>
+    <color name="zm_abbr_avatar_bg_12">#FF6767</color>
     <color name="zm_abbr_avatar_fg">#ffffff</color>
     <color name="zm_mm_presence_available">#4bc800</color>
     <color name="zm_mm_presence_busy">#dc0000</color>
@@ -51,6 +55,12 @@
     <color name="zm_message_tip_shadow">#a0000000</color>
     <color name="zm_message_warn_bg">#e6fef17f</color>
     <color name="zm_message_hint_bg">#e62d8cff</color>
+    <color name="zm_title_tab_textcolor_unselect">#D0FFFFFF</color>
+    <color name="zm_error_msg_bg">#A63F4348</color>
+    <color name="zm_progress_bar_bg_ondark">#33FFFFFF</color>
+    <color name="zm_progress_bar_up_progress">#1F48A5</color>
+    <color name="zm_chats_list_time_normal">#b2b2b2</color>
+    <color name="zm_chats_list_time_unread">#4a4a4a</color>
     
     <color name="zm_text_listemptyview">#afbecd</color>
     

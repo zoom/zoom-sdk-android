@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp" />
 
-    <ImageView
+    <us.zoom.androidlib.widget.ZMGifView
         android:id="@+id/imgPic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,6 @@
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:layout_marginRight="5dp"
-        android:background="@drawable/zm_chatto_bg"
         android:src="@drawable/zm_image_placeholder" />
 
     <com.zipow.videobox.view.AvatarView

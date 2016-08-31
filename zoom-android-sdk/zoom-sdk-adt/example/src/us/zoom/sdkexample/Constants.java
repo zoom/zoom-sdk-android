@@ -26,7 +26,7 @@ public interface Constants {
 	// TODO Change it to your OneDrive client ID to enable "Share OneDrive"
 	public final static String ONEDRIVE_CLIENT_ID = null;
 	
-	// TODO Change it to your GoogleDrive client ID to enable "Share Google Drive"
+	// TODO Change it to your Google Drive client ID to enable "Share Google Drive"
 	public final static String GOOGLE_DRIVE_CLIENT_ID = null;
 
 }

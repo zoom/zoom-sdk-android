@@ -141,12 +141,12 @@
 	    <item name="android:textSize">15sp</item>
 	</style>
 	
-	<style name="ZMTextView.MMChatsListTime" parent="ZMTextView.Small">
-	    <item name="android:textColor">#b2b2b2</item>
+	<style name="ZMTextView.MMChatsListTime" parent="ZMTextView.Normal">
+	    <item name="android:textColor">@color/zm_chats_list_time_normal</item>
 	</style>
 	
 	<style name="ZMTextView.ChatsListActionItem.Label" parent="ZMTextView.BuddyName.Medium">
-		<item name="android:textColor">#f39c12</item>
+		<item name="android:textColor">#f0640a</item>
 	</style>
 	
 	<style name="ZMTextView.ToolbarBtnLabel" parent="ZMTextView.Small">
@@ -244,6 +244,25 @@
         <item name="android:indeterminateDrawable">@drawable/zm_downloading_percent_indeterminate</item>
         <item name="android:minHeight">2dip</item>
         <item name="android:maxHeight">2dip</item>
+	</style>
+	
+	<style name="DownloadingProgress.Ondark" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/zm_downloading_percent_ondark</item>
+        <item name="android:indeterminateDrawable">@drawable/zm_downloading_percent_indeterminate_ondark</item>
+        <item name="android:minHeight">2dip</item>
+        <item name="android:maxHeight">2dip</item>
+	</style>
+	
+	<style name="UploadingProgress" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/zm_uploading_percent</item>
+        <item name="android:indeterminateDrawable">@drawable/zm_uploading_percent_indeterminate</item>
+        <item name="android:minHeight">2dip</item>
+        <item name="android:maxHeight">2dip</item>
+	</style>
+	
+	<style name="UploadingProgress.Ondark" parent="android:Widget.ProgressBar.Horizontal">
 	</style>
 	
 	<style name="PollButton" parent="ZMButton">

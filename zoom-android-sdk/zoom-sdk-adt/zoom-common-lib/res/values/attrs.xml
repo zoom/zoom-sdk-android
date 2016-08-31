@@ -47,6 +47,7 @@
 	    <attr name="zm_bounded_width" format="dimension" />
 	    <attr name="zm_bounded_height" format="dimension" />        
     </declare-styleable>
+    
     <declare-styleable name="ZMSettingsCategory">
     	<attr name="zm_showTopDivider" format="boolean" />
     	<attr name="zm_showCenterDivider" format="boolean" />

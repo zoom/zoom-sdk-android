@@ -14,6 +14,12 @@
         android:layout_height="match_parent">
     </us.zoom.androidlib.widget.TouchImageView>
 
+    <us.zoom.androidlib.widget.ZMGifView
+        android:id="@+id/gifview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </us.zoom.androidlib.widget.ZMGifView>
+    
     <LinearLayout
         android:id="@+id/viewPlaceHolder"
         android:layout_width="match_parent"

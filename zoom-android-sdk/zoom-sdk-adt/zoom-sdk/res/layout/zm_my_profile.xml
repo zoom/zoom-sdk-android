@@ -19,8 +19,7 @@
             android:id="@+id/btnBack"
             style="@style/ZMBackButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zm_title_setting" />
+            android:layout_height="wrap_content" />
         
         <View
             android:id="@+id/viewRight"

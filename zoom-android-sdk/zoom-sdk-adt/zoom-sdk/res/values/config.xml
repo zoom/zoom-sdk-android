@@ -78,8 +78,15 @@
     <!-- Extended common resources loader class. It must implement com.zipow.videobox.util.IZMResourcesLoader. -->
     <string name="zm_config_ext_common_resources_loader"></string>
     
+     <!-- Extended common end meeting message view builder class. It must implement com.zipow.videobox.util.IEndMeetingMessageViewBuilder. -->
+    <string name="zm_config_end_meeting_message_view_builder"></string>
+    
+    <integer name="zm_config_meeting_end_dialog_timeout">5</integer>
+    
     <bool name="zm_config_invite_by_only_action_meeting_invite">false</bool>
-       
+    
+    <bool name="zm_config_enter_meeting_from_lock_screen">false</bool>
+     
     <!-- Invitation content generator class. It must implement com.zipow.videobox.util.InviteContentGenerator -->
     <string name="zm_config_invite_content_generator"></string>
     

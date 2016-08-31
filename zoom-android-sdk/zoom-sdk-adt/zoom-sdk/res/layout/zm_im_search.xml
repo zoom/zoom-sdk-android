@@ -35,9 +35,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:hint="@string/zm_hint_search"
+                android:hint="@string/zm_hint_search_im"
                 android:imeOptions="actionDone"
-                android:singleLine="true" />
+                android:singleLine="true"
+                style="@style/ZMTextView.Normal"
+                android:paddingRight="30dp" />
 
             <Button
                 android:id="@+id/btnClearSearchView"

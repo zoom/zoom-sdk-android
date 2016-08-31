@@ -268,10 +268,12 @@
     <string name="zm_lbl_wait_approval">承認を待機しています</string>
     <string name="zm_lbl_desktop_online">デスクトップ</string>
     <string name="zm_lbl_mobile_online">携帯電話</string>
+
     <string name="zm_lbl_desktop_busy">取り込み中</string>
     <string name="zm_lbl_desktop_away">退席中</string>
     <string name="zm_lbl_desktop_offline">デスクトップ</string>
     <string name="zm_lbl_mobile_offline">携帯電話</string>
+
     <string name="zm_lbl_show_offline_buddies">オフラインの仲間を表示</string>
     <string name="zm_lbl_buddy_added">追加済み</string>
     <string name="zm_lbl_video_on">ビデオ オン</string>
@@ -291,9 +293,9 @@
     <string name="zm_lbl_time_zone">タイム ゾーン</string>
     <string name="zm_lbl_warn_autologoff">%s 分間アクティブではなかったため、アカウントのセキュリティ ポリシーにより自動的にサイン アウトされました。</string>
 
+    <string name="zm_lbl_search_category_chat_groups">チャットグループ</string>
 
-
-
+    <string name="zm_lbl_notify_everyone">グループの全員に通知</string>
 
 
     
@@ -375,6 +377,7 @@
     <string name="zm_btn_configure_account">アカウントの構成</string>
     <string name="zm_btn_repeat_forever">終了日未定</string>
     <string name="zm_btn_login_as_host">ホストとしてログイン</string>
+
     <string name="zm_btn_enable_addrbook">有効にする</string>
     <string name="zm_btn_next">次へ</string>
     <string name="zm_btn_disable">無効にする</string>
@@ -434,7 +437,8 @@
     <string name="zm_btn_search_more">さらに検索</string>
     <string name="zm_btn_share_bookmark_add">ブックマークの追加</string>
     <string name="zm_btn_store">ストア</string>
-
+    <string name="zm_btn_view_more">もっと見る</string>
+    
     
     <string name="zm_btn_start_annotation">コメント</string>
     <string name="zm_btn_stop_annotation">コメントの中止</string>
@@ -462,11 +466,12 @@
     <string name="zm_btn_allow_join_add_domain">新規ドメインの追加</string>
 
 
+    <string name="zm_btn_leave_conf_with_call">接続されている電話機をそのままで置いてください</string>
+    <string name="zm_btn_use_vanity_url">会議室名で参加</string>
+    <string name="zm_btn_use_meeting_id">会議IDで参加</string>
+    <string name="zm_btn_clear_history">履歴をクリア</string>
 
-
-
-
-
+    
     
     <string name="zm_chk_enable_jbh">参加者がホストの前に参加可能</string>
     <string name="zm_chk_add_to_calendar">カレンダーに追加</string>
@@ -517,8 +522,9 @@
     <string name="zm_hint_e2e_group_chat">メッセージの内容は暗号化されています。</string>
     <string name="zm_hint_allow_join_input_domains">ここにドメイン名を入力…</string>
 
-
-
+    <string name="zm_hint_company_email">会社のメールアドレス</string>
+    <string name="zm_hint_vanity_url">会議室名</string>
+    
     
     <string name="zm_title_login">サイン イン</string>
     <string name="zm_title_signup">サイン アップ</string>
@@ -584,9 +590,10 @@
     <string name="zm_title_choose_user_type">ユーザー タイプの選択</string>
     <string name="zm_title_start_group_call">グループ ミーティング</string>
 
+    <string name="zm_title_unable_access_camera">カメラにアクセスできません。</string>
 
 
-
+    
     
     <string name="zm_alert_login_failed">ログイン失敗</string>
     <string name="zm_alert_connect_facebook_failed_msg">Facebook に接続できませんでした。</string>
@@ -633,6 +640,7 @@
     <string name="zm_alert_invlid_url">無効な URL です。</string>
     <string name="zm_alert_unsupported_format">サポートされていないドキュメント タイプです。画像または PDF ドキュメントを選択してください。</string>
     <string name="zm_alert_start_share_fail">共有を開始できませんでした。</string>
+    
     
     <string name="zm_msg_no_buddies_fb">オンラインの仲間はいません</string>
     <string name="zm_msg_no_buddies_google">オンラインの仲間はいません</string>
@@ -696,7 +704,8 @@
     <string name="zm_msg_conffail_webinar_register_with_panelist_email">パネリストとして招待された場合は、招待メールにあるリンクから Web セミナーに参加してください。</string>
     <string name="zm_msg_conffail_webinar_register_denied">ホストが Web セミナー登録を却下しました。</string>
     <string name="zm_msg_conffail_signin_join">参加するには、会社のアカウントでサイン インしてください</string>
-
+    <string name="zm_msg_conffail_meeting_name_unvalid">この会議室名が無効です。もう一度確認して、お試しください。</string>
+   
     <string name="zm_msg_user_joined">%s\n出席済み</string>
     <string name="zm_msg_user_left">%s\n退出済み</string>
     <string name="zm_msg_waiting">お待ちください…</string>
@@ -794,6 +803,7 @@
     <string name="zm_msg_mute_all_confirm">すべての参加者と新規参加者はミュートされます</string>
     <string name="zm_msg_mute_all_allow_unmute_self">参加者に自分のミュート解除を許可</string>
     <string name="zm_msg_new_group_chat_instructions">このグループの名前を作成</string>
+
     
     <plurals name="zm_msg_charactors_left">
         <!--<item quantity="one">残り 1 文字</item>-->
@@ -861,7 +871,7 @@
     <string name="zm_msg_xmpp_disconnect">メッセンジャーは現在アクティブではありません。</string>
     <string name="zm_msg_confirm_group_call">ミーティングを開始して、このグループのすべてのメンバーが参加するように招待しようとしています。よろしいですか?</string>
     
-
+    <string name="zm_msg_manualy_enter_domain">手動でドメインを入力</string>
 
     
     <!-- Example: "Today, 10:37 PM", "tomorrow, 10:37 PM", "yesterday, 10:37 PM", "Sep 12, 2014, 10:37 PM"   -->
@@ -900,13 +910,13 @@
     <string name="zm_mm_lbl_show_session_notification">通知</string>
     <string name="zm_mm_lbl_group_topic">トピック</string>
     <string name="zm_mm_lbl_group_owner">(管理者)</string>
+    <string name="zm_mm_lbl_enter_company_domain">会社のドメインを入力してください</string>
 
 
 
 
 
-
-
+    <string name="zm_lbl_saved_sessions">グループ</string>
     
     <string name="zm_mm_opt_photo">フォト アルバム</string>
     <string name="zm_mm_opt_camera">写真の撮影</string>
@@ -1132,6 +1142,9 @@
     <string name="zm_callout_msg_cancel_call">通話を切断しています…</string>
     <string name="zm_callout_msg_cancel_call_fail">通話の切断に失敗しました</string>
     <string name="zm_callout_msg_call_canceled">発信キャンセル済み</string>
+    <string name="zm_callout_msg_block_no_host">ホストが参加するまで、ダイヤルした番号は使用できません。</string>
+    <string name="zm_callout_msg_block_high_rate">ダイヤルした番号がサポートされていません。</string>
+    <string name="zm_callout_msg_block_too_frequent">ダイヤルした番号は、会議に参加するために応答されていません。</string>
     
     <string name="zm_polling_btn_poll_later">投票のスキップ</string>
     <string name="zm_polling_btn_return_to_poll">投票に戻る</string>
@@ -1207,7 +1220,7 @@
 
 
 
-
+    <string name="zm_record_status_paused">録音を一時停止</string>
 <!--
     <string name="zm_record_cmr_notification">クラウド レコーディングが使用可能になると、メールが届きます。</string>
 -->
@@ -1239,8 +1252,8 @@
 
     <string name="zm_fecc_btn_approve">承認</string>
     <string name="zm_fecc_btn_decline">辞退</string>
-
-
+    <string name="zm_fecc_btn_request">カメラコントロールを要求</string>
+    <string name="zm_fecc_btn_give_up">カメラコントロールを返します</string>
 
 
     
@@ -1259,23 +1272,28 @@
     <string name="zm_bo_msg_close">メイン セッションに自動的に戻ります。</string>
     <string name="zm_bo_msg_end_all_bo">すべての参加者は、ブレークアウト セッションの退出までに %d 秒を与えられています。</string>
     <string name="zm_bo_msg_been_ended">ブレークアウト セッションはホストによって終了されました。</string>
-    <string name="zm_bo_msg_start_request">ブレークアウト セッションに参加するようにホストがあなたを招待しています。</string>
+    <string name="zm_bo_msg_start_request">ブレークアウト セッションに参加するようにホストがあなたを招待しています: %s</string>
     <string name="zm_bo_msg_host_been_in_session">ホストは現在このセッションに参加しています。</string>
-    <string name="zm_bo_lbl_joining_prompt">ブレークアウト セッションに参加しています…</string>
+    <string name="zm_bo_lbl_joining_prompt">ブレークアウト セッションに参加しています…\n%s</string>
     <string name="zm_bo_lbl_leaving_prompt">メイン セッションに戻っています…</string>
     <string name="zm_bo_lbl_waiting_prompt">これにはしばらくかかる場合があります。</string>
     <string name="zm_bo_lbl_leave_bo">このブレークアウト セッションから退出して、メイン セッションに戻りますか?</string>
     <string name="zm_bo_lbl_join_bo">開始されたブレークアウト セッションに参加するにはタップします。</string>
     <string name="zm_bo_lbl_wait_assigned">ホストがブレークアウト セッションを開始しました。割り当てられるまでお待ちください。</string>
     
+    
+    <string name="zm_kubi_status_connected">クビが接続されました</string>
+    <string name="zm_kubi_status_disconnected">クビが切断されました</string>
+
+
+
+    <string name="zm_kubi_switch_kubi_list_title">別の使用可能なクビに切り替えます</string>
 
 
 
 
 
-
-
-
+    <string name="zm_security_certificate_title">セキュリティ証明書</string>
 
 
 
@@ -1313,7 +1331,7 @@
 
 
     
-    <string name="zm_msg_conffail_certificate_changed">Zoom ビデオ会議サーバーに接続できませんでした。ファイアウォールを利用している場合は、IT 管理者に \"*.zoom.us\" を許可するよう依頼してください。詳細については、以下をご覧ください: %s</string>
+   <string name="zm_msg_conffail_certificate_changed">Zoom ビデオ会議サーバーに接続できませんでした。ファイアウォールを利用している場合は、IT 管理者に \"*.zoom.us\" を許可するよう依頼してください。詳細については、以下をご覧ください: %s</string>
 
    <!-- do not translate these messages -->
     <!--<string name="zm_msg_e2e_get_invite_for_old_client">[%s is inviting you to chat, you need to update your client to join]</string>
@@ -1361,7 +1379,7 @@
     <!-- Parameters: joinMeetingUrl, meetingId  -->
     <string formatted="false" name="zm_msg_sms_invite_scheduled_meeting">スケジュールされた Zoom ミーティングを開始または参加するには、${joinMeetingUrl} をクリックします。</string>
     
-    <string formatted="false" name="zm_msg_invitation_message_template">%s が Zoom からあなたを呼び出しています。参加するには、リンクをクリックしてください。\r\n%s</string>
+    <string formatted="false" name="zm_msg_invitation_message_template">%1$s が Zoom からあなたを呼び出しています。参加するには、リンクをクリックしてください。\r\n%2$s</string>
 
     
     

@@ -2,18 +2,18 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <!-- Non focused states -->
     <item android:state_focused="false" android:state_selected="false" android:state_pressed="false" android:color="@color/zm_text_dim" />
-    <item android:state_focused="false" android:state_selected="true"  android:state_pressed="false" android:color="@color/zm_highlight" />
+    <item android:state_focused="false" android:state_selected="true"  android:state_pressed="false" android:color="@color/zm_highlight_pressed" />
 
     <!-- Focused states -->
     <item android:state_focused="true" android:state_selected="false" android:state_pressed="false" android:color="#b2b2b2" />
-    <item android:state_focused="true" android:state_selected="true"  android:state_pressed="false" android:color="@color/zm_highlight" />
+    <item android:state_focused="true" android:state_selected="true"  android:state_pressed="false" android:color="@color/zm_highlight_pressed" />
 
     <!-- Pressed -->
     <!--    Non focused states -->
-    <item android:state_focused="false" android:state_selected="false" android:state_pressed="true" android:color="@color/zm_highlight" />
-    <item android:state_focused="false" android:state_selected="true"  android:state_pressed="true" android:color="@color/zm_highlight" />
+    <item android:state_focused="false" android:state_selected="false" android:state_pressed="true" android:color="@color/zm_highlight_pressed" />
+    <item android:state_focused="false" android:state_selected="true"  android:state_pressed="true" android:color="@color/zm_highlight_pressed" />
 
     <!--    Focused states -->
-    <item android:state_focused="true" android:state_selected="false" android:state_pressed="true" android:color="@color/zm_highlight" />
-    <item android:state_focused="true" android:state_selected="true"  android:state_pressed="true" android:color="@color/zm_highlight" />
+    <item android:state_focused="true" android:state_selected="false" android:state_pressed="true" android:color="@color/zm_highlight_pressed" />
+    <item android:state_focused="true" android:state_selected="true"  android:state_pressed="true" android:color="@color/zm_highlight_pressed" />
 </selector>

@@ -26,9 +26,8 @@
             style="@style/ZMButton.TitleBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="50dp"
-            android:text="@string/zm_mm_btn_start_chat" />
-        
+            android:text="@string/zm_btn_ok" />
+
         <us.zoom.androidlib.widget.ZMDynTextSizeTextView
             android:id="@+id/txtTitle"
             style="@style/ZMTextView.Title"
@@ -40,72 +39,31 @@
             android:text="@string/zm_mm_title_select_contacts" />
         
     </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
-    
-    <LinearLayout
-        android:id="@+id/panelSelected"
+
+    <us.zoom.androidlib.widget.ZMEditText
+        android:id="@+id/edtSelected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:gravity="center"
-        android:background="#f0f0f0">
-
-        <us.zoom.androidlib.widget.ZMHorizontalListView
-            android:id="@+id/listSelected"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="5dp" />
-        
-        <TextView
-            style="@style/ZMTextView.Large.OnLight"
-            android:id="@+id/txtSelectionCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5" />
-
-    </LinearLayout>
-    
-    <TextView
-        style="@style/ZMTextView.Instructions"
-        android:id="@+id/txtInstructions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/zm_msg_select_buddies_to_join_group_instructions" />
+        android:background="#f9f9f9"
+        android:textSize="12sp"
+        android:lineSpacingExtra="2dp"
+        android:lineSpacingMultiplier="1.3"
+        android:maxLines="4"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@drawable/zm_list_divider" />
-        
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/zm_search_bg_normal"
-            android:hint="@string/zm_hint_search" />
-
-        <Button
-            android:id="@+id/btnClearSearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/zm_btn_clear_search_view"
-            android:contentDescription="@string/zm_description_mm_btn_clear_search" />
-    </RelativeLayout>
-    
     <com.zipow.videobox.view.mm.MMSelectContactsListView
         android:id="@+id/buddyListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" >
     </com.zipow.videobox.view.mm.MMSelectContactsListView>
-    
+
 </LinearLayout>
