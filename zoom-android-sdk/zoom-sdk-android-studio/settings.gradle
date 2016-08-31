@@ -1,4 +1,6 @@
 include ':zoomcommonlib'
+include ':zoomshareextensions'
 include ':zoomsdk'
 include ':example'
 include ':example2'
+include ':loginexample'
