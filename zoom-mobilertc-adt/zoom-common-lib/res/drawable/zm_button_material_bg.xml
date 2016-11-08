@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_enabled="false">
+        <shape >
+            <corners android:radius="1dp"/>
+            <solid android:color="@color/zm_highlight_disabled"/>
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape >
+            <corners android:radius="1dp"/>
+            <solid android:color="@color/zm_highlight_pressed"/>
+        </shape>
+    </item>
+    <item >
+        <shape >
+            <corners android:radius="1dp"/>
+            <solid android:color="@color/zm_highlight"/>
+        </shape>
+    </item>
+
+</selector>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|top"
+        android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtMessage"
+                style="@style/ZMTextView.Medium.OnDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello Zoom! Hello Zoom! Hello Zoom! Hello Zoom! Hello Zoom! Hello Zoom! Hello Zoom! " />
+    </LinearLayout>
+
+</ScrollView>

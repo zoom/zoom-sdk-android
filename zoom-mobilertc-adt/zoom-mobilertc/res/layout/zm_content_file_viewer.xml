@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/panelContent" >
+
+        <us.zoom.androidlib.widget.ZMGifView
+            android:id="@+id/imgGifView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/zm_black"
+            android:visibility="gone" />
+
+        <us.zoom.androidlib.widget.TouchImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/zm_black"
+            android:visibility="gone" >
+        </us.zoom.androidlib.widget.TouchImageView>
+
+        <LinearLayout
+            android:id="@+id/panelNormalFile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/zm_black"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imgFileType"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:id="@+id/txtTranslateSpeed"
+                style="@style/ZMTextView.Normal.Dimmed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="" />
+
+            <ProgressBar
+                android:id="@+id/uploadProgressBar"
+                style="@style/PollingPercentBar"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/txtNotSupportPreview"
+                style="@style/ZMTextView.Small.Dimmed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/zm_lbl_content_not_support_preview" />
+
+            <Button
+                android:id="@+id/btnViewFile"
+                style="@style/ZMButton.Material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/zm_btn_view_file"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnDownload"
+                style="@style/ZMButton.Material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/zm_btn_download" />
+        </LinearLayout>
+
+        <com.zipow.videobox.pdf.PDFViewPage
+            android:id="@+id/pdfView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/zm_black"
+            android:visibility="gone" >
+        </com.zipow.videobox.pdf.PDFViewPage>
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/zm_ic_image_bottom_bg"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:id="@+id/panelBottomBar"
+        android:padding="10dp" >
+        
+         <TextView
+             android:id="@+id/txtFileSharees"
+             style="@style/ZMTextView.Small.OnDark"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/txtFileDes"
+             android:layout_marginRight="70dp"
+             android:layout_marginTop="3dp"
+             android:text="private" />
+
+         <ImageButton
+             android:id="@+id/btnShare"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@id/txtFileSharees"
+             android:layout_marginRight="5dp"
+             android:layout_toLeftOf="@+id/btnMore"
+             android:background="@null"
+             android:visibility="invisible"
+             android:src="@drawable/zm_btn_viewer_share" />
+
+         <ImageButton
+             android:id="@+id/btnMore"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@id/txtFileSharees"
+             android:layout_alignParentRight="true"
+             android:background="@null"
+             android:layout_marginRight="5dp"
+             android:contentDescription="@string/zm_btn_more_no_dot"
+             android:src="@drawable/zm_ic_btn_more" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/zm_ic_image_header_bg"
+        android:orientation="vertical"
+        android:id="@+id/panelTitleBar"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtFileNameTitle"
+                style="@style/ZMTextView.Title.OnDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="left|center_vertical"
+                android:maxLines="2"
+                android:text="File name .txt" />
+
+            <ImageButton
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/zm_btn_viewer_close" 
+                android:contentDescription="@string/zm_btn_close"/>"
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" >
+
+            <TextView
+                android:id="@+id/txtFileDes"
+                style="@style/ZMTextView.Small.OnDark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="32KB|one1,Apri 12 at 3:20 PM" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

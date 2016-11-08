@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/inputPromt"
+        style="@style/ZMTextView.Normal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="3dp"
+        android:text="@string/zm_msg_share_web_url"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/inputurl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zm_hint_input_url"
+        android:inputType="textUri"
+        android:singleLine="true" />
+
+</LinearLayout>

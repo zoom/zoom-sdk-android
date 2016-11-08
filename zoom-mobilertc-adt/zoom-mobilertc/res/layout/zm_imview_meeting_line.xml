@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zm_4pies_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/zm_im_meeting_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="top|center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <us.zoom.androidlib.widget.ZMVerticalImageTextButton
+                        android:id="@+id/btnStartConf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/zm_btn_start_conf"
+                        android:textColor="@drawable/zm_button_text_color_no_high_light"
+                        zoom:zm_image="@drawable/zm_btn_meet_now" />
+
+                    <us.zoom.androidlib.widget.ZMVerticalImageTextButton
+                        android:id="@+id/btnReturnToConf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/zm_btn_return_to_conf"
+                        android:textColor="@drawable/zm_button_text_color_no_high_light"
+                        android:visibility="gone"
+                        zoom:zm_image="@drawable/zm_btn_backtomeeting" />
+
+                    <us.zoom.androidlib.widget.ZMVerticalImageTextButton
+                        android:id="@+id/btnJoinConf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/zm_btn_join"
+                        android:textColor="@drawable/zm_button_text_color_no_high_light"
+                        zoom:zm_image="@drawable/zm_btn_join" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="top|center_horizontal"
+                    android:orientation="horizontal" >
+                    
+                    <us.zoom.androidlib.widget.ZMVerticalImageTextButton
+                        android:id="@+id/btnSchedule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/zm_btn_schedule"
+                        android:textColor="@drawable/zm_button_text_color_no_high_light"
+                        zoom:zm_image="@drawable/zm_btn_schedule" />
+
+                    <us.zoom.androidlib.widget.ZMVerticalImageTextButton
+                        android:id="@+id/btnMyMeetings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/zm_btn_upcoming"
+                        android:textColor="@drawable/zm_button_text_color_no_high_light"
+                        zoom:zm_image="@drawable/zm_btn_meet_upcoming" />
+
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

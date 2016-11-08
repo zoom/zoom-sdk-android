@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:id="@+id/panelMsgLayout"
+    android:paddingTop="6dp"
+    android:gravity="left|center_vertical" >
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="top" />
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.ExSmall.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Reed Yang" />
+        
+        <us.zoom.androidlib.widget.ZMGifView
+            android:id="@+id/imgPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:maxWidth="300dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/zm_image_placeholder" />
+        
+		<LinearLayout android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:visibility="gone"
+		    android:layout_marginRight="5dp" 
+		    android:id="@+id/panelProgress">
+		    <ProgressBar
+		        android:layout_margin="30dp"
+		        style="@style/ZMProgressBar.Small"
+		        android:id="@+id/progressBarDownload"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"/>
+		</LinearLayout>
+		
+    </LinearLayout>
+        
+    <ImageView
+        android:id="@+id/imgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/zm_mm_msg_state_fail"
+        android:contentDescription="@string/zm_description_mm_msg_failed" />
+</LinearLayout>

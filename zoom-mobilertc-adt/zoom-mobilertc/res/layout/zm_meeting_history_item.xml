@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
+    android:descendantFocusability="blocksDescendants" >
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/txtTopic"
+            style="@style/ZMTextView.Large.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Meeting" />
+
+        <TextView
+            android:id="@+id/txtType"
+            style="@style/ZMTextView.Normal.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff0000"
+            android:text="Missed" />
+        
+        <TextView
+            android:id="@+id/txtTime"
+            style="@style/ZMTextView.Normal.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today 10am" />
+
+        <TextView
+            android:id="@+id/txtMeetingNo"
+            style="@style/ZMTextView.Normal.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meeting Number: 111-111-111" />
+        
+    </LinearLayout>
+    
+    <Button
+        style="@style/ZMButton.Small"
+        android:id="@+id/btnJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:minWidth="80dp"
+        android:text="@string/zm_btn_start"
+        android:visibility="gone" />
+    
+</RelativeLayout>
+
