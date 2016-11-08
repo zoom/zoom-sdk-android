@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+	<TextView
+	    style="@style/ZMTextView.Medium.OnDark"
+	    android:id="@+id/txtLabel"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="5dp"
+	    android:gravity="center"
+	    android:text="+86 139 1234 5678" />
+<!-- 	
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="0.5dp"
+	    android:background="#ccf0f0f0"/>
+ -->	
+</LinearLayout>
