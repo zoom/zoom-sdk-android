@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/panelCallInNumber1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="left"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/txtCallinNumber"
+        style="@style/ZMTextView.Normal.Dimmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+1 (123) 456-7890"
+        android:textColorLink="@color/zm_link" />
+
+    <TextView
+        style="@style/ZMTextView.Normal.Dimmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:text="@string/zm_lbl_tele_conf_us_number"
+        android:visibility="gone" />
+
+</LinearLayout>
