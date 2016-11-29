@@ -1,9 +1,8 @@
 # android
-Example App using Zoom Android SDK - https://developer.zoom.us/android
 
 This sample include examples for both Android Studio project and Eclipse project. To use it:
 
-   - Sign up for a free 60 day trial at Zoom developer portal 
+   - Sign up for a free 60 day trial at zoom.us 
    - Get the SDK key and secret from your account in Zoom portal
    - Update the API key and secret in the project
    - Build the project
