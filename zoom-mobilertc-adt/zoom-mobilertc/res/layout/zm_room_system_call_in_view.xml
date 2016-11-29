@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMSettingsLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    zoom:zm_settingsCategorySpacing="0dp" >
+
+    <TextView
+        android:id="@+id/txtNotification"
+        style="@style/ZMTextView.Medium.OnLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/zm_notification_background_green"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="@string/zm_room_system_notify_calling"
+        android:textColor="@color/zm_white" />
+
+    <TextView
+        style="@style/ZMTextView.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/zm_setting_item_padding_bottom"
+        android:layout_marginTop="@dimen/zm_setting_item_padding_top"
+        android:gravity="left"
+        android:paddingLeft="@dimen/zm_setting_item_padding_left"
+        android:text="@string/zm_room_system_call_in_instruction" />
+
+    <us.zoom.androidlib.widget.ZMSettingsCategory
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TableRow
+            android:id="@+id/vH323Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical" >
+
+            <TextView
+                style="@style/ZMEditText.SettingsItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:text="@string/zm_lbl_h323_ip_address" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tH323IpInfo"
+                    style="@style/ZMTextView.Medium.Dimmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="@dimen/zm_setting_item_padding_right"
+                    android:singleLine="false"
+                    android:text="192.168.1.100\n19.168.1.101"/>
+
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="left|center_vertical" >
+
+            <TextView
+                style="@style/ZMEditText.SettingsItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:text="@string/zm_lbl_h323_meeting_id" />
+
+            <TextView
+                android:id="@+id/tH323MeetingID"
+                style="@style/ZMTextView.Medium.Dimmed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingLeft="5dp"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:text="123456789" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/vH323MeetingPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="left|center_vertical" >
+
+            <TextView
+                style="@style/ZMEditText.SettingsItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:text="@string/zm_lbl_h323_meeting_password" />
+
+            <TextView
+                android:id="@+id/tH323MeetingPassword"
+                style="@style/ZMTextView.Medium.Dimmed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:paddingLeft="5dp"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:text="111111" />
+        </TableRow>
+    </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+    <TextView
+        android:id="@+id/txtAddressPromt"
+        style="@style/ZMTextView.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="@dimen/zm_setting_item_padding_bottom"
+        android:layout_marginTop="45dp"
+        android:gravity="left"
+        android:paddingLeft="@dimen/zm_setting_item_padding_left"
+        android:text="@string/zm_room_system_enter_pairing_code_instruction" />
+
+    <us.zoom.androidlib.widget.ZMSettingsCategory
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editPairingCode"
+                style="@style/ZMEditText.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/zm_room_system_msg_pairing_code_hint"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:inputType="text"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:singleLine="true"
+                android:text="" />
+        </LinearLayout>
+    </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+    <Button
+        android:id="@+id/btnInvite"
+        style="@style/ZMButton.HappyPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="@dimen/zm_setting_item_group_spacing"
+        android:text="@string/zm_btn_invite" />
+
+</us.zoom.androidlib.widget.ZMSettingsLayout>

@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/panelBottomBar"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="30dp">
+
+        <Button
+            android:id="@+id/btnEndCall"
+            style="@style/ZMButton.Red"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:text="@string/zm_btn_end_call"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/speakerDivider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#7f151515" />
+
+        <Button
+            android:id="@+id/btnSpeaker"
+            style="@style/ZMButton.Small.OnDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/zm_btn_speaker"
+            android:gravity="center"
+            android:text="@string/zm_lbl_speaker"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

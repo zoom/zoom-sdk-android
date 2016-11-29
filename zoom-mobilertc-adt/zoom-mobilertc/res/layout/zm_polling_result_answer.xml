@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/txtAnswer"
+            style="@style/ZMTextView.Small.OnLight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Answer content" />
+        
+        <TextView
+            android:id="@+id/txtSelectedCount"
+            style="@style/ZMTextView.Normal.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="bottom"
+            android:text="(2)" />
+        
+        <TextView
+            android:id="@+id/txtPercent"
+            style="@style/ZMTextView.Normal.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="50%" />
+        
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/percent"
+        style="@style/PollingPercentBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progress="30"
+        android:secondaryProgress="70" />
+    
+</LinearLayout>

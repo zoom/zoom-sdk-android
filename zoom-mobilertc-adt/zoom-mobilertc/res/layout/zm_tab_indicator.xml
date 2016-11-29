@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:background="@drawable/zm_tab_indicator" >
+    
+	<LinearLayout
+	    android:id="@+id/imageText"
+	    android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+	    android:orientation="vertical"
+	    android:gravity="center_horizontal|center_vertical"
+	    android:duplicateParentState="true" >
+	
+	    <ImageView
+	        android:id="@+id/icon"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical|center_horizontal"
+	        android:src="@android:drawable/ic_menu_camera"
+	        android:duplicateParentState="true"
+	        android:visibility="visible" />
+	
+	    <TextView
+	        android:id="@+id/title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical|center_horizontal"
+	        android:gravity="center_horizontal"
+	        style="@style/ZMTextView.TabLabel"
+	        android:duplicateParentState="true"
+	        android:text="Meet &amp; Chat" />
+	
+	</LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="0dp"
+        android:duplicateParentState="true">
+        
+        <TextView
+            android:id="@+id/txtNoteBubble"
+            style="@style/ZMTextView.UnreadMessageCount.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="9+"
+            android:visibility="gone" />
+
+	</LinearLayout>
+	
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zm_pt_titlebar_height">
+        
+        <RelativeLayout
+	        android:id="@+id/panelSearchBar"
+	        style="@style/ZMTitleBar"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/zm_pt_titlebar_height"
+	        android:paddingTop="10dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:paddingBottom="10dp"
+	        android:visibility="invisible" >
+	
+	    	<RelativeLayout
+	    	    android:layout_width="match_parent"
+	    	    android:layout_height="match_parent"
+	    	    android:background="@drawable/zm_search_corner_bg"
+	    	    android:paddingLeft="5dp" >
+	
+	    	    <ImageView
+	    	        android:id="@+id/imgSearch"
+	    	        android:layout_width="wrap_content"
+	    	        android:layout_height="wrap_content"
+	    	        android:layout_centerVertical="true"
+	    	        android:layout_marginLeft="5dp"
+	    	        android:layout_marginRight="5dp"
+	    	        android:src="@drawable/zm_ic_search" />
+	
+	    	    <EditText
+	    	        android:id="@+id/edtSearch"
+	    	        style="@style/ZMEditText.GlobalSearch"
+	    	        android:layout_width="match_parent"
+	    	        android:layout_height="wrap_content"
+	    	        android:layout_centerVertical="true"
+	    	        android:layout_toRightOf="@+id/imgSearch"
+	    	        android:hint="@string/zm_hint_search"
+	    	        android:imeOptions="actionDone"
+	    	        android:paddingRight="30dp" />
+	
+	    	    <Button
+	    	        android:id="@+id/btnClearSearchView"
+	    	        android:layout_width="wrap_content"
+	    	        android:layout_height="wrap_content"
+	    	        android:layout_alignParentRight="true"
+	    	        android:layout_centerVertical="true"
+	    	        android:background="@drawable/zm_btn_clear_search_view"
+	    	        android:visibility="gone" />
+	    	</RelativeLayout>
+	
+	    </RelativeLayout>
+	    
+	    <us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+	        android:id="@+id/panelTitleBar"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        style="@style/ZMTitleBar"
+	        zoom:zm_leftButton="@+id/btnCancel"
+	        zoom:zm_rightButton="@+id/panelForBtnLowerHandAllOnTitleBar"
+	        zoom:zm_title="@+id/txtTitle" >
+	
+	        <Button
+	            style="@style/ZMButton.TitleBar"
+	            android:id="@+id/btnCancel"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/zm_btn_cancel" />
+	        
+	        <FrameLayout
+	            android:id="@+id/panelForBtnLowerHandAllOnTitleBar"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:paddingTop="3dp" >
+	
+	            <Button
+	                android:id="@+id/btnLowerHandAll"
+	                style="@style/ZMButton.TitleBar"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:paddingRight="6dp"
+	                android:visibility="gone"
+	                android:text="@string/zm_btn_lower_all_hands" />
+	
+	        </FrameLayout>
+	
+	        <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+	            android:id="@+id/txtTitle"
+	            style="@style/ZMTextView.Title"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:ellipsize="end"
+	            android:gravity="center"
+	            android:singleLine="true"
+	            android:text="@string/zm_title_webinar_attendee" />
+	        
+	    </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+	</FrameLayout>
+    
+    <EditText
+        style="@style/ZMEditText.ContextSearch"
+        android:id="@+id/edtSearchDummy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zm_hint_search"
+        android:imeOptions="actionDone"
+        android:cursorVisible="false" />
+
+    <FrameLayout
+        android:id="@+id/listContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <us.zoom.androidlib.widget.QuickSearchListView
+            android:id="@+id/attendeesListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/zm_listview_bg" />
+
+    </FrameLayout>
+</LinearLayout>
