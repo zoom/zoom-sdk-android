@@ -7,6 +7,6 @@ This sample include examples for both Android Studio project and Eclipse project
    - Update the API key and secret in the project
    - Build the project
    
-If you need assistance, please visit Zoom developer portal
+If you need assistance, please visit Zoom developer portal (https://zoom.us/developer)
    
 Copyright ©2016 Zoom Video Communications, Inc. 
