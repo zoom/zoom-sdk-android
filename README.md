@@ -9,4 +9,4 @@ This sample include examples for both Android Studio project and Eclipse project
    
 If you need assistance, please visit Zoom developer portal (https://zoom.us/developer)
    
-Copyright ©2016 Zoom Video Communications, Inc. 
+Copyright ©2016-2017 Zoom Video Communications, Inc. 
