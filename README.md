@@ -1,5 +1,7 @@
 # Android
 
+Use of this software is subject to important terms and conditions as set forth in the License file
+
 This sample include examples for both Android Studio project and Eclipse project. To use it:
 
    - Sign up for a free 60 day trial at developer.zoom.us 
