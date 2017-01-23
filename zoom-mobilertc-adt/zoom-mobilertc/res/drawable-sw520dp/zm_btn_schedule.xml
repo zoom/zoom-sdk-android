@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_focused="true" android:drawable="@drawable/zm_schedule_focused_pad"></item>
+	<item android:state_pressed="false" android:state_enabled="true" android:drawable="@drawable/zm_schedule_normal_pad" />
+	<item android:state_pressed="true" android:state_enabled="true"	android:drawable="@drawable/zm_schedule_pressed_pad" />
+	<item android:state_enabled="false" android:drawable="@drawable/zm_schedule_disabled_pad" />
+</selector>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/zm_black"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp" >
+
+    <us.zoom.androidlib.widget.TouchImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </us.zoom.androidlib.widget.TouchImageView>
+
+    <com.zipow.videobox.view.ZMGifView
+        android:id="@+id/gifview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.zipow.videobox.view.ZMGifView>
+    
+    <LinearLayout
+        android:id="@+id/viewPlaceHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/zm_dimmed_forground"
+        android:orientation="vertical"
+        android:focusable="false">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zm_image_download_error"
+            android:focusable="false" />
+        
+        <TextView
+            android:id="@+id/txtMessage"
+            style="@style/ZMTextView.Normal.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:focusable="false"
+            android:text="@string/zm_mm_msg_download_image_failed" />
+
+    </LinearLayout>
+    
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@style/ZMProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+    
+</FrameLayout>

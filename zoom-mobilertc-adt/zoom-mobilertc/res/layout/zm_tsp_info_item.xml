@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal"
+    android:paddingRight="@dimen/zm_setting_item_padding_right" >
+
+    <TextView
+        android:id="@+id/txtLabel"
+        style="@style/ZMTextView.SettingsItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingRight="5dp"
+        android:text="@string/zm_lbl_meeting_id2" />
+
+    <TextView
+        android:id="@+id/txtValue"
+        style="@style/ZMTextView.SettingsItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123 456 789" />
+
+</LinearLayout>

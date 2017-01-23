@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/txtMessage"
+        style="@style/ZMTextView.IMChatItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/zm_chatsystem_bg"
+        android:gravity="center"
+        android:text="Monday, 00:00 am" />
+
+</LinearLayout>

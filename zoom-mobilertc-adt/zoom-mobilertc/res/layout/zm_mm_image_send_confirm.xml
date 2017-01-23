@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <us.zoom.androidlib.widget.TouchImageView
+        android:id="@+id/viewImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/zm_black" />
+    
+    <com.zipow.videobox.view.ZMGifView
+        android:id="@+id/viewGif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/zm_black"/>
+    
+    <LinearLayout
+        android:id="@+id/viewPlaceHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zm_image_placeholder" />
+        
+        <TextView
+            style="@style/ZMTextView.Normal.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/zm_mm_msg_load_image_failed" />
+
+    </LinearLayout>
+    
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@style/ZMProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zm_pt_titlebar_height"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="#33000000"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/ZMButton.TitleBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/zm_btn_cancel" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        
+        <Button
+            android:id="@+id/btnSend"
+            style="@style/ZMButton.TitleBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/zm_mm_btn_use_photo" />
+    
+    </LinearLayout>
+    
+</FrameLayout>

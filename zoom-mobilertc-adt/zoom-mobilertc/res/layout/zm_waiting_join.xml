@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/zm_window_bg" >
+
+    <us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:id="@+id/panelTitle"
+        zoom:zm_leftButton="@+id/panelTitleLeft"
+        zoom:zm_rightButton="@+id/btnLeave"
+        zoom:zm_title="@+id/txtTopic"
+        style="@style/ZMTitleBar.Light" >
+
+        <View
+            android:id="@+id/panelTitleLeft"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/btnLeave"
+            style="@style/ZMButton.NoBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="60dp"
+            android:text="@string/zm_btn_leave_conf" />
+
+        <TextView
+            android:id="@+id/txtTopic"
+            style="@style/ZMTextView.Title.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Reed Yang&apos;s Meeting" />
+    </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#76ad23"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="@style/ZMProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:id="@+id/txtWaiting"
+            style="@style/ZMTextView.Medium.OnDark"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:gravity="left|center_vertical"
+            android:text="@string/zm_msg_waiting_for_scheduler" />
+    </LinearLayout>
+
+    <us.zoom.androidlib.widget.ZMSettingsCategory
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/zm_setting_item_padding_top"
+            android:paddingTop="@dimen/zm_setting_item_padding_bottom"
+            android:paddingLeft="@dimen/zm_setting_item_padding_left"
+            android:paddingRight="@dimen/zm_setting_item_padding_right" >
+
+            <TableRow
+                android:id="@+id/tableRowMeetingId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    style="@style/ZMTextView.Large.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/zm_lbl_meeting_id" />
+
+                <TextView
+                    android:id="@+id/txtMeetingId"
+                    style="@style/ZMTextView.Medium.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="111-111-111" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRowDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    style="@style/ZMTextView.Large.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/zm_lbl_date" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    style="@style/ZMTextView.Medium.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Wes, Jun 14, 2012" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRowTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    style="@style/ZMTextView.Large.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/zm_lbl_time" />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    style="@style/ZMTextView.Medium.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:maxWidth="180dp"
+                    android:text="This is a recurring meeting" />
+            </TableRow>
+        </TableLayout>
+
+    </us.zoom.androidlib.widget.ZMSettingsCategory>
+    
+    <LinearLayout
+        android:id="@+id/panelForScheduler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtForScheduler"
+            style="@style/ZMTextView.Medium.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/zm_msg_notify_scheduler_login" />
+        
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/zm_btn_login"/>
+    </LinearLayout>
+</LinearLayout>

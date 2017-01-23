@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/zm_pt_titlebar_height"
+    android:weightSum="1"
+    zoom:zm_leftButton="@+id/panelTitleLeft"
+    zoom:zm_rightButton="@+id/panelTitleRight"
+    zoom:zm_title="@+id/panelTitleCenter"
+    style="@style/ZMTitleBar" >
+
+    <LinearLayout
+        android:id="@+id/panelTitleLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center" >
+        
+	    <com.zipow.videobox.view.AvatarView
+	        android:id="@+id/avatarView"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_marginLeft="3dp" />
+	    
+	    <Button
+            android:id="@+id/btnBack"
+            style="@style/ZMBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zm_btn_back"
+            android:visibility="gone" />
+    </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/panelTitleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btnInviteBuddy"
+            style="@style/ZMButton.TitleBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/zm_btn_invite_buddy_im"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txtInvitationsCount"
+            style="@style/ZMTextView.UnreadMessageCount.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="9+"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/panelTitleCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+        
+        <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.BuddyName.Large.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:text="Reed Yang"
+            android:visibility="gone" />
+        
+        <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+            android:id="@+id/txtTitle"
+            style="@style/ZMTextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Favorite"
+            android:visibility="gone" />
+    </LinearLayout>
+    
+</us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>

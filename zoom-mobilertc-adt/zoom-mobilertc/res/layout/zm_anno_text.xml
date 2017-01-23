@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    <us.zoom.androidlib.widget.ZMToolbarLayout
+        android:id="@+id/drawingtools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/zm_bottom_toolbar_bg"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_red" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_green" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_blue" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnPurple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_purple" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_black" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_bold" />
+        
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_italic" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_plus" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="40"
+            android:textSize="12sp" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_anno_minus" />
+
+            <Button
+                android:id="@+id/button1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/zm_abbr_avatar_bg_3"
+                android:minHeight="20dp"
+                android:text="Done" />
+
+    </us.zoom.androidlib.widget.ZMToolbarLayout>
+
+</RelativeLayout>
