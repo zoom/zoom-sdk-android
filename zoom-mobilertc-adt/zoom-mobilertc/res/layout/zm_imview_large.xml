@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Left pane -->
+
+    <include
+        android:id="@+id/panelLeft"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        layout="@layout/zm_imview_left" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#000103" />
+
+    <!-- Right pane -->
+
+    <LinearLayout
+        android:id="@+id/panelRight"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zm_pt_titlebar_height"
+            android:weightSum="1"
+            style="@style/ZMTitleBar" >
+            
+            <com.zipow.videobox.view.AvatarView
+                android:id="@+id/avatarViewRight"
+                android:layout_width="46dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="0dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="4dp"
+                android:visibility="gone" />
+            
+            <Button
+	            android:id="@+id/btnReturnToConf2"
+	            style="@style/ZMButton.TitleBar"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_centerVertical="true"
+	            android:layout_alignParentRight="true"
+	            android:text="@string/zm_btn_return_to_conf"
+	            android:visibility="visible" />
+        
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <FrameLayout
+                android:id="@+id/panelMeeting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/panelChatParent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/zm_window_bg"
+                android:orientation="horizontal" >
+
+                <FrameLayout
+                    android:id="@+id/panelChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="100dp"
+                    android:background="@drawable/zm_im_right_chat_bg" >
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</merge>

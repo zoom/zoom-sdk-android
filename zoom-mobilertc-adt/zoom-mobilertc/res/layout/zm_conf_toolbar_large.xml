@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMToolbarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_mute_audio"
+        zoom:zm_text="@string/zm_btn_mute_audio" />
+    
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_mute_video"
+        zoom:zm_text="@string/zm_btn_stop_video"/>
+    
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnInvite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_invite"
+        zoom:zm_text="@string/zm_btn_invite"/>
+
+    <com.zipow.videobox.view.PListButton
+        android:id="@+id/btnPList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        android:background="@color/zm_transparent"
+        zoom:zm_icon="@drawable/zm_btn_plist"
+        zoom:zm_text="@string/zm_btn_participants_chat" />
+
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnSwitchCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_switch_camera_on_toolbar"
+        zoom:zm_text="Switch Camera"
+        android:visibility="gone" />
+    
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_meeting_settings"
+        zoom:zm_text="@string/zm_title_setting"/>
+    
+    <com.zipow.videobox.view.ToolbarButton
+        android:id="@+id/btnLeave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+	    android:minWidth="60dp"
+        zoom:zm_icon="@drawable/zm_btn_leave"
+        zoom:zm_text="@string/zm_btn_leave_conf" />
+    
+</us.zoom.androidlib.widget.ZMToolbarLayout>

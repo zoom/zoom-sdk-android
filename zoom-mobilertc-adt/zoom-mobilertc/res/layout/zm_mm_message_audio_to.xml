@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_vertical"
+    android:id="@+id/panelMsgLayout"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="6dp" >
+
+    <ImageView
+        android:id="@+id/imgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/zm_mm_msg_state_fail"
+        android:contentDescription="@string/zm_description_mm_msg_failed" />
+    
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@style/ZMProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:id="@+id/panelMessage"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/zm_chatto_bg_voice"
+        android:clickable="true"
+        android:duplicateParentState="false"
+        android:focusable="true"
+        android:gravity="right|center_vertical" >
+    
+        <TextView
+            android:id="@+id/txtVoicelength"
+            style="@style/ZMTextView.MMMessage.OnDark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical|right"
+            android:text="30&quot;" />
+            
+        <ImageView
+            android:id="@+id/imgVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zm_chatto_voice" />
+        
+    </LinearLayout>
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="top" />
+
+</LinearLayout>

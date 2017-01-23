@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@color/zm_transparent"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+    
+    <TextView
+        android:id="@+id/txtMessage"
+        style="@style/ZMTextView.TipMessage.OnDark"
+        android:textSize="14sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Request approved. You can now control camera" />
+    
+    <TextView
+        android:id="@+id/txtButton"
+        style="@style/ZMTextView.TipMessage.Button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:text="@string/zm_fecc_msg_start_control" />
+
+</LinearLayout>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1" >
+
+    <us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+        android:id="@+id/panelTitleBar"
+        style="@style/ZMTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        zoom:zm_leftButton="@+id/btnBack"
+        zoom:zm_rightButton="@+id/viewRight"
+        zoom:zm_title="@+id/txtTitle" >
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/ZMBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/zm_btn_back" />
+
+        <View
+            android:id="@+id/viewRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/ZMTextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/zm_title_meeting_information" />
+    </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingTop="0dp" >
+
+            <us.zoom.androidlib.widget.ZMSettingsCategory
+                android:id="@+id/panelBasicInfo"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/panelMeetingTopic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                    android:paddingRight="@dimen/zm_setting_item_padding_right" >
+
+                    <TextView
+                        style="@style/ZMTextView.Large.OnLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="@string/zm_lbl_topic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/txtMeetingTopic"
+                            style="@style/ZMTextView.Normal.Dimmed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My meeting" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/panelMeetingId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                    android:paddingRight="@dimen/zm_setting_item_padding_right">
+
+                    <TextView
+                        style="@style/ZMTextView.Large.OnLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="@string/zm_lbl_meeting_id2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/txtMeetingId"
+                            style="@style/ZMTextView.Normal.Dimmed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="111 111 111" />
+                    </LinearLayout>
+                </LinearLayout>
+            </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+            <LinearLayout
+                android:id="@+id/panelTeleConfInfo"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="vertical" >
+                
+                <TextView
+                    android:id="@+id/txtTeleInfoTitle"
+                    style="@style/ZMTextView.Large.OnLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="7sp"
+                    android:text="@string/zm_lbl_tele_conf" />
+                
+                <us.zoom.androidlib.widget.ZMSettingsCategory
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                        android:paddingTop="@dimen/zm_setting_item_padding_top"
+                        android:paddingRight="@dimen/zm_setting_item_padding_right"
+                        android:paddingBottom="@dimen/zm_setting_item_padding_bottom">
+
+                        <TextView
+                            style="@style/ZMTextView.Normal.Dimmed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="3dp"
+                            android:text="@string/zm_lbl_tele_conf_dial" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="left|top"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:id="@+id/panelCallInNumbers"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="16sp"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <include layout="@layout/zm_callin_number" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imgCountryFlag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="@string/zm_description_btn_callin_choose_country"
+                                android:scaleType="center"
+                                android:src="@drawable/zm_flag_us" />
+
+                            <ImageView
+                                android:id="@+id/imgNextArrow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/zm_description_btn_callin_choose_country"
+                                android:scaleType="center"
+                                android:src="@drawable/zm_next_arrow_normal" />
+                            
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/panelTollFree"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="16sp"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="3dp"
+                                android:text="@string/zm_lbl_toll_free" />
+
+                            <LinearLayout
+                                android:id="@+id/panelTollFreeNumbers"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:orientation="vertical" >
+
+                                <include layout="@layout/zm_callin_number" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        
+                        <TextView
+                            android:id="@+id/txtOtherNumbers"
+                            style="@style/ZMTextView.Normal.OnLight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginLeft="16sp"
+                            android:text="@string/zm_lbl_tele_conf_other_numbers"
+                            android:textColorLink="@color/zm_link" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/zm_lbl_tele_conf_enter_access_code" />
+
+                            <TextView
+                                android:id="@+id/txtAccessCode"
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="123 456 789" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/zm_lbl_tele_conf_input_pin" />
+
+                            <TextView
+                                android:id="@+id/txtAttendeeId"
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/panelH323Info"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/ZMTextView.Large.OnLight"
+                    android:id="@+id/txtH323InfoTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="7sp"
+                    android:text="@string/zm_lbl_h323_conf" />
+                
+                <us.zoom.androidlib.widget.ZMSettingsCategory
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:shrinkColumns="1"
+                        android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                        android:paddingTop="@dimen/zm_setting_item_padding_top"
+                        android:paddingRight="@dimen/zm_setting_item_padding_right"
+                        android:paddingBottom="@dimen/zm_setting_item_padding_bottom">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/zm_lbl_h323_ip_address" />
+
+                            <TextView
+                                android:id="@+id/txtH323Info"
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:text="192.168.1.100 or 192.168.1.101" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/zm_lbl_h323_meeting_id" />
+
+                            <TextView
+                                android:id="@+id/txtH323MeetingId"
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="123456789" />
+                        </TableRow>
+
+                        <TableRow
+                            android:id="@+id/panelH323MeetingPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp" >
+
+                            <TextView
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/zm_lbl_h323_meeting_password" />
+
+                            <TextView
+                                android:id="@+id/txtH323MeetingPassword"
+                                style="@style/ZMTextView.Normal.Dimmed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="111111" />
+                        </TableRow>
+                    </TableLayout>
+
+                </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

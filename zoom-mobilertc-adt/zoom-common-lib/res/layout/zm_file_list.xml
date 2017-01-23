@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout
+            android:id="@+id/panelTitleBar"
+            style="@style/ZMTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            zoom:zm_leftButton="@+id/btnLeft"
+            zoom:zm_rightButton="@+id/btnRight"
+            zoom:zm_title="@+id/txtTitle" >
+
+            <LinearLayout
+                android:id="@+id/btnLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnExit"
+                    style="@style/ZMButton.NoBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zm_btn_exit"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btnBack"
+                    style="@style/ZMBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zm_btn_back"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical" >
+
+                <Button
+                    android:id="@+id/btnClose"
+                    style="@style/ZMButton.TitleBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="50dp"
+                    android:text="@string/zm_btn_close" />
+
+                <Button
+                    android:id="@+id/btnSelect"
+                    style="@style/ZMButton.TitleBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="50dp"
+                    android:text="@string/zm_btn_select"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+                android:id="@+id/txtTitle"
+                style="@style/ZMTextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+        </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+
+        <LinearLayout
+            android:id="@+id/file_list_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/zm_notification_background"
+            android:gravity="left|center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp" 
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/prompt_message"
+                style="@style/ZMTextView.Medium.OnLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="file list promt" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/file_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawSelectorOnTop="false">
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/waitingProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="10dp" 
+        android:visibility="gone">
+
+        <ProgressBar
+            style="@style/ZMProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:id="@+id/txtWaitingPromt"
+            style="@style/ZMTextView.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/zm_msg_loading" />
+    </LinearLayout>
+
+</FrameLayout>
