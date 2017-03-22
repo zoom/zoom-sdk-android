@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:background="@drawable/zm_list_selector_background"
+    android:weightSum="1" >
+    
+    <ImageView
+        android:id="@+id/imgAttention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+        android:src="@drawable/zm_ic_distract" />    
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="1dp"
+        zoom:zm_description_enable="false" />
+
+    <com.zipow.videobox.view.PListNameRoleLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingRight="5dp" >
+
+        <TextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.Medium.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingRight="2dp"
+            android:singleLine="true"
+            android:text="Very very long long long" />
+    </com.zipow.videobox.view.PListNameRoleLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:paddingRight="0dp" >
+
+        <Button
+            android:id="@+id/btnAdmin"
+            style="@style/ZMButton.Small.happypath"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:duplicateParentState="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginRight="5dp"
+            android:minWidth="80dp"
+            android:text="@string/zm_btn_admit" />
+        
+<!--         <Button
+            android:id="@+id/btnRemove"
+            style="@style/ZMButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:duplicateParentState="false"
+            android:minWidth="80dp"
+            android:text="@string/zm_btn_remove" />    -->
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMSettingsLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    zoom:zm_settingsCategorySpacing="0dp"
+    android:orientation="vertical" >
+
+    <us.zoom.androidlib.widget.ZMSettingsCategory
+        android:id="@+id/panelFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        zoom:zm_dividerHeight="0dp" >
+
+        <TextView
+            style="@style/ZMTextView.SettingsItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/zm_lbl_change_feedback_12050" />
+
+        <com.zipow.videobox.view.NonVerbalFeedbackActionView
+            android:id="@+id/viewFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"/>
+    </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+    <us.zoom.androidlib.widget.ZMSettingsCategory
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        zoom:zm_dividerHeight="0dp" >
+
+        <TextView
+            android:id="@+id/txtClearFeedback"
+            style="@style/ZMTextView.SettingsItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/zm_settings_item_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="8dp"
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/zm_btn_clear_feedback_12050" />
+    </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+</us.zoom.androidlib.widget.ZMSettingsLayout>

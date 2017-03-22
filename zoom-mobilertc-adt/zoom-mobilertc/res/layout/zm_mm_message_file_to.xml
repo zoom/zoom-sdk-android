@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:id="@+id/panelMsgLayout"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="6dp" >
+
+    <ImageView
+        android:id="@+id/imgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/zm_mm_msg_state_fail"
+        android:contentDescription="@string/zm_description_mm_msg_failed" />
+    
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@style/ZMProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_vertical" />
+
+    <RelativeLayout
+        android:id="@+id/panelMessage"
+        android:layout_width="@dimen/zm_mm_bubble_file_width"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingTop="8dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/zm_chatto_bg" >
+
+        <RelativeLayout
+            android:id="@+id/panelContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/btnCancel"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/imgFileIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/zm_ic_filetype_pdf" />
+
+            <TextView
+                android:id="@+id/txtFileName"
+                style="@style/ZMTextView.MMMessage.OnDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/imgFileIcon"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="File name long long long long long long.docx" />
+
+            <TextView
+                android:id="@+id/txtFileSize"
+                style="@style/ZMTextView.ExSmall.OnDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/txtFileName"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/imgFileIcon"
+                android:text="10 M" />
+            
+            <ImageView
+                android:id="@+id/imgFileStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/imgFileIcon"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/zm_filebadge_error" />
+            
+        </RelativeLayout>
+        
+        <ProgressBar
+            android:id="@+id/downloadPercent"
+            style="@style/UploadingProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/panelContent"
+            android:progress="30" />
+        
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/ZMButton.TitleBar.Small.OnDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/zm_btn_cancel" />
+    </RelativeLayout>
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="top" />
+
+</LinearLayout>

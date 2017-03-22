@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    style="@style/ZMTitleBar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/zm_pt_titlebar_height"
+    android:weightSum="1"
+    zoom:zm_leftButton="@+id/btnSetting"
+    zoom:zm_rightButton="@+id/panelTitleRight"
+    zoom:zm_title="@+id/txtTitle" >
+
+    <ImageButton
+        android:id="@+id/btnSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@null"
+        android:src="@drawable/zm_icon_settings"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/panelTitleRight"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:paddingRight="5dp" />
+
+    <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+        android:id="@+id/txtTitle"
+        style="@style/ZMTextView.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:singleLine="true"
+        android:text="@string/zm_app_full_name" />
+
+</us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>

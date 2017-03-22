@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="5dp"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal">
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/zm_ic_raise_hand" />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        style="@style/ZMTextView.TipMessage.OnDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reed Yang raised hand" />
+    
+    
+
+</LinearLayout>

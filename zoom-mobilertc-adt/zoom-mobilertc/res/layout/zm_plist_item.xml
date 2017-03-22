@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left|center_vertical"
+    android:weightSum="1"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp" >
+
+    <ImageView
+        android:id="@+id/imgAttention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/zm_ic_distract" />
+    
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone" 
+        zoom:zm_description_enable="false"/>
+
+    <com.zipow.videobox.view.PListNameRoleLayout
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingRight="5dp">
+        
+        <TextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.BuddyName.Medium.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="2dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Very very long long long" />
+        
+        <TextView
+            android:id="@+id/txtRole"
+            style="@style/ZMTextView.Small.Dimmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="(host, me)" />
+    </com.zipow.videobox.view.PListNameRoleLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right|center_vertical"
+        android:paddingRight="0dp">
+
+        <TextView
+            android:id="@+id/txtUnreadMessageCount"
+            style="@style/ZMTextView.UnreadMessageCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="9+" />
+        
+        <ImageView
+            android:id="@+id/imgRecording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_recording" />
+        
+        <ImageView
+            android:id="@+id/imgCMRRecording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_ic_cmr_recording" />        
+        
+        <ImageView
+            android:id="@+id/imgRaiseHand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_ic_raise_hand" />
+        
+        <ImageView
+            android:id="@+id/imgVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_video_on" />
+        
+        <ImageView
+            android:id="@+id/imgAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_audio_on" />
+         
+        <ImageView 
+            android:id="@+id/imgArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_next_arrow" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

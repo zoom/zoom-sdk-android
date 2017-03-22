@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMSettingsCategory xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    zoom:zm_showTopDivider="false"
+    android:descendantFocusability="afterDescendants" >
+
+    <LinearLayout
+        android:id="@+id/btnViewQAAnonymouse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+	    android:paddingTop="5dp"
+	    android:paddingBottom="5dp"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            style="@style/ZMTextView.SettingsItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:gravity="left"
+            android:text="@string/zm_webinar_txt_qa_allow_anonymously" />
+
+        <CheckedTextView
+            android:id="@+id/chkQAAnonymous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkMark="@drawable/zm_btn_toggle_default"
+            android:clickable="false" />
+    </LinearLayout>    
+
+</us.zoom.androidlib.widget.ZMSettingsCategory>

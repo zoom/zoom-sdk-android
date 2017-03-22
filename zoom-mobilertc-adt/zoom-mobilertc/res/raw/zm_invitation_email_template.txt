@@ -1,0 +1,29 @@
+Hi there,
+
+${userName} is inviting you to a scheduled Zoom meeting.
+
+<#if meetingTime??>
+Time: ${meetingTime}
+
+</#if>
+Join from a PC, Mac, iPad, iPhone or Android device:
+
+    Please click this URL to start or join. ${meetingUrl}
+    Or, go to ${webServer}/join and enter meeting ID: ${meetingNumber} <#if password??>and password: ${password}</#if>
+
+<#if enablePSTN>
+Join from dial-in phone line:
+
+    Call ${usCallInNumber} (US/Canada only).
+    For Global dial-in numbers: ${webServer}/teleconference)
+    Meeting ID: ${accessCode}
+    Participant ID: Shown after joining the meeting
+
+</#if>
+<#if enableH323>
+Join from a H.323/SIP room system:
+
+    IP Address: ${h323Gateway1}<#if h323Gateway2??> or ${h323Gateway2}</#if>
+    Meeting ID: ${meetingNumber}
+
+</#if>
