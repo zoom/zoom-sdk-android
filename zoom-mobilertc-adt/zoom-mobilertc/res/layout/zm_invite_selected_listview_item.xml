@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="45dp"
+    android:layout_height="50dp"
+    android:gravity="center" >
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        zoom:zm_avatarBorderColor="@color/zm_highlight" />
+
+</LinearLayout>
+

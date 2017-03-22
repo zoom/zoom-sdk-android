@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <include
+        android:id="@+id/verifyingMeetingId" 
+        layout="@layout/zm_verifying_meetingid"
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:visibility="gone" />
+    
+    <com.zipow.videobox.view.WaitingJoinView
+        android:id="@+id/waitingJoinView" 
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:visibility="gone" />
+    
+    <us.zoom.androidlib.widget.ZMIgnoreKeyboardLayout
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+        <include
+            android:id="@+id/confView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/zm_confview" />
+
+    </us.zoom.androidlib.widget.ZMIgnoreKeyboardLayout>
+    
+    <com.zipow.videobox.view.CallConnectingView
+        android:id="@+id/callconnectingView" 
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:visibility="gone" />
+    
+    <com.zipow.videobox.view.OnHoldView
+        android:id="@+id/onHoldView" 
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:visibility="gone" />
+    
+    <LinearLayout
+        android:id="@+id/panelRejoinMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/zm_tip_dark">
+
+        <TextView
+            android:id="@+id/txtRejoinMsgTitle"
+            style="@style/ZMTextView.Large.OnDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/zm_webinar_msg_host_change_you_to_attendee" />
+        
+        <ProgressBar
+            style="@style/ZMProgressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"/>
+        
+        <TextView
+            android:id="@+id/txtRejoinMsgMessage"
+            style="@style/ZMTextView.Normal.OnDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/zm_webinar_msg_connecting_as_attendee" />
+
+    </LinearLayout>
+    
+    <us.zoom.androidlib.widget.ZMTipLayer
+        android:id="@+id/tipLayer"
+        android:layout_width="fill_parent"
+		android:layout_height="fill_parent" />
+    
+</FrameLayout>

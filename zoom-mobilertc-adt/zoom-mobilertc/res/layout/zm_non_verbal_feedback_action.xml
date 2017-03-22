@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    
+    <us.zoom.androidlib.widget.ZMToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:focusable="false"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnRaiseHand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_raise_hand"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_raise_hand_12050"/>
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_yes"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_yes_12050" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_no"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_no_12050" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnSlower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_slower"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_slower_12050" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnFaster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_faster"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_go_faster_12050" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnEmojis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_emojimore"
+            zoom:zm_textColor="@color/zm_text_dim"
+            zoom:zm_text="@string/zm_mm_lbl_emojis_12050" />
+    </us.zoom.androidlib.widget.ZMToolbarLayout>
+
+    <us.zoom.androidlib.widget.ZMToolbarLayout
+        android:id="@+id/panelEmojis"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:focusable="false"
+        android:paddingTop="8dp"
+        android:visibility="visible"
+        android:background="@drawable/zm_non_verbal_feedback_bg"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnGood"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_like" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnBad"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_dislike" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnClap"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_clap" />
+                
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnCoffee"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_coffee" />
+
+        <com.zipow.videobox.view.ToolbarButton
+            android:id="@+id/btnClock"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:focusable="true"
+            zoom:zm_icon="@drawable/zm_ic_clock" />
+
+    </us.zoom.androidlib.widget.ZMToolbarLayout>    
+</LinearLayout>

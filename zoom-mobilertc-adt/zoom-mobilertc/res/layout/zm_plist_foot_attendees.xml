@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMSettingsCategory xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="afterDescendants" >
+
+    <LinearLayout
+        android:id="@+id/btnViewAttendee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+	    android:paddingTop="5dp"
+	    android:paddingBottom="5dp"
+        android:gravity="left|center_vertical"
+        android:paddingRight="@dimen/zm_setting_item_padding_right"
+        android:weightSum="1" >
+
+<!--         <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/zm_ic_screensharemeeting" /> -->
+
+        <TextView
+            style="@style/ZMTextView.SettingsItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:gravity="left"
+            android:text="@string/zm_webinar_txt_view_attendees" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:src="@drawable/zm_next_arrow" />
+    </LinearLayout>
+
+</us.zoom.androidlib.widget.ZMSettingsCategory>

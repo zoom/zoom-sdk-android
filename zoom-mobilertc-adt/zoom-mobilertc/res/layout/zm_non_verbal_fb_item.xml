@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/zm_white"
+    android:weightSum="1"
+    android:paddingLeft="8dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp" >
+
+    <com.zipow.videobox.view.PListNameRoleLayout
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingRight="5dp">
+        
+        <TextView
+            android:id="@+id/txtScreenName"
+            style="@style/ZMTextView.BuddyName.Medium.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="2dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Very very long long long" />
+        
+    </com.zipow.videobox.view.PListNameRoleLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right|center_vertical"
+        android:paddingRight="8dp">
+
+        <TextView
+            android:id="@+id/txtCount"
+            style="@style/ZMTextView.UnreadMessageCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:visibility="gone"
+            android:text="9+" />
+        
+        <ImageView
+            android:id="@+id/imgFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:src="@drawable/zm_ic_like" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

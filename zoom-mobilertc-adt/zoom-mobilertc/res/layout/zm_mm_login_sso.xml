@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.androidlib.widget.ZMDialogRootLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_white"
+    android:orientation="vertical" >
+
+    <!-- Fix width to 340dp if screen is wider than it. -->
+
+    <View
+        android:layout_width="340dp"
+        android:layout_height="0dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp" >
+
+        <LinearLayout
+            android:id="@+id/layoutInputDomain"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/edtDomail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="@string/zm_hint_company_domain"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="128"
+                        android:singleLine="true"
+                        android:text="" />
+
+                    <View
+                        android:id="@+id/viewLineDomainError"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/zm_txt_warn"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/viewLineDomainNormal"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/zm_dialog_btn_bg" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/ZMTextView.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/zm_lbl_zoom_sso_domail" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/viewHintDomainNormal"
+                style="@style/ZMTextView.Small.Dimmed"
+                android:layout_marginTop="5dp"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="@string/zm_mm_lbl_enter_company_domain" />
+
+            <TextView
+                android:id="@+id/viewHintDomainError"
+                style="@style/ZMTextView.Small.Warn"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/zm_mm_lbl_no_match_domain"
+                android:visibility="gone" />
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnUnknowCompanyDomain"
+                style="@style/ZMButton.NoBackground.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/zm_msg_unknow_company_domain" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutInputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            android:background="@color/zm_white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/zm_hint_company_email"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:maxLength="128"
+                android:singleLine="true"
+                android:text="" />
+
+            <View
+                android:id="@+id/viewLineEmailError"
+                android:layout_width="240dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/zm_txt_warn"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/viewHintEmailError"
+                style="@style/ZMTextView.Small.Warn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="@string/zm_mm_lbl_no_match_domain"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/viewLineEmailNormal"
+                android:layout_width="240dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/zm_dialog_btn_bg" />
+
+            <TextView
+                android:id="@+id/viewHintEmailNormal"
+                style="@style/ZMTextView.Small.Dimmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="@string/zm_mm_lbl_find_company_domain" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnManualyEnterDomain"
+                style="@style/ZMButton.NoBackground.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/zm_msg_manualy_enter_domain" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnContinue"
+            style="@style/ZMTextView.Large.OnDark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/zm_btn_continue" />
+    </LinearLayout>
+
+</us.zoom.androidlib.widget.ZMDialogRootLayout>

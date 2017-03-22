@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="6dp"
+    android:paddingLeft="8dp"
+    android:id="@+id/panelMsgLayout"
+    android:paddingRight="8dp"
+    android:paddingTop="6dp" >
+
+    <ImageView
+        android:id="@+id/imgStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/zm_mm_msg_state_fail"
+        android:contentDescription="@string/zm_description_mm_msg_failed" />
+    
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="@style/ZMProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:id="@+id/txtMessage"
+        style="@style/ZMTextView.MMMessage.OnDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/zm_mm_bubble_width"
+        android:autoLink="all"
+        android:background="@drawable/zm_chatto_bg"
+        android:clickable="true"
+        android:duplicateParentState="false"
+        android:focusable="true"
+        android:gravity="left|center_vertical"
+        android:text="Hi, Zoom. I like you!" />
+
+    <com.zipow.videobox.view.AvatarView
+        android:id="@+id/avatarView"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="top" />
+
+</LinearLayout>
