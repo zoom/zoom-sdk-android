@@ -20,22 +20,47 @@
     
     <ProgressBar
         android:id="@+id/progressBar1"
+        android:visibility="gone"
         style="@style/ZMProgressBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp" />
 
-    <com.zipow.videobox.view.ZMGifView
-        android:id="@+id/imgPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxWidth="150dp"
-        android:maxHeight="300dp"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/zm_image_placeholder" />
+    <RelativeLayout android:layout_width="wrap_content"
+	    android:layout_marginRight="5dp"
+        android:layout_height="wrap_content">
+        
+	    <com.zipow.videobox.view.ZMGifView
+	        android:id="@+id/imgPic"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:maxWidth="150dp"
+	        android:maxHeight="300dp"
+	        android:scaleType="fitXY"
+	        android:adjustViewBounds="true"
+	        android:src="@drawable/zm_image_placeholder" />
+	    
+	    <TextView android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:id="@+id/txtRatio"
+	        style="@style/ZMTextView.Medium.OnDark"/>
+    </RelativeLayout>
 
+	<LinearLayout android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:visibility="gone"
+	    android:layout_marginRight="5dp" 
+	    android:id="@+id/panelProgress">
+	    <ProgressBar
+	        android:layout_margin="30dp"
+	        style="@style/ZMProgressBar.Small"
+	        android:id="@+id/progressBarDownload"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+	</LinearLayout>
+	
     <com.zipow.videobox.view.AvatarView
         android:id="@+id/avatarView"
         android:layout_width="35dp"

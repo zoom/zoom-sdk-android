@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_call_incall_bg" >
+
+    <RelativeLayout
+        android:id="@+id/panelAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/zm_call_incoming_call_bg" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/panelBuddyInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtBuddyName"
+            style="@style/ZMTextView.Dialpad.OnDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Jing" />
+
+        <TextView
+            android:id="@+id/txtDialState"
+            style="@style/ZMTextView.Small.OnDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:singleLine="true"
+            android:text="3:30" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnHide"
+        style="@style/ZMButton.NoBackground.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="15dp"
+        android:padding="5dp"
+        android:text="@string/zm_btn_hide_14480"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/panelCallBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/btnEndCall"
+            android:layout_width="@dimen/zm_sip_dialpad_key_width"
+            android:layout_height="@dimen/zm_sip_dialpad_key_width"
+            android:contentDescription="@string/zm_btn_end_call_14480"
+            android:src="@drawable/zm_ic_end_call" />
+
+        <ImageView
+            android:id="@+id/btnAcceptCall"
+            android:layout_width="@dimen/zm_sip_dialpad_key_width"
+            android:layout_height="@dimen/zm_sip_dialpad_key_width"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/zm_btn_sip_accept"
+            android:contentDescription="@string/zm_btn_accept_call_14480"
+            android:background="@drawable/zm_sip_accept_call" />
+        
+    </LinearLayout>
+
+    <com.zipow.videobox.view.sip.DialKeyboardView
+        android:id="@+id/panelKeybord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/panelInCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/panelMute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="@dimen/zm_sip_dialpad_key_width"
+                android:layout_height="@dimen/zm_sip_dialpad_key_width"
+                android:background="@drawable/zm_sip_btn_incall_bg"
+                android:id="@+id/imgMute"
+                android:src="@drawable/zm_btn_sip_mic_mute" />
+
+            <TextView
+                style="@style/ZMTextView.Normal.OnDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:id="@+id/txtMute"
+                android:text="@string/zm_btn_mute_14480" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelDtmf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="@dimen/zm_sip_dialpad_key_width"
+                android:layout_height="@dimen/zm_sip_dialpad_key_width"
+                android:background="@drawable/zm_sip_btn_incall_bg"
+                android:src="@drawable/zm_btn_sip_dtmf" />
+
+            <TextView
+                style="@style/ZMTextView.Normal.OnDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/zm_btn_keypad_14480" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/panelSpeakeron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="@dimen/zm_sip_dialpad_key_width"
+                android:layout_height="@dimen/zm_sip_dialpad_key_width"
+                android:background="@drawable/zm_sip_btn_incall_bg"
+                android:id="@+id/imgSpeaker"
+                android:src="@drawable/zm_btn_sip_speaker_on" />
+
+            <TextView
+                style="@style/ZMTextView.Normal.OnDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/zm_btn_speaker_14480" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -69,6 +69,14 @@
             android:text="9+" />
         
         <ImageView
+            android:id="@+id/imgCc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:padding="1dp"
+            android:src="@drawable/zm_cc" />
+        
+        <ImageView
             android:id="@+id/imgRecording"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

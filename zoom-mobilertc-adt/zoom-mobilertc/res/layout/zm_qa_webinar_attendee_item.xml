@@ -18,15 +18,31 @@
         android:visibility="gone"
         android:src="@drawable/zm_ic_distract" />
     
-    <TextView
-        android:id="@+id/txtName"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        style="@style/ZMTextView.Medium.OnLight"
         android:layout_weight="1"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:text="Name" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/ZMTextView.Medium.OnLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/txtRole"
+            style="@style/ZMTextView.Small.Dimmed"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+             />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imgRaiseHand"

@@ -25,7 +25,7 @@
         android:layout_marginTop="15dp"
         android:hint="@string/zm_hint_last_name"
         android:imeOptions="actionDone|flagNoExtractUi"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapSentences"
         android:maxLength="50"
         android:text="" />
     
@@ -38,7 +38,7 @@
         android:layout_marginTop="15dp"
         android:hint="@string/zm_hint_first_name"
         android:imeOptions="actionDone|flagNoExtractUi"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapSentences"
         android:maxLength="50"
         android:text="" />
     

@@ -77,6 +77,7 @@
     <string name="zm_mi_leave_silent_mode">Annuler la mise en attente du participant</string>
     <string name="zm_mi_put_on_waiting">Mettre en salle d\'attente</string>
     <string name="zm_mi_lock_meeting">Verrouiller la réunion</string>
+    <string name="zm_mi_lock_webinar_18265">Verrouiller le webinaire</string>
     <string name="zm_mi_unlock_meeting">Déverrouiller la réunion</string>
     <string name="zm_mi_lock_share">Verrouiller le partage</string>
     <string name="zm_mi_unlock_share">Déverrouiller le partage</string>
@@ -94,7 +95,10 @@
     <string name="zm_mi_video_ask_to_start">Demander à démarrer la vidéo</string>
     <string name="zm_mi_block_user">Bloquer Contact</string>
     <string name="zm_mi_unblock_user">Débloquer Contact</string>
-
+    <string name="zm_mi_allow_attendees_chat_11380">Permettre aux participants de converser avec :</string>
+    <string name="zm_mi_no_one_11380">Aucun</string>
+    <string name="zm_mi_panelists_and_attendees_11380">Tous les conférenciers et les participants</string>
+    <string name="zm_mi_host_only_11380">Hôte seulement</string>
     <!-- There're two sections on the same screen: "Join by meeting ID" or "Join by the meeting link" -->
     <string name="zm_lbl_input_meeting_link">OU REJOINDRE PAR LE LIEN DE LA RÉUNION</string>
     <string name="zm_lbl_meeting_number_discription">Le numéro de réunion est un numéro à 9 ou 10 chiffres</string>
@@ -169,6 +173,7 @@
     <string name="zm_lbl_schedule_for">Programme pour</string>
     <string name="zm_lbl_schedule_for_myself">Moi-même</string>
     <string name="zm_lbl_enable_address_book">Contacts téléphoniques correspondants</string>
+    <string name="zm_lbl_contact_requests_14291">Demandes de contact</string>
     <string name="zm_lbl_enable_driving_mode">Mode pilotage</string>
     <string name="zm_lbl_enable_driving_mode_instructions">Le mode de pilotage active le haut-parleur, arrête la vidéo et coupe le micro</string>
     <string name="zm_lbl_auto_connect_voip">Connecter automatiquement le son des périphériques</string>
@@ -194,7 +199,7 @@
 
     <string name="zm_lbl_add_invitees">Ajouter les invités via</string>
     <string name="zm_lbl_sso_login"><a href="zoomus://null">Connexion SSO</a></string>
-    <string name="zm_lbl_forget_password">Mot de passe oublié ?</string>
+    <string name="zm_lbl_forget_password">Mot de passe oublié</string>
     <string name="zm_lbl_forget_password_link"><![CDATA[<a href="%s"> Mot de passe oublié ?</a>]]></string>
     <!-- There're two sections on the same screen, "Sign in with Work Email", or "sign in with Google, Facebook, or SSO." -->
     <string name="zm_lbl_or_sign_in_with">OU CONNECTEZ-VOUS AVEC</string>
@@ -227,9 +232,15 @@
     <string name="zm_lbl_h323_ip_address">Adresse IP</string>
     <string name="zm_lbl_h323_meeting_id">Nº de réunion</string>
     <string name="zm_lbl_h323_meeting_password">Mot de passe</string>
-    <string name="zm_lbl_toll_free">Numéro gratuit :</string>
+    <string name="zm_lbl_toll_free">Numéro gratuit</string>
     <string name="zm_lbl_select_country_or_region">Pays ou région</string>
     <string name="zm_lbl_pick_country">Choisir un pays ou une région</string>
+    <string name="zm_lbl_dial_select_number_18332">SÉLECTIONNER UN NUMÉRO À COMPOSER</string>
+	<string name="zm_lbl_dial_pick_number_18332">CHOISISSEZ UN NUMÉRO À COMPOSER SUR LE TÉLÉPHONE</string>
+    <string name="zm_lbl_dial_meeting_desc_18332">Le Nº de réunion et Nº de participant sera composés automatiquement. Vous pouvez ignorez tous les messages qui vous demandent ces numéros.</string>
+    <string name="zm_lbl_join_meeting_desc_18332">Si vous utilisez un autre dispositif pour composer le numéro, vous pourriez avoir besoin des informations suivantes</string>
+    <string name="zm_content_desc_dial_toll_call_18332">Frais d’appel</string>
+   	<string name="zm_content_desc_dial_free_call_18332">Appel gratuit</string>
     <string name="zm_lbl_dial_number">Composer le nº</string>
     <string name="zm_lbl_meeting_info">Renseignements sur la réunion</string>
     <string name="zm_lbl_toll_number_hint">Frais d’appel</string>
@@ -261,7 +272,7 @@
     <string name="zm_lbl_personal_meeting_id_modify_instruction_11">Choisissez votre Nº personnel pour la réunion en 11 chiffres</string>
     <string name="zm_lbl_profile_change_fail_cannot_connect_service">Impossible de se connecter au service, veuillez vérifier votre connexion réseau, puis réessayer.</string>
     <string name="zm_lbl_personal_meeting_id_change_fail_invalid">Ce Nº est pris, veuillez en choisir un nouveau.</string>
-    <string name="zm_lbl_personal_meeting_id_change_fail_meeting_started">Impossible de modifier le Nº de réunion ID pendant la réunion.</string>
+    <string name="zm_lbl_personal_meeting_id_change_fail_meeting_started">Impossible de modifier le Nº de réunion ID pendant la réunion</string>
     <string name="zm_lbl_personal_meeting_id_change_fail_unknown">Erreur pour le Nº personnel pour la réunion Code d’erreur : %d</string>
     <string name="zm_lbl_personal_meeting_id_rule_cn">* Il est recommandé d’employer votre Nº de téléphone comme Nº personnel pour la réunion</string>
     <string name="zm_lbl_personal_meeting_id_account_type_invalid">Mise à niveau vers pro pour obtenir votre ID de réunion personnel préféré.</string>
@@ -369,7 +380,9 @@
     <string name="zm_lbl_allow_new_member_see_chat_history">Autorisez les nouveaux membres à accéder à l’historique du chat</string>
     <string name="zm_lbl_content_send_to">Envoyer à %s</string>
     <string name="zm_lbl_closedCaption">Sous-titrage codé</string>
-    <string name="zm_lbl_closedCaption_description">Lorsque le sous-titrage codé est disponible, Zoom l\'affichera sur la vidéo principale.</string>
+    <string name="zm_lbl_showTimer_539">Afficher mon heure de connexion</string>
+    <string name="zm_lbl_closedCaption_description">Lorsque le sous-titrage codé est disponible, Zoom l\'affichera sur la vidéo principale</string>
+    <string name="zm_lbl_showTimer_description_539">Afficher une horloge montrant la durée de votre connexion à la réunion</string>
     <string name="zm_lbl_participants_in_meeting">Intervenants(%d)</string>
     <string name="zm_lbl_participants_in_waiting">Participants(%d)</string>
     <string name="zm_lbl_people_in_waiting">Attente(%d)</string>
@@ -381,6 +394,7 @@
     <string name="zm_lbl_live_connecting">Préparation…</string>
 
     <string name="zm_lbl_lock_meeting_desc">Une fois qu’elle est active, cette réunion n’admet pas de nouveaux participants.</string>
+    <string name="zm_lbl_lock_webinar_desc_18265">Une fois activé, le nouveau participant ne peut pas rejoindre ce webinaire.</string>
     <string name="zm_lbl_lock_share_desc">Une fois que la réunion est active, seul l’animateur peut partager le contenu.</string>
 
     <plurals name="zm_lbl_webinar_telephony_user_count">
@@ -393,9 +407,10 @@
     <string name="zm_lbl_password_new">Nouveau mot de passe</string>
     <string name="zm_lbl_confirm">Confirmer</string>
     <string name="zm_lbl_disable_addon_notification">Désactiver toutes les notifications supplémentaires</string>
-    <string name="zm_lbl_custom_status_13602">Statut personnalisé</string>
+    <string name="zm_lbl_custom_status_13602">Note personnelle</string>
     <string name="zm_lbl_give_feedback_12050">Donner un retour non verbale à l’animateur</string>
     <string name="zm_lbl_change_feedback_12050">Appuyez pour modifier votre retour</string>
+    <string name="zm_lbl_custom_status_des_13602">Vous pouvez spécifier certains segments qui apparaissent pour toute personne qui visite votre profil. Utilisez ces segments afin d’offrir de l’information détaillée à propos de votre statut.</string>
 
     <string name="zm_btn_redownload">Relancer le téléchargement</string>
     <string name="zm_btn_install">Installer maintenant</string>
@@ -529,7 +544,7 @@
     <string name="zm_btn_share_local_file">Document</string>
     <string name="zm_btn_share_one_drive">OneDrive</string>
     <string name="zm_btn_share_screen">Écran</string>
-    <string name="zm_btn_share_whiteboard">Tableau blanc du partage</string>
+	<string name="zm_btn_share_whiteboard">Tableau blanc du partage</string>
     <string name="zm_btn_share_google_drive">Google Drive</string>
     <string name="zm_btn_share_all_file">Fichier</string>
 
@@ -557,20 +572,23 @@
     <string name="zm_btn_erase">Gomme</string>
     <!--  One of the annotation tool during sharing, "Color" allows user to change color for the lines they draw.  -->
     <string name="zm_btn_color">Couleur</string>
-    <string name="zm_btn_autoLine">Ligne</string>
+	<string name="zm_btn_autoLine">Ligne</string>
     <string name="zm_btn_arrow">Flèche</string>
     <string name="zm_btn_rectangle">Rectangle</string>
     <string name="zm_btn_oval">Ovale</string>
-    <string name="zm_bnt_undo">Annuler</string>
+    <string name="zm_btn_text_15986">Texte</string>
+	<string name="zm_bnt_undo">Annuler</string>
     <string name="zm_bnt_redo">Rétablir</string>
     <string name="zm_bnt_clear">Effacer</string>
     <string name="zm_bnt_anno_save_photos">Enregistrer dans l’album de photos</string>
     <string name="zm_btn_raise_hand">Lever la main</string>
     <string name="zm_btn_lower_hand">Abaisser la main</string>
-    <string name="zm_btn_enable_annotation">Permettre les annotations des participants</string>
+	<string name="zm_btn_enable_annotation">Permettre les annotations des participants</string>
     <string name="zm_btn_disable_annotation">Interdire les annotations des participants</string>
     <string name="zm_btn_lower_all_hands">Abaisser toutes les mains</string>
     <string name="zm_btn_rename">Renommer</string>
+    <string name="zm_btn_assign_cc_typer_16896">Affecter à la saisie des sous-titres</string>
+ 	<string name="zm_btn_disassign_cc_typer_16896">Retirer l’affection à la saisie des sous-titres</string>
     <string name="zm_btn_sign_in_again">Se connecter à nouveau</string>
     <string name="zm_btn_hangup">Raccrocher</string>
     <string name="zm_btn_start_my_video">Démarrer ma vidéo</string>
@@ -595,6 +613,9 @@
     <string name="zm_btn_stop_streaming">Arrêter Diffusion en direct</string>
     <string name="zm_btn_clear_feedback_12050">Effacer mon retour</string>
     <string name="zm_btn_clear_all_12050">Effacer tous</string>
+    <string name="zm_btn_login_with_sso_13762">Se connecter avec SSO</string>
+    <string name="zm_btn_open_with_app_14906">Ouvrir le vidéo en utilisant une autre application</string>
+
     <string name="zm_chk_enable_jbh">Les participants peuvent se joindre avant l’animateur</string>
     <string name="zm_chk_add_to_calendar">Ajouter au calendrier</string>
     <string name="zm_chk_host_video_on">Vidéo de l’animateur activée</string>
@@ -667,6 +688,7 @@
     <string name="zm_hintl_not_set">Pas encore paramétré</string>
     <string name="zm_hint_password_verify">Vérifiez votre mot de passe</string>
     <string name="zm_hint_password_set_new">Configurer un nouveau mot de passe</string>
+    <string name="zm_hint_not_personal_note_13602">Qu\'est-ce qui se passe de bon aujourd’hui ?</string>
 
     <string name="zm_title_login">Connexion</string>
     <string name="zm_title_signup">S’inscrire</string>
@@ -686,6 +708,8 @@
     <string name="zm_title_conf">%s</string>
     <string name="zm_title_meeting_info">Info</string>
     <string name="zm_title_login_with_google">Se connecter avec Google</string>
+    <string name="zm_title_login_with_google_13762">Connexion Google requise</string>
+    <string name="zm_title_login_with_sso_13762">Connexion SSO requise</string>
     <!-- The string "%s" will be replaced by a username. Example: "From Cindy Smith to All"-->
     <string name="zm_title_conf_chat_public">De %s à tous</string>
     <string name="zm_title_conf_chat_private_from">De %s (privé)</string>
@@ -742,7 +766,7 @@
     <string name="zm_title_password_fail">Erreur lors du changement du mot de passe</string>
     <string name="zm_title_edit_emoji_no_selected">Modifier une émoticône</string>
     <plurals name="zm_title_edit_emoji_selected">
-        <item quantity="one">Une émoticône sélectionnée</item>
+        <item quantity="one">%d émoticône sélectionnée</item>
         <item quantity="other">Émoticônes %d sélectionnées</item>
     </plurals>
 
@@ -753,12 +777,13 @@
 
     <string name="zm_alert_login_failed">Échec de la connexion</string>
     <string name="zm_alert_connect_facebook_failed_msg">Impossible de se connecter à Facebook.</string>
-    <string name="zm_alert_auth_zoom_failed_msg">E-mail ou mot de passe non valide.</string>
-    <string name="zm_alert_auth_token_failed_msg">L’authentification a échoué, veuillez réessayer.</string>
-    <string name="zm_alert_account_locked">Votre compte a été bloqué en raison de multiples tentatives de connexion infructueuses.</string>
-    <string name="zm_alert_unknown_error">Erreur inconnue !</string>
+    <string name="zm_alert_auth_zoom_failed_msg">E-mail ou mot de passe non valide</string>
+    <string name="zm_alert_auth_token_failed_msg">L’authentification a échoué, veuillez réessayer</string>
+    <string name="zm_alert_account_locked">Votre compte a été bloqué en raison de multiples tentatives de connexion infructueuses</string>
+    <string name="zm_alert_unknown_error">Erreur inconnue</string>
     <string name="zm_alert_auth_error_code_msg">Code d’erreur : %d</string>
-    <string name="zm_alert_connect_google_failed_msg">Impossible de se connecter à Google.</string>
+    <string name="zm_alert_connect_google_failed_msg">Impossible de se connecter à Google</string>
+    <string name="zm_alert_web_auth_google_failed_9514">Votre tentative de connexion a échouée. Vous devrez vous connecter à nouveau. Veuillez contacter le département TI si ce problème survient fréquemment.</string>
     <!-- If user signs in with SSO, the string "%s" will be replaced with the "server address" user inputs.  -->
     <string name="zm_alert_connect_ssosite_failed_msg">Impossible de se connecter à %s.</string>
     <string name="zm_alert_network_disconnected">Échec de la connexion. Vérifiez votre connexion au réseau, puis réessayez.</string>
@@ -780,7 +805,7 @@
     <string name="zm_alert_lock_meeting_confirm">Une fois qu’elle est verrouillée, cette réunion n’admet pas de nouveaux participants.</string>
     <string name="zm_alert_unlock_meeting_confirm">Les nouveaux participants peuvent rejoindre cette réunion une fois qu’elle est déverrouillée.</string>
     <string name="zm_alert_lock_share_confirm">Seul l’animateur peut partager l’écran une fois la réunion verrouillée.</string>
-    <string name="zm_alert_unlock_share_confirm">Le participant peut maintenant partager son écran car la réunion est déverrouillée.</string>
+    <string name="zm_alert_unlock_share_confirm">Le participant peut maintenant partager son écran car la réunion est déverrouillée</string>
     <string name="zm_alert_delete_meeting_confirm">Voulez-vous supprimer cette réunion ?</string>
     <string name="zm_alert_delete_history_confirm">Voulez-vous supprimer l’historique de cette réunion ?</string>
     <string name="zm_alert_delete_meeting_failed">Échec de la suppression de cette réunion.</string>
@@ -798,7 +823,7 @@
     <string name="zm_alert_invlid_url">URL non valide !</string>
     <string name="zm_alert_unsupported_format">Type de document non pris en charge, merci de sélectionner une image ou un PDF !</string>
     <string name="zm_alert_start_share_fail">Impossible de commencer à partager !</string>
-    <string name="zm_alert_select_count_reach_max">Vous avez atteint le nombre maximum de membres du groupe.</string>
+    <string name="zm_alert_select_count_reach_max">Vous avez atteint le nombre maximum de membres du groupe</string>
     <string name="zm_alert_upload_file_failed">Impossible de télécharger le fichier</string>
     <string name="zm_alert_download_file_failed">Impossible de télécharger le dossier.</string>
     <string name="zm_alert_share_file_failed">Impossible de partager le fichier.</string>
@@ -809,14 +834,16 @@
     <string name="zm_alert_upload_files_failed">Impossible de télécharger les fichiers</string>
     <string name="zm_alert_unshare_msg">Annuler le partage ne supprimera pas votre fichier, mais les membres du groupe actuel ne pourront plus y accéder.</string>
     <string name="zm_alert_block_confirm_title">Bloquer Confirmation</string>
-    <string name="zm_alert_block_confirm_msg">%s sera bloqué et ne pourra pas vous contacter.</string>
+    <string name="zm_alert_block_confirm_msg">%s sera bloqué et ne pourra pas vous contacter</string>
     <string name="zm_alert_live_streaming_failed">Impossible de diffuser votre webinaire à %s</string>
+    <string name="zm_alert_login_with_google_13762">Vous devez vous connecter à Zoom en utilisant les identifiants de votre compte Google</string>
+    <string name="zm_alert_login_with_sso_13762">Vous devez vous connecter à Zoom en utilisant vos identifiants Single Sign-On (SSO)</string>
 
 
     <string name="zm_msg_no_buddies_fb">Aucun ami en ligne</string>
     <string name="zm_msg_no_buddies_google">Aucun ami en ligne</string>
     <string name="zm_msg_no_favorite_contacts">Pas de contact d’entreprise</string>
-    <string name="zm_msg_no_favorite_contacts_sub_note">Cliquer sur le bouton Ajouter ci-dessus afin d’ajouter des contacts d’entreprise.</string>
+    <string name="zm_msg_no_favorite_contacts_sub_note">Cliquer sur le bouton Ajouter ci-dessus afin d’ajouter des contacts d’entreprise</string>
     <string name="zm_msg_no_online_contacts_zoom">Pas de contact en ligne</string>
     <string name="zm_msg_no_system_contacts">Vous n’avez aucun contact dans votre carnet d’adresses.</string>
     <string name="zm_msg_no_chats_no_history">Pas encore de message de conversation instantanée</string>
@@ -871,7 +898,7 @@
     <string name="zm_msg_conffail_webinar_register_with_host_email">Si vous en êtes l’animateur, veuillez vous connecter afin de démarrer le webinaire.</string>
     <string name="zm_msg_conffail_webinar_register_with_panelist_email">Si vous avez été invité en tant que conférencier, veuillez vous rejoindre le webinaire à l’aide du lien communiqué dans votre e-mail d’invitation.</string>
     <string name="zm_msg_conffail_webinar_register_denied">L’animateur a refusé votre enregistrement au webinaire.</string>
-    <string name="zm_msg_conffail_signin_join">Veuillez vous connecter avec votre compte d’entreprise afin de rejoindre le webinaire</string>
+    <string name="zm_msg_conffail_signin_join_17745">Cliquez sur \"Sign In\" pour vous identifier à Zoom avec une adresse électronique autorisée pour rejoindre cette réunion.</string>
     <string name="zm_msg_conffail_meeting_name_unvalid">Ce nom de salle de réunion n’est pas valide. Veuillez vérifier et réessayer.</string>
     <string name="zm_msg_conffail_join_webinar_withsameemail">L’adresse mail a été enregistrée par un autre utilisateur, veuillez utiliser une adresse différente.</string>
     <string name="zm_msg_user_joined">%s\na rejoint</string>
@@ -915,17 +942,28 @@
     <string name="zm_msg_meeting_end">Cette réunion a été terminée par son animateur.</string>
     <string name="zm_msg_meeting_player_reminder_for_host">Votre réunion gratuite prendra fin dans 10 minutes, vous pouvez passer à la version Pro en souscrivant à un compte payant à 14,99 $ par mois avec un nombre illimité de minutes.</string>
     <string name="zm_msg_meeting_player_reminder_for_host_title">Mettre à jour le compte</string>
-    <string name="zm_msg_meeting_player_reminder_for_attendee">Cette rencontre gratuite prendra fin dans 10 minutes. L’animateur de la réunion doit souscrire à un compte payant à 14,99 $ par mois pour un nombre illimité de minutes.</string>
+    <string name="zm_msg_meeting_player_reminder_for_attendee">Cette rencontre gratuite prendra fin dans 10 minutes. L’animateur de la réunion doit souscrire à un compte payant à 14,99 $ par mois pour un nombre illimité de minutes</string>
     <string name="zm_msg_meeting_player_reminder_for_attendee_title">Alerte de réunion</string>
+    <string name="zm_msg_manage_cloud_storage_btn_5537">Gérer le stockage en nuage</string>
+    <string name="zm_record_msg_start_cmr_error_5537">Impossible de commencer à l’enregistrement dans le nuage</string>
+    <string name="zm_msg_cmr_storage_full_title_5537">L’enregistrement dans le nuage n’a pas commencé.</string>
+    <string name="zm_msg_cmr_storage_full_reminder_original_host_5537">Votre compte a utilisé tout l’espace de stockage dans le nuage actuellement disponible. Pour enregistrer dans le nuage, supprimez des anciens enregistrements ou mettez à niveau votre forfait d’enregistrement dans le nuage.</string>
+    <string name="zm_msg_cmr_storage_full_reminder_original_host_cannot_upgrade_5537">Votre compte a utilisé tout l’espace de stockage dans le nuage actuellement disponible. Pour enregistrer dans le nuage, supprimez des anciens enregistrements.</string>
+    <string name="zm_msg_cmr_storage_full_reminder_attendee_5537">Le stockage dans le nuage n’a pas assez d’espace. Veuillez contacter l’animateur pour mettre le forfait à niveau ou supprimer d’anciens fichiers d’enregistrement.</string>
+    <string name="zm_msg_upgrade_free_meeting_title_15609">Essayez une conférence Zoom illimitée</string>
+    <string name="zm_msg_upgrade_free_meeting_15609">À titre d’utilisateur de base, votre conférence gratuite ne peut durer que 40 minutes. Zoom vous offre une offre unique afin d’augmenter la durée de votre conférence. Cliquez sur « continuer » afin de profiter de votre conférence illimitée gratuitement. Merci d’avoir choisi Zoom.</string>
+    <string name="zm_msg_upgrade_free_meeting_failed_title_15609">L’extension de la conférence a échoué.</string>
+     <string name="zm_msg_upgrade_free_meeting_success_15609">Cette conférence n’a plus de limites de temps.</string>
+    <string name="zm_msg_upgrade_free_meeting_failed_15609">Actuellement, Zoom ne peut rallonger votre conférence gratuite. Votre conférence se terminera au bout de 40 minutes. \n(ERREUR : %d)</string>
     <string name="zm_msg_conf_paid_meeting_start_reminder">Votre compte a été surclassé avec succès. Votre réunion n’a plus aucune limite de durée.</string>
     <string name="zm_msg_conf_host_paid_reminder">L’animateur de la réunion a surclassé son compte en compte Pro. Cette réunion n’a plus aucune limite de durée.</string>
     <string name="zm_msg_jbh_meeting_timeout">La réunion a pris fin parce que l’animateur n’est pas venu.</string>
-    <string name="zm_msg_meeting_end_by_host_start_another_meeting">Cette réunion a pris fin parce que quelqu’un en a démarré une autre avec ce compte.</string>
-    <string name="zm_msg_meeting_youarehost">Vous êtes désormais l’animateur.</string>
-    <string name="zm_msg_meeting_you_are_cohost">Vous êtes désormais le co-animateur.</string>
+    <string name="zm_msg_meeting_end_by_host_start_another_meeting">Cette réunion a pris fin parce que quelqu’un en a démarré une autre avec ce compte</string>
+    <string name="zm_msg_meeting_youarehost">Vous êtes désormais l’animateur</string>
+    <string name="zm_msg_meeting_you_are_cohost">Vous êtes désormais le co-animateur</string>
     <string name="zm_msg_meeting_xxx_are_cohost">%s est le co-animateur maintenant.</string>
-    <string name="zm_msg_doubletap_enter_pinvideo">Appuyer deux fois sur l’écran pour désépingler la vidéo.</string>
-    <string name="zm_msg_doubletap_leave_pinvideo">Désépingler la vidéo.</string>
+    <string name="zm_msg_doubletap_enter_pinvideo">Appuyer deux fois sur l’écran pour désépingler la vidéo</string>
+    <string name="zm_msg_doubletap_leave_pinvideo">Désépingler la vidéo</string>
     <string name="zm_msg_waiting_search_domain_user">Veuillez patienter…</string>
     <string name="zm_msg_waiting_edit_meeting">Veuillez patienter…</string>
     <string name="zm_msg_stop_video_to_save_bandwidth_title">Mode audio seulement</string>
@@ -942,7 +980,7 @@
     <string name="zm_msg_didnot_receive_text_message">Vous n’avez pas reçu de SMS ?</string>
     <string name="zm_msg_muted_for_sharing_audio_started">Votre micro est coupé afin que vous puissiez entendre le son à distance pendant le partage d’écran.</string>
     <string name="zm_msg_unmuted_for_sharing_audio_stopped">Votre micro est réactivé. Le partage d’écran avec son à distance est arrêté.</string>
-    <string name="zm_msg_muted_for_leadership_mode_started">Votre micro est coupé afin de rester concentré sur %s, la vidéo en vedette.</string>
+    <string name="zm_msg_muted_for_leadership_mode_started">Votre micro est coupé afin de rester concentré sur %s, la vidéo en vedette</string>
     <string name="zm_msg_unmuted_for_leadership_mode_stopped">Votre micro est réactivé. La vidéo en vedette s’est arrêtée.</string>
     <string name="zm_msg_cannot_unmute_for_host_muted_all">Vous ne pouvez pas réactiver vous-même votre micro, car l’animateur a coupé tous les participants.</string>
     <string name="zm_msg_register_phone_number_failed">Échec de l’enregistrement de votre numéro de téléphone. Vérifiez votre connexion au réseau, puis réessayez.</string>
@@ -954,7 +992,7 @@
     <string name="zm_msg_video_calling">En train de composer…</string>
     <string name="zm_msg_connecting">Connexion…</string>
     <string name="zm_msg_connected">Connecté</string>
-    <string name="zm_msg_audio_changed_to_phone">Vous utilisez le téléphone.</string>
+    <string name="zm_msg_audio_changed_to_phone">Vous utilisez le téléphone</string>
     <string name="zm_msg_audio_changed_to_voip">Vous utilisez le son du périphérique.</string>
     <string name="zm_msg_xxx_did_not_answer">%s n’a pas répondu.</string>
     <string name="zm_msg_driving_mode_title">Mode pilotage</string>
@@ -969,7 +1007,7 @@
     <string name="zm_msg_link_account">Liez votre compte pour trouver davantage de contacts à partir de votre réseau. Une fois votre compte lié, vous pouvez utiliser des fonctionnalités telles que le Nº personnel pour la réunion.</string>
     <string name="zm_msg_unlink_account">Si vous désactivez votre compte lié, les autres contacts disparaîtront et vous ne pourrez pas utiliser des fonctionnalités telles que le Nº personnel pour la réunion.</string>
     <string name="zm_msg_voip_disconnected_for_echo_detected">Votre son est déconnecté car nous avons détecté un écho.</string>
-    <string name="zm_msg_only_paid_user_can_modify_pmi">Passer à la version Pro afin de changer votre Nº personnel pour la réunion.</string>
+    <string name="zm_msg_only_paid_user_can_modify_pmi">Passer à la version Pro afin de changer votre Nº personnel pour la réunion</string>
     <string name="zm_msg_mute_all_confirm">Les micros de tous les participants seront coupés, y compris les nouveaux</string>
     <string name="zm_msg_mute_all_allow_unmute_self">Permettre aux participants de réactiver eux-mêmes leur micro</string>
     <string name="zm_msg_new_group_chat_instructions">Créer un nom pour ce groupe</string>
@@ -1007,7 +1045,7 @@
     <string name="zm_msg_pdf_page_err">Erreur d’affichage de la page %d</string>
     <string name="zm_msg_loading_image_to_share">Chargement de l’image…</string>
     <string name="zm_msg_file_supported_type_prompt">Choisissez un fichier (format PDF ou image) à partager avec les participants.</string>
-    <string name="zm_msg_memory_size_insufficient">Stockage insuffisant !</string>
+    <string name="zm_msg_memory_size_insufficient">Stockage insuffisant</string>
     <string name="zm_msg_download_file_progress">Téléchargement… (%d %%)</string>
     <string name="zm_msg_download_file_size">Téléchargement… (%s)</string>
     <string name="zm_msg_load_dir_fail">Échec du téléchargement du répertoire « %s » !</string>
@@ -1024,24 +1062,16 @@
     <string name="zm_msg_e2e_unable_decrypt">[Ceci est un message chiffré]</string>
     <string name="zm_msg_e2e_chatslist_decrypt_failed">[Message chiffré]</string>
     <string name="zm_msg_e2e_message_decrypting">Déchiffrement…</string>
-    <string name="zm_msg_e2e_cant_send_offline">Le chiffrement des conversations a été activé pour votre compte, et vous ne pouvez donc pas envoyer de messages à des contacts hors ligne.</string>
-    <string name="zm_msg_e2e_group_offline_unreceived">Le chiffrement des conversations a été activé pour ce groupe, et les membres hors ligne ne peuvent pas voir vos messages</string>
-    <string name="zm_msg_e2e_send_old_client">%s utilise actuellement une ancienne version du client Zoom et ne peut pas voir vos messages.</string>
-    <string name="zm_msg_e2e_in_normal_group">Le chiffrement des conversations a été activé pour votre compte, et vous ne pouvez donc pas envoyer de messages à l’intérieur d’un groupe sans les chiffrer.</string>
     <string name="zm_msg_e2e_encryed_message">Le contenu du message a été chiffré. </string>
     <string name="zm_msg_e2e_receiver_not_buddy">Le chiffrement des conversations a été activé pour votre compte, et vous ne pouvez donc pas envoyer de messages à un destinataire qui ne fait pas partie de vos contacts.</string>
-    <string name="zm_msg_e2e_invite_e2e">Inviter %s à démarrer la conversation</string>
-    <string name="zm_msg_e2e_invite_e2e_warn_detail">Le chiffrement des conversations a été activé pour votre compte, et vous devez par conséquent inviter %s en ligne pour commencer la conversation.</string>
-    <string name="zm_msg_e2e_invite_e2e_warn_detail_other_e2e">Le chiffrement des conversations a été activé pour le compte de %1$s, et vous devez par conséquent inviter %2$s en ligne pour commencer la conversation.</string>
-    <string name="zm_msg_e2e_wait_online">En attente de la connexion de %s…</string>
     <string name="zm_msg_e2e_get_invite">%s vous invite à converser</string>
     <string name="zm_msg_e2e_state_ready">Vous pouvez maintenant commencer votre conversation chiffrée de bout en bout avec %s.</string>
     <string name="zm_msg_e2e_invite_accepted">%s a accepté votre invitation à une conversation</string>
     <string name="zm_msg_xmpp_disconnect">Le messager est maintenant inactif.</string>
     <string name="zm_msg_confirm_group_call">Vous êtes sur le point de commencer une réunion et d’inviter tous les membres de ce groupe à s’y joindre. En êtes-vous sûr ?</string>
     <string name="zm_msg_unknow_company_domain">Je ne connais pas le domaine de la compagnie</string>
-    <string name="zm_msg_manualy_enter_domain">Entrer le domaine manuellement</string>
     <string name="zm_msg_sticker_too_large">La taille de l\'image dépasse la limite (8 Mo).</string>
+    <string name="zm_msg_manualy_enter_domain">Entrer le domaine manuellement</string>
     <string name="zm_msg_img_too_large">La taille de l’image dépasse la limite autorisée (8MB). Veuillez l’envoyer en tant que fichier.</string>
     <string name="zm_msg_file_too_large">La taille du fichier dépasse la limite autorisée (512MB) et ne peut pas être téléchargé.</string>
     <string name="zm_msg_illegal_image">Une image non valide.</string>
@@ -1051,7 +1081,7 @@
     <string name="zm_msg_audio_muted">En sourdine</string>
     <string name="zm_msg_audio_not_muted">micro réactivé</string>
     <string name="zm_msg_waiting_webinear_start">Patientez. Le webinaire va bientôt commencer.</string>
-    <string name="zm_msg_buddy_blocked_13433">Vous avez déjà bloqué %s et ne pouvez pas envoyer ou recevoir de messages de cette personne.</string>
+    <string name="zm_msg_buddy_blocked_13433">Vous avez déjà bloqué %s et ne pouvez pas envoyer ou recevoir de messages de cette personne</string>
     <string name="zm_msg_delete_by_admin">Vous êtes l\'administrateur de ce groupe. Vous devez tranférer les privilèges d\'administrateur ou supprimer le groupe avant de le quitter.</string>
     <string name="zm_msg_confirm_disband">Vous avez définitivement supprimé toutes les conversations du groupe, les fichiers et d\'autres renseignements connexes. Il n\'y a aucun moyen de récupérer ces informations.</string>
     <string name="zm_msg_call_phonenum">Appeler %s</string>
@@ -1059,19 +1089,20 @@
     <string name="zm_msg_recall_failed">Impossible de rappeler un message.</string>
     <string name="zm_msg_recall_timeout">Impossible de rappeler le message. Vous ne pouvez rappeler que les messages envoyés au cours des deux dernières minutes.</string>
     <string name="zm_msg_recall_by_me">Vous avez rappelé un message.</string>
-    <string name="zm_msg_recall_by_other">%s a rappelé un message.</string>
+    <string name="zm_msg_recall_by_other">%s a rappelé un message</string>
     <string name="zm_msg_webhoot_new_notification">%s: [Nouvelle notification]</string>
-    <string name="zm_msg_duplicate_emoji">Cet émoticône existe déjà.</string>
+    <string name="zm_msg_duplicate_emoji">Cet émoticône existe déjà</string>
     <string name="zm_msg_meetingno_hook_title">%s peut être un numéro de réunion Zoom ou un numéro de téléphone, vous pouvez :</string>
     <string name="zm_msg_unsupport_message_13802">[Passer à la version la plus récente pour voir ce message.]</string>
     <plurals name="zm_msg_notification_unread_num_8295">
+        <item quantity="one">%1$s(%2$d messages non lus)</item>
         <item quantity="other">%1$s(%2$d messages non lus)</item>
     </plurals>
 
     <string name="zm_msg_xxx_join_meeting_in_waiting_list">%s est entré dans la salle d\'attente pour cette réunion</string>
     <plurals name="zm_msg_join_meeting_in_waiting_list">
-        <item quantity="one">1 personne est entrée dans la salle d\'attente pour cette réunion</item>
-	<item quantity="other">%d personnes sont entrées dans la salle d\'attente pour cette réunion</item>
+        <item quantity="one">%d personne est entrée dans la salle d\'attente pour cette réunion</item>
+	    <item quantity="other">%d personnes sont entrées dans la salle d\'attente pour cette réunion</item>
     </plurals>
 
     <string name="zm_msg_waiting_meeting_nitification">Veuillez patienter, l\'hôte de la réunion vous laissera bientôt entrer</string>
@@ -1169,7 +1200,7 @@
     <string name="zm_mm_title_share_to">choisissez et partagez dans…</string>
     <string name="zm_mm_title_forward_to">Faire suivre…</string>
     <string name="zm_mm_title_invite_member">Invitez des membres</string>
-    <string name="zm_mm_title_set_custom_status_13602">Configurer le statut personnalisé</string>
+    <string name="zm_mm_title_set_custom_status_13602">Note personnelle</string>
 
     <string name="zm_mm_msg_rcd_hint_move_up_to_cancel">Remonter pour annuler</string>
     <string name="zm_mm_msg_rcd_hint_release_to_cancel">Relâcher pour annuler</string>
@@ -1178,11 +1209,11 @@
     <string name="zm_mm_msg_make_group_failed">Impossible de démarrer un message de groupe. (Code d’erreur : %d)</string>
     <string name="zm_mm_msg_join_group_failed">Impossible de rejoindre un groupe public. Code d’erreur : %d</string>
     <string name="zm_mm_msg_make_group_failed_too_many_buddies">Impossible de démarrer un message de groupe pour plus de membres.</string>
-    <string name="zm_mm_msg_change_group_topic_failed">Impossible de changer de sujet.</string>
+    <string name="zm_mm_msg_change_group_topic_failed">Impossible de changer de sujet</string>
     <string name="zm_mm_msg_convert_private_group_failed">Impossible de convertir au groupe privé.</string>
     <string name="zm_mm_msg_add_buddies_to_group_failed">Impossible d’ajouter des contacts au message de groupe. (Code d’erreur : %d)</string>
     <string name="zm_mm_msg_add_buddies_not_allowed">%s ne peut être invité dans ce groupe interne</string>
-    <string name="zm_mm_msg_add_buddies_to_group_failed_too_many_buddies">Vous avez atteint le nombre maximum de membres pour le groupe.</string>
+    <string name="zm_mm_msg_add_buddies_to_group_failed_too_many_buddies">Vous avez atteint le nombre maximum de membres pour le groupe</string>
     <string name="zm_mm_msg_quit_group_failed">Impossible de quitter ce message de groupe. (Code d’erreur : %d)</string>
     <string name="zm_mm_msg_remove_buddy_from_group_failed">Impossible d’exclure le contact de ce message de groupe. (Code d’erreur : %d)</string>
     <string name="zm_mm_msg_destory_group_failed">Impossible de supprimer ce message de groupe. (Code d\'erreur : %d)</string>
@@ -1201,7 +1232,7 @@
     <string name="zm_mm_msg_resend_message_confirm">Envoyer ce message de nouveau ?</string>
     <string name="zm_mm_msg_network_unavailable">Le réseau n’est pas disponible</string>
     <string name="zm_mm_msg_saved_to_album">Enregistré dans l’album</string>
-    <string name="zm_mm_msg_stream_conflict">Cliquer pour réactiver votre messager.</string>
+    <string name="zm_mm_msg_stream_conflict">Cliquer pour réactiver votre messager</string>
     <string name="zm_mm_msg_add_contact_request_sent">Votre demande a été envoyée avec succès !</string>
     <string name="zm_mm_msg_search_contact_result_is_buddy">%1$s est déjà dans vos contacts.</string>
     <string name="zm_mm_msg_no_emoji">[emoji]</string>
@@ -1253,6 +1284,7 @@
     <string name="zm_description_contact_request_pending">En attente</string>
     <string name="zm_system_notification_delete_reqeust">Supprimer</string>
     <string name="zm_system_notification_no_item">Vous n’avez aucune notification</string>
+    <string name="zm_contact_request_no_item_14291">Vous n’avez aucune demande de Contacts.</string>
     <string name="zm_system_notification_done">Terminé</string>
     <string name="zm_session_recive_contact_request">%1$s demande de vous ajouter en tant que contact</string>
     <string name="zm_session_contact_request_accept_byother">%1$s a accepté votre demande de contact</string>
@@ -1260,20 +1292,20 @@
     <string name="zm_btn_add_contact">Ajouter un contact</string>
 
     <!-- content description for accessibility begin -->
-    <string name="zm_description_mm_block">Bloqué.</string>
+    <string name="zm_description_mm_block">Bloqué</string>
     <string name="zm_description_mm_presence_available">Disponible.</string>
     <string name="zm_description_mm_presence_idle">En attente.</string>
     <string name="zm_description_mm_presence_dnd">Ne pas déranger.</string>
     <string name="zm_description_mm_presence_offline">Hors ligne.</string>
     <string name="zm_description_mm_msg_failed">Échec de l’envoi de message.</string>
     <string name="zm_description_mm_btn_more">Plus d’options.</string>
-    <string name="zm_description_mm_btn_mode_voice">Message vocal.</string>
+    <string name="zm_description_mm_btn_mode_voice">Message vocal</string>
     <string name="zm_description_mm_btn_mode_keyboard">Message texte.</string>
     <string name="zm_description_mm_btn_chat_options">Options de conversation.</string>
     <string name="zm_description_mm_btn_group_message_options">Options de message de groupe.</string>
     <string name="zm_description_mm_btn_add_contacts">Ajouter des contacts.</string>
     <string name="zm_description_mm_btn_search">Recherche</string>
-    <string name="zm_description_mm_btn_system_notification">Notification système.</string>
+    <string name="zm_description_mm_btn_system_notification">Notification système</string>
     <string name="zm_description_mm_btn_add_buddy">Ajouter un ami.</string>
     <string name="zm_description_mm_btn_remove_buddy">Supprimer l’ami.</string>
     <string name="zm_description_mm_btn_clear_search">Effacer la recherche.</string>
@@ -1320,7 +1352,7 @@
 
     <string name="zm_description_tap_speak">Votre micro est coupé, appuyez deux fois sur l’écran pour parler.</string>
     <string name="zm_description_done_speaking">Votre microphone est réactivé, appuyez deux fois sur l’écran pour arrêter de parler.</string>
-    <string name="zm_description_video_stopped">Votre vidéo est arrêtée.</string>
+    <string name="zm_description_video_stopped">Votre vidéo est arrêtée</string>
 
     <string name="zm_description_plist_status_recording">Enregistrement en cours.</string>
     <string name="zm_description_plist_status_raise_hand">En train de lever la main.</string>
@@ -1331,12 +1363,20 @@
     <string name="zm_description_plist_status_unread_chat_message">Le nombre de messages de conversation non lus est %s.</string>
 
     <string name="zm_description_toolbar_btn_status_audio_disconnect">Audio, déconnecté.</string>
-    <string name="zm_description_toolbar_btn_status_audio_phone_muted">Audio, téléphone, coupé.</string>
-    <string name="zm_description_toolbar_btn_status_audio_phone_unmuted">Audio, téléphone, rétabli.</string>
+    <string name="zm_description_toolbar_btn_status_audio_muted_17843">couper mon audio</string>
+    <string name="zm_description_toolbar_btn_status_audio_unmuted_17843">rétablir mon audio</string>
     <string name="zm_description_toolbar_btn_status_audio_voip_muted">Audio, son de l’appareil, coupé.</string>
     <string name="zm_description_toolbar_btn_status_audio_voip_unmuted">Audio, son de l’appareil, rétabli.</string>
-    <string name="zm_description_toolbar_btn_status_video_muted">Vidéo, activée.</string>
-    <string name="zm_description_toolbar_btn_status_video_unmuted">Vidéo, désactivée.</string>
+    <string name="zm_description_toolbar_btn_status_video_muted_17843">arrêter ma vidéo</string>
+    <string name="zm_description_toolbar_btn_status_video_unmuted_17843">démarrer ma vidéo</string>
+    <string name="zm_description_toolbar_btn_status_audio_already_muted_17843">audio maintenant coupé</string>
+    <string name="zm_description_toolbar_btn_status_audio_already_unmuted_17843">audio maintenant rétabli</string>
+    <string name="zm_description_toolbar_btn_status_video_already_muted_17843">vidéo maintenant arrêtée</string>
+    <string name="zm_description_toolbar_btn_status_video_already_unmuted_17843">vidéo maintenant démarrée</string>
+    <string name="zm_description_msg_myself_already_lower_hand_17843">main maintenant baissée</string>
+    <string name="zm_description_msg_myself_already_raise_hand_17843">main maintenant levée</string>
+    <string name="zm_description_msg_myself_lower_hand_17843">baisser ma main</string>
+    <string name="zm_description_msg_myself_raise_hand_17843">lever ma main</string>
 
     <string name="zm_description_mm_lbl_voice_length">Message audio, %d secondes.</string>
     <string name="zm_description_msg_xxx_lower_hand">%s baisse la main.</string>
@@ -1400,7 +1440,7 @@
     <string name="zm_callout_msg_call_canceled">Appel annulé</string>
     <string name="zm_callout_msg_block_no_host">Le numéro que vous avez composé n’est pas accessible tant que l’animateur ne s’est pas joint.</string>
     <string name="zm_callout_msg_block_high_rate">Le numéro que vous avez composé n’est pas pris en charge</string>
-    <string name="zm_callout_msg_block_too_frequent">Le numéro que vous avez composé n’a pas répondu à l’invitation à se joindre à la réunion.</string>
+    <string name="zm_callout_msg_block_too_frequent">Le numéro que vous avez composé n’a pas répondu à l’invitation à se joindre à la réunion</string>
 
     <string name="zm_polling_btn_poll_later">Sauter le sondage</string>
     <string name="zm_polling_btn_return_to_poll">Retour au sondage</string>
@@ -1413,6 +1453,7 @@
     <string name="zm_polling_msg_host_and_panelist_cannot_vote">L’animateur et les conférenciers ne peuvent pas voter.</string>
     <string name="zm_polling_msg_failed_to_submit_poll">Impossible de soumettre votre vote. Erreur : %d</string>
     <string name="zm_polling_msg_failed_to_fetch_poll">Échec de récupération des sondages. Erreur : %d</string>
+    <string name="zm_polling_msg_failed_to_submit_closed_18524">Le sondage s’est fermé avant que n’ayez pu soumettre votre réponse</string>
 
     <string name="zm_ft_msg_no_app_to_open_this_file">Aucune application liée pour ouvrir ce fichier.</string>
     <string name="zm_ft_alert_download_using_mobile_data_network">Voulez-vous télécharger ce fichier en utilisant votre réseau de données mobile ?</string>
@@ -1444,8 +1485,9 @@
     <string name="zm_webinar_msg_connecting_as_attendee">En train de rejoindre le Webinaire comme spectateur…</string>
     <string name="zm_webinar_msg_user_will_rejoin_as_attendee">%s rejoindra le webinaire en tant que spectateur.</string>
     <string name="zm_webinar_msg_user_will_rejoin_as_panelist">%s rejoindra le webinaire en tant que conférencier.</string>
-    <string name="zm_webinar_msg_change_role_on_meeting_locked">Vous devez déverrouiller la réunion pour pouvoir changer le rôle d’un spectateur du webinaire.</string>
+    <string name="zm_webinar_msg_change_role_on_meeting_locked">Vous devez déverrouiller la réunion pour pouvoir changer le rôle d’un spectateur du webinaire</string>
     <string name="zm_webinar_msg_buddy_unavailable">L’envoi du message a échoué, l’ami sélectionné est déconnecté ou a quitté la réunion.</string>
+    <string name="zm_webinar_msg_no_permisson_11380">Vous ne pouvez pas discuter avec %1$s durant cette rencontre.</string>
     <string name="zm_webinar_txt_panelists">conférenciers (%s)</string>
     <string name="zm_webinar_txt_attendees">Spectateurs (%s)</string>
     <string name="zm_webinar_txt_view_attendees">Voir la liste complète des spectateurs</string>
@@ -1458,9 +1500,11 @@
     <string name="zm_webinar_txt_label_from">De %1$s à %2$s</string>
     <string name="zm_webinar_txt_label_to">À %1$s</string>
     <string name="zm_webinar_txt_chat_disabled">L’animateur a désactivé les conversations spectateur.</string>
+    <string name="zm_webinar_txt_chat_attendee_not_session_11380">%1$s n’est pas à la conférence.</string>
     <string name="zm_webinar_txt_send_to">Envoyer à :</string>
     <string name="zm_webinar_txt_me">moi</string>
     <string name="zm_webinar_txt_panelist_send_hint">Appuyez ici pour converser ou appuyez sur un message afin d’y répondre</string>
+    <string name="zm_webinar_txt_attendee_send_hint_11380">Toucher ici pour converser</string>
     <string name="zm_webinar_txt_attendee_send_hint_panelist">Votre texte ne peut être vu que par les conférenciers</string>
     <string name="zm_webinar_txt_attendee_send_hint_everyone">Votre texte peut être vu par tout le monde</string>
 
@@ -1499,10 +1543,10 @@
     <string name="zm_mm_declined_call">Appel entrant – refusé</string>
     <string name="zm_mm_call_session_list_format">[%s]</string>
 
-    <string name="zm_fecc_msg_request">%s a demandé à contrôler votre caméra.</string>
-    <string name="zm_fecc_msg_giveup">%s ne contrôle plus votre caméra.</string>
+    <string name="zm_fecc_msg_request">%s a demandé à contrôler votre caméra</string>
+    <string name="zm_fecc_msg_giveup">%s ne contrôle plus votre caméra</string>
     <string name="zm_fecc_msg_approve">%s a accepté votre demande de contrôle de caméra</string>
-    <string name="zm_fecc_msg_decline">%s a décliné votre demande de contrôle de caméra.</string>
+    <string name="zm_fecc_msg_decline">%s a décliné votre demande de contrôle de caméra</string>
     <string name="zm_fecc_msg_start_control">Démarrez le contrôle</string>
     <string name="zm_fecc_btn_approve">Approuver</string>
     <string name="zm_fecc_btn_decline">Refuser</string>
@@ -1630,14 +1674,14 @@
     <string name="zm_mm_msg_cannot_remove_buddy_no_connection">Le messager est inactif. Vous ne pouvez pas supprimer un contact Zoom.</string>
     <string name="zm_mm_msg_cannot_block_buddy_no_connection">Messenger est inactif. Vous ne pouvez pas bloquer un contact Zoom.</string>
     <string name="zm_mm_msg_cannot_unblock_buddy_no_connection">Messenger est inactif. Vous ne pouvez pas débloquer un contact Zoom.</string>
-    <string name="zm_mm_msg_add_contact_failed">Impossible d’ajouter un contact Zoom.</string>
+    <string name="zm_mm_msg_add_contact_failed">Impossible d’ajouter un contact Zoom</string>
     <string name="zm_mm_msg_cannot_add_contact_of_older_version">Impossible d’ajouter ce contact. Le contact utilise une ancienne version de Zoom.</string>
 
     <string name="zm_mm_msg_search_contact_result_empty">Impossible de trouver sur Zoom une personne qui correspond à %1$s</string>
     <string name="zm_description_add_buddy">Saisissez l’adresse e-mail de quelqu’un pour le trouver sur Zoom</string>
     <string name="zm_mm_msg_search_contact_invite_to_zoom">Inviter à installer Zoom</string>
     <string name="zm_lbl_mm_add_buddy_by_email">Ajouter un contact Zoom par son adresse e-mail</string>
-    <string name="zm_msg_conffail_internal_only">La réunion est seulement interne.</string>
+    <string name="zm_msg_conffail_internal_only_17745">Cette réunion est réservée aux participants autorisés</string>
     <string name="zm_msg_conffail_internal_only_sign">Veuillez vous connecter avec votre compte d’entreprise pour rejoindre la réunion.</string>
 
     <!-- Parameters: joinMeetingUrl, meetingId  -->
@@ -1660,11 +1704,11 @@
 
     <!--Not visible to customer-->
     <string name="zm_permission_change_config_label">Changer la configuration de l’app Zoom</string>
-    <string name="zm_permission_change_config_desc">Changer la configuration de l’app Zoom.</string>
+    <string name="zm_permission_change_config_desc">Changer la configuration de l’app Zoom</string>
     <string name="zm_permission_read_config_label">Lire la configuration de l’app Zoom</string>
     <string name="zm_permission_read_config_desc">Lire la configuration de l’app Zoom</string>
     <string name="zm_permission_group">Outils de l’application Zoom</string>
-    <string name="zm_alert_non_annotation_joined">Comme l’annotation est désactivée, vos participants doivent passer à la dernière version de Zoom pour partager leur écran.</string>
+    <string name="zm_alert_non_annotation_joined">Comme l’annotation est désactivée, vos participants doivent passer à la dernière version de Zoom pour partager leur écran</string>
 
 <!--Branding-able END-->
 

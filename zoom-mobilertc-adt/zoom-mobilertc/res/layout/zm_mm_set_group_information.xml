@@ -83,6 +83,7 @@
                     android:hint="@string/zm_hintl_not_set"
                     android:maxLength="256"
                     android:singleLine="true"
+                    android:inputType="textCapSentences"
                     android:text="" >
 
                     <requestFocus />

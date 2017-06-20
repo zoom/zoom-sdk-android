@@ -193,13 +193,32 @@
     		            android:layout_width="wrap_content"
     		            android:layout_height="wrap_content"
     		            android:text="@string/zm_btn_leave_meeting" />
-    	            
-    	            <TextView
+					<LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/txtMeetingNumber"
+                            style="@style/ZMTextView.Large.OnDark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="111-111-1111" />
+
+                        <TextView
+                            android:id="@+id/txtTimer"
+                            style="@style/ZMTextView.Normal.OnDark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+    	           <!--  <TextView
     		            android:id="@+id/txtMeetingNumber"
     		            style="@style/ZMTextView.Large.OnDark"
     		            android:layout_width="wrap_content"
     		            android:layout_height="wrap_content"
-                        android:text="111-111-1111" />
+                        android:text="111-111-1111" /> -->
 
     	        </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
     		    

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<app name="zSip" version="1.1">
+  <module name="mcm_neon" version="1.0" ></module>
+  <module name="zAutoUpdate" version="1.0" ></module>
+  <module name="zData" version="1.0" ></module>
+  <module name="zWebService" version="1.0" caps="IdleHandler" ></module>
+  <module name="zSipCallApp" version="1.0" ></module>
+  <module name="zSipUI" version="1.0" type="App" ></module>
+</app>

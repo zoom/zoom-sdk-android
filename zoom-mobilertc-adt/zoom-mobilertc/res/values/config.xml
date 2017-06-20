@@ -61,6 +61,9 @@
     <string name="zm_config_onedrive_app_client_id"></string>
     
     <string name="zm_config_googledrive_app_client_id"></string>
+    <string name="zm_config_googledrive_app_secret"></string>
+    <string name="zm_config_googledrive_app_redirect_url"></string>
+    <string name="zm_config_googledrive_google_login_url"></string>
     
     <string name="zm_config_box_app_key"></string>
     <string name="zm_config_box_app_secret"></string>

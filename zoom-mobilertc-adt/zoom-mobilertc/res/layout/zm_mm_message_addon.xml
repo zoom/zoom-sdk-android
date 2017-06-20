@@ -31,8 +31,8 @@
             android:text="Reed Yang" />
 
         <LinearLayout
-            android:layout_width="@dimen/zm_msg_addon_width"
             android:id="@+id/panelAddon"
+            android:layout_width="@dimen/zm_msg_addon_width"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
@@ -46,16 +46,21 @@
                 <ImageView
                     android:id="@+id/imgIcon"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="26dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:scaleType="fitCenter"
                     android:layout_marginLeft="9dp" />
 
-                <TextView
-                    android:id="@+id/txtTitleHref"
-                    style="@style/ZMTextView.Normal.OnDark"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:gravity="right" />
+                    android:gravity="right"
+                    android:id="@+id/zm_msg_addon_title_linear"
+                    android:orientation="horizontal" >
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -63,29 +68,82 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/zm_msg_addon_content_bg"
                 android:orientation="vertical"
-                android:padding="15dp" >
+                android:paddingTop="15dp" 
+                 >
 
                 <TextView
                     android:id="@+id/txtSummary"
                     style="@style/ZMTextView.Normal.OnLight"
-                    android:textColorLink="@color/zm_highlight"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorLink="@color/zm_highlight" />
 
                 <TextView
                     android:id="@+id/txtBody"
-                    android:layout_marginTop="5dp"
-                    android:textColorLink="@color/zm_highlight"
                     style="@style/ZMTextView.Normal.Dimmed"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorLink="@color/zm_highlight" />
 
                 <TextView
                     android:id="@+id/txtFooter"
-                    android:layout_marginTop="5dp"
                     style="@style/ZMTextView.Small.OnLight"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="5dp" />
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/zm_msg_addon_action_bar_bg"
+                    android:gravity="end|center_vertical"
+                    android:id="@+id/addon_action_bar_linear"
+                    >
+                    <TextView android:minWidth="50dp"
+                            android:maxWidth="90dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:textColor="@android:color/white"
+                             android:layout_marginLeft="5dp"
+                             android:gravity="center"
+                             android:textSize="10sp"
+                             android:singleLine="true"
+                             android:paddingLeft="5dp"
+                             android:paddingRight="5dp"
+                             android:background="@drawable/zm_msg_addon_action_btn_bg"
+                             android:id="@+id/addon_action_btn1"/>
+                     <TextView android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:minWidth="50dp"
+                            android:maxWidth="90dp"
+                            android:textColor="@android:color/white"
+                            android:gravity="center"
+                            android:textSize="10sp"
+                            android:singleLine="true"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/zm_msg_addon_action_btn_bg"
+                            android:id="@+id/addon_action_btn2"/>
+                      <TextView android:layout_width="25dp"
+                            android:layout_height="20dp"
+                            android:text="..."
+                            android:padding="0px"
+                            android:textSize="10sp"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="@android:color/white"
+                            android:gravity="center"
+                            android:background="@drawable/zm_msg_addon_action_btn_bg"
+                            android:id="@+id/addon_action_btn_more"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

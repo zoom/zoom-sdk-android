@@ -330,9 +330,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
-                android:text="@string/zm_lbl_closedCaption_description" />     
-                       
-        </us.zoom.androidlib.widget.ZMSettingsLayout>
+                android:text="@string/zm_lbl_closedCaption_description" />
+            <us.zoom.androidlib.widget.ZMSettingsCategory
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/optionShowTimer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingRight="@dimen/zm_setting_item_padding_right" >
+
+                    <us.zoom.androidlib.widget.ZMDynTextSizeTextView
+                        style="@style/ZMTextView.SettingsItem"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/zm_lbl_showTimer_539" />
+
+                    <CheckedTextView
+                        android:id="@+id/chkShowTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkMark="@drawable/zm_btn_toggle_default"
+                        android:clickable="false" />
+                </LinearLayout>
+            </us.zoom.androidlib.widget.ZMSettingsCategory>
+
+            <TextView
+                style="@style/ZMTextView.SettingsItemDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:focusable="false"
+                android:text="@string/zm_lbl_showTimer_description_539" />
+</us.zoom.androidlib.widget.ZMSettingsLayout>
     </ScrollView>
 
 </LinearLayout>

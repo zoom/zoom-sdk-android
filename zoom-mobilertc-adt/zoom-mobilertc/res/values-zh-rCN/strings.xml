@@ -77,6 +77,7 @@
     <string name="zm_mi_leave_silent_mode">取消等待状态</string>
     <string name="zm_mi_put_on_waiting">移至等候室</string>
     <string name="zm_mi_lock_meeting">会议锁定</string>
+    <string name="zm_mi_lock_webinar_18265">研讨会加锁</string>
     <string name="zm_mi_unlock_meeting">会议解锁</string>
     <string name="zm_mi_lock_share">共享锁定</string>
     <string name="zm_mi_unlock_share">共享解锁</string>
@@ -94,7 +95,10 @@
     <string name="zm_mi_video_ask_to_start">请求开启视频</string>
     <string name="zm_mi_block_user">屏蔽联系人</string>
     <string name="zm_mi_unblock_user">解除屏蔽</string>
-
+    <string name="zm_mi_allow_attendees_chat_11380">允许观众聊天范围：</string>
+    <string name="zm_mi_no_one_11380">无</string>
+    <string name="zm_mi_panelists_and_attendees_11380">全体嘉宾和观众</string>
+    <string name="zm_mi_host_only_11380">仅主持人</string>
     <!-- There're two sections on the same screen: "Join by meeting ID" or "Join by the meeting link" -->
     <string name="zm_lbl_input_meeting_link">或者通过会议链接加入会议</string>
     <string name="zm_lbl_meeting_number_discription">会议ID是一个9至11位的数字</string>
@@ -143,7 +147,7 @@
     <string name="zm_lbl_password">密码</string>
     <string name="zm_lbl_when">何时</string>
     <string name="zm_lbl_date_on_schedle">日期</string>
-    <string name="zm_lbl_from">从</string>
+    <string name="zm_lbl_from">呼出号码</string>
     <string name="zm_lbl_to">到</string>
     <string name="zm_lbl_repeat">重复</string>
     <string name="zm_lbl_end_repeat">结束重复</string>
@@ -169,6 +173,7 @@
     <string name="zm_lbl_schedule_for">安排给</string>
     <string name="zm_lbl_schedule_for_myself">自己</string>
     <string name="zm_lbl_enable_address_book">手机联系人匹配</string>
+    <string name="zm_lbl_contact_requests_14291">联系人请求</string>
     <string name="zm_lbl_enable_driving_mode">驾驶模式</string>
     <string name="zm_lbl_enable_driving_mode_instructions">驾驶模式下，扬声器开启，摄像头关闭，麦克风静音</string>
     <string name="zm_lbl_auto_connect_voip">自动连接互联网音频</string>
@@ -194,7 +199,7 @@
 
     <string name="zm_lbl_add_invitees">选择邀请方式</string>
     <string name="zm_lbl_sso_login"><a href="zoomus://null">SSO登录</a></string>
-    <string name="zm_lbl_forget_password">忘记密码?</string>
+    <string name="zm_lbl_forget_password">忘记密码</string>
     <string name="zm_lbl_forget_password_link"><![CDATA[<a href="%s">忘记密码?</a>]]></string>
     <!-- There're two sections on the same screen, "Sign in with Work Email", or "sign in with Google, Facebook, or SSO." -->
     <string name="zm_lbl_or_sign_in_with">或者使用其他账号登录</string>
@@ -219,7 +224,7 @@
     <string name="zm_lbl_tele_conf_other_numbers"><a href="zoomus://null">国际呼入号码</a></string>
     <string name="zm_lbl_tele_conf_callin_numbers">呼入号码</string>
     <string name="zm_lbl_tele_conf_enter_access_code">会议ID:</string>
-    <string name="zm_lbl_tele_conf_input_pin">您的唯一参与人ID:</string>
+    <string name="zm_lbl_tele_conf_input_pin">您的唯一观众ID:</string>
     <string name="zm_lbl_h323_conf">会议室系统接入:</string>
     <!-- H.323/SIP here indicates the video devices that support H.323 or SIP protocols.  -->
     <string name="zm_lbl_h323_conf_2">或，在您的H323/SIP上输入</string>
@@ -227,14 +232,20 @@
     <string name="zm_lbl_h323_ip_address">IP地址</string>
     <string name="zm_lbl_h323_meeting_id">会议ID</string>
     <string name="zm_lbl_h323_meeting_password">密码</string>
-    <string name="zm_lbl_toll_free">免费电话:</string>
+    <string name="zm_lbl_toll_free">免费电话</string>
     <string name="zm_lbl_select_country_or_region">国家或地区</string>
     <string name="zm_lbl_pick_country">选择一个国家或地区</string>
+   	<string name="zm_lbl_dial_select_number_18332">选择一个号码来拨号</string>
+	<string name="zm_lbl_dial_pick_number_18332">选择一个号码来拨号</string>
+    <string name="zm_lbl_dial_meeting_desc_18332">会议ID和参加者ID将会被自动拨入。你可以忽略你听到的语音提示。</string>
+    <string name="zm_lbl_join_meeting_desc_18332">如果您使用其他设备进行拨号，您可能还需要以下信息</string>
+    <string name="zm_content_desc_dial_toll_call_18332">付费电话</string>
+   	<string name="zm_content_desc_dial_free_call_18332">免费电话</string>
     <string name="zm_lbl_dial_number">电话号码</string>
     <string name="zm_lbl_meeting_info">会议信息</string>
     <string name="zm_lbl_toll_number_hint">主叫付费</string>
     <string name="zm_lbl_toll_free_number_hint">被叫付费</string>
-    <string name="zm_lbl_participant_id">参与人ID</string>
+    <string name="zm_lbl_participant_id">观众ID</string>
 
     <string name="zm_lbl_profile_password">登录密码</string>
     <string name="zm_lbl_profile_meeting_room_name">个人会议名称</string>
@@ -261,7 +272,7 @@
     <string name="zm_lbl_personal_meeting_id_modify_instruction_11">请选择11位数的个人会议ID</string>
     <string name="zm_lbl_profile_change_fail_cannot_connect_service">无法连接，请检查您的网络连接并重试。</string>
     <string name="zm_lbl_personal_meeting_id_change_fail_invalid">这个ID已被使用，请选择一个新ID。</string>
-    <string name="zm_lbl_personal_meeting_id_change_fail_meeting_started">会议进行中，无法编辑会议ID。</string>
+    <string name="zm_lbl_personal_meeting_id_change_fail_meeting_started">会议进行中，无法编辑会议ID</string>
     <string name="zm_lbl_personal_meeting_id_change_fail_unknown">提交个人会议ID失败。错误代码: %d</string>
     <string name="zm_lbl_personal_meeting_id_rule_cn">*建议您使用自己的手机号码作为个人会议ID</string>
     <string name="zm_lbl_personal_meeting_id_account_type_invalid">升级到付费用户以使用自定义个人会议号码</string>
@@ -369,9 +380,11 @@
     <string name="zm_lbl_allow_new_member_see_chat_history">允许新的群组成员访问聊天记录</string>
     <string name="zm_lbl_content_send_to">发送给%s</string>
     <string name="zm_lbl_closedCaption">字幕</string>
+    <string name="zm_lbl_showTimer_539">显示已加会时长</string>
     <string name="zm_lbl_closedCaption_description">当字幕可用时，它会被显示在主视频上</string>
+    <string name="zm_lbl_showTimer_description_539">启用会显示你在会议里的时间</string>
     <string name="zm_lbl_participants_in_meeting">嘉宾(%d)</string>
-    <string name="zm_lbl_participants_in_waiting">参与人(%d)</string>
+    <string name="zm_lbl_participants_in_waiting">观众(%d)</string>
     <string name="zm_lbl_people_in_waiting">等待中(%d)</string>
     <string name="zm_lbl_people_on_hold">等待状态(%d)</string>
 
@@ -381,6 +394,7 @@
     <string name="zm_lbl_live_connecting">准备中</string>
 
     <string name="zm_lbl_lock_meeting_desc">开启后，其他人无法加入此会议。</string>
+    <string name="zm_lbl_lock_webinar_desc_18265">启动后，新的与会者将无法加入此网络研讨会。</string>
     <string name="zm_lbl_lock_share_desc">开启后，只有主持人可以进行共享。</string>
 
     <plurals name="zm_lbl_webinar_telephony_user_count">
@@ -393,9 +407,10 @@
     <string name="zm_lbl_password_new">新密码</string>
     <string name="zm_lbl_confirm">确认</string>
     <string name="zm_lbl_disable_addon_notification">禁用所有插件通知</string>
-    <string name="zm_lbl_custom_status_13602">自定义状态</string>
+    <string name="zm_lbl_custom_status_13602">个性签名</string>
     <string name="zm_lbl_give_feedback_12050">给主持人发送静默反馈</string>
     <string name="zm_lbl_change_feedback_12050">点击更换您的反馈</string>
+    <string name="zm_lbl_custom_status_des_13602">您可以展示一些文字给有权限查看您资料的人，通过这些信息去表达您当前的状态。</string>
 
     <string name="zm_btn_redownload">重新下载</string>
     <string name="zm_btn_install">立刻安装</string>
@@ -561,6 +576,7 @@
     <string name="zm_btn_arrow">箭头</string>
     <string name="zm_btn_rectangle">矩形</string>
     <string name="zm_btn_oval">椭圆</string>
+    <string name="zm_btn_text_15986">文本</string>
     <string name="zm_bnt_undo">撤销</string>
     <string name="zm_bnt_redo">重做</string>
     <string name="zm_bnt_clear">清空</string>
@@ -571,6 +587,8 @@
     <string name="zm_btn_disable_annotation">禁用与会者注释</string>
     <string name="zm_btn_lower_all_hands">取消所有人的举手</string>
     <string name="zm_btn_rename">改名</string>
+    <string name="zm_btn_assign_cc_typer_16896">分配以输入字幕</string>
+    <string name="zm_btn_disassign_cc_typer_16896">取消输入字幕</string>
     <string name="zm_btn_sign_in_again">重新登录</string>
     <string name="zm_btn_hangup">挂断</string>
     <string name="zm_btn_start_my_video">开启视频</string>
@@ -595,6 +613,9 @@
     <string name="zm_btn_stop_streaming">停止直播</string>
     <string name="zm_btn_clear_feedback_12050">清除我的反馈</string>
     <string name="zm_btn_clear_all_12050">清除所有</string>
+    <string name="zm_btn_login_with_sso_13762">用SSO登录</string>
+    <string name="zm_btn_open_with_app_14906">用其他APP打开</string>
+
     <string name="zm_chk_enable_jbh">允许在主持人之前加入会议</string>
     <string name="zm_chk_add_to_calendar">添加至日历项</string>
     <string name="zm_chk_host_video_on">主持人视频默认开启</string>
@@ -667,6 +688,7 @@
     <string name="zm_hintl_not_set">未设置</string>
     <string name="zm_hint_password_verify">核对您的密码</string>
     <string name="zm_hint_password_set_new">设置新密码</string>
+    <string name="zm_hint_not_personal_note_13602">今天过的怎么样？</string>
 
     <string name="zm_title_login">登录</string>
     <string name="zm_title_signup">注册</string>
@@ -686,6 +708,8 @@
     <string name="zm_title_conf">%s</string>
     <string name="zm_title_meeting_info">信息</string>
     <string name="zm_title_login_with_google">通过Google登录</string>
+    <string name="zm_title_login_with_google_13762">需要Google登录</string>
+    <string name="zm_title_login_with_sso_13762">需要SSO登录</string>
     <!-- The string "%s" will be replaced by a username. Example: "From Cindy Smith to All"-->
     <string name="zm_title_conf_chat_public">%s发送给所有人</string>
     <string name="zm_title_conf_chat_private_from">来自%s（私下的）</string>
@@ -749,16 +773,17 @@
     <string name="zm_title_join_public_group">加入公开群组</string>
     <string name="zm_title_group_information">群组信息</string>
     <string name="zm_title_sharer_action">%1$s 共享在 %2$s</string>
-    <string name="zm_title_feedback_list_12050">听众反馈</string>
+    <string name="zm_title_feedback_list_12050">观众反馈</string>
 
     <string name="zm_alert_login_failed">登录失败</string>
     <string name="zm_alert_connect_facebook_failed_msg">连接Facebook失败。</string>
-    <string name="zm_alert_auth_zoom_failed_msg">无效的邮箱或密码。</string>
-    <string name="zm_alert_auth_token_failed_msg">认证失败，请重试。</string>
-    <string name="zm_alert_account_locked">您的帐户由于多次登录尝试失败而被锁定。</string>
-    <string name="zm_alert_unknown_error">未知错误!</string>
+    <string name="zm_alert_auth_zoom_failed_msg">无效的邮箱或密码</string>
+    <string name="zm_alert_auth_token_failed_msg">认证失败，请重试</string>
+    <string name="zm_alert_account_locked">您的帐户由于多次登录尝试失败而被锁定</string>
+    <string name="zm_alert_unknown_error">未知错误</string>
     <string name="zm_alert_auth_error_code_msg">错误代码: %d</string>
-    <string name="zm_alert_connect_google_failed_msg">连接Google失败。</string>
+    <string name="zm_alert_connect_google_failed_msg">连接Google失败</string>
+    <string name="zm_alert_web_auth_google_failed_9514">登录失败，您需要尝试重新登录，如果这种情况多次发生，请和IT人员联系。</string>
     <!-- If user signs in with SSO, the string "%s" will be replaced with the "server address" user inputs.  -->
     <string name="zm_alert_connect_ssosite_failed_msg">连接%s失败。</string>
     <string name="zm_alert_network_disconnected">连接失败。请检查您的网络连接并重试。</string>
@@ -780,7 +805,7 @@
     <string name="zm_alert_lock_meeting_confirm">一旦锁定，其他人将无法加入会议。</string>
     <string name="zm_alert_unlock_meeting_confirm">会议解锁后，其他人就可以加入进来。</string>
     <string name="zm_alert_lock_share_confirm">锁定后，只有主持人能共享屏幕。</string>
-    <string name="zm_alert_unlock_share_confirm">解锁后，参与者将可共享屏幕。</string>
+    <string name="zm_alert_unlock_share_confirm">解锁后，参与者将可共享屏幕</string>
     <string name="zm_alert_delete_meeting_confirm">您是否要删除这个会议?</string>
     <string name="zm_alert_delete_history_confirm">您是否要删除这个会议的历史记录?</string>
     <string name="zm_alert_delete_meeting_failed">删除会议失败。</string>
@@ -791,14 +816,14 @@
     <string name="zm_alert_login_to_start_free_voice_call_confirm">请登录后使用语音通话。</string>
     <string name="zm_alert_logout">确定要注销吗?</string>
     <string name="zm_alert_other_is_sharing">其他人正在共享屏幕,此时您无法进行屏幕共享</string>
-    <string name="zm_alert_host_lock_share">主持人锁定了参与人屏幕共享的权限</string>
+    <string name="zm_alert_host_lock_share">主持人锁定了观众屏幕共享的权限</string>
     <string name="zm_alert_grab_otherSharing">这将停止别人的屏幕共享，是否继续？</string>
     <string name="zm_alert_invalid_image">无效图片!</string>
     <string name="zm_alert_invalid_pdf">无效的PDF文档!</string>
     <string name="zm_alert_invlid_url">无效的网页地址!</string>
     <string name="zm_alert_unsupported_format">此文档格式尚未支持，请选择图片或PDF文档!</string>
     <string name="zm_alert_start_share_fail">启动屏幕共享失败!</string>
-    <string name="zm_alert_select_count_reach_max">群组人数已经到达上限.</string>
+    <string name="zm_alert_select_count_reach_max">群组人数已经到达上限</string>
     <string name="zm_alert_upload_file_failed">上传文件失败</string>
     <string name="zm_alert_download_file_failed">下载文件失败</string>
     <string name="zm_alert_share_file_failed">共享文件失败</string>
@@ -809,14 +834,16 @@
     <string name="zm_alert_upload_files_failed">上传文件失败</string>
     <string name="zm_alert_unshare_msg">取消共享不会删除此文件,但是当前群组成员从此将无法访问该文件。</string>
     <string name="zm_alert_block_confirm_title">屏蔽确认</string>
-    <string name="zm_alert_block_confirm_msg">%s将被屏蔽，无法与您联系。</string>
+    <string name="zm_alert_block_confirm_msg">%s将被屏蔽，无法与您联系</string>
     <string name="zm_alert_live_streaming_failed">无法在 %s上直播此网络研讨会</string>
+    <string name="zm_alert_login_with_google_13762">您必须使用Google帐户方式登录Zoom</string>
+    <string name="zm_alert_login_with_sso_13762">您必须使用单点登录（SSO）方式登录Zoom</string>
 
 
     <string name="zm_msg_no_buddies_fb">没有好友在线</string>
     <string name="zm_msg_no_buddies_google">没有好友在线</string>
     <string name="zm_msg_no_favorite_contacts">没有企业联系人</string>
-    <string name="zm_msg_no_favorite_contacts_sub_note">点击上方的添加按钮添加企业通讯录。</string>
+    <string name="zm_msg_no_favorite_contacts_sub_note">点击上方的添加按钮添加企业通讯录</string>
     <string name="zm_msg_no_online_contacts_zoom">没有联系人在线</string>
     <string name="zm_msg_no_system_contacts">您的地址簿中没有任何联系人信息。</string>
     <string name="zm_msg_no_chats_no_history">还没有聊天信息</string>
@@ -871,14 +898,14 @@
     <string name="zm_msg_conffail_webinar_register_with_host_email">如果您是主持人。请先登录再开始会议。</string>
     <string name="zm_msg_conffail_webinar_register_with_panelist_email">如果您是受邀嘉宾，请点击邀请邮件中的链接加入会议。</string>
     <string name="zm_msg_conffail_webinar_register_denied">主持人拒绝您加入研讨会！</string>
-    <string name="zm_msg_conffail_signin_join">请登录您的公司账号加入此会议</string>
+    <string name="zm_msg_conffail_signin_join_17745">点击 \"登录\"用授权的邮箱地址来登录Zoom</string>
     <string name="zm_msg_conffail_meeting_name_unvalid">个人会议名称不正确,请检查后重试。</string>
     <string name="zm_msg_conffail_join_webinar_withsameemail">邮箱已经被注册,请尝试换一个邮箱。</string>
     <string name="zm_msg_user_joined">%s\n加入会议</string>
     <string name="zm_msg_user_left">%s\n离开会议</string>
     <string name="zm_msg_waiting">请等待…</string>
     <string name="zm_msg_verifying_meetingid">准备会议中…</string>
-    <string name="zm_msg_waiting_for_scheduler">等待主持人开启本场会议。</string>
+    <string name="zm_msg_waiting_for_scheduler">等待主持人开启本场会议</string>
     <string name="zm_msg_waiting_for_has_in_meeting">主持人正在开另外一个会议。</string>
     <string name="zm_msg_notify_scheduler_login">如果您是主持人，请登录并开启会议。</string>
     <string name="zm_msg_buddy_invite_done">您的邀请已成功发送。</string>
@@ -915,17 +942,28 @@
     <string name="zm_msg_meeting_end">主持人已结束本场会议。</string>
     <string name="zm_msg_meeting_player_reminder_for_host">您的免费会议时间仅剩10分钟，请升级为收费账号。每月只需14.99美金，会议时间无限制。</string>
     <string name="zm_msg_meeting_player_reminder_for_host_title">升级账号</string>
-    <string name="zm_msg_meeting_player_reminder_for_attendee">本次免费会议时间仅剩10分钟，请升级为收费账号。每月只需14.99美金，会议时间无限制。</string>
+    <string name="zm_msg_meeting_player_reminder_for_attendee">本次免费会议时间仅剩10分钟，请升级为收费账号。每月只需14.99美金，会议时间无限制</string>
     <string name="zm_msg_meeting_player_reminder_for_attendee_title">会议提醒</string>
+    <string name="zm_msg_manage_cloud_storage_btn_5537">管理会议存贮空间</string>
+    <string name="zm_record_msg_start_cmr_error_5537">无法启动云端录制</string>
+    <string name="zm_msg_cmr_storage_full_title_5537">云端录制未启动</string>
+    <string name="zm_msg_cmr_storage_full_reminder_original_host_5537">您的帐号已经没有可用云端存储空间。请删除一些较旧的录像或升级您的云端录制方案。</string>
+    <string name="zm_msg_cmr_storage_full_reminder_original_host_cannot_upgrade_5537">您的帐号已经没有可用云端存储空间。请删除一些较旧的录像资料。</string>
+    <string name="zm_msg_cmr_storage_full_reminder_attendee_5537">云端存储空间不足。请联系主持人进行升级或者删除一些旧的录制文件。</string>
+    <string name="zm_msg_upgrade_free_meeting_title_15609">体验无时长限制的Zoom会议</string>
+    <string name="zm_msg_upgrade_free_meeting_15609">免费用户的会议有40分钟时长限制，Zoom提供您一次把会议升级为无时长限制的机会。点击"继续"享受这次免费升级，感谢选择Zoom。</string>
+    <string name="zm_msg_upgrade_free_meeting_failed_title_15609">延长会议时长失败</string>
+     <string name="zm_msg_upgrade_free_meeting_success_15609">本次会议不再有时长限制。</string>
+    <string name="zm_msg_upgrade_free_meeting_failed_15609">Zoom无法延长您的免费会议时长。会议将在满40分钟后结束。\n(错误代码 %d)</string>
     <string name="zm_msg_conf_paid_meeting_start_reminder">您的账号已经升级成功。从此您的会议将无时间限制。</string>
     <string name="zm_msg_conf_host_paid_reminder">会议主持人已升级成Pro账号，本场会议将无时间限制。</string>
     <string name="zm_msg_jbh_meeting_timeout">由于主持人未入会，本场会议已结束。</string>
-    <string name="zm_msg_meeting_end_by_host_start_another_meeting">由于会议创建者开启了新的会议，本次会议结束。</string>
-    <string name="zm_msg_meeting_youarehost">您已成为主持人。</string>
-    <string name="zm_msg_meeting_you_are_cohost">您现在是联席主持人.</string>
+    <string name="zm_msg_meeting_end_by_host_start_another_meeting">由于会议创建者开启了新的会议，本次会议结束</string>
+    <string name="zm_msg_meeting_youarehost">您已成为主持人</string>
+    <string name="zm_msg_meeting_you_are_cohost">您现在是联席主持人</string>
     <string name="zm_msg_meeting_xxx_are_cohost">%s 现在是联席主持人.</string>
-    <string name="zm_msg_doubletap_enter_pinvideo">双击取消视频锁定.</string>
-    <string name="zm_msg_doubletap_leave_pinvideo">取消视频锁定.</string>
+    <string name="zm_msg_doubletap_enter_pinvideo">双击取消视频锁定</string>
+    <string name="zm_msg_doubletap_leave_pinvideo">取消视频锁定</string>
     <string name="zm_msg_waiting_search_domain_user">请等待…</string>
     <string name="zm_msg_waiting_edit_meeting">请等待…</string>
     <string name="zm_msg_stop_video_to_save_bandwidth_title">只有音频模式</string>
@@ -942,7 +980,7 @@
     <string name="zm_msg_didnot_receive_text_message">没收到短信?</string>
     <string name="zm_msg_muted_for_sharing_audio_started">您的麦克风已被静音，在屏幕共享时，您可听到远程音频。</string>
     <string name="zm_msg_unmuted_for_sharing_audio_stopped">您的麦克风已被取消静音。带远程音频的屏幕共享已结束。</string>
-    <string name="zm_msg_muted_for_leadership_mode_started">您的麦克风已被静音，焦点视频设置为%s。</string>
+    <string name="zm_msg_muted_for_leadership_mode_started">您的麦克风已被静音，焦点视频设置为%s</string>
     <string name="zm_msg_unmuted_for_leadership_mode_stopped">您的麦克风已被取消静音。焦点视频已取消。</string>
     <string name="zm_msg_cannot_unmute_for_host_muted_all">主持人已将所有参会者静音，您不能自行解除静音。</string>
     <string name="zm_msg_register_phone_number_failed">您的手机号注册失败。请检查您的网络连接并重试。</string>
@@ -954,7 +992,7 @@
     <string name="zm_msg_video_calling">拨号中…</string>
     <string name="zm_msg_connecting">连接中…</string>
     <string name="zm_msg_connected">已连接</string>
-    <string name="zm_msg_audio_changed_to_phone">您正在使用电话。</string>
+    <string name="zm_msg_audio_changed_to_phone">您正在使用电话</string>
     <string name="zm_msg_audio_changed_to_voip">您正在使用互联网音频。</string>
     <string name="zm_msg_xxx_did_not_answer">%s没有应答。</string>
     <string name="zm_msg_driving_mode_title">驾驶模式</string>
@@ -969,7 +1007,7 @@
     <string name="zm_msg_link_account">请绑定您的账号以便召开或安排会议，并拥有您的个人会议ID。</string>
     <string name="zm_msg_unlink_account">解除绑定您的账号将无法召开或安排会议。</string>
     <string name="zm_msg_voip_disconnected_for_echo_detected">由于我们检测到回声，您的音频连接被强制断开。</string>
-    <string name="zm_msg_only_paid_user_can_modify_pmi">您需要升级到Pro账号以便更改您的个人会议ID。</string>
+    <string name="zm_msg_only_paid_user_can_modify_pmi">您需要升级到Pro账号以便更改您的个人会议ID</string>
     <string name="zm_msg_mute_all_confirm">所有参与者将被静音</string>
     <string name="zm_msg_mute_all_allow_unmute_self">允许参与者自我解除静音</string>
     <string name="zm_msg_new_group_chat_instructions">给聊天群组命名</string>
@@ -1007,7 +1045,7 @@
     <string name="zm_msg_pdf_page_err">显示第%d页时出错!</string>
     <string name="zm_msg_loading_image_to_share">正在加载图片…</string>
     <string name="zm_msg_file_supported_type_prompt">请选择一个PDF文件或图片文件</string>
-    <string name="zm_msg_memory_size_insufficient">可用存储空间不足!</string>
+    <string name="zm_msg_memory_size_insufficient">可用存储空间不足</string>
     <string name="zm_msg_download_file_progress">下载中… （%d%%）</string>
     <string name="zm_msg_download_file_size">下载中… (%s)</string>
     <string name="zm_msg_load_dir_fail">载入目录\"%s\"失败!</string>
@@ -1024,16 +1062,8 @@
     <string name="zm_msg_e2e_unable_decrypt">[消息已加密]</string>
     <string name="zm_msg_e2e_chatslist_decrypt_failed">[加密消息]</string>
     <string name="zm_msg_e2e_message_decrypting">解密……</string>
-    <string name="zm_msg_e2e_cant_send_offline">您的账号启用了加密设置，因为安全原因，无法给离线用户发送消息</string>
-    <string name="zm_msg_e2e_group_offline_unreceived">本聊天群组启用了加密聊天,离线用户无法查看您的消息</string>
-    <string name="zm_msg_e2e_send_old_client">%s的客户端版本过低,无法查看您的消息</string>
-    <string name="zm_msg_e2e_in_normal_group">您的账户已经启用加密聊天,您不能在非加密的聊天群组中发送消息</string>
     <string name="zm_msg_e2e_encryed_message">消息已经被加密</string>
     <string name="zm_msg_e2e_receiver_not_buddy">您的账户已经启用加密聊天,您只能和好友列表中的联系人聊天.</string>
-    <string name="zm_msg_e2e_invite_e2e">邀请%s聊天</string>
-    <string name="zm_msg_e2e_invite_e2e_warn_detail">您的账户已经启用加密聊天,您需要邀请%s上线接受聊天邀请.</string>
-    <string name="zm_msg_e2e_invite_e2e_warn_detail_other_e2e">%1$s的账号启用了加密设置,您需要邀请 %2$s上线接受聊天邀请.</string>
-    <string name="zm_msg_e2e_wait_online">等待%s上线接受邀请</string>
     <string name="zm_msg_e2e_get_invite">%s邀请您聊天</string>
     <string name="zm_msg_e2e_state_ready">您可以开始和%s进行加密聊天了.</string>
     <string name="zm_msg_e2e_invite_accepted">%s接受了您的聊天邀请</string>
@@ -1051,7 +1081,7 @@
     <string name="zm_msg_audio_muted">已静音</string>
     <string name="zm_msg_audio_not_muted">取消静音</string>
     <string name="zm_msg_waiting_webinear_start">请稍候。 网络研讨会即将开始。</string>
-    <string name="zm_msg_buddy_blocked_13433">您已经把%s屏蔽，在此状态下，您无法和对方互发消息。</string>
+    <string name="zm_msg_buddy_blocked_13433">您已经把%s屏蔽，在此状态下，您无法和对方互发消息</string>
     <string name="zm_msg_delete_by_admin">您是本群组管理员,您必须在离开群组前移交管理员或者删除本群组。</string>
     <string name="zm_msg_confirm_disband">您将永久移除所有群组消息，档案和其他相关资讯。 这些在操作后将无法恢复。</string>
     <string name="zm_msg_call_phonenum">呼叫%s</string>
@@ -1061,7 +1091,7 @@
     <string name="zm_msg_recall_by_me">您已撤回一条消息。</string>
     <string name="zm_msg_recall_by_other">%s撤回了一条消息</string>
     <string name="zm_msg_webhoot_new_notification">%s:[新通知]</string>
-    <string name="zm_msg_duplicate_emoji">这个表情已经有了。</string>
+    <string name="zm_msg_duplicate_emoji">这个表情已经有了</string>
     <string name="zm_msg_meetingno_hook_title">%s可能是Zoom会议号或电话号码，您可以：</string>
     <string name="zm_msg_unsupport_message_13802">[需要最新版才能查看此消息]</string>
     <plurals name="zm_msg_notification_unread_num_8295">
@@ -1170,7 +1200,7 @@
     <string name="zm_mm_title_share_to">共享…</string>
     <string name="zm_mm_title_forward_to">共享到…</string>
     <string name="zm_mm_title_invite_member">邀请成员</string>
-    <string name="zm_mm_title_set_custom_status_13602">设置自定义状态</string>
+    <string name="zm_mm_title_set_custom_status_13602">个性签名</string>
 
     <string name="zm_mm_msg_rcd_hint_move_up_to_cancel">上移取消</string>
     <string name="zm_mm_msg_rcd_hint_release_to_cancel">松开取消</string>
@@ -1179,11 +1209,11 @@
     <string name="zm_mm_msg_make_group_failed">无法创建聊天群组。（错误代码: %d）</string>
     <string name="zm_mm_msg_join_group_failed">未能加入一个公开群组。（错误代码：%d）</string>
     <string name="zm_mm_msg_make_group_failed_too_many_buddies">创建聊天群组失败。成员太多。</string>
-    <string name="zm_mm_msg_change_group_topic_failed">无法更改主题。</string>
+    <string name="zm_mm_msg_change_group_topic_failed">无法更改主题</string>
     <string name="zm_mm_msg_convert_private_group_failed">转换为一个非公开群组失败。</string>
     <string name="zm_mm_msg_add_buddies_to_group_failed">无法添加联系人至聊天群组。（错误代码: %d）</string>
     <string name="zm_mm_msg_add_buddies_not_allowed">群组仅可以邀请组织內部成员。%s无法被邀请。</string>
-    <string name="zm_mm_msg_add_buddies_to_group_failed_too_many_buddies">无法添加联系人到群消息。成员太多。</string>
+    <string name="zm_mm_msg_add_buddies_to_group_failed_too_many_buddies">无法添加联系人到群消息。成员太多</string>
     <string name="zm_mm_msg_quit_group_failed">无法离开这个聊天群组。（错误代码: %d）</string>
     <string name="zm_mm_msg_remove_buddy_from_group_failed">无法将联系人从群组中移除。（错误代码: %d）</string>
     <string name="zm_mm_msg_destory_group_failed">无法删除这条群组消息。(错误代码:%d)</string>
@@ -1202,7 +1232,7 @@
     <string name="zm_mm_msg_resend_message_confirm">重发这个消息?</string>
     <string name="zm_mm_msg_network_unavailable">没有网络连接</string>
     <string name="zm_mm_msg_saved_to_album">已保存到手机相册</string>
-    <string name="zm_mm_msg_stream_conflict">消息连接已断开. 点击重新连接.</string>
+    <string name="zm_mm_msg_stream_conflict">消息连接已断开. 点击重新连接</string>
     <string name="zm_mm_msg_add_contact_request_sent">您的请求发送成功. </string>
     <string name="zm_mm_msg_search_contact_result_is_buddy">%1$s已经在您的联系人列表中。</string>
     <string name="zm_mm_msg_no_emoji">[表情]</string>
@@ -1254,6 +1284,7 @@
     <string name="zm_description_contact_request_pending">待处理</string>
     <string name="zm_system_notification_delete_reqeust">删除</string>
     <string name="zm_system_notification_no_item">您没有通知</string>
+    <string name="zm_contact_request_no_item_14291">您没有任何联系人请求</string>
     <string name="zm_system_notification_done">完成</string>
     <string name="zm_session_recive_contact_request">%1$s请求添加您为好友</string>
     <string name="zm_session_contact_request_accept_byother">%1$s同意您的添加好友请求</string>
@@ -1261,20 +1292,20 @@
     <string name="zm_btn_add_contact">添加好友</string>
 
     <!-- content description for accessibility begin -->
-    <string name="zm_description_mm_block">已屏蔽。</string>
+    <string name="zm_description_mm_block">已屏蔽</string>
     <string name="zm_description_mm_presence_available">在线。</string>
     <string name="zm_description_mm_presence_idle">离开。</string>
     <string name="zm_description_mm_presence_dnd">忙碌。</string>
     <string name="zm_description_mm_presence_offline">离线。</string>
     <string name="zm_description_mm_msg_failed">发送消息失败。</string>
     <string name="zm_description_mm_btn_more">更多选项。</string>
-    <string name="zm_description_mm_btn_mode_voice">语音消息。</string>
+    <string name="zm_description_mm_btn_mode_voice">语音消息</string>
     <string name="zm_description_mm_btn_mode_keyboard">文本消息。</string>
     <string name="zm_description_mm_btn_chat_options">聊天选项。</string>
     <string name="zm_description_mm_btn_group_message_options">群聊选项。</string>
     <string name="zm_description_mm_btn_add_contacts">添加联系人。</string>
     <string name="zm_description_mm_btn_search">搜索</string>
-    <string name="zm_description_mm_btn_system_notification">系统消息.</string>
+    <string name="zm_description_mm_btn_system_notification">系统消息</string>
     <string name="zm_description_mm_btn_add_buddy">添加好友。</string>
     <string name="zm_description_mm_btn_remove_buddy">移除好友。</string>
     <string name="zm_description_mm_btn_clear_search">清除搜索结果。</string>
@@ -1321,7 +1352,7 @@
 
     <string name="zm_description_tap_speak">您的麦克风已静音。您可以双击屏幕来取消静音并开始发言。</string>
     <string name="zm_description_done_speaking">您的麦克风已取消静音。您可以双击屏幕来静音并结束发言。</string>
-    <string name="zm_description_video_stopped">您的摄像头已被关闭。</string>
+    <string name="zm_description_video_stopped">您的摄像头已被关闭</string>
 
     <string name="zm_description_plist_status_recording">正在录像。</string>
     <string name="zm_description_plist_status_raise_hand">正在举手。</string>
@@ -1332,12 +1363,20 @@
     <string name="zm_description_plist_status_unread_chat_message">未读消息数量是%s。</string>
 
     <string name="zm_description_toolbar_btn_status_audio_disconnect">音频未连接。</string>
-    <string name="zm_description_toolbar_btn_status_audio_phone_muted">正使用电话音频，已静音。</string>
-    <string name="zm_description_toolbar_btn_status_audio_phone_unmuted">正使用电话音频，已取消静音。</string>
+    <string name="zm_description_toolbar_btn_status_audio_muted_17843">静音</string>
+    <string name="zm_description_toolbar_btn_status_audio_unmuted_17843">解除静音</string>
     <string name="zm_description_toolbar_btn_status_audio_voip_muted">互联网音频，已静音。</string>
     <string name="zm_description_toolbar_btn_status_audio_voip_unmuted">互联网音频，已取消静音。</string>
-    <string name="zm_description_toolbar_btn_status_video_muted">视频，已打开。</string>
-    <string name="zm_description_toolbar_btn_status_video_unmuted">视频，已关闭。</string>
+    <string name="zm_description_toolbar_btn_status_video_muted_17843">停止我的视频</string>
+    <string name="zm_description_toolbar_btn_status_video_unmuted_17843">开始我的视频</string>
+    <string name="zm_description_toolbar_btn_status_audio_already_muted_17843">现已静音</string>
+    <string name="zm_description_toolbar_btn_status_audio_already_unmuted_17843">静音已解除</string>
+    <string name="zm_description_toolbar_btn_status_video_already_muted_17843">视频已停止</string>
+    <string name="zm_description_toolbar_btn_status_video_already_unmuted_17843">视频开始</string>
+    <string name="zm_description_msg_myself_already_lower_hand_17843">手已放下</string>
+    <string name="zm_description_msg_myself_already_raise_hand_17843">已举手</string>
+    <string name="zm_description_msg_myself_lower_hand_17843">手放下</string>
+    <string name="zm_description_msg_myself_raise_hand_17843">举手</string>
 
     <string name="zm_description_mm_lbl_voice_length">语音消息， %d秒。</string>
     <string name="zm_description_msg_xxx_lower_hand">%s的手放下</string>
@@ -1400,8 +1439,8 @@
     <string name="zm_callout_msg_cancel_call_fail">断开呼叫失败</string>
     <string name="zm_callout_msg_call_canceled">呼叫已断开</string>
     <string name="zm_callout_msg_block_no_host">您必须等主持人加入后才可以拨打电话。</string>
-    <string name="zm_callout_msg_block_high_rate">您拨打的号码不支持。</string>
-    <string name="zm_callout_msg_block_too_frequent">你拨打的电话没有响应。</string>
+    <string name="zm_callout_msg_block_high_rate">您拨打的号码不支持</string>
+    <string name="zm_callout_msg_block_too_frequent">你拨打的电话没有响应</string>
 
     <string name="zm_polling_btn_poll_later">稍后完成</string>
     <string name="zm_polling_btn_return_to_poll">返回问卷调查</string>
@@ -1414,6 +1453,7 @@
     <string name="zm_polling_msg_host_and_panelist_cannot_vote">主持人和嘉宾不能填写调查。</string>
     <string name="zm_polling_msg_failed_to_submit_poll">提交问卷答案失败。错误号: %d</string>
     <string name="zm_polling_msg_failed_to_fetch_poll">获取问卷内容失败。错误号: %d</string>
+    <string name="zm_polling_msg_failed_to_submit_closed_18524">投票已经在您提交前关闭了</string>
 
     <string name="zm_ft_msg_no_app_to_open_this_file">此设备上没有安装可以打开该文档的应用软件。</string>
     <string name="zm_ft_alert_download_using_mobile_data_network">当前为手机数据网络，您是否要继续下载此文件?</string>
@@ -1445,8 +1485,9 @@
     <string name="zm_webinar_msg_connecting_as_attendee">正在降级为普通观众…</string>
     <string name="zm_webinar_msg_user_will_rejoin_as_attendee">%s将会作为普通观众重新加入会议。</string>
     <string name="zm_webinar_msg_user_will_rejoin_as_panelist">%s将会作为嘉宾重新加入会议。</string>
-    <string name="zm_webinar_msg_change_role_on_meeting_locked">您需要首先解锁会议才能修改与会者的角色。</string>
+    <string name="zm_webinar_msg_change_role_on_meeting_locked">您需要首先解锁会议才能修改与会者的角色</string>
     <string name="zm_webinar_msg_buddy_unavailable">此人已经离开会议或者断线,信息发送失败.</string>
+    <string name="zm_webinar_msg_no_permisson_11380">在本次会议期间您无法与%1$s聊天</string>
     <string name="zm_webinar_txt_panelists">嘉宾(%s)</string>
     <string name="zm_webinar_txt_attendees">普通观众(%s)</string>
     <string name="zm_webinar_txt_view_attendees">查看所有观众</string>
@@ -1459,14 +1500,16 @@
     <string name="zm_webinar_txt_label_from">%1$s对%2$s说</string>
     <string name="zm_webinar_txt_label_to">我对%1$s说</string>
     <string name="zm_webinar_txt_chat_disabled">主持人已禁止观众聊天.</string>
+    <string name="zm_webinar_txt_chat_attendee_not_session_11380">%1$s不在本次会议中</string>
     <string name="zm_webinar_txt_send_to">发送给:</string>
     <string name="zm_webinar_txt_me">我</string>
     <string name="zm_webinar_txt_panelist_send_hint">点击参与聊天或者回复选中的消息</string>
+    <string name="zm_webinar_txt_attendee_send_hint_11380">点击这里聊天</string>
     <string name="zm_webinar_txt_attendee_send_hint_panelist">您发出的内容仅主持人和嘉宾可见</string>
     <string name="zm_webinar_txt_attendee_send_hint_everyone">您发出的内容所有人都可以看见</string>
 
     <string name="zm_webinar_txt_practice_mode_title">目前是会议准备模式：</string>
-    <string name="zm_webinar_txt_practice_mode_tip">当你准备好并启动广播，听众才可以加入研讨会。</string>
+    <string name="zm_webinar_txt_practice_mode_tip">当你准备好并启动广播，观众才可以加入研讨会。</string>
     <string name="zm_webinar_txt_broadcasting_tip">网络研讨会正在广播。</string>
     <string name="zm_webinar_txt_qa_allow_anonymously">允许观看者匿名提问</string>
 
@@ -1500,10 +1543,10 @@
     <string name="zm_mm_declined_call">来电-已拒接</string>
     <string name="zm_mm_call_session_list_format">[%s]</string>
 
-    <string name="zm_fecc_msg_request">%s请求控制您的摄像头。</string>
-    <string name="zm_fecc_msg_giveup">%s不再控制您的摄像头。</string>
+    <string name="zm_fecc_msg_request">%s请求控制您的摄像头</string>
+    <string name="zm_fecc_msg_giveup">%s不再控制您的摄像头</string>
     <string name="zm_fecc_msg_approve">%s接受您控制摄像头的请求。</string>
-    <string name="zm_fecc_msg_decline">%s拒绝您控制摄像头的请求。</string>
+    <string name="zm_fecc_msg_decline">%s拒绝您控制摄像头的请求</string>
     <string name="zm_fecc_msg_start_control">开始控制</string>
     <string name="zm_fecc_btn_approve">批准</string>
     <string name="zm_fecc_btn_decline">拒绝</string>
@@ -1632,14 +1675,14 @@
     <string name="zm_mm_msg_cannot_remove_buddy_no_connection">无法删除Zoom联系人. 消息连接已断开.</string>
     <string name="zm_mm_msg_cannot_block_buddy_no_connection">聊天服务未连接。 您无法屏蔽Zoom联系人。</string>
     <string name="zm_mm_msg_cannot_unblock_buddy_no_connection">聊天服务未连接。 您无法取消屏蔽Zoom联系人。</string>
-    <string name="zm_mm_msg_add_contact_failed">无法添加Zoom联系人.</string>
+    <string name="zm_mm_msg_add_contact_failed">无法添加Zoom联系人</string>
     <string name="zm_mm_msg_cannot_add_contact_of_older_version">无法添加此好友。对方仍在使用较早版本的Zoom。</string>
 
     <string name="zm_mm_msg_search_contact_result_empty">无法找到使用电子邮箱%1$s的用户.</string>
     <string name="zm_description_add_buddy">通过电子邮箱找到Zoom联系人</string>
     <string name="zm_mm_msg_search_contact_invite_to_zoom">邀请使用Zoom</string>
     <string name="zm_lbl_mm_add_buddy_by_email">通过Email地址以查找Zoom用户</string>
-    <string name="zm_msg_conffail_internal_only">这是个内部会议</string>
+    <string name="zm_msg_conffail_internal_only_17745">此会议只针对被授权的参与人</string>
     <string name="zm_msg_conffail_internal_only_sign">请使用您的企业账户登录加会</string>
 
     <!-- Parameters: joinMeetingUrl, meetingId  -->
@@ -1662,11 +1705,11 @@
 
     <!--Not visible to customer-->
     <string name="zm_permission_change_config_label">更改Zoom应用配置</string>
-    <string name="zm_permission_change_config_desc">更改Zoom应用配置。</string>
+    <string name="zm_permission_change_config_desc">更改Zoom应用配置</string>
     <string name="zm_permission_read_config_label">读取Zoom应用配置</string>
     <string name="zm_permission_read_config_desc">读取Zoom应用配置。</string>
     <string name="zm_permission_group">Zoom应用配置工具</string>
-    <string name="zm_alert_non_annotation_joined">屏幕标注功能已被禁用,其他参与者需要升级到最新版的Zoom才能使用屏幕共享功能。</string>
+    <string name="zm_alert_non_annotation_joined">屏幕标注功能已被禁用,其他参与者需要升级到最新版的Zoom才能使用屏幕共享功能</string>
 
 <!--Branding-able END-->
 

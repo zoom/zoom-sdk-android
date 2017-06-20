@@ -69,6 +69,29 @@
                 <LinearLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
+                    android:id="@+id/panelSIP"
+                    android:visibility="gone"
+                    android:background="@drawable/zm_list_selector_half_transparent_background"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+                    
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zm_lbl_internal_number_14480"
+                        style="@style/ZMTextView.Small.OnDark"/>
+                    
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/ZMTextView.Large.OnDark"
+                        android:text=""
+                        android:id="@+id/txtSIP"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:id="@+id/panelPMI"
                     android:background="@drawable/zm_list_selector_half_transparent_background"
                     android:layout_marginTop="15dp"

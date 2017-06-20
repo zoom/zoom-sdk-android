@@ -73,6 +73,7 @@
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:gravity="center"
+                     android:inputType="textCapWords"
                      android:hint="@string/zm_hint_group_chat_subject"
                      android:maxLength="@integer/zm_group_chat_topic_max_length"
                      android:singleLine="true" >

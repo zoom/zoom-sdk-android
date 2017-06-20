@@ -62,11 +62,26 @@
     <color name="zm_chats_list_time_normal">#b2b2b2</color>
     <color name="zm_chats_list_time_unread">#4a4a4a</color>
     <color name="zm_sticker_select_bg">#D8D8D8</color>
+    <color name="zm_addon_title_label_bg">#2e8cff</color>
+    <color name="zm_addon_title_normal_bg">#7FE1E1ED</color>
     <color name="zm_addon_title_github_bg">#202020</color>
     <color name="zm_addon_title_jira_bg">#205080</color>
     <color name="zm_addon_title_gitlab_bg">#393F48</color>
+    <color name="zm_addon_action_btn_bg_normal">#76768a</color>
+    <color name="zm_addon_action_btn_bg_light">#525266</color>
     <color name="zm_addon_content_bg">#f7f7fc</color>
+    <color name="zm_addon_action_bar_bg">#7FE1E1ED</color>
     <color name="zm_bg_on_dark">#80454A4E</color>
+    <color name="zm_sip_dialnum_press_bg">#EDEDF4</color>
+    <color name="zm_sip_dialnum_txt_normal">#39394c</color>
+    <color name="zm_sip_dialnum_txt_disable">#4A39394c</color>
+    <color name="zm_call_history_name_miss">#E14949</color>
+    <color name="zm_call_history_name">#2B2B3B</color>
+    <color name="zm_call_history_number">#39394D</color>
+    <color name="zm_call_incall_bg">#39394D</color>
+    <color name="zm_call_incoming_call_bg">#CC232333</color>
+    <color name="zm_call_accept_call_normal_bg">#43A148</color>
+    <color name="zm_call_accept_call_press_bg">#27932d</color>
     
     <color name="zm_list_bg_grey">#efeff4</color>
     
@@ -82,5 +97,9 @@
     <color name="zm_chat_msg_bg_e2e_warn_normal">#FFEEED</color>
     <color name="zm_chat_msg_bg_e2e_warn_press">#C2B6B7</color>
     <color name="zm_chat_msg_txt_e2e_warn">@color/zm_pure_red</color>
+    
+    <color name="zm_customtab_titlebar_bg">#383849</color>
+    
+    <color name="zm_annoter_background">#CC464658</color>
     
 </resources>

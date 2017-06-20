@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/imgOutCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/zm_ic_outgoing_call" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtBuddyName"
+            style="@style/ZMTextView.BuddyName.Medium.OnLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Jing" />
+
+        <TextView
+            android:id="@+id/txtCallNo"
+            style="@style/ZMTextView.Small.Dimmed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/zm_call_history_number"
+            android:singleLine="true"
+            android:text="12343124" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtCallTime"
+        style="@style/ZMTextView.Small.Dimmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="yesterday" />
+    
+	<ImageView android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="5dp"
+	    android:visibility="gone"
+	    android:id="@+id/imgDeleteCall"
+	    android:src="@drawable/zm_mm_buddy_remove_btn"/>
+</LinearLayout>
