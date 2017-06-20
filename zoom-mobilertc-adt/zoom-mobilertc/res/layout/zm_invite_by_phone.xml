@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="@string/zm_callout_hint_name"
-                        android:inputType="textPersonName"
+                        android:inputType="textPersonName|textCapSentences"
                         android:maxLength="64"
                         android:singleLine="true" >
 

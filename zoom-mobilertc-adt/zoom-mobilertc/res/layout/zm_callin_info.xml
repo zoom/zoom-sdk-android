@@ -29,19 +29,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/txtTitle"
-            style="@style/ZMTextView.Title"
+        <LinearLayout
+            android:id="@+id/llTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:gravity="center_horizontal"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="@string/zm_btn_dial_in" />
-    </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/txtCountryName"
+                style="@style/ZMTextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/zm_btn_dial_in" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:rotation="90"
+                android:src="@drawable/zm_next_arrow" />
+        </LinearLayout>
+</us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,71 +71,6 @@
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
             android:paddingTop="0dp" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical" >
-
-                <TextView
-                    style="@style/ZMTextView.Large.OnLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="7sp"
-                    android:text="@string/zm_lbl_pick_country" />
-
-                <us.zoom.androidlib.widget.ZMSettingsCategory
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <LinearLayout
-                        android:id="@+id/pickCountryOrRegion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="left|center_vertical"
-                        android:paddingLeft="@dimen/zm_setting_item_padding_left"
-                        android:paddingRight="@dimen/zm_setting_item_padding_right"
-                        android:weightSum="1" >
-
-                        <ImageView
-                            android:id="@+id/imgCountryFlag"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:clickable="false"
-                            android:duplicateParentState="true"
-                            android:focusable="false"
-                            android:src="@drawable/zm_flag_us" />
-
-                        <TextView
-                            android:id="@+id/txtCountryName"
-                            style="@style/ZMTextView.SettingsItem"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:clickable="false"
-                            android:duplicateParentState="true"
-                            android:focusable="false"
-                            android:paddingRight="2dp"
-                            android:text="USA" />
-
-                        <ImageView
-                            android:id="@+id/imgNextArrow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:clickable="false"
-                            android:duplicateParentState="true"
-                            android:focusable="false"
-                            android:src="@drawable/zm_next_arrow" />
-                    </LinearLayout>
-                </us.zoom.androidlib.widget.ZMSettingsCategory>
-            </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/panelTeleConfInfo"
                 android:layout_width="match_parent"
@@ -132,13 +81,14 @@
 
                 <TextView
                     android:id="@+id/txtDialNumberTitle"
-                    style="@style/ZMTextView.Large.OnLight"
+                    style="@style/ZMTextView.Medium.OnLight"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:paddingLeft="7sp"
-                    android:text="@string/zm_lbl_dial_number" />
+                    android:text="@string/zm_lbl_dial_select_number_18332" />
 
                 <us.zoom.androidlib.widget.ZMSettingsCategory
                     android:id="@+id/dialNumberList"
@@ -147,22 +97,36 @@
                     android:orientation="vertical" >
                 </us.zoom.androidlib.widget.ZMSettingsCategory>
             </LinearLayout>
+            
+             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/zm_white"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/ZMTextView.Normal.Dimmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zm_lbl_dial_meeting_desc_18332" />
+                
+                <TextView
+                    style="@style/ZMTextView.Normal.Dimmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/zm_lbl_join_meeting_desc_18332" />              
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+               
                 android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/titleMeetingInfo"
-                    style="@style/ZMTextView.Large.OnLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="7sp"
-                    android:text="@string/zm_lbl_meeting_info" />
 
                 <us.zoom.androidlib.widget.ZMSettingsCategory
                     android:id="@+id/panelMeetingInfo"

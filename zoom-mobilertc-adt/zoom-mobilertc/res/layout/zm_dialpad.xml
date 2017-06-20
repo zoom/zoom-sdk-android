@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey1"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="1" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey2"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="2" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey3"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey4"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="4" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey5"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="5" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey6"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey7"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="7" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey8"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="8" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey9"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:duplicateParentState="true"
+        android:orientation="horizontal" >
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKeyStar"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="*" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKey0"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="0" />
+
+        <com.zipow.videobox.view.sip.DialPadNumView
+            android:id="@+id/btnKeyNO"
+            android:layout_marginLeft="25dp"
+        	android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zoom:zm_dial_num="#" />
+    </LinearLayout>
+
+</LinearLayout>

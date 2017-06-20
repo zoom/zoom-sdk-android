@@ -182,6 +182,7 @@
                     android:hint="@string/zm_hint_name_group"
                     android:maxLength="256"
                     android:singleLine="true"
+                    android:inputType="textCapSentences"
                     android:text="" >
 
                     <requestFocus />

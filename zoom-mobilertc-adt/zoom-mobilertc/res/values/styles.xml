@@ -295,4 +295,17 @@
 		<item name="android:singleLine">true</item>
 	</style>
 	
+	<style name="ZMTextView.Dialpad">
+		<item name="android:textSize">30sp</item>
+		<item name="android:textColor">@drawable/zm_text_color_dialpad</item>
+	</style>
+	
+	<style name="ZMTextView.Dialpad.OnDark">
+		<item name="android:textSize">30sp</item>
+		<item name="android:textColor">@color/zm_white</item>
+	</style>
+	
+	<style name="ZMTextView.Dialpad.Des">
+		<item name="android:textSize">8sp</item>
+	</style>
 </resources>

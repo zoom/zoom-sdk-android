@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_white"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnClose"
+        style="@style/ZMButton.NoBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/zm_btn_close" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/panelDialNum"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/txtDialNum"
+                    style="@style/ZMTextView.Dialpad"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:ellipsize="start"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/imgDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:contentDescription="@string/zm_btn_delete"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/zm_ic_digi_delete" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtRegisterSipNo"
+                style="@style/ZMTextView.Normal.OnLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="" />
+        </LinearLayout>
+        
+        <TextView 
+            android:id="@+id/txtSipUnvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            style="@style/ZMTextView.Large"
+            android:visibility="gone"
+            android:gravity="center"
+            android:textColor="@color/zm_call_history_name_miss"
+            android:text="@string/zm_mm_msg_sip_unavailable_14480"/>
+
+        <ImageView
+            android:id="@+id/btnDial"
+            android:layout_width="@dimen/zm_sip_dialpad_key_width"
+            android:layout_height="@dimen/zm_sip_dialpad_key_width"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/zm_sip_start_call" />
+
+        <com.zipow.videobox.view.sip.DialKeyboardView
+            android:id="@+id/panelKeybord"
+            android:layout_width="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@id/btnDial" />
+    </RelativeLayout>
+
+</LinearLayout>

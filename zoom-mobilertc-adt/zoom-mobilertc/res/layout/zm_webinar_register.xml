@@ -31,7 +31,7 @@
             android:id="@+id/edtScreenName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textCapSentences"
             android:imeOptions="actionNext|flagNoExtractUi"
             android:text=""
             android:maxLength="50"

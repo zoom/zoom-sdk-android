@@ -16,10 +16,11 @@
 		android:textColorLink="@color/zm_link"
 		android:text="1111111111" />
 	
-	<TextView
-	    android:id="@+id/txtCallType"
-	    style="@style/ZMTextView.SettingsItem"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"/>
+	<ImageView
+	    android:id="@+id/imgCall"
+	    android:src="@drawable/zm_call_highlight"
+	    android:padding="8dp"
+	    android:layout_width="@dimen/zm_btn_normal_height"
+	    android:layout_height="@dimen/zm_btn_normal_height"/>
 	
 </LinearLayout>

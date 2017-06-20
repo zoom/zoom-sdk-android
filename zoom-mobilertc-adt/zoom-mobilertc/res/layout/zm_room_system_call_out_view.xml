@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:imeOptions="actionDone|flagNoExtractUi"
-                android:inputType="text"
+                android:inputType="text|textCapSentences"
                 android:maxLength="128"
                 android:paddingLeft="@dimen/zm_setting_item_padding_left"
                 android:text="" />

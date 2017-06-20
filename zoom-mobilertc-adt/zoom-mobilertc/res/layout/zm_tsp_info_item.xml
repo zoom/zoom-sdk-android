@@ -9,7 +9,8 @@
 
     <TextView
         android:id="@+id/txtLabel"
-        style="@style/ZMTextView.SettingsItem"
+        style="@style/ZMTextView.Medium.Dimmed"
+        android:paddingLeft="@dimen/zm_setting_item_padding_left"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

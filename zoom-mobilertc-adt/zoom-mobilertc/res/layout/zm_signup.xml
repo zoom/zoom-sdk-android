@@ -109,6 +109,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/zm_hint_first_name"
                             android:imeOptions="actionNext"
+                            android:inputType="textCapSentences"
                             android:maxLength="64"
                             android:singleLine="true" />
 
@@ -128,6 +129,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/zm_hint_last_name"
                             android:imeOptions="actionNext"
+                            android:inputType="textCapSentences"
                             android:maxLength="63"
                             android:singleLine="true" />
 

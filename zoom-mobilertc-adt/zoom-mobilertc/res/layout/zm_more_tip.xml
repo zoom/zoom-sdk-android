@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="com.zipow.videobox.AddrBookItemDetailsActivity" >
-
+      
     <us.zoom.androidlib.widget.ZMSettingsLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +15,61 @@
         android:paddingRight="0dp"
         android:paddingTop="10dp"
         zoom:zm_settingsCategorySpacing="0dp" >
+        
+             <us.zoom.androidlib.widget.ZMSettingsCategory
+            android:id="@+id/panelRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            zoom:zm_dividerHeight="0dp" >
+
+            <TextView
+                android:id="@+id/btnStartRecord"
+                style="@style/ZMButton.SettingsItem.Highlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zm_settings_item_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:text="@string/zm_record_btn_start_record" />
+
+            <TextView
+                android:id="@+id/btnStopRecord"
+                style="@style/ZMButton.SettingsItem.Highlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zm_settings_item_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="start|center_vertical"
+                android:paddingLeft="@dimen/zm_setting_item_padding_left"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:text="@string/zm_record_btn_stop_record" />
+        </us.zoom.androidlib.widget.ZMSettingsCategory>
+    
+ <us.zoom.androidlib.widget.ZMSettingsCategory
+            android:id="@+id/panelDisconnectAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            zoom:zm_dividerHeight="0dp" >
+
+            <TextView
+                android:id="@+id/btnDisconnectAudio"
+                style="@style/ZMTextView.SettingsItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/zm_settings_item_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="start|center_vertical"
+                android:text="@string/zm_mi_disconnect_audio"
+                android:textColor="@color/zm_warn" />
+        </us.zoom.androidlib.widget.ZMSettingsCategory>
+        
 
         <us.zoom.androidlib.widget.ZMSettingsCategory
             android:id="@+id/panelFeedback"
@@ -85,6 +140,7 @@
                         android:paddingRight="@dimen/zm_setting_item_padding_right" >
 
                         <TextView
+                            android:id="@+id/txtLockMeeting"
                             style="@style/ZMTextView.SettingsItem"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -102,6 +158,7 @@
                 </us.zoom.androidlib.widget.ZMSettingsCategory>
 
                 <TextView
+                    android:id="@+id/txtLockMeetingDesc"
                     style="@style/ZMTextView.SettingsItemDesc.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -318,40 +375,7 @@
             </us.zoom.androidlib.widget.ZMSettingsCategory>
         </LinearLayout>
 
-        <us.zoom.androidlib.widget.ZMSettingsCategory
-            android:id="@+id/panelRecord"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            zoom:zm_dividerHeight="0dp" >
-
-            <TextView
-                android:id="@+id/btnStartRecord"
-                style="@style/ZMButton.SettingsItem.Highlight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/zm_settings_item_selector"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="start|center_vertical"
-                android:paddingLeft="@dimen/zm_setting_item_padding_left"
-                android:paddingRight="@dimen/zm_setting_item_padding_right"
-                android:text="@string/zm_record_btn_start_record" />
-
-            <TextView
-                android:id="@+id/btnStopRecord"
-                style="@style/ZMButton.SettingsItem.Highlight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/zm_settings_item_selector"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="start|center_vertical"
-                android:paddingLeft="@dimen/zm_setting_item_padding_left"
-                android:paddingRight="@dimen/zm_setting_item_padding_right"
-                android:text="@string/zm_record_btn_stop_record" />
-        </us.zoom.androidlib.widget.ZMSettingsCategory>
-
+       
         <us.zoom.androidlib.widget.ZMSettingsCategory
             android:id="@+id/panelNonHostAction"
             android:layout_width="match_parent"
@@ -450,24 +474,45 @@
                 android:text="@string/zm_btn_disable_annotation" />
         </us.zoom.androidlib.widget.ZMSettingsCategory>
 
-        <us.zoom.androidlib.widget.ZMSettingsCategory
-            android:id="@+id/panelDisconnectAudio"
+       
+         <us.zoom.androidlib.widget.ZMSettingsCategory
+            android:id="@+id/panelControlAccess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             zoom:zm_dividerHeight="0dp" >
 
             <TextView
-                android:id="@+id/btnDisconnectAudio"
+                android:id="@+id/txtControlAccess"
                 style="@style/ZMTextView.SettingsItem"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/zm_settings_item_selector"
-                android:clickable="true"
                 android:focusable="true"
+                android:singleLine="true"
                 android:gravity="start|center_vertical"
-                android:text="@string/zm_mi_disconnect_audio"
-                android:textColor="@color/zm_warn" />
+                android:text="@string/zm_mi_allow_attendees_chat_11380"
+                 />
+             <TextView
+                android:id="@+id/txtCurPrivildge"
+                style="@style/ZMTextView.SettingsItem"
+                android:textColor="@color/zm_dim"
+                android:textSize="16sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:singleLine="true"
+                android:gravity="right|center_vertical"
+                android:text="@string/zm_webinar_txt_all_panelists"
+                 />
+             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:paddingRight="@dimen/zm_setting_item_padding_right"
+                android:src="@drawable/zm_tip_right_arrow"
+                 />
         </us.zoom.androidlib.widget.ZMSettingsCategory>
     </us.zoom.androidlib.widget.ZMSettingsLayout>
 

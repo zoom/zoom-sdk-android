@@ -7,4 +7,7 @@
     <dimen name="zm_share_toolbar_unit_maxWidth">60dp</dimen>
     <dimen name="zm_share_toolbar_margin">10dp</dimen>
     <dimen name="zm_msg_addon_width">230dp</dimen>
+    
+    <dimen name="zm_sip_dialpad_key_width">64dp</dimen>
+	<dimen name="zm_sip_dialpad_width">380dp</dimen>
 </resources>

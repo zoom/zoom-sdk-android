@@ -175,7 +175,7 @@
 	                        android:duplicateParentState="true"
 	                        android:focusable="false"
 	                        android:gravity="left"
-	                        android:text="@string/zm_lbl_enable_address_book" />
+	                        android:text="@string/zm_lbl_share_category_contact" />
 	
 	                    <ImageView
 	                        android:layout_width="wrap_content"

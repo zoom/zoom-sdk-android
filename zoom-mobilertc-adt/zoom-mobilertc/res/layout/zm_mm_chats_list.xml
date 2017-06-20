@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zm_pt_titlebar_height"
         style="@style/ZMTitleBar.Dark"
-        zoom:zm_leftButton="@+id/btnNewGroup"
+        zoom:zm_leftButton="@+id/btnSettings"
         zoom:zm_rightButton="@+id/panelTitleRight"
         zoom:zm_title="@+id/txtTitle" >
         <LinearLayout android:layout_width="wrap_content"
@@ -38,13 +38,13 @@
         </LinearLayout>
         
             
-        <Button
-            style="@style/ZMButton.TitleBar.OnDark"
-            android:id="@+id/btnNewGroup"
-            android:visibility="gone"
+        <ImageButton
+	        style="@style/ZMButton.TitleBar"
+            android:id="@+id/btnSettings"
+            android:src="@drawable/zm_btn_settings"
+	        android:contentDescription="@string/zm_description_tab_setting" 
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/zm_btn_new_group" />
+            android:layout_height="match_parent" />
         
         <us.zoom.androidlib.widget.ZMDynTextSizeTextView
             android:id="@+id/txtTitle"
@@ -57,113 +57,121 @@
             android:text="@string/zm_mm_title_chats" />
         
     </us.zoom.androidlib.widget.ZMIOSStyleTitlebarLayout>
-        
-    <RelativeLayout
-        android:id="@+id/panelSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <EditText
-            style="@style/ZMEditText.ContextSearch"
-            android:id="@+id/edtSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/zm_hint_search_jump_chat"
-            android:focusable="false"
-            android:imeOptions="actionDone" />
-
-        <Button
-            android:id="@+id/btnClearSearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/zm_btn_clear_search_view"
-            android:contentDescription="@string/zm_description_mm_btn_clear_search" />
-        
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:orientation="vertical">
+             
+		    <RelativeLayout
+		        android:id="@+id/panelSearch"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" >
+		
+		        <EditText
+		            style="@style/ZMEditText.ContextSearch"
+		            android:id="@+id/edtSearch"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:hint="@string/zm_hint_search_call_14480"
+		            android:focusable="false"
+		            android:imeOptions="actionDone" />
+		
+		        <Button
+		            android:id="@+id/btnClearSearchView"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_centerVertical="true"
+		            android:background="@drawable/zm_btn_clear_search_view"
+		            android:contentDescription="@string/zm_description_mm_btn_clear_search" />
+		        
+		    </RelativeLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/panelConnectionAlert"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		        
+		        <LinearLayout
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:background="@drawable/zm_notification_background"
+		            android:gravity="left|center_vertical"
+		            android:orientation="horizontal"
+		            android:paddingBottom="8dp"
+		            android:paddingLeft="10dp"
+		            android:paddingTop="8dp" >
+		
+		            <ImageView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:src="@drawable/zm_mm_ic_network_unavailable" />
+		
+		            <TextView
+		                android:id="@+id/txtNetworkAlert"
+		                style="@style/ZMTextView.Medium.OnLight"
+		                android:layout_width="0dp"
+		                android:layout_height="wrap_content"
+		                android:layout_marginLeft="10dp"
+		                android:layout_weight="1"
+		                android:text="@string/zm_mm_msg_network_unavailable" />
+		            
+		            <ImageView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:src="@drawable/zm_next_arrow_on_notification"
+		                android:duplicateParentState="true"/>
+		            
+		        </LinearLayout>
+		
+		        <ImageView
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:background="@drawable/zm_list_divider" />
+		        
+		    </LinearLayout>
+		    
+		    <FrameLayout
+		        android:id="@+id/listContainer"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1" >
+		
+		        <com.zipow.videobox.view.mm.MMChatsListView
+		            android:id="@+id/chatsListView"
+		            android:divider="@null"
+		            android:dividerHeight="0dp"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent" />
+		        
+		        <LinearLayout
+		            android:id="@+id/panelNoItemMsg"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:paddingLeft="10dp"
+		            android:paddingRight="10dp"
+		            android:layout_gravity="center"
+		            android:orientation="vertical" >
+		
+		            <TextView
+		                style="@style/ZMTextView.Medium"
+		                android:id="@+id/txtNoItemMsg"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_gravity="center_horizontal"
+		                android:gravity="center"
+		                android:text="@string/zm_msg_no_chats_not_registered_phone_number" />
+		
+		        </LinearLayout>
+		        
+		    </FrameLayout>
+        </LinearLayout>
         <ImageView android:layout_width="match_parent"
             android:layout_height="10dp"
             android:background="@drawable/zm_ic_titlebar_shadow"/>
-    </RelativeLayout>
-    
-    <LinearLayout
-        android:id="@+id/panelConnectionAlert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/zm_notification_background"
-            android:gravity="left|center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="8dp" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/zm_mm_ic_network_unavailable" />
-
-            <TextView
-                android:id="@+id/txtNetworkAlert"
-                style="@style/ZMTextView.Medium.OnLight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:text="@string/zm_mm_msg_network_unavailable" />
-            
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/zm_next_arrow_on_notification"
-                android:duplicateParentState="true"/>
-            
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/zm_list_divider" />
-        
-    </LinearLayout>
-    
-    <FrameLayout
-        android:id="@+id/listContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-
-        <com.zipow.videobox.view.mm.MMChatsListView
-            android:id="@+id/chatsListView"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        
-        <LinearLayout
-            android:id="@+id/panelNoItemMsg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                style="@style/ZMTextView.Medium"
-                android:id="@+id/txtNoItemMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/zm_msg_no_chats_not_registered_phone_number" />
-
-        </LinearLayout>
-        
-    </FrameLayout>
+    </RelativeLayout>   
 
 </LinearLayout>
