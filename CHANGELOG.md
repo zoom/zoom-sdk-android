@@ -7,6 +7,7 @@
 Add interfaces to get a list of participants’ profile and status in meeting
 	the name of the interfaces are InMeetingServiceListener and InMeetingService
 	APIs provided in the interface are:
+
 	1. void	onLowOrRaiseHandStatusChanged(long userId, boolean isRaiseHand)
 	   Sink the event of Low Or Raise Hand Status changed
 
@@ -43,7 +44,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 	12. void addListener(InMeetingServiceListener listener)
 	    Register a listener for in-meeting event
 
-	13. boolean	changeName(java.lang.String inputName, long userId)
+	13. boolean changeName(java.lang.String inputName, long userId)
 	    This method is used to change user's display name in meeting.
 
 	14. InMeetingUserList getInMeetingUserList()
@@ -58,10 +59,10 @@ Add interfaces to get a list of participants’ profile and status in meeting
 	17. InMeetingUserInfo getUserInfoById(long userId)
 		This method is used to get user info by certain userId
 
-	18. boolean	isHostUser(long userId)
+	18. boolean isHostUser(long userId)
 		This method is used to check the user is host or not.
 
-	19. boolean	isMeetingLocked()
+	19. boolean isMeetingLocked()
 		This method is used to tell whether the meeting is locked by host or not.
 	
 	20. boolean	isMuteOnEntryOn()
