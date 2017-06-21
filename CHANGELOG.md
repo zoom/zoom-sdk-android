@@ -48,64 +48,64 @@ Add interfaces to get a list of participants’ profile and status in meeting
 	    This method is used to change user's display name in meeting.
 
 	14. InMeetingUserList getInMeetingUserList()
-		Note: Don't call this interface frequently.
+ 		Note: Don't call this interface frequently.
 
 	15. long getMyUserID()
-		This method is used to get my user id in the meeting.
+	    This method is used to get my user id in the meeting.
 
 	16. InMeetingUserInfo getMyUserInfo()
-		This method is used to get my user info in the meeting.
+	    This method is used to get my user info in the meeting.
 
 	17. InMeetingUserInfo getUserInfoById(long userId)
-		This method is used to get user info by certain userId
+        This method is used to get user info by certain userId
 
 	18. boolean isHostUser(long userId)
-		This method is used to check the user is host or not.
+	    This method is used to check the user is host or not.
 
 	19. boolean isMeetingLocked()
-		This method is used to tell whether the meeting is locked by host or not.
+	    This method is used to tell whether the meeting is locked by host or not.
 	
-	20. boolean	isMuteOnEntryOn()
-		This method is used to check whether MuteOnEntry is on in the meeting.
+	20. boolean isMuteOnEntryOn()
+	    This method is used to check whether MuteOnEntry is on in the meeting.
 
-	21. boolean	isMyself(long userId)
-		This method is used to check the user is myself or not.
+	21. boolean isMyself(long userId)
+	    This method is used to check the user is myself or not.
 
-	22. boolean	isPlayChimeOn()
-		This method is used to check PlayChime or not while user join/leave meeting.
+	22. boolean isPlayChimeOn()
+	    This method is used to check PlayChime or not while user join/leave meeting.
 
 	23. boolean isSameUser(long user1, long user2)
-		This method is used to judge the same user.
+	    This method is used to judge the same user.
 
-	24. boolean	isShareLocked()
-		This method is used to tell whether the screen share is locked by host or not.
+	24. boolean isShareLocked()
+        This method is used to tell whether the screen share is locked by host or not.
 	
-	25. boolean	isUserVideoSpotLighted(long userId)
-		This method is used to check the user's video spotlighted or not.
+	25. boolean isUserVideoSpotLighted(long userId)
+	    This method is used to check the user's video spotlighted or not.
 
-	26. boolean	lowerHand(long userId)
-		This method is used to lower user's hand.
+	26. boolean lowerHand(long userId)
+	    This method is used to lower user's hand.
 
-	27. boolean	makeHost(long userId)
-		This method is used to assign host role to another user in the meeting.
+	27. boolean makeHost(long userId)
+	    This method is used to assign host role to another user in the meeting.
 
-	28. boolean	raiseMyHand()
-		This method is used to raise my hand.
+	28. boolean raiseMyHand()
+	    This method is used to raise my hand.
 
 	29. void removeListener(InMeetingServiceListener listener)
-		Unregister a listener
+	    Unregister a listener
 
-	30. boolean	removeUser(long userId)
-		This method is used to remove a user in the meeting.
+	30. boolean removeUser(long userId)
+	    This method is used to remove a user in the meeting.
 
-	31. boolean	setMuteOnEntry(boolean on)
-		This method is used to set whether MuteOnEntry is on in the meeting.
+	31. boolean setMuteOnEntry(boolean on)
+	    This method is used to set whether MuteOnEntry is on in the meeting.
 
-	32. boolean	setPlayChimeOnOff(boolean on)
-		This method is used to set PlayChime or not while user join/leave meeting.
+	32. boolean setPlayChimeOnOff(boolean on)
+	    This method is used to set PlayChime or not while user join/leave meeting.
 	
-	33. boolean	spotLightVideo(boolean on, long userId)
-		This method is used to spotlight the user's video or not.
+	33. boolean spotLightVideo(boolean on, long userId)
+        This method is used to spotlight the user's video or not.
 
 ## 2017-03-13
 
