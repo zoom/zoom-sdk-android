@@ -9,6 +9,8 @@ This sample include examples for both Android Studio project and Eclipse project
    * Update the API key and secret in the project
    * Build the project
    
+The documentation is available @ https://zoom.github.io/zoom-sdk-android/
+
 If you need assistance, please visit the [Zoom Developer Portal](https://zoom.us/developer)
    
 Copyright ©2016-2017 Zoom Video Communications, Inc. 
