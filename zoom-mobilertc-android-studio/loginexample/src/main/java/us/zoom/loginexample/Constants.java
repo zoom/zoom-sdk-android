@@ -6,9 +6,9 @@ public interface Constants {
 	public final static String WEB_DOMAIN = "zoom.us";
 
 	// TODO Change it to your APP Key
-	public final static String APP_KEY = "Your APP Key";
-	
+	public final static String APP_KEY = "UTiw4W3on3YdNzjU1dD3dxFIa9mCVu16JOop";
+
 	// TODO Change it to your APP Secret
-	public final static String APP_SECRET = "Your APP Secret";
+	public final static String APP_SECRET = "JC37LqI5LssCXYCXytIxNc2hyyHghHSX7CKo";
 
 }
