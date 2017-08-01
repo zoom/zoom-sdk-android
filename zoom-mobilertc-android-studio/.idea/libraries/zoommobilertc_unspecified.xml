@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="zoommobilertc-unspecified">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/5b4cf0e6e7fd666f17c14f0f98e94db73039c3c4/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/5b4cf0e6e7fd666f17c14f0f98e94db73039c3c4/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5b4cf0e6e7fd666f17c14f0f98e94db73039c3c4/output/jars/libs/protobuf-java-2.4.1-lite.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5b4cf0e6e7fd666f17c14f0f98e94db73039c3c4/output/jars/libs/gson-2.1.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5b4cf0e6e7fd666f17c14f0f98e94db73039c3c4/output/jars/libs/zoom-mobilertc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
