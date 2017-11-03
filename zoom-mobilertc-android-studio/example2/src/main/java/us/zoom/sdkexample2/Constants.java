@@ -18,6 +18,6 @@ public interface Constants {
 	public final static String ZOOM_TOKEN = "-TyvZsQXmG3U-FXc8iQF9u0LUCg8iCmFihMb1FGf5_c.BgMgY01hTnU5d0F0QkdyRDVMMmVyOUNLV1ZOdTVqQTdmajZAZmVkZDA2ZGM1YTQxNjExNThjNTYwMDE3YTA0M2NkM2RiNTBiMjVjZjBiZTQ4NDRiNDAyYmU5MzY0MzAyNWI3NgAMM0NCQXVvaVlTM3M9";
 	
 	// TODO Change it to your exist meeting ID to start meeting
-	public final static String MEETING_ID = 6422240059;
+	public final static String MEETING_ID = null;
 
 }
