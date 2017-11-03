@@ -6,18 +6,22 @@ public interface Constants {
 	public final static String WEB_DOMAIN = "zoom.us";
 
 	// TODO Change it to your APP Key
-	public final static String APP_KEY = "UTiw4W3on3YdNzjU1dD3dxFIa9mCVu16JOop";
+	public final static String APP_KEY = "";
 	
 	// TODO Change it to your APP Secret
-	public final static String APP_SECRET = "JC37LqI5LssCXYCXytIxNc2hyyHghHSX7CKo";
+	public final static String APP_SECRET = "";
 
 	// TODO change it to your user ID
-	public final static String USER_ID = "ijTMthVYQzSy06ba9Elxdw";
+	public final static String USER_ID = "";
 	
 	// TODO change it to your token
-	public final static String ZOOM_TOKEN = "-TyvZsQXmG3U-FXc8iQF9u0LUCg8iCmFihMb1FGf5_c.BgMgY01hTnU5d0F0QkdyRDVMMmVyOUNLV1ZOdTVqQTdmajZAZmVkZDA2ZGM1YTQxNjExNThjNTYwMDE3YTA0M2NkM2RiNTBiMjVjZjBiZTQ4NDRiNDAyYmU5MzY0MzAyNWI3NgAMM0NCQXVvaVlTM3M9";
+	public final static String ZOOM_TOKEN = "";
 	
 	// TODO Change it to your exist meeting ID to start meeting
+<<<<<<< HEAD
 	public final static String MEETING_ID = null;
+=======
+	public final static String MEETING_ID = ;
+>>>>>>> ebd733595d0adffa6cbed99dbfd66ba967e04313
 
 }
