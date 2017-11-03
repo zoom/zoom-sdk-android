@@ -18,10 +18,10 @@ public interface Constants {
 	public final static String ZOOM_TOKEN = "";
 	
 	// TODO Change it to your exist meeting ID to start meeting
-<<<<<<< HEAD
+
 	public final static String MEETING_ID = null;
-=======
+
 	public final static String MEETING_ID = ;
->>>>>>> ebd733595d0adffa6cbed99dbfd66ba967e04313
+
 
 }
