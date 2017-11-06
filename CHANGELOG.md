@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 2017-10-30
+
+### Added
+	1. No longer support zoom mobilertc version for ADT(eclipse)
+	
+	2. Support SSO login
+	
+	3. Add interfaces to auto connect device audio / always , mute my microphone / always turn off my video when joining 
+	meeting
+	
+	4. Add interfaces to check if meeting support inviting by phone and room system
+	
+	5. Add interfaces to mute and unmute my audio&video , mute and unmute all participants'audio
+	
+	6. Add interfaces to disable video gallery view
+	
+	7. Add interfaces to hide user enter/leave popup
+	
+	8. PreMeeting functions error code refactor
+	
+	9. Bugs fix:
+		System statusbar will overlap zoom watermark if the android device support immersive mode
+		If meeting activity has been destroyed, meeting process can not exit correctly after main process stopped
+		If there is no internet connection, a NullPointerException is thrown from inside the Zoom SDK shortly after
+		scheduleMeeting was called
+		Fix zoom mobilertc meeting no_disconnect_audio option does not work issue
+		
 ## 2017-06-19
 
 ### Added
