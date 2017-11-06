@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="zm_mm_bubble_width">415dp</dimen>
-    <dimen name="zm_mm_bubble_file_width">415dp</dimen>
-    <dimen name="zm_msg_addon_width">415dp</dimen>
-    
-</resources>
