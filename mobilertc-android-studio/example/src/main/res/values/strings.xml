@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_app_name">Zoom SDK example</string>
+    
+    <string name="invite_acitivity_name">Meeting Invite Example</string>
+    
+</resources>
