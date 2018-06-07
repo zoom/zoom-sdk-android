@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "us.zoom.sdkexample"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 25
 		versionCode 1
         versionName "1.0"
     }
@@ -21,7 +21,10 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.1.0'
+    compile 'com.android.support:support-v4:25.3.1'
     compile project(':commonlib')
     compile project(':mobilertc')
+	//For share with dropbox
+	//compile 'com.dropbox.core:dropbox-core-sdk:3.0.5'
+	//compile 'com.squareup.okhttp3:okhttp:3.5.0'
 }

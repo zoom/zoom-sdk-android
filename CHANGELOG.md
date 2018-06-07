@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2017-05-28
+
+### Added
+
+1.Update Android SDK target version to 25(Android7.0)
+
+2.Add in meeting chat message callback event;
+
+3.New interface to set meeting large share video layout (side by side) when view other’s sharing;
+
+4.Interface for getting current meeting room device list and inviting room system interfaces refactor;
+
+5.Support to config DSCP for audio video session;
+
+6.Support set domain start with http:// or https://;
+
 ## 2017-10-30
 
 ### Added

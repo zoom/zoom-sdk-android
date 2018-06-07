@@ -5,7 +5,7 @@
       android:versionName="1.0"
       android:installLocation="auto">
     
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="25"/>
     
     <uses-feature android:glEsVersion="0x00020000"/>
     
@@ -82,10 +82,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <activity
-            android:name="com.dropbox.client2.android.AuthActivity"
-            android:configChanges="orientation|keyboard"
+		
+		<activity
+            android:name="com.dropbox.core.android.AuthActivity"
+            android:configChanges="orientation|keyboard|screenSize|smallestScreenSize|layoutDirection|screenLayout|keyboardHidden|uiMode"
             android:theme="@style/ZMTheme.SubWindow"
             android:launchMode="singleTask" >
             <intent-filter>
