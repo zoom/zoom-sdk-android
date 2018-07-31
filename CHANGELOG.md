@@ -7,6 +7,7 @@ The start meeting logic for API users has changed. Please read below before upgr
 ### Added
 
 1.New start/join meeting interfaces
+
 We added a new parameter, zoom access token (ZAK), which can be retrieved through REST API:
 https://zoom.github.io/api/#retrieve-a-users-permissions
 
