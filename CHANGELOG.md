@@ -11,15 +11,15 @@ We added a new parameter, zoom access token (ZAK), which can be retrieved throug
 https://zoom.github.io/api/#retrieve-a-users-permissions
 
 Old API User start meeting logic:
-
+```
 StartMeetingOptions opts = new StartMeetingOptions();
 //opts.no_driving_mode = true;
 //……………
 int ret = meetingService.startMeeting(this, USER_ID, ZOOM_TOKEN,
 USER _TYPE, meetingNo, DISPLAY_NAME, opts);
-
+```
 New API User start meeting logic:
-
+```
 StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
 params.userId = USER_ID;
 params.zoomToken = ZOOM_TOKEN;
@@ -32,7 +32,7 @@ StartMeetingOptions opts = new StartMeetingOptions();
 //opts.no_driving_mode = true;
 //……………
 int ret = meetingService.startMeetingWithParams(this, params, opts);
-
+```
 2.Add interface to let host assign&revoke Cohost
 
 3.Add an interface which set Host Key to claim Host
