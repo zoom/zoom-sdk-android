@@ -89,7 +89,12 @@ public class WelcomeActivity extends Activity implements Constants, ZoomSDKIniti
 		//No op
 		
 	}
-	
+
+	@Override
+	public void onZoomIdentityExpired() {
+		//Zoom identity expired, please re-login;
+	}
+
 	private void showLoginView() {
 		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);

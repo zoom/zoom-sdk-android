@@ -2,11 +2,13 @@ package us.zoom.loginexample;
 
 import us.zoom.sdk.InstantMeetingOptions;
 import us.zoom.sdk.JoinMeetingOptions;
+import us.zoom.sdk.JoinMeetingParams;
 import us.zoom.sdk.MeetingError;
 import us.zoom.sdk.MeetingEvent;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.StartMeetingParams4NormalUser;
 import us.zoom.sdk.ZoomApiError;
 import us.zoom.sdk.ZoomAuthenticationError;
 import us.zoom.sdk.ZoomError;
@@ -101,7 +103,12 @@ public class WorkEmailUserExampleActivity extends Activity implements Constants,
 			Toast.makeText(this, "Logout failed result code = " + result, Toast.LENGTH_SHORT).show();
 		}
 	}
-	
+
+	@Override
+	public void onZoomIdentityExpired() {
+
+	}
+
 	public void onClickBtnLoginUserStart(View view) {
 		String meetingNo = mEdtMeetingNo.getText().toString().trim();
 		
@@ -116,7 +123,10 @@ public class WorkEmailUserExampleActivity extends Activity implements Constants,
 			Toast.makeText(this, "ZoomSDK has not been initialized successfully", Toast.LENGTH_LONG).show();
 			return;
 		}
-		
+
+		StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
+		params.meetingNo = meetingNo;
+
 		MeetingService meetingService = zoomSDK.getMeetingService();
 		
 		StartMeetingOptions opts = new StartMeetingOptions();
@@ -135,7 +145,7 @@ public class WorkEmailUserExampleActivity extends Activity implements Constants,
 //		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
 //		opts.no_meeting_error_message = true;
 		
-		int ret = meetingService.startMeeting(this, meetingNo, opts);
+		int ret = meetingService.startMeetingWithParams(this, params, opts);
 		
 		Log.i(TAG, "onClickBtnLoginUserStart, ret=" + ret);
 	}
@@ -155,6 +165,11 @@ public class WorkEmailUserExampleActivity extends Activity implements Constants,
 			Toast.makeText(this, "ZoomSDK has not been initialized successfully", Toast.LENGTH_LONG).show();
 			return;
 		}
+
+		JoinMeetingParams params = new JoinMeetingParams();
+		params.meetingNo = meetingNo;
+		params.password = meetingPassword;
+		params.displayName = DISPLAY_NAME;
 		
 		MeetingService meetingService = zoomSDK.getMeetingService();
 		
@@ -175,7 +190,7 @@ public class WorkEmailUserExampleActivity extends Activity implements Constants,
 //		opts.no_meeting_error_message = true;
 //		opts.participant_id = "participant id";
 
-		int ret = meetingService.joinMeeting(this, meetingNo, DISPLAY_NAME, meetingPassword, opts);
+		int ret = meetingService.joinMeetingWithParams(this, params, opts);
 		
 		Log.i(TAG, "onClickBtnLoginUserJoin, ret=" + ret);
 	}

@@ -123,4 +123,9 @@ public class LoginActivity extends Activity implements ZoomSDKAuthenticationList
 			Toast.makeText(this, "Logout failed result code = " + result, Toast.LENGTH_SHORT).show();
 		}
 	}
+
+	@Override
+	public void onZoomIdentityExpired() {
+		//Zoom identity expired, please re-login;
+	}
 }

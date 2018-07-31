@@ -6,6 +6,8 @@ import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
+import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.StartMeetingParams4APIUser;
 import us.zoom.sdk.ZoomError;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKInitializeListener;
@@ -194,15 +196,21 @@ public class MainActivity extends Activity implements Constants, MeetingServiceL
 		}
 		
 		MeetingService meetingService = zoomSDK.getMeetingService();
-		
-		MeetingOptions opts = new MeetingOptions();
+
+		StartMeetingOptions opts = new StartMeetingOptions();
 		opts.no_driving_mode = true;
 //		opts.no_meeting_end_message = true;
 		opts.no_titlebar = true;
 		opts.no_bottom_toolbar = true;
 		opts.no_invite = true;
-		
-		int ret = meetingService.startMeeting(this, USER_ID, ZOOM_TOKEN, STYPE, MEETING_ID, DISPLAY_NAME, opts);
+
+		StartMeetingParams4APIUser params = new StartMeetingParams4APIUser();
+		params.userId = USER_ID;
+		params.zoomToken = ZOOM_TOKEN;
+		params.meetingNo = MEETING_ID;
+		params.displayName = DISPLAY_NAME;
+
+		int ret = meetingService.startMeetingWithParams(this, params, opts);
 		
 		Log.i(TAG, "onClickBtnStartMeeting, ret=" + ret);
 	}

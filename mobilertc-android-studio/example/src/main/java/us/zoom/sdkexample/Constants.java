@@ -17,4 +17,7 @@ public interface Constants {
 	// TODO change it to your token
 	public final static String ZOOM_TOKEN = "Your token from REST API";
 
+	// TODO change it to your access token
+	public final static String ZOOM_ACCESS_TOKEN = "Your access token from REST API";
+
 }

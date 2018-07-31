@@ -17,6 +17,16 @@
     </EditText>
     
     <EditText
+        android:id="@+id/edtVanityUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vanity url"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true">
+        <requestFocus />
+    </EditText>
+    
+    <EditText
         android:id="@+id/edtMeetingPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

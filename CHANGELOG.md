@@ -1,5 +1,50 @@
 # CHANGELOG
 
+## 2017-07-26
+
+The start meeting logic for API users has changed. Please read below before upgrading to this version.
+
+### Added
+
+1.New start/join meeting interfaces
+We added a new parameter, zoom access token (ZAK), which can be retrieved through REST API:
+https://zoom.github.io/api/#retrieve-a-users-permissions
+
+Old API User start meeting logic:
+
+StartMeetingOptions opts = new StartMeetingOptions();
+//opts.no_driving_mode = true;
+//……………
+int ret = meetingService.startMeeting(this, USER_ID, ZOOM_TOKEN,
+USER _TYPE, meetingNo, DISPLAY_NAME, opts);
+
+New API User start meeting logic:
+
+StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
+params.userId = USER_ID;
+params.zoomToken = ZOOM_TOKEN;
+params.userType = STYPE;;
+params.displayName = DISPLAY_NAME;
+params.zoomAccessToken = ZOOM_ACCESS_TOKEN;
+params.meetingNo = meetingNo;
+
+StartMeetingOptions opts = new StartMeetingOptions();
+//opts.no_driving_mode = true;
+//……………
+int ret = meetingService.startMeetingWithParams(this, params, opts);
+
+2.Add interface to let host assign&revoke Cohost
+
+3.Add an interface which set Host Key to claim Host
+
+4.Support join/start meeting with vanity ID
+
+5.Add interface to start 3rd live stream
+
+6.Default not auto retry to auth SDK after auth failed
+
+7.Bugs fix
+
 ## 2017-05-28
 
 ### Added

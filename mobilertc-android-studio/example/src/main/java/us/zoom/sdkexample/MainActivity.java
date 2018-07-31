@@ -1,12 +1,14 @@
 package us.zoom.sdkexample;
 
 import us.zoom.sdk.JoinMeetingOptions;
+import us.zoom.sdk.JoinMeetingParams;
 import us.zoom.sdk.MeetingError;
 import us.zoom.sdk.MeetingEvent;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.StartMeetingParamsWithoutLogin;
 import us.zoom.sdk.ZoomError;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKInitializeListener;
@@ -25,6 +27,7 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 	
 	private EditText mEdtMeetingNo;
 	private EditText mEdtMeetingPassword;
+	private EditText mEdtVanityId;
 	
 	private final static int STYPE = MeetingService.USER_TYPE_API_USER;
 	private final static String DISPLAY_NAME = "ZoomUS SDK";
@@ -38,6 +41,7 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 		setContentView(R.layout.main);
 
 		mEdtMeetingNo = (EditText)findViewById(R.id.edtMeetingNo);
+		mEdtVanityId = (EditText)findViewById(R.id.edtVanityUrl);
 		mEdtMeetingPassword = (EditText)findViewById(R.id.edtMeetingPassword);
 		
 		if(savedInstanceState == null) {
@@ -84,9 +88,16 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 	public void onClickBtnJoinMeeting(View view) {
 		String meetingNo = mEdtMeetingNo.getText().toString().trim();
 		String meetingPassword = mEdtMeetingPassword.getText().toString().trim();
+
+		String vanityId = mEdtVanityId.getText().toString().trim();
 		
-		if(meetingNo.length() == 0) {
-			Toast.makeText(this, "You need to enter a meeting number which you want to join.", Toast.LENGTH_LONG).show();
+		if(meetingNo.length() == 0 && vanityId.length() == 0) {
+			Toast.makeText(this, "You need to enter a meeting number/ vanity id which you want to join.", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		if(meetingNo.length() != 0 && vanityId.length() !=0) {
+			Toast.makeText(this, "Both meeting number and vanity id have value,  just set one of them", Toast.LENGTH_LONG).show();
 			return;
 		}
 		
@@ -115,17 +126,32 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 //		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE;
 //		opts.no_meeting_error_message = true;
 //		opts.participant_id = "participant id";
+		JoinMeetingParams params = new JoinMeetingParams();
 
-		int ret = meetingService.joinMeeting(this, meetingNo, DISPLAY_NAME, meetingPassword, opts);
+		params.displayName = DISPLAY_NAME;
+		params.password = meetingPassword;
+
+		if(vanityId.length() != 0) {
+			params.vanityID = vanityId;
+		} else {
+			params.meetingNo = meetingNo;
+		}
+		int ret = meetingService.joinMeetingWithParams(this, params);
 		
 		Log.i(TAG, "onClickBtnJoinMeeting, ret=" + ret);
 	}
 	
 	public void onClickBtnStartMeeting(View view) {
 		String meetingNo = mEdtMeetingNo.getText().toString().trim();
-		
-		if(meetingNo.length() == 0) {
-			Toast.makeText(this, "You need to enter a scheduled meeting number.", Toast.LENGTH_LONG).show();
+		String vanityId = mEdtVanityId.getText().toString().trim();
+
+		if(meetingNo.length() == 0 && vanityId.length() == 0) {
+			Toast.makeText(this, "You need to enter a meeting number/ vanity  which you want to join.", Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		if(meetingNo.length() != 0 && vanityId.length() !=0) {
+			Toast.makeText(this, "Both meeting number and vanity  have value,  just set one of them", Toast.LENGTH_LONG).show();
 			return;
 		}
 		
@@ -188,8 +214,20 @@ public class MainActivity extends Activity implements Constants, ZoomSDKInitiali
 //		opts.no_video = true;
 //		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
 //		opts.no_meeting_error_message = true;
-		
-		int ret = meetingService.startMeeting(this, USER_ID, ZOOM_TOKEN, STYPE, meetingNo, DISPLAY_NAME, opts);
+
+        StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
+		params.userId = USER_ID;
+		params.zoomToken = ZOOM_TOKEN;
+		params.userType = STYPE;;
+		params.displayName = DISPLAY_NAME;
+		params.zoomAccessToken = ZOOM_ACCESS_TOKEN;
+
+		if(vanityId.length() != 0) {
+			params.vanityID = vanityId;
+		} else {
+			params.meetingNo = meetingNo;
+		}
+		int ret = meetingService.startMeetingWithParams(this, params, opts);
 		
 		Log.i(TAG, "onClickBtnStartMeeting, ret=" + ret);
 	}
