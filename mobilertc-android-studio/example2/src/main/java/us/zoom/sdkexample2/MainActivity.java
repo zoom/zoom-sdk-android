@@ -1,7 +1,6 @@
 package us.zoom.sdkexample2;
 
 import us.zoom.sdk.MeetingError;
-import us.zoom.sdk.MeetingEvent;
 import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
@@ -216,14 +215,14 @@ public class MainActivity extends Activity implements Constants, MeetingServiceL
 	}
 
 	@Override
-	public void onMeetingEvent(int meetingEvent, int errorCode,
+	public void onMeetingStatusChanged(MeetingStatus meetingStatus, int errorCode,
 			int internalErrorCode) {
 		
-		if(meetingEvent == MeetingEvent.MEETING_CONNECT_FAILED && errorCode == MeetingError.MEETING_ERROR_CLIENT_INCOMPATIBLE) {
+		if(meetingStatus == meetingStatus.MEETING_STATUS_FAILED && errorCode == MeetingError.MEETING_ERROR_CLIENT_INCOMPATIBLE) {
 			Toast.makeText(this, "Version of ZoomSDK is too low!", Toast.LENGTH_LONG).show();
 		}
 		
-		if(meetingEvent == MeetingEvent.MEETING_DISCONNECTED || meetingEvent == MeetingEvent.MEETING_CONNECT_FAILED) {
+		if(meetingStatus == MeetingStatus.MEETING_STATUS_IDLE || meetingStatus == MeetingStatus.MEETING_STATUS_FAILED) {
 			selectTab(TAB_WELCOME);
 		}
 	}

@@ -11,13 +11,13 @@ public interface Constants {
 	// TODO Change it to your APP Secret
 	public final static String APP_SECRET = "Your APP Secret";
 
-	// TODO change it to your user ID
+	// TODO change it to your user ID, do not need for login user
 	public final static String USER_ID = "Your user ID from REST API";
 	
-	// TODO change it to your token
+	// TODO change it to your token, do not need for login user
 	public final static String ZOOM_TOKEN = "Your token from REST API";
 
-	// TODO change it to your access token
+	// TODO change it to your access token, do not need for login user
 	public final static String ZOOM_ACCESS_TOKEN = "Your access token from REST API";
 
 }

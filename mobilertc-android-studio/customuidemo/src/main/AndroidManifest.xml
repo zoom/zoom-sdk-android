@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="us.zoom.customuidemo"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25" />
+
+    <uses-feature android:glEsVersion="0x00020000" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/this_app_name">
+
+        <activity android:name="us.zoom.customuidemo.WelcomeActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="us.zoom.customuidemo.MainActivity"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/this_app_name"
+            android:theme="@style/ZMTheme.MainWindow"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="us.zoom.customuidemo.LoginActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+        </activity>
+
+        <activity
+            android:name="us.zoom.customuidemo.MyMeetingActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/ZMTheme.SubWindow" />
+
+    </application>
+
+</manifest> 

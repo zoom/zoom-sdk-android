@@ -2,9 +2,9 @@ package us.zoom.sdkexample;
 
 import us.zoom.androidlib.util.AndroidAppUtil;
 import us.zoom.sdk.MeetingError;
-import us.zoom.sdk.MeetingEvent;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
+import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdkexample.R;
 import android.app.Activity;
@@ -90,13 +90,13 @@ public class MyWaitJoinActivity extends Activity implements View.OnClickListener
 	}
 	
 	@Override
-	public void onMeetingEvent(int meetingEvent, int errorCode,
-			int internalErrorCode) {
+	public void onMeetingStatusChanged(MeetingStatus meetingStatus, int errorCode,
+									   int internalErrorCode) {
 		
-		Log.i(TAG, "onMeetingEvent, meetingEvent=" + meetingEvent + ", errorCode=" + errorCode
+		Log.i(TAG, "onMeetingStatusChanged, meetingStatus=" + meetingStatus + ", errorCode=" + errorCode
 				+ ", internalErrorCode=" + internalErrorCode);
 		
-		if(meetingEvent == MeetingEvent.MEETING_READY_TO_JOIN) {
+		if(meetingStatus != MeetingStatus.MEETING_STATUS_WAITINGFORHOST) {
 			finish();
 		}
 	}

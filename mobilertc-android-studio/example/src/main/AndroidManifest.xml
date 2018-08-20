@@ -5,7 +5,7 @@
       android:versionName="1.0"
       android:installLocation="auto">
     
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="25"/>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="26"/>
     
     <uses-feature android:glEsVersion="0x00020000"/>
     
@@ -44,14 +44,54 @@
     
     <application android:label="@string/this_app_name"
         android:icon="@drawable/ic_launcher">
-        
+
+        <activity android:name="us.zoom.sdkexample.WelcomeActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name="us.zoom.sdkexample.MainActivity"
                   android:label="@string/this_app_name"
                   android:icon="@drawable/ic_launcher"
                   android:theme="@style/ZMTheme.MainWindow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="us.zoom.sdkexample.LoginActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="us.zoom.sdkexample.PreMeetingExampleActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="us.zoom.sdkexample.ScheduleMeetingExampleActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         
@@ -82,123 +122,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-		
-		<activity
-            android:name="com.dropbox.core.android.AuthActivity"
-            android:configChanges="orientation|keyboard|screenSize|smallestScreenSize|layoutDirection|screenLayout|keyboardHidden|uiMode"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:launchMode="singleTask" >
-            <intent-filter>
 
-                <!-- Change this to be db- followed by your app key -->
-                <data android:scheme="db-YourAppKey" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        
-        <!--
-            Commented content should be opened if your ADT version is lower than v20, 
-            or you remove the "manifestmerger.enabled=true" from project.properties
-        -->
-        
-        <!-- 
-        <activity
-            android:name="com.zipow.videobox.JoinByURLActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/ZMTheme.Transparent" />
-        
-        <activity
-            android:name="com.zipow.videobox.IntegrationActivity"
-            android:configChanges="orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/ZMTheme.Transparent" />
-        
-        
-        <activity
-            android:name="com.zipow.videobox.MeetingEndMessageActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMDialog.Transparent" />
-        
-        <activity
-            android:name="com.zipow.videobox.ConfActivityNormal"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="false"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="com.zipow.videobox.PListActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="false"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="com.zipow.videobox.ConfChatActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="com.zipow.videobox.MeetingRunningInfoActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-            
-        <activity
-            android:name="com.zipow.videobox.CallInActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-            
-        <activity
-            android:name="com.zipow.videobox.SimpleActivity"
-            android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/ZMTheme.SubWindow" />
-        
-        <activity
-            android:name="com.zipow.videobox.SimpleInMeetingActivity"
-            android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="com.zipow.videobox.poll.PollingActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow" />
-        
-        <activity
-            android:name="com.zipow.videobox.poll.WebinarPollingActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="com.zipow.videobox.poll.PollingResultActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow" />
-        
-        <activity
-            android:name="com.zipow.videobox.poll.WebinarPollingResultActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow"
-            android:process=":zoom_meeting" />
-        
-        <activity
-            android:name="us.zoom.androidlib.app.ZMFileListActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/ZMTheme.SubWindow" />
-        
-        <service android:name="com.zipow.videobox.PTService" />
-        <service android:name="com.zipow.videobox.ConfService" android:process=":zoom_meeting" />
-        -->
-        
     </application>
     
 </manifest> 

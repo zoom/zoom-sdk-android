@@ -1,6 +1,33 @@
 # CHANGELOG
 
-## 2017-07-26
+## 2018-08-20
+
+1. Custom Meeting UI (support basic meeting function, except for Webinar and Breakout Session)
+
+2. Single process to replace previous two processes implement - meeting will not run in a separate process (no meeting process any more)
+
+3. Remove protobuf library dependency from SDK
+
+4. Support Android 8.0
+
+5. Change MeetingServiceListener callback from onMeetingEvent to onMeetingStatusChanged and enchance MeetingStatus
+
+6. SDK Meeting Interface refactor, InMeetingService category cluster for specific Service Module:
+InMeetingAudioController for Audio service;
+InMeetingVideoController for Video service;
+InMeetingChatController for Chat service;
+InMeetingShareController for Share service;
+
+7. Support In-meeting Chat related common feature
+
+8. Support In-meeting Share related common feature
+
+9. Support Annotate and Remote Control for custom Meeting UI
+
+10. Bug fixes
+
+
+## 2018-07-26
 
 The start meeting logic for API users has changed. Please read below before upgrading to this version.
 

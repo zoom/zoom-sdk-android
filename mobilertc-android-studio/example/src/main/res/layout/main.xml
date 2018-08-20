@@ -9,7 +9,7 @@
         android:id="@+id/edtMeetingNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/zm_hint_meeting_number"
+        android:hint="Meeting ID"
         android:imeOptions="actionNext|flagNoExtractUi"
         android:focusable="true"
         android:maxLength="13">
@@ -20,7 +20,7 @@
         android:id="@+id/edtVanityUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Vanity url"
+        android:hint="Vanity ID"
         android:imeOptions="actionNext|flagNoExtractUi"
         android:focusable="true">
         <requestFocus />
@@ -62,5 +62,31 @@
             android:onClick="onClickBtnJoinMeeting" />
         
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLoginUserStartInstant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Start a Instant Meeting"
+        android:onClick="onClickBtnLoginUserStartInstant" />
+
+    <Button
+        android:id="@+id/btnPreMeeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Pre-Meeting Example"
+        android:onClick="onClickBtnPreMeeting" />
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="Logout"
+        android:onClick="onClickBtnLogout" />
 
 </LinearLayout>

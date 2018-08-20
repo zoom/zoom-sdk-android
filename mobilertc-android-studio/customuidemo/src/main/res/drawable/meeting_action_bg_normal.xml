@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" 
+       android:shape="oval"> 
+
+   <solid android:color="#66c7c7c9"/>
+   
+    <stroke
+        android:width="0.5dp"
+        android:color="#c7c7c9"/>
+    
+    <size android:width="50dp"
+          android:height="50dp"/>
+    
+</shape>

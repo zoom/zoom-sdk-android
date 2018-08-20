@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<!--
+      ** Important**
+      Some devices need to set a a surface holder to camera to
+      capture video. Here we need create a very small MobileRTCVideoCaptureView outbounds of screen for it.
+   -->
+	<us.zoom.sdk.MobileRTCVideoCaptureView
+		android:id="@+id/svPreview"
+		android:layout_width="1px"
+		android:layout_height="1px"
+		android:focusable="false"
+		android:layout_marginTop="-2dp"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center_horizontal">
+
+		<android.support.v4.view.ViewPager
+			android:id="@+id/meetingVideoView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_gravity="center" />
+
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<us.zoom.sdk.MobileRTCShareView
+				android:id="@+id/sharingView"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:visibility="gone" />
+
+			<us.zoom.customuidemo.Share.AnnotateToolbar
+				android:id="@+id/drawingView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom"
+				android:visibility="gone" />
+		</FrameLayout>
+
+		<LinearLayout
+			android:id="@+id/waitJoinView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:gravity="center"
+			android:visibility="gone">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Wait host to start this meeting..."/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/moreActionImg"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:layout_marginRight="10dp"
+			android:layout_alignParentRight="true"
+			android:background="@drawable/meeting_action_bg">
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:focusable="false"
+				android:duplicateParentState="true"
+				android:background="@drawable/meeting_action_bg"
+				android:src="@drawable/icon_meeting_more" />
+		</LinearLayout>
+
+		<include
+			android:id="@+id/view_option_topbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="20dp"
+			layout="@layout/layout_option_topbar" />
+
+		<include
+			android:id="@+id/view_option_bottombar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_marginBottom="20dp"
+			layout="@layout/layout_meeting_bottombar" />
+
+		<TextView
+			android:id="@+id/connectingTxt"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_height="30dp"
+			android:text="Connecting..."
+			android:visibility="gone"/>
+	</RelativeLayout>
+</FrameLayout>
