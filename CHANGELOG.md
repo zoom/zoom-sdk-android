@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2018-09-11
+
+1. Schedule Meeting Feature Enhancement
+
+2. Bug fixes
+
 ## 2018-08-20
 
 1. Custom Meeting UI (support basic meeting function, except for Webinar and Breakout Session)
