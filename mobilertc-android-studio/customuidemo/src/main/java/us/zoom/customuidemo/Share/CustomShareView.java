@@ -86,6 +86,16 @@ public class CustomShareView extends FrameLayout implements RCFloatView.IRemoteC
     }
 
     @Override
+    public void onMouseClick(float x, float y) {
+        Log.d(TAG, "onMouseClick :" + x + " :" + y);
+        if (inMouseActived) {
+            x = mobileRTCVideoView.getVideoViewManager().viewToShareContentX(x);
+            y = mobileRTCVideoView.getVideoViewManager().viewToShareContentY(y);
+            meetingRemoteController.remoteControlSingleTap(x, y);
+        }
+    }
+
+    @Override
     public void onEnabledRC(boolean enabled) {
         mouseView.showRCMouse(enabled && inRemoteControllModel);
         inMouseActived = inRemoteControllModel && (mouseView.getVisibility() == VISIBLE);

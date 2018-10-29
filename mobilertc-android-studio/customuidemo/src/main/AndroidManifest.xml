@@ -7,7 +7,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="25" />
+        android:targetSdkVersion="27" />
 
     <uses-feature android:glEsVersion="0x00020000" />
 
@@ -41,9 +41,9 @@
 
         <activity
             android:name="us.zoom.customuidemo.MyMeetingActivity"
-            android:configChanges="orientation|screenSize"
-			android:hardwareAccelerated="true"
-            android:theme="@style/ZMTheme.SubWindow" />
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait"/>
 
     </application>
 

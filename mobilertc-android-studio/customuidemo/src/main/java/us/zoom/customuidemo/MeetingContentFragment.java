@@ -21,6 +21,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.InMeetingEventHandler;
 import us.zoom.sdk.InMeetingService;
@@ -30,7 +32,9 @@ import us.zoom.sdk.InMeetingShareController.InMeetingShareListener;
 import us.zoom.sdk.InMeetingVideoController;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingUserInfo;
-import us.zoom.sdk.InMeetingUserList;
+import us.zoom.sdk.MeetingService;
+import us.zoom.sdk.MeetingServiceListener;
+import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.MobileRTCRenderInfo;
 import us.zoom.sdk.MobileRTCShareView;
 import us.zoom.sdk.MobileRTCVideoUnitAspectMode;
@@ -41,7 +45,7 @@ import us.zoom.sdk.ZoomSDK;
 
 import static android.content.Context.WINDOW_SERVICE;
 
-public class MeetingContentFragment extends Fragment implements InMeetingServiceListener, InMeetingShareListener, View.OnClickListener {
+public class MeetingContentFragment extends Fragment implements MeetingServiceListener, InMeetingServiceListener, InMeetingShareListener, View.OnClickListener {
 
 	private final static String TAG = MeetingContentFragment.class.getSimpleName();
 
@@ -233,18 +237,15 @@ public class MeetingContentFragment extends Fragment implements InMeetingService
 	private void showVideoListLayout() {
 		mVideoViewMgr.removeAllVideoUnits();
 
-		int userCount = mInMeetingService.getInMeetingUserCount();
-
-		for(int i=0; i<userCount; i++) {
-			if(i<4) {
-				int row = i/COL;
-				int col = i%ROW;
-				InMeetingUserList userlist = mInMeetingService.getInMeetingUserList();
-				if(userlist != null) {
-					InMeetingUserInfo user = userlist.getUserInfoByIndex(i);
+		List<Long> userlist = mInMeetingService.getInMeetingUserList();
+		if(userlist != null) {
+			for (int i = 0; i < userlist.size(); i++) {
+				if (i < 4) {
+					int row = i / COL;
+					int col = i % ROW;
 					MobileRTCVideoUnitRenderInfo renderInfo1 = new MobileRTCVideoUnitRenderInfo(50 * col, 50 * row, 50, 50);
 					renderInfo1.is_border_visible = true;
-					mVideoViewMgr.addAttendeeVideoUnit(user.getUserId(), renderInfo1);
+					mVideoViewMgr.addAttendeeVideoUnit(userlist.get(i), renderInfo1);
 				}
 			}
 		}
@@ -341,25 +342,6 @@ public class MeetingContentFragment extends Fragment implements InMeetingService
     }
 
 	@Override
-	public void onMeetingReady() {
-		Log.i(TAG, "onMeetingReady: " + mInMeetingService.isMeetingHost());
-		refreshToolbar();
-		checkShowVideoLayout();
-	}
-
-	@Override
-	public void onMeetingNeedWaitHost() {
-		Log.i(TAG, "onMeetingNeedWaitHost");
-		mWaitJoinView.setVisibility(View.VISIBLE);
-	}
-
-	@Override
-	public void onMeetingReadyToJoin() {
-		Log.i(TAG, "onMeetingReadyToJoin");
-		mWaitJoinView.setVisibility(View.GONE);
-	}
-
-	@Override
 	public void onMeetingNeedPasswordOrDisplayName(boolean b, boolean b1, InMeetingEventHandler inMeetingEventHandler) {
 
 	}
@@ -386,19 +368,15 @@ public class MeetingContentFragment extends Fragment implements InMeetingService
 
 	@Override
 	public void onMeetingLeaveComplete(long ret) {
-		//Important: Ensure to destory video units before meeting activity finish.
-		if(mVideoViewMgr != null) {
-			mVideoViewMgr.destory();
-		}
 	}
 
 	@Override
-	public void onMeetingUserJoin(long userId) {
+	public void onMeetingUserJoin(List<Long> userList) {
 		checkShowVideoLayout();
 	}
 
 	@Override
-	public void onMeetingUserLeave(long userId) {
+	public void onMeetingUserLeave(List<Long> userList) {
 		checkShowVideoLayout();
 	}
 
@@ -567,6 +545,14 @@ public class MeetingContentFragment extends Fragment implements InMeetingService
 					onClickBtnCamera();
 				}
 			}
+		}
+	}
+
+	@Override
+	public void onMeetingStatusChanged(MeetingStatus meetingStatus, int i, int i1) {
+		if(meetingStatus == MeetingStatus.MEETING_STATUS_INMEETING) {
+			refreshToolbar();
+			checkShowVideoLayout();
 		}
 	}
 }

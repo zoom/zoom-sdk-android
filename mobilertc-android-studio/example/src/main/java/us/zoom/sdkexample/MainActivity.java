@@ -65,6 +65,15 @@ public class MainActivity extends Activity implements Constants, MeetingServiceL
 		if(meetingService != null) {
 			meetingService.addListener(this);
 		}
+		testVideoSetting();
+	}
+
+	void  testVideoSetting()
+	{
+		ZoomSDK zoomSDK = ZoomSDK.getInstance();
+		zoomSDK.getMeetingSettingsHelper().enableForceAutoStartMyVideoWhenJoinMeeting(false);
+		zoomSDK.getMeetingSettingsHelper().enableForceAutoStopMyVideoWhenJoinMeeting(false);
+		zoomSDK.getMeetingSettingsHelper().disableAutoShowSelectJoinAudioDlgWhenJoinMeeting(true);
 	}
 
 	@Override

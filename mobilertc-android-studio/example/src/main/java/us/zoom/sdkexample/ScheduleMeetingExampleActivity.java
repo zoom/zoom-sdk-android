@@ -3,6 +3,7 @@ package us.zoom.sdkexample;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,11 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import us.zoom.androidlib.util.StringUtil;
 import us.zoom.androidlib.util.TimeZoneUtil;
 import us.zoom.sdk.AccountService;
 import us.zoom.sdk.Alternativehost;
@@ -59,16 +62,31 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 	private CheckBox mChkOnlySignJoin;
 	private View mOptionOnlySignJoin;
 
+	private EditText mEdtSpecifiedDomains;
+
+	private CheckBox mChkHostInChina;
+	private View mOptionHostInChina;
+
 	private CheckBox mChkScheduleFor;
 	private View mOptionScheduleFor;
 	private Spinner mSpDwonScheduleFor;
-	
+
+	private View mPanelAutoRecord;
+	private CheckBox mChkAutoRecord;
+	private CheckBox mChkLocalRecord;
+	private CheckBox mChkCloudRecord;
+	private View mOptionLocalRecord;
+	private View mOptionCloudRecord;
+	private View mPanelSwitchRocord;
+
 	private Calendar mDateFrom;
 	private Calendar mDateTo;
 	private String mTimeZoneId;
 
 	private ScheduleForHostAdapter mAlterNativeHostdapter;
 	private String mSelectScheduleForHostEmail = null;
+
+	private PreMeetingService mPreMeetingService = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +115,22 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 		mChkOnlySignJoin = (CheckBox)findViewById(R.id.chkOnlySignCanJoin);
 		mOptionOnlySignJoin = findViewById(R.id.optionOnlySignCanJoin);
 
+		mEdtSpecifiedDomains = (EditText)findViewById(R.id.edtSpecifiedDomains);
+
+		mChkHostInChina = (CheckBox)findViewById(R.id.chkHostInChina);
+		mOptionHostInChina = findViewById(R.id.optionHostInChina);
+
 		mChkScheduleFor = (CheckBox)findViewById(R.id.chkScheduleFor);
 		mOptionScheduleFor = findViewById(R.id.optionScheduleFor);
 		mSpDwonScheduleFor = (Spinner) findViewById(R.id.spDwonScheduleFor);
+
+		mPanelAutoRecord = findViewById(R.id.panelAutoRecord);
+		mChkAutoRecord = (CheckBox) findViewById(R.id.chkAutoRecord);
+		mChkLocalRecord = (CheckBox) findViewById(R.id.chkLocalRecord);
+		mChkCloudRecord = (CheckBox) findViewById(R.id.chkCloudRecord);
+		mOptionLocalRecord = findViewById(R.id.optionLocalRecord);
+		mOptionCloudRecord = findViewById(R.id.optionCloudRecord);
+		mPanelSwitchRocord = findViewById(R.id.panelSwitchRocord);
 		
 		mTxtDate = (TextView)findViewById(R.id.txtDate);
 		mTxtTimeFrom = (TextView)findViewById(R.id.txtTimeFrom);
@@ -108,8 +139,8 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 
 		if(ZoomSDK.getInstance().isInitialized()) {
 			mAccoutnService = ZoomSDK.getInstance().getAccountService();
-
-			if(mAccoutnService == null) {
+            mPreMeetingService = ZoomSDK.getInstance().getPreMeetingService();
+			if(mAccoutnService == null || mPreMeetingService == null) {
 				finish();
 			}
 		}
@@ -153,7 +184,20 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 	}
 
 	private void intUI() {
+
 		if(mAccoutnService != null) {
+			if(mAccoutnService.isTurnOnAttendeeVideoByDefault()) {
+				mChkHostVideo.setChecked(false);
+			} else {
+				mChkHostVideo.setChecked(true);
+			}
+
+			if(mAccoutnService.isTurnOnAttendeeVideoByDefault()) {
+				mChkAttendeeVideo.setChecked(false);
+			} else {
+				mChkAttendeeVideo.setChecked(true);
+			}
+
 			switch (mAccoutnService.getDefaultAudioOption()) {
 				case AUDIO_TYPE_VOIP:
 					mChkVoip.setChecked(true);
@@ -167,7 +211,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 					break;
 				case AUDIO_TYPE_THIRD_PARTY_AUDIO:
 					mChk3rdPartyAudio.setChecked(true);
-					mEdt3rdPartyAudio.setText(mAccoutnService.getThirdPartyAudioInfo());
+					mEdt3rdPartyAudio.setText(mAccoutnService.getDefaultThirdPartyAudioInfo());
 					break;
 			}
 
@@ -182,8 +226,18 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 				mChk3rdPartyAudio.setChecked(false);
 			}
 
+			if(mAccoutnService.isEnableJoinBeforeHostByDefault()) {
+				mChkEnableJBH.setChecked(true);
+			} else {
+				mChkEnableJBH.setChecked(false);
+			}
+
 			if(!mAccoutnService.isSignedInUserMeetingOn()) {
 				mOptionOnlySignJoin.setVisibility(View.GONE);
+			}
+
+			if(!mAccoutnService.isHostMeetingInChinaFeatureOn()) {
+				mOptionHostInChina.setVisibility(View.GONE);
 			}
 
 			List<Alternativehost> hostList = mAccoutnService.getCanScheduleForUsersList();
@@ -191,12 +245,45 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 				Alternativehost myself = new Alternativehost();
 				myself.setEmail(mAccoutnService.getAccountEmail());
 				myself.setFirstName(mAccoutnService.getAccountName());
+				myself.setLastName("");
 				hostList.add(myself);
 				mAlterNativeHostdapter = new ScheduleForHostAdapter(this,hostList);
 				mSpDwonScheduleFor.setAdapter(mAlterNativeHostdapter);
 				mSpDwonScheduleFor.setOnItemSelectedListener(this);
 			} else {
 				mOptionScheduleFor.setVisibility(View.GONE);
+			}
+
+			if(mAccoutnService.isLocalRecordingSupported() || mAccoutnService.isCloudRecordingSupported()) {
+				if(!mAccoutnService.isLocalRecordingSupported()) {
+					mOptionLocalRecord.setVisibility(View.GONE);
+				}
+
+				if(!mAccoutnService.isCloudRecordingSupported()) {
+					mOptionCloudRecord.setVisibility(View.GONE);
+				}
+
+				switch (mAccoutnService.getDefaultAutoRecordType()) {
+					case AutoRecordType_CloudRecord:
+						mChkAutoRecord.setChecked(true);
+						mChkCloudRecord.setChecked(true);
+						mChkLocalRecord.setChecked(false);
+						break;
+					case AutoRecordType_LocalRecord:
+						mChkAutoRecord.setChecked(true);
+						mChkCloudRecord.setChecked(false);
+						mChkLocalRecord.setChecked(true);
+						break;
+					case AutoRecordType_Disabled:
+						mChkAutoRecord.setChecked(false);
+						mChkCloudRecord.setChecked(false);
+						mChkLocalRecord.setChecked(false);
+						mPanelSwitchRocord.setVisibility(View.GONE);
+						break;
+
+				}
+			} else {
+				mPanelAutoRecord.setVisibility(View.GONE);
 			}
 		}
 	}
@@ -209,7 +296,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 					mChkVoip.setChecked(false);
 					mChkTelephony.setChecked(false);
 					mEdt3rdPartyAudio.setVisibility(View.VISIBLE);
-					mEdt3rdPartyAudio.setText(mAccoutnService.getThirdPartyAudioInfo());
+					mEdt3rdPartyAudio.setText(mAccoutnService.getDefaultThirdPartyAudioInfo());
 				} else {
 					mEdt3rdPartyAudio.setVisibility(View.GONE);
 				}
@@ -245,6 +332,51 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 			}
 		});
 
+		mChkLocalRecord.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked) {
+					mChkCloudRecord.setChecked(false);
+				}
+			}
+		});
+
+		mChkCloudRecord.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked) {
+					mChkLocalRecord.setChecked(false);
+				}
+			}
+		});
+
+		mChkAutoRecord.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked) {
+					mPanelSwitchRocord.setVisibility(View.VISIBLE);
+					if(!mChkCloudRecord.isChecked() && !mChkLocalRecord.isChecked()) {
+						mChkLocalRecord.setChecked(true);
+					}
+				} else {
+					mPanelSwitchRocord.setVisibility(View.GONE);
+				}
+
+			}
+		});
+
+		mChkOnlySignJoin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(isChecked) {
+					mEdtSpecifiedDomains.setVisibility(View.VISIBLE);
+					mEdtSpecifiedDomains.setText(domainsListToString(mAccoutnService.getDefaultCanJoinUserSpecifiedDomains()));
+				} else {
+					mEdtSpecifiedDomains.setVisibility(View.GONE);
+				}
+			}
+		});
+
 	}
 
 	@Override
@@ -261,11 +393,13 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 			return;
 		}
 
+		if(mPreMeetingService == null) return;
+
 		String thirdPartyAudioInfo = mEdt3rdPartyAudio.getText().toString().trim();
 
 		String password = mEdtPassword.getText().toString().trim();
 
-		MeetingItem meetingItem = new MeetingItem();
+		MeetingItem meetingItem = mPreMeetingService.createScheduleMeetingItem();
 
 		meetingItem.setMeetingTopic(topic);
 		meetingItem.setStartTime(getBeginTime().getTime());
@@ -296,6 +430,14 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 
 		if(mAccoutnService.isSignedInUserMeetingOn()) {
 			meetingItem.setOnlySignUserCanJoin(mChkOnlySignJoin.isChecked());
+			if(mAccoutnService.isSpecifiedDomainsCanJoinFeatureOn()) {
+				String domainString = mEdtSpecifiedDomains.getText().toString().trim();
+				meetingItem.setSpecifiedDomains(domainStringToDomainList(domainString));
+			}
+		}
+
+		if(mAccoutnService.isHostMeetingInChinaFeatureOn()) {
+			meetingItem.setHostInChinaEnabled(mChkHostInChina.isChecked());
 		}
 
 		if(mChkScheduleFor.isChecked()) {
@@ -307,26 +449,40 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 		meetingItem.setUsePmiAsMeetingID(mChkUsePMI.isChecked());
 		meetingItem.setTimeZoneId(mTimeZoneId);
 		//meetingItem.setRepeatType(MeetingItem.RepeatType.EveryMonth);
-				
-		ZoomSDK zoomSDK = ZoomSDK.getInstance();
-		
-		if(zoomSDK.isInitialized()) {
-			PreMeetingService preMeetingService = zoomSDK.getPreMeetingService();
-			if(preMeetingService != null) {
-				PreMeetingService.ScheduleOrEditMeetingError error = preMeetingService.scheduleMeeting(meetingItem);
-				if(error == PreMeetingService.ScheduleOrEditMeetingError.SUCCESS) {
-                    mBtnSchedule.setEnabled(false);
-                    preMeetingService.addListener(this);
-                } else {
-                    Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
-                }
+
+
+		if(mChkAutoRecord.isChecked()) {
+			if(mChkLocalRecord.isChecked()) {
+				meetingItem.setAutoRecordType(MeetingItem.AutoRecordType.AutoRecordType_LocalRecord);
+			} else if(mChkCloudRecord.isChecked()) {
+				meetingItem.setAutoRecordType(MeetingItem.AutoRecordType.AutoRecordType_CloudRecord);
 			} else {
-				Toast.makeText(this, "User not login.", Toast.LENGTH_LONG).show();
-				finish();
+				meetingItem.setAutoRecordType(MeetingItem.AutoRecordType.AutoRecordType_Disabled);
 			}
 		}
+
+        if(mPreMeetingService != null) {
+			mPreMeetingService.addListener(this);
+            PreMeetingService.ScheduleOrEditMeetingError error = mPreMeetingService.scheduleMeeting(meetingItem);
+            if(error == PreMeetingService.ScheduleOrEditMeetingError.SUCCESS) {
+                mBtnSchedule.setEnabled(false);
+            } else {
+                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            Toast.makeText(this, "User not login.", Toast.LENGTH_LONG).show();
+            finish();
+        }
 	}
-	
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(mPreMeetingService != null) {
+			mPreMeetingService.removeListener(this);
+		}
+	}
+
 	private Date getBeginTime() {
 		Date date = mDateFrom.getTime();
 		date.setSeconds(0);
@@ -338,14 +494,14 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 	}
 	
 	@Override
-	public void onListMeeting(int result) {
+	public void onListMeeting(int result, List<Long> meetingList) {
 		//No op		
 	}
 
 	@Override
 	public void onScheduleMeeting(int result, long meetingNumber) {
 		if(result == PreMeetingError.PreMeetingError_Success) {
-			Toast.makeText(this, "Schedule successfully. Meeting number is " + meetingNumber, Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Schedule successfully. Meeting's unique id is " + meetingNumber, Toast.LENGTH_LONG).show();
 			finish();
 		} else {
 			Toast.makeText(this, "Schedule failed result code =" + result, Toast.LENGTH_LONG).show();
@@ -355,7 +511,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 	}
 
 	@Override
-	public void onUpdateMeeting(int result) {
+	public void onUpdateMeeting(int result, long meetingUniqueId) {
 		//No op	
 		
 	}
@@ -373,6 +529,36 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
 
+	}
+
+	private String domainsListToString(List<String> domainList) {
+		if(domainList != null && domainList.size() >0) {
+			StringBuilder domainStringBuilder = new StringBuilder();
+			for(int i = 0; i< domainList.size(); i++) {
+				domainStringBuilder.append(domainList.get(i));
+				if(i != domainList.size() -1){
+					domainStringBuilder.append(";");
+				}
+			}
+
+			return domainStringBuilder.toString();
+		}
+		return "";
+	}
+
+	private List<String> domainStringToDomainList(String domainString) {
+		if(!TextUtils.isEmpty(domainString)) {
+			String[] domains = domainString.split(";");
+
+			ArrayList<String> specifiedDomains = new ArrayList<String>();
+			for(String domain : domains ){
+				if(!TextUtils.isEmpty(domain)){
+					specifiedDomains.add(domain);
+				}
+			}
+			return specifiedDomains;
+		}
+		return null;
 	}
 
 	class ScheduleForHostAdapter extends BaseAdapter {

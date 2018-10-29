@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ public class RCMouseView extends ImageView {
 
     public interface MouseListener {
         void onMouseMove(float x, float y);
+        void onMouseClick(float x, float y);
     }
 
     private FragmentActivity mActivity;
@@ -32,6 +34,8 @@ public class RCMouseView extends ImageView {
     int maxWidth, maxHeight;
 
     private MouseListener listener;
+
+    GestureDetector gestureDetector;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RCMouseView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -61,6 +65,8 @@ public class RCMouseView extends ImageView {
     private void init(Context context) {
         mActivity = (FragmentActivity) context;
         mHandler = new Handler();
+
+        gestureDetector = new GestureDetector(new RCMouseView.GestureDetectorListener());
     }
 
     private void moveRCMouse() {
@@ -101,16 +107,29 @@ public class RCMouseView extends ImageView {
             this.setVisibility(View.GONE);
         }
     }
+    class GestureDetectorListener extends GestureDetector.SimpleOnGestureListener{
+
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            float x = getLeft() + getWidth() - 10;
+            float y = getTop();
+            if (null != listener) {
+                listener.onMouseClick(x, y);
+            }
+            return true;
+        }
+    };
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+       gestureDetector.onTouchEvent(event);
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 lastX = (int) event.getRawX();
                 lastY = (int) event.getRawY();
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
-            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_MOVE: {
                 int dx = (int) event.getRawX() - lastX;
                 int dy = (int) event.getRawY() - lastY;
                 int left = getLeft() + dx;
@@ -135,9 +154,10 @@ public class RCMouseView extends ImageView {
                         }
                     }, 200);
                 }
-                break;
+                return true;
+            }
         }
-        return true;
+        return  true;
     }
 
     private boolean bound(int left, int top) {

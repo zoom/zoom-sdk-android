@@ -348,6 +348,28 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/optionHostInChina"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtHostInChina"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="Host meeting in china" />
+
+                    <CheckBox
+                        android:id="@+id/chkHostInChina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/optionOnlySignCanJoin"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
@@ -368,6 +390,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edtSpecifiedDomains"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Specified domains"
+                    android:visibility="gone"/>
 
                 <LinearLayout
                     android:layout_marginTop="5dp"
@@ -412,6 +441,87 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/panelAutoRecord"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/optionAutoRecord"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txtAutoRecord"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="Record the meeting automatically " />
+
+                    <CheckBox
+                        android:id="@+id/chkAutoRecord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/panelSwitchRocord"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/optionLocalRecord"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtLocalRecord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:text="Local" />
+
+                            <CheckBox
+                                android:id="@+id/chkLocalRecord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/optionCloudRecord"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtCloudRecord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left|center_vertical"
+                                android:text="In the cloud" />
+
+                            <CheckBox
+                                android:id="@+id/chkCloudRecord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -281,7 +281,7 @@ public class MainActivity extends FragmentActivity implements Constants, ZoomSDK
 //			}
 //		} else {
 			Intent intent = new Intent(this, MyMeetingActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			this.startActivity(intent);
 //		}
 	}

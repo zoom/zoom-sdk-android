@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/btnDelete"
+        android:layout_toLeftOf="@+id/actionPanel"
         android:orientation="vertical">
         
         <TextView
@@ -21,6 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today 10am" />
+
+        <TextView
+            android:id="@+id/txtHostName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Host:" />
 
         <TextView
             android:id="@+id/txtTopic"
@@ -35,16 +41,24 @@
             android:text="Meeting ID: 111-111-111" />
         
     </LinearLayout>
-    
-    <Button
-        android:id="@+id/btnDelete"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:minWidth="80dp"
-        android:text="Delete"
-        android:duplicateParentState="false" />
+        android:orientation="vertical"
+        android:id="@+id/actionPanel">
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:minWidth="80dp"
+            android:text="Delete"
+            android:duplicateParentState="false" />
+
+    </LinearLayout>
     
 </RelativeLayout>
 

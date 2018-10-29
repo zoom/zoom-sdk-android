@@ -18,7 +18,10 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import us.zoom.sdk.AccountService;
+import us.zoom.sdk.Alternativehost;
 import us.zoom.sdk.MeetingItem;
 import us.zoom.sdk.PreMeetingService;
 import us.zoom.sdk.PreMeetingServiceListener;
@@ -63,38 +66,38 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 		super.onResume();
 	}
 
-	@Override
-	public void onListMeeting(int result) {
-		Log.i(TAG, "onListMeeting, result =" + result);
-		mAdapter.clear();
-		
-		ZoomSDK zoomSDK = ZoomSDK.getInstance();
-		
-		if(zoomSDK.isInitialized()) {
-			PreMeetingService preMeetingService = zoomSDK.getPreMeetingService();
-			if(preMeetingService != null) {
-				int count = preMeetingService.getMeetingCount();
-				for(int index = 0; index < count; index++) {
-					mAdapter.addItem(preMeetingService.getMeetingItemByIndex(index));
-				}
-			} 
-		}	
-		
-		mAdapter.notifyDataSetChanged();
-		
-	}
+    @Override
+    public void onListMeeting(int result, List<Long> meetingList) {
+        Log.i(TAG, "onListMeeting, result =" + result);
+        mAdapter.clear();
 
-	@Override
-	public void onScheduleMeeting(int result, long meetingNumber) {
+        ZoomSDK zoomSDK = ZoomSDK.getInstance();
+        PreMeetingService preMeetingService = zoomSDK.getPreMeetingService();
+        if(preMeetingService != null) {
+            if (meetingList != null) {
+                for (long meetingUniqueId : meetingList) {
+                    MeetingItem item = preMeetingService.getMeetingItemByUniqueId(meetingUniqueId);
+                    if(item != null) {
+                        mAdapter.addItem(item);
+                    }
+                }
+            }
+        }
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+	public void onScheduleMeeting(int result, long meetingUniqueId) {
 		// No op
 		
 	}
 
-	@Override
-	public void onUpdateMeeting(int result) {
-		// No op
-		
-	}
+    @Override
+    public void onUpdateMeeting(int result, long meetingUniqueId) {
+	    // No op
+    }
+
 
 	@Override
 	public void onDeleteMeeting(int result) {
@@ -107,7 +110,7 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 		if(zoomSDK.isInitialized()) {
 			PreMeetingService preMeetingService = zoomSDK.getPreMeetingService();
 			if(preMeetingService != null) {
-				preMeetingService.deleteMeeting(item);
+				preMeetingService.deleteMeeting(item.getMeetingUniqueId());
             }
 		}
 	}
@@ -160,7 +163,7 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 		@Override
 		public long getItemId(int position) {
 			MeetingItem item = (MeetingItem)getItem(position);
-			return item != null ? item.getMeetingNo() : 0;
+			return item != null ? item.getMeetingUniqueId() : 0;
 		}
 		
 		@Override
@@ -170,39 +173,48 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 			if(convertView == null) {
 				holder = new ViewHolder();
 				convertView = LayoutInflater.from(mContext).inflate(R.layout.meeting_item, null);				
-				
+
 				holder.txtTopic = (TextView)convertView.findViewById(R.id.txtTopic);
 				holder.txtTime = (TextView)convertView.findViewById(R.id.txtTime);
+				holder.txtHostName = (TextView)convertView.findViewById(R.id.txtHostName);
 				holder.txtMeetingNo = (TextView)convertView.findViewById(R.id.txtMeetingNo);
 				holder.btnDelete = (Button)convertView.findViewById(R.id.btnDelete);
 				convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder)convertView.getTag();
 			}
-			
-			holder.txtTopic.setText("Topic: " + item.getMeetingTopic());
-			Date date=new Date(item.getStartTime());
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			holder.txtTime.setText("Time: " + sdf.format(date));
-			holder.txtMeetingNo.setText("Meeting number: " + item.getMeetingNo());
-			
+
+			holder.txtMeetingNo.setText("Meeting number: " + item.getMeetingNumber());
 			if(item.isPersonalMeeting()) {
 				holder.btnDelete.setVisibility(View.GONE);
+				holder.txtTopic.setText("Personal meeting id(PMI)");
+				holder.txtHostName.setVisibility(View.GONE);
+				holder.txtTime.setVisibility(View.GONE);
 			} else {
-				holder.btnDelete.setVisibility(View.VISIBLE);
-				holder.btnDelete.setOnClickListener( new OnClickListener() {
-					
-					@Override
-					public void onClick(View arg0) {
-						onClickBtnDelete(item);
-					}
-				});
+				holder.txtTopic.setText("Topic: " + item.getMeetingTopic());
+				holder.txtHostName.setText(getHostNameByEmail(item.getScheduleForHostEmail()));
+				Date date=new Date(item.getStartTime());
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				holder.txtTime.setText("Time: " + sdf.format(date));
+				if(item.isWebinarMeeting()) {
+					holder.btnDelete.setVisibility(View.GONE);
+				} else {
+					holder.btnDelete.setVisibility(View.VISIBLE);
+					holder.btnDelete.setOnClickListener( new OnClickListener() {
+
+						@Override
+						public void onClick(View arg0) {
+							onClickBtnDelete(item);
+						}
+					});
+				}
 			}
 			return convertView;
 		}
 		
 		class ViewHolder {
 			public TextView txtTopic;
+			public TextView txtHostName;
 			public TextView txtTime;
 			public TextView txtMeetingNo;
 			public Button btnDelete;
@@ -220,6 +232,26 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
 	private void onClickSchedule() {
 		Intent intent = new Intent(this, ScheduleMeetingExampleActivity.class);
 		startActivity(intent);
+	}
+
+	private String getHostNameByEmail(String email) {
+		AccountService accountService = ZoomSDK.getInstance().getAccountService();
+		if(accountService != null) {
+			if(email.equals(accountService.getAccountEmail())) {
+				return accountService.getAccountName();
+			}
+
+			List<Alternativehost> hostList = accountService.getCanScheduleForUsersList();
+
+			if(hostList.size() < 1) return " ";
+
+			for(Alternativehost host : hostList) {
+				if(email.equals(host.getEmail())) {
+					return host.getFirstName() + " "+ host.getLastName();
+				}
+			}
+		}
+		return " ";
 	}
 
 }
