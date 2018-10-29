@@ -1,4 +1,12 @@
 # CHANGELOG
+## 2018-10-24
+1. Added support for Android API Level 27;
+2. Added support to schedule meeting for a specified user;
+3. Added support to third party audio;
+4. Added support to specified a domain;
+5. Added support to only allow signed in user to join the meeting;
+6. Enhanced Custom Meeting UI feature;
+7. Enhanced meeting scheduling feature;
 
 ## 2018-09-11
 
