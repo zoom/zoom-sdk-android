@@ -16,7 +16,7 @@ The following instructions will get you a copy of the project up and running on 
 
 Before you try out our SDK, you would need the following to get started:
 
-* ** A Zoom Account**: If you do not have one, you can sign up at [https://zoom.us/signup](https://zoom.us/signup).
+* **A Zoom Account**: If you do not have one, you can sign up at [https://zoom.us/signup](https://zoom.us/signup).
   * Once you have your Zoom Account, sign up for a 60-days free trial at [https://developer.zoom.us](https://developer.zoom.us)
 * **An Android device**:
   * OS: Android 4.0 (API Level 14) or later. The latest version (v4.1.34082.1024) supports API level up to 27.
