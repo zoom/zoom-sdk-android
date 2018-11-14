@@ -78,6 +78,11 @@ For the versions available, see the [tags on this repository](https://github.com
 
 Please refer to our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for all changes.
 
+## Common Questions
+
+* :one: `Emulator is not working`:
+  * Our SDK currently only supports emulators with ABI **arm series(armeabi-v7a, arm64-v8a)**. Emulators with **x86 ABI** are not supported at this point.
+
 ## License
 
 Please refer to [LICENSE.md](LICENSE.md) file for details
