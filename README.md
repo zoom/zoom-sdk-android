@@ -10,7 +10,7 @@ Zoom SDK makes it easy to integrate Zoom with your Android applications, and boo
 
 The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 * For detailed instructions, please refer to our documentation website: [[https://marketplace.zoom.us/docs/guides/zoom-sdks/android](https://marketplace.zoom.us/docs/guides/zoom-sdks/android)];
-* If you need support or assistance, please visit our [Zoom Developer Community](https://support.zoom.us/hc/en-us/community/topics);
+* If you need support or assistance, please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/);
 
 ### Prerequisites
 
@@ -90,7 +90,7 @@ Please refer to [LICENSE.md](LICENSE.md) file for details
 ## Acknowledgments
 
 * :star: If you like our SDK, please give us a "Star". Your support is what keeps us moving forward and delivering happiness to you! Thanks a million! :smiley:
-* If you need any support or assistance, we are here to help you: [Zoom Developer Community](https://support.zoom.us/hc/en-us/community/topics);
+* If you need any support or assistance, we are here to help you: [Zoom Developer Community Forum](https://devforum.zoom.us/);
 
 ---
 Copyright ©2018 Zoom Video Communications, Inc. All rights reserved.
