@@ -1,5 +1,7 @@
 # Zoom Android Software Development Kit (SDK)
 
+> Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://github.com/zoom/zoom-sdk-android#frequently-asked-questions-faq) sections. Check it out!
+
 Zoom SDK makes it easy to integrate Zoom with your Android applications, and boosts up your applications with the power of Zoom.
 
 * **Easy to use**: Our SDK is built to be easy to use. Just import the libraries, call a few functions, and we will take care all video conferencing related stuffs for you.
@@ -78,7 +80,7 @@ For the versions available, see the [tags on this repository](https://github.com
 
 Please refer to our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for all changes.
 
-## Common Questions
+## Frequently Asked Questions (FAQ)
 
 * :one: `Emulator is not working`:
   * Our SDK currently only supports emulators with ABI **arm series(armeabi-v7a, arm64-v8a)**. Emulators with **x86 ABI** are not supported at this point.
