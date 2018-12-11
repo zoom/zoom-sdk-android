@@ -13,7 +13,7 @@ Zoom SDK makes it easy to integrate Zoom with your Android applications, and boo
 ## Getting Started
 
 The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-* For detailed instructions, please refer to our documentation website: [[https://marketplace.zoom.us/docs/guides/zoom-sdks/android](https://marketplace.zoom.us/docs/guides/zoom-sdks/android)];
+* For detailed instructions, please refer to our documentation website: [[https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android)];
 * If you need support or assistance, please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/);
 
 ### Prerequisites
@@ -72,7 +72,7 @@ Connect your Android device to your computer and simply press "Run" on selected 
 
 ## Documentation
 
-Please visit [[https://marketplace.zoom.us/docs/guides/zoom-sdks/android](https://marketplace.zoom.us/docs/guides/zoom-sdks/android)] for details of each features and functions.
+Please visit [[https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android)] for details of each features and functions.
 
 ## Versioning
 
