@@ -1,4 +1,35 @@
 # CHANGELOG
+
+## 2019-01-23
+Added
+* Support for the x86 emulator.
+*	New functional documentation.
+*	A new refactorized demo project that provides clear instructions on how to implement major features.
+*	New callback method for the case when active video changed in the meeting.
+*	New logging feature that stores logs with the maximum size of 5MB.
+*	A new method to join/start meeting directly via url, such as zoommtg://zoom.us/join?action=....
+*	Support to select dial-in country while scheduling a meeting.
+
+Changed & Fixed
+*	Join audio improvements
+*	Some issues that cause crashes
+
+Deprecated
+*	MeetingService.joinMeeting(Context, String, String)
+*	MeetingService.joinMeeting(Context, String, String, MeetingOptions)
+*	MeetingService.joinMeeting(Context, String, String, String)
+*	MeetingService.joinMeeting(Context, String, String, String, MeetingOptions)
+*	ZoomSDK.setBoxAppKeyPair(Context, String, String)
+*	ZoomSDK.setDropBoxAppKeyPair(Context, String, String)
+*	ZoomSDK.setGoogleDriveInfo(Context, String, String)
+*	ZoomSDK.setOneDriveClientId(Context, String)
+*	MeetingService.startInstantMeeting(Context, String, String, int, String)
+*	MeetingService.startInstantMeeting(Context, String, String, int, String, MeetingOptions)
+*	MeetingService.startMeeting(Context, String)
+*	MeetingService.startMeeting(Context, String, MeetingOptions)
+*	MeetingService.startMeeting(Context, String, String, int, String, String)
+*	MeetingService.startMeeting(Context, String, String, int, String, String, MeetingOptions)
+
 ## 2018-10-24
 1. Added support for Android API Level 27;
 2. Added support to schedule meeting for a specified user;
@@ -107,29 +138,29 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 
 ### Added
 	1. No longer support zoom mobilertc version for ADT(eclipse)
-	
+
 	2. Support SSO login
-	
-	3. Add interfaces to auto connect device audio / always , mute my microphone / always turn off my video when joining 
+
+	3. Add interfaces to auto connect device audio / always , mute my microphone / always turn off my video when joining
 	meeting
-	
+
 	4. Add interfaces to check if meeting support inviting by phone and room system
-	
+
 	5. Add interfaces to mute and unmute my audio&video , mute and unmute all participants'audio
-	
+
 	6. Add interfaces to disable video gallery view
-	
+
 	7. Add interfaces to hide user enter/leave popup
-	
+
 	8. PreMeeting functions error code refactor
-	
+
 	9. Bugs fix:
 		System statusbar will overlap zoom watermark if the android device support immersive mode
 		If meeting activity has been destroyed, meeting process can not exit correctly after main process stopped
 		If there is no internet connection, a NullPointerException is thrown from inside the Zoom SDK shortly after
 		scheduleMeeting was called
 		Fix zoom mobilertc meeting no_disconnect_audio option does not work issue
-		
+
 ## 2017-06-19
 
 ### Added
@@ -194,7 +225,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	19. boolean isMeetingLocked()
 	    This method is used to tell whether the meeting is locked by host or not.
-	
+
 	20. boolean isMuteOnEntryOn()
 	    This method is used to check whether MuteOnEntry is on in the meeting.
 
@@ -209,7 +240,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	24. boolean isShareLocked()
         This method is used to tell whether the screen share is locked by host or not.
-	
+
 	25. boolean isUserVideoSpotLighted(long userId)
 	    This method is used to check the user's video spotlighted or not.
 
@@ -233,7 +264,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	32. boolean setPlayChimeOnOff(boolean on)
 	    This method is used to set PlayChime or not while user join/leave meeting.
-	
+
 	33. boolean spotLightVideo(boolean on, long userId)
         This method is used to spotlight the user's video or not.
 
@@ -241,39 +272,39 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 ### Added
 
-Add interfaces to call room device directly: 
- -Public interface InviteRoomSystemHelper 
+Add interfaces to call room device directly:
+ -Public interface InviteRoomSystemHelper
 
-Field: 
- -Static int ROOMDEVICE_H323 
- -Static int ROOMDEVICE_SIP 
+Field:
+ -Static int ROOMDEVICE_H323
+ -Static int ROOMDEVICE_SIP
 
-Method detail: 
-1. void addEventListener(InviteRoomSystemListener listener) 
+Method detail:
+1. void addEventListener(InviteRoomSystemListener listener)
 Usage: Register a invite room system listener
 Parameter:listener - the listener instance
 
 2. void removeEventListener(InviteRoomSystemListener listener)
 Usage: Unregister a invite room system listener
-Parameter: listener - the listener instance 
+Parameter: listener - the listener instance
 
 3. java.lang.String[] getH323Address()
 Usage: Get h323 address for current meeting
-Returns: If the function succeeds, the return value is not null. 
+Returns: If the function succeeds, the return value is not null.
 
 4. boolean sendMeetingPairingCode(long meetingId,  java.lang.String pairingCode)
 Usage: Send Meeting pairing code
 Parameters: meetingId – meeting to pairing, pairingCode – Code for pairing
-Returns: success or failure 
+Returns: success or failure
 
 5. boolean callOutRoomSystem(java.lang.String address,  int deviceType)
 Usage: Call out a room system
 Parameters: address - ip address / e.164 number, deviceType - ROOMDEVICE_H323/ROOMDEVICE_SIP
-Returns: success or failure 
+Returns: success or failure
 
 6. boolean cancelCallOutRoomSystem()
 Usage: Cancel a room system call out.
-Returns: success or failure 
+Returns: success or failure
 
 ## 2017-01-18
 
@@ -286,5 +317,3 @@ Returns: success or failure
 3. Add option to hide “Leave Meeting” item in host side;
 
 4. Add watermark in MobileRTC
-
-

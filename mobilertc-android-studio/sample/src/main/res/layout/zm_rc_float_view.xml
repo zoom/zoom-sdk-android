@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rc_float_panel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/zm_rc_drawer"
+	android:orientation="horizontal" >
+	
+    <ImageView 
+       	android:id="@+id/rc_control"
+       	android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_gravity="center_vertical"
+   		android:src="@drawable/zm_rc_control"/>
+    
+	<LinearLayout 
+	    android:id="@+id/rc_content_span"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_vertical"
+	    android:gravity="center_vertical"
+	    android:paddingLeft="9dp"
+	    android:paddingRight="0dp"
+	    android:orientation="horizontal"
+	    android:visibility="visible">
+	    <ImageView 
+	        android:id="@+id/rc_keyboard"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginRight="9dp"
+	        android:layout_gravity="center_vertical"
+			android:contentDescription="@string/zm_accessibility_rc_show_keyboard_23042"
+	        android:src="@drawable/zm_rc_keyboard"/>
+	    <ImageView 
+	        android:id="@+id/rc_question"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+			android:contentDescription="@string/zm_accessibility_rc_more_info_23042"
+	        android:src="@drawable/zm_rc_question"/>
+	    <EditText 
+	        android:id="@+id/rc_hidden_edit"
+	        android:layout_width="0dp"
+	        android:layout_height="0dp" />
+	</LinearLayout>
+</LinearLayout>

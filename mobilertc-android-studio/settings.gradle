@@ -1,5 +1,4 @@
 include ':commonlib'
 include ':mobilertc'
-include ':example'
+include ':sample'
 include ':example2'
-include ':customuidemo'

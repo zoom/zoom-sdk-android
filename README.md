@@ -1,5 +1,7 @@
 # Zoom Android Software Development Kit (SDK)
 
+>**Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail**
+
 > Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://github.com/zoom/zoom-sdk-android#frequently-asked-questions-faq) sections.
 
 > Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
@@ -17,7 +19,7 @@ Zoom SDK makes it easy to integrate Zoom with your Android applications, and boo
 ## Getting Started
 
 The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-* For detailed instructions, please refer to our documentation website: [[https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android)];
+* For detailed instructions, please refer to our documentation website: [https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android);
 * If you need support or assistance, please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/);
 
 ### Prerequisites
@@ -27,8 +29,8 @@ Before you try out our SDK, you would need the following to get started:
 * **A Zoom Account**: If you do not have one, you can sign up at [https://zoom.us/signup](https://zoom.us/signup).
   * Once you have your Zoom Account, sign up for a 60-days free trial at [https://marketplace.zoom.us/](https://marketplace.zoom.us/)
 * **An Android device**:
-  * OS: Android 4.0 (API Level 14) or later. The latest version (v4.1.34082.1024) supports API level up to 27.
-  * CPU: armeabi-v7a or above.
+  * OS: Android 4.0 (API Level 14) or later.
+  * CPU: armeabi-v7a or above / x86 ABI.
 
 
 ### Installing
@@ -53,20 +55,45 @@ Once the project is fully loaded, you will see the following structure:
 .
 ├── build.gradle
 ├── commonlib
-├── customuidemo
-├── example
 ├── example2
 ├── gradle
 ├── gradlew
 ├── gradlew.bat
 ├── mobilertc
+├── sample
 └── settings.gradle
 ```
 
-We provide 3 different examples for you:
- * customuidemo: An Android app that has custom video conferencing UI. Please ensure your APP_KEY and APP_SECRET supports Custom UI feature.
- * example: An Android app that has all basic features for both login users and API users.
+We provide 2 different examples for you:
+ * sample: An Android app that has all basic features for both login users and non-login users.
  * example2: An Android app that shows how to join meeting without any login credentials.
+
+In `sample` app, we provide detailed examples of how to implement each feature, which could be very helpful when you are integrating Zoom SDK into your app.
+Here are the categories of the code sample that we offer
+```
+.
+├── initsdk
+├── inmeetingfunction
+│   ├── customizedmeetingui
+│   │   ├── audio
+│   │   ├── other
+│   │   ├── remotecontrol
+│   │   ├── share
+│   │   ├── user
+│   │   ├── video
+│   │   └── view
+│   │       ├── adapter
+│   │       └── share
+│   └── zoommeetingui
+├── otherfeatures
+│   └── scheduleforloginuser
+├── startjoinmeeting
+│   ├── apiuser
+│   ├── emailloginuser
+│   ├── joinmeetingonly
+│   └── ssologinuser
+└── ui
+```
 
 
 ## Running the examples
@@ -89,7 +116,7 @@ Please refer to our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/ma
 ## Frequently Asked Questions (FAQ)
 
 * :one: `Emulator is not working`:
-  * Our SDK currently only supports emulators with ABI **arm series(armeabi-v7a, arm64-v8a)**. Emulators with **x86 ABI** are not supported at this point.
+  * SDK releases before **v4.3.53571.0118** only supports emulators with ABI **arm series(armeabi-v7a, arm64-v8a)**. Starting from **v4.3.53571.0118**, both **arm series(armeabi-v7a, arm64-v8a)** and **x86 ABI** are supported.
 * Not finding what you want? We are here to help! Please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/) for further assistance.
 
 ## Support
