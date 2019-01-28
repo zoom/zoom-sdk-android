@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## 2019-01-23
-Added
+## 2019-01-23 @ [v4.3.53571.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.53571.0118)
+
+**Added**
 * Support for the x86 emulator.
 *	New functional documentation.
 *	A new refactorized demo project that provides clear instructions on how to implement major features.
@@ -10,11 +11,11 @@ Added
 *	A new method to join/start meeting directly via url, such as zoommtg://zoom.us/join?action=....
 *	Support to select dial-in country while scheduling a meeting.
 
-Changed & Fixed
+**Changed & Fixed**
 *	Join audio improvements
 *	Some issues that cause crashes
 
-Deprecated
+**Deprecated**
 *	MeetingService.joinMeeting(Context, String, String)
 *	MeetingService.joinMeeting(Context, String, String, MeetingOptions)
 *	MeetingService.joinMeeting(Context, String, String, String)
@@ -30,7 +31,7 @@ Deprecated
 *	MeetingService.startMeeting(Context, String, String, int, String, String)
 *	MeetingService.startMeeting(Context, String, String, int, String, String, MeetingOptions)
 
-## 2018-10-24
+## 2018-10-24 @ [v4.1.34082.1024](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.34082.1024)
 1. Added support for Android API Level 27;
 2. Added support to schedule meeting for a specified user;
 3. Added support to third party audio;
@@ -39,13 +40,14 @@ Deprecated
 6. Enhanced Custom Meeting UI feature;
 7. Enhanced meeting scheduling feature;
 
-## 2018-09-11
+
+## 2018-09-11 @ [v4.1.32128.0910](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.32128.0910)
 
 1. Schedule Meeting Feature Enhancement
 
 2. Bug fixes
 
-## 2018-08-20
+## 2018-08-20 @ [v4.1.30378.0817](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.30378.0817)
 
 1. Custom Meeting UI (support basic meeting function, except for Webinar and Breakout Session)
 
@@ -72,11 +74,11 @@ InMeetingShareController for Share service;
 10. Bug fixes
 
 
-## 2018-07-26
+## 2018-07-26 @ [v4.1.28807.0726](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.28807.0726)
 
 The start meeting logic for API users has changed. Please read below before upgrading to this version.
 
-### Added
+**Added**
 
 1.New start/join meeting interfaces
 
@@ -118,9 +120,9 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 
 7.Bugs fix
 
-## 2017-05-28
+## 2017-05-28 @ [v4.1.25388.0528](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.25388.0528)
 
-### Added
+**Added**
 
 1.Update Android SDK target version to 25(Android7.0)
 
@@ -134,36 +136,36 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 
 6.Support set domain start with http:// or https://;
 
-## 2017-10-30
+## 2017-10-30 @ [v4.0.11726.1030](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.11726.1030)
 
-### Added
+**Added**
 	1. No longer support zoom mobilertc version for ADT(eclipse)
-
+	
 	2. Support SSO login
-
-	3. Add interfaces to auto connect device audio / always , mute my microphone / always turn off my video when joining
+	
+	3. Add interfaces to auto connect device audio / always , mute my microphone / always turn off my video when joining 
 	meeting
-
+	
 	4. Add interfaces to check if meeting support inviting by phone and room system
-
+	
 	5. Add interfaces to mute and unmute my audio&video , mute and unmute all participants'audio
-
+	
 	6. Add interfaces to disable video gallery view
-
+	
 	7. Add interfaces to hide user enter/leave popup
-
+	
 	8. PreMeeting functions error code refactor
-
+	
 	9. Bugs fix:
 		System statusbar will overlap zoom watermark if the android device support immersive mode
 		If meeting activity has been destroyed, meeting process can not exit correctly after main process stopped
 		If there is no internet connection, a NullPointerException is thrown from inside the Zoom SDK shortly after
 		scheduleMeeting was called
 		Fix zoom mobilertc meeting no_disconnect_audio option does not work issue
+		
+## 2017-06-19 @ [v4.0.36490.0619](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.36490.0619)
 
-## 2017-06-19
-
-### Added
+**Added**
 
 Add interfaces to get a list of participants’ profile and status in meeting
 	the name of the interfaces are InMeetingServiceListener and InMeetingService
@@ -225,7 +227,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	19. boolean isMeetingLocked()
 	    This method is used to tell whether the meeting is locked by host or not.
-
+	
 	20. boolean isMuteOnEntryOn()
 	    This method is used to check whether MuteOnEntry is on in the meeting.
 
@@ -240,7 +242,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	24. boolean isShareLocked()
         This method is used to tell whether the screen share is locked by host or not.
-
+	
 	25. boolean isUserVideoSpotLighted(long userId)
 	    This method is used to check the user's video spotlighted or not.
 
@@ -264,51 +266,51 @@ Add interfaces to get a list of participants’ profile and status in meeting
 
 	32. boolean setPlayChimeOnOff(boolean on)
 	    This method is used to set PlayChime or not while user join/leave meeting.
-
+	
 	33. boolean spotLightVideo(boolean on, long userId)
         This method is used to spotlight the user's video or not.
 
-## 2017-03-13
+## 2017-03-13 @ [v4.0.26490.0313](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.26490.0313)
 
-### Added
+**Added**
 
-Add interfaces to call room device directly:
- -Public interface InviteRoomSystemHelper
+Add interfaces to call room device directly: 
+ -Public interface InviteRoomSystemHelper 
 
-Field:
- -Static int ROOMDEVICE_H323
- -Static int ROOMDEVICE_SIP
+Field: 
+ -Static int ROOMDEVICE_H323 
+ -Static int ROOMDEVICE_SIP 
 
-Method detail:
-1. void addEventListener(InviteRoomSystemListener listener)
+Method detail: 
+1. void addEventListener(InviteRoomSystemListener listener) 
 Usage: Register a invite room system listener
 Parameter:listener - the listener instance
 
 2. void removeEventListener(InviteRoomSystemListener listener)
 Usage: Unregister a invite room system listener
-Parameter: listener - the listener instance
+Parameter: listener - the listener instance 
 
 3. java.lang.String[] getH323Address()
 Usage: Get h323 address for current meeting
-Returns: If the function succeeds, the return value is not null.
+Returns: If the function succeeds, the return value is not null. 
 
 4. boolean sendMeetingPairingCode(long meetingId,  java.lang.String pairingCode)
 Usage: Send Meeting pairing code
 Parameters: meetingId – meeting to pairing, pairingCode – Code for pairing
-Returns: success or failure
+Returns: success or failure 
 
 5. boolean callOutRoomSystem(java.lang.String address,  int deviceType)
 Usage: Call out a room system
 Parameters: address - ip address / e.164 number, deviceType - ROOMDEVICE_H323/ROOMDEVICE_SIP
-Returns: success or failure
+Returns: success or failure 
 
 6. boolean cancelCallOutRoomSystem()
 Usage: Cancel a room system call out.
-Returns: success or failure
+Returns: success or failure 
 
-## 2017-01-18
+## 2017-01-18 @ [v4.0.21754.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.21754.0118)
 
-### Added
+**Added**
 
 1. Support to join Webinar with Panelist member;
 
