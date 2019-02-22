@@ -2,7 +2,7 @@
 
 >**Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail**
 
-> Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://github.com/zoom/zoom-sdk-android#frequently-asked-questions-faq) sections.
+> Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
 
 > Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
 
@@ -19,7 +19,7 @@ Zoom SDK makes it easy to integrate Zoom with your Android applications, and boo
 ## Getting Started
 
 The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-* For detailed instructions, please refer to our documentation website: [https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android);
+* For detailed instructions, please refer to our documentation website: [https://marketplace.zoom.us/docs/sdk/native-sdks/android](https://marketplace.zoom.us/docs/sdk/native-sdks/android);
 * If you need support or assistance, please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/);
 
 ### Prerequisites
@@ -103,7 +103,7 @@ Connect your Android device to your computer and simply press "Run" on selected 
 
 ## Documentation
 
-Please visit [[https://marketplace.zoom.us/docs/sdk/android](https://marketplace.zoom.us/docs/sdk/android)] for details of each features and functions.
+Please visit [[https://marketplace.zoom.us/docs/sdk/native-sdks/android](https://marketplace.zoom.us/docs/sdk/native-sdks/android)] for details of each features and functions.
 
 ## Versioning
 
