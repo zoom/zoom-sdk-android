@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import us.zoom.sdk.InMeetingAnnotationController;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.InMeetingShareController;
@@ -39,6 +40,9 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
 
     private final int MENU_SPEAKER_ON = 9;
     private final int MENU_SPEAKER_OFF = 10;
+
+    private final int MENU_ANNOTATION_OFF = 11;
+    private final int MENU_ANNOTATION_ON = 12;
 
     MeetingOptionBarCallBack mCallBack;
 
@@ -68,6 +72,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
     private InMeetingVideoController mInMeetingVideoController;
     private InMeetingAudioController mInMeetingAudioController;
     private InMeetingWebinarController mInMeetingWebinarController;
+    private InMeetingAnnotationController meetingAnnotationController;
 
     private Context mContext;
 
@@ -127,6 +132,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         mInMeetingVideoController = mInMeetingService.getInMeetingVideoController();
         mInMeetingAudioController = mInMeetingService.getInMeetingAudioController();
         mInMeetingWebinarController = mInMeetingService.getInMeetingWebinarController();
+        meetingAnnotationController=mInMeetingService.getInMeetingAnnotationController();
 
 
 //        mContentView.setOnClickListener(this);
@@ -355,6 +361,16 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         if (!isMySelfWebinarAttendee())
             menuAdapter.addItem((new SimpleMenuItem(MENU_SHOW_PLIST, "Paticipants")));
 
+        if(meetingAnnotationController.canDisableViewerAnnotation())
+        {
+            if(!meetingAnnotationController.isViewerAnnotationDisabled())
+            {
+                menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_OFF, "Disable Annotation")));
+            }else {
+                menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_ON, "Enable Annotation")));
+            }
+        }
+
         if (isMySelfWebinarHostCohost()) {
             if (mInMeetingWebinarController.isAllowPanellistStartVideo()) {
                 menuAdapter.addItem((new SimpleMenuItem(MENU_DISALLOW_PANELIST_START_VIDEO, "Disallow panelist start video")));
@@ -410,6 +426,15 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                             mCallBack.onClickSwitchLoudSpeaker();
                         }
                         break;
+                    }
+                    case MENU_ANNOTATION_ON:
+                    {
+                        meetingAnnotationController.disableViewerAnnotation(false);
+                        break;
+                    }
+                    case MENU_ANNOTATION_OFF:
+                    {
+                        meetingAnnotationController.disableViewerAnnotation(true);
                     }
                 }
                 window.dismiss();

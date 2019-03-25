@@ -4,6 +4,7 @@ import android.content.Context;
 
 import us.zoom.sdk.InstantMeetingOptions;
 import us.zoom.sdk.MeetingService;
+import us.zoom.sdk.MeetingSettingsHelper;
 import us.zoom.sdk.StartMeetingOptions;
 import us.zoom.sdk.StartMeetingParams4NormalUser;
 import us.zoom.sdk.ZoomSDK;
@@ -32,7 +33,7 @@ public class EmailLoginUserStartMeetingHelper {
             return ret;
         }
 
-        StartMeetingOptions opts =ZoomMeetingUISettingHelper.getMeetingOptions();
+        StartMeetingOptions opts =ZoomMeetingUISettingHelper.getStartMeetingOptions();
 
 
 
@@ -48,7 +49,7 @@ public class EmailLoginUserStartMeetingHelper {
             return ret;
         }
 
-        StartMeetingOptions opts = ZoomMeetingUISettingHelper.getMeetingOptions();
+        StartMeetingOptions opts = ZoomMeetingUISettingHelper.getStartMeetingOptions();
 
         StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
         params.vanityID = vanityId;
@@ -62,16 +63,7 @@ public class EmailLoginUserStartMeetingHelper {
             return ret;
         }
 
-        InstantMeetingOptions opts = new InstantMeetingOptions();
-//		opts.no_driving_mode = true;
-//		opts.no_invite = true;
-//		opts.no_meeting_end_message = true;
-//		opts.no_titlebar = true;
-//		opts.no_bottom_toolbar = true;
-//		opts.no_dial_in_via_phone = true;
-//		opts.no_dial_out_to_phone = true;
-//		opts.no_disconnect_audio = true;
-//		opts.no_share = true;
+        InstantMeetingOptions opts = ZoomMeetingUISettingHelper.getInstantMeetingOptions();
 
         return meetingService.startInstantMeeting(context, opts);
     }

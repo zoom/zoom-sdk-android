@@ -233,6 +233,21 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 ZoomMeetingUISettingHelper.getMeetingOptions().no_meeting_error_message = isChecked;
                 break;
             }
+            case R.id.btn_force_start_video:
+            {
+                ZoomSDK.getInstance().getMeetingSettingsHelper().enableForceAutoStartMyVideoWhenJoinMeeting(isChecked);
+                break;
+            }
+            case R.id.btn_force_stop_video:
+            {
+                ZoomSDK.getInstance().getMeetingSettingsHelper().enableForceAutoStopMyVideoWhenJoinMeeting(isChecked);
+                break;
+            }
+            case R.id.btn_show_audio_select_dialog:
+            {
+                ZoomSDK.getInstance().getMeetingSettingsHelper().disableAutoShowSelectJoinAudioDlgWhenJoinMeeting(isChecked);
+                break;
+            }
 
         }
     }

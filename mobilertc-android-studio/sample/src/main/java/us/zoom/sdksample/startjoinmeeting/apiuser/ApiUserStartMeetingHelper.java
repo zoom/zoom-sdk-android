@@ -40,7 +40,7 @@ public class ApiUserStartMeetingHelper {
             return ret;
         }
 
-        StartMeetingOptions opts =ZoomMeetingUISettingHelper.getMeetingOptions();
+        StartMeetingOptions opts =ZoomMeetingUISettingHelper.getStartMeetingOptions();
 
         StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
         APIUserInfo userInfo = APIUserInfoHelper.getAPIUserInfo();
@@ -69,7 +69,7 @@ public class ApiUserStartMeetingHelper {
             return ret;
         }
 
-        StartMeetingOptions opts = ZoomMeetingUISettingHelper.getMeetingOptions();
+        StartMeetingOptions opts = ZoomMeetingUISettingHelper.getStartMeetingOptions();
 
         StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
         APIUserInfo userInfo = APIUserInfoHelper.getAPIUserInfo();

@@ -291,11 +291,11 @@
                 android:track="@drawable/switch_custom_track_selector" />
 
             <Switch
-                android:id="@+id/btn_force_start_audio"
+                android:id="@+id/btn_force_stop_video"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
-                android:text="Enable force auto start myAudio when join"
+                android:text="Enable force auto stop myVideo when join"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:thumb="@drawable/switch_custom_thumb_selector"
@@ -306,7 +306,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="5dp"
-                android:text="Enable show audio select dialog"
+                android:text="Disable show audio select dialog"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:thumb="@drawable/switch_custom_thumb_selector"

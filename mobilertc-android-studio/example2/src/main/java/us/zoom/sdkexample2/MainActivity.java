@@ -1,7 +1,6 @@
 package us.zoom.sdkexample2;
 
 import us.zoom.sdk.MeetingError;
-import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
@@ -51,7 +50,7 @@ public class MainActivity extends Activity implements Constants, MeetingServiceL
 		ZoomSDK zoomSDK = ZoomSDK.getInstance();
 		
 		if(savedInstanceState == null) {
-			zoomSDK.initialize(this, APP_KEY, APP_SECRET, WEB_DOMAIN, this);
+			zoomSDK.initialize(this, SDK_KEY, SDK_SECRET, WEB_DOMAIN, this);
 		}
 		
 		if(zoomSDK.isInitialized()) {

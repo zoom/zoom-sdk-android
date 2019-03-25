@@ -1,7 +1,9 @@
 package us.zoom.sdksample.inmeetingfunction.zoommeetingui;
 
 
+import us.zoom.sdk.InstantMeetingOptions;
 import us.zoom.sdk.JoinMeetingOptions;
+import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.StartMeetingOptions;
 
 public class ZoomMeetingUISettingHelper {
@@ -29,9 +31,21 @@ public class ZoomMeetingUISettingHelper {
         return meetingOptions;
     }
 
+    public static StartMeetingOptions getStartMeetingOptions() {
+        StartMeetingOptions opts = new StartMeetingOptions();
+        fillMeetingOption(opts);
+        return opts;
+    }
+
     public static JoinMeetingOptions getJoinMeetingOptions() {
         JoinMeetingOptions opts = new JoinMeetingOptions();
+        fillMeetingOption(opts);
         opts.no_audio = meetingOptions.no_audio;
+        return opts;
+    }
+
+    private static MeetingOptions fillMeetingOption(MeetingOptions opts)
+    {
         opts.no_driving_mode = meetingOptions.no_driving_mode;
         opts.no_invite = meetingOptions.no_invite;
         opts.no_meeting_end_message = meetingOptions.no_meeting_end_message;
@@ -46,6 +60,12 @@ public class ZoomMeetingUISettingHelper {
         opts.meeting_views_options = meetingOptions.meeting_views_options;
         opts.no_meeting_error_message = meetingOptions.no_meeting_error_message;
         opts.participant_id = meetingOptions.participant_id;
+        return opts;
+    }
+
+    public static InstantMeetingOptions getInstantMeetingOptions() {
+        InstantMeetingOptions opts = new InstantMeetingOptions();
+        fillMeetingOption(opts);
         return opts;
     }
 
