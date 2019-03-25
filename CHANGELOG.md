@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2019-03-25 @ [v4.3.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.47200.0322)
+## 2019-03-25 @ [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322)
 
 **Added**
 
@@ -16,7 +16,7 @@
 * Fix an issue that the poll view does not show up and does not update during the webinar
 * Enhanced security
 
-## 2019-01-23 @ [v4.3.53571.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.53571.0118)
+## 2019-01-23 @ [v4.3.0.53571.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.0.53571.0118)
 
 **Added**
 * Support for the x86 emulator.
