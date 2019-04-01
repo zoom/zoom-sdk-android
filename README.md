@@ -1,10 +1,26 @@
 # Zoom Android Software Development Kit (SDK)
+<div align="center">
+<img src="https://s3.amazonaws.com/user-content.stoplight.io/8987/1541013063688" width="400px" max-height="400px" style="margin:auto;"/>
+</div>
 
->**Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail**
+## Latest SDK Notifications
+1. **Variable Name Changes**: Since [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322), we have renamed the term "APP" to "SDK" in our demo to avoid confusion between the term "API" and "APP".
+2. Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail
+3. Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
+4. Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
 
-> Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
+## Full Documentation && Community Support
+You can find the full Zoom Android SDK documentation and the community support forum here:
+<div align="center">
+   <a target="_blank" href="https://marketplace.zoom.us/docs/sdk/native-sdks/android" style="text-decoration:none">
+   <img src="https://s3-us-west-1.amazonaws.com/sdk.zoom.us/Doc-button.png" width="350px" max-height="350px" style="margin:1vh 1vw;"/>
+   </a>
+   <a target="_blank" href="https://devforum.zoom.us/c/mobile-sdk" style="text-decoration:none">
+   <img src="https://s3-us-west-1.amazonaws.com/sdk.zoom.us/Forum-button.png" width="350px" max-height="350px" style="margin:1vh 1vw;"/>
+   </a>
+</div>
 
-> Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
+## What is Zoom Android SDK?
 
 Zoom SDK makes it easy to integrate Zoom with your Android applications, and boosts up your applications with the power of Zoom.
 
