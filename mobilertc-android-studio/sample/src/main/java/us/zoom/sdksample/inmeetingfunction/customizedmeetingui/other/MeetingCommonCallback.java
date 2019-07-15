@@ -106,6 +106,10 @@ public class MeetingCommonCallback extends BaseCallback<MeetingCommonCallback.Co
             }
         }
 
+        @Override
+        public void onSpotlightVideoChanged(boolean b) {
+
+        }
     };
 
 

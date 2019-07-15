@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## 2019-07-15 @ [4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712)
+
+**Added**
+
+* **Add arm64-v8a, x86_64 library and provide Android 64-bit support**
+* Introduce new Zoom meeting UI
+* Add a new interface to distinguish H.323 user and telephone user
+	* `InMeetingUserInfo.isH323User`
+	* `InMeetingUserInfo.isPureCallInUser`
+* Add a new interface to hide/show “Webinar need register” dialog
+	* `MeetingOptions.no_webinar_register_dialog`
+* Add a new interface to query video quality
+	* `VideoStatus.videoQuality`
+* Add a new parameter to the SDK initialization method to customize the log size, the range is from 1MB to 50MB per log file, and by default is 5MB. The maximum number of the log file is 5.
+	* `ZoomSDK initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog,int logSize)`
+* Add a new callback to listen to the events when the end button is clicked
+	* `MeetingActivity onClickEndButton()`
+* Add a new callback to listen to the changes in the user’s network quality
+	* `InMeetingServiceListener onUserNetworkQualityChanged(long userId)`
+
+
+**Changed & Fixed**
+
+* Fixed an issue that sometimes the app crashes when trying to end a meeting while the Bluetooth is connected
+* Fixed an issue that the top/bottom bar in the Zoom UI is hidden unexpected
+* Fixed an issue that the app occasionally crashes when trying to start live streaming
+* Fixed an issue that the setting of muting the attendee’s audio is not working
+
 ## 2019-03-25 @ [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322)
 
 **Added**

@@ -6,9 +6,9 @@ public interface AuthConstants {
 	public final static String WEB_DOMAIN = "zoom.us";
 
 	// TODO Change it to your APP Key
-	public final static String SDK_KEY = "Your APP Key";
+	public final static String SDK_KEY = "";
 
 	// TODO Change it to your APP Secret
-	public final static String SDK_SECRET = "Your APP Secret";
+	public final static String SDK_SECRET = "";
 
 }

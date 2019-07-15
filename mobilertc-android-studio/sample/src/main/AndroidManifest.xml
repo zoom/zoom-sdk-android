@@ -4,9 +4,7 @@
       android:versionCode="1"
       android:versionName="1.0"
       android:installLocation="auto">
-    
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="27"/>
-    
+
     <uses-feature android:glEsVersion="0x00020000"/>
     
     <permission android:name="us.zoom.sdksample.permission.KUBI_MESSAGE"
@@ -15,6 +13,7 @@
     <uses-permission android:name="us.zoom.sdksample.permission.KUBI_MESSAGE" />
     
     <application android:label="@string/this_app_name"
+        android:name="androidx.multidex.MultiDexApplication"
         android:icon="@drawable/ic_launcher">
 
         <activity android:name="us.zoom.sdksample.ui.InitAuthSDKActivity"

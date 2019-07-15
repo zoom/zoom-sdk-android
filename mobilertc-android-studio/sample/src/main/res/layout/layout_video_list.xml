@@ -3,10 +3,10 @@
     android:layout_width="fill_parent"
     android:layout_height="100dp">
 
-	<android.support.v7.widget.RecyclerView
+	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_video_list"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-	</android.support.v7.widget.RecyclerView>
+	</androidx.recyclerview.widget.RecyclerView>
 </FrameLayout>

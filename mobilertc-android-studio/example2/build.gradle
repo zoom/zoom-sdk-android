@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "us.zoom.sdkexample2"
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion 16
+        targetSdkVersion 28
 		versionCode 1
         versionName "1.0"
     }
@@ -21,8 +21,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:27.1.0'
-    compile 'com.android.support:recyclerview-v7:27.1.0'
-    compile project(':commonlib')
-    compile project(':mobilertc')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation project(':commonlib')
+    implementation project(':mobilertc')
 }

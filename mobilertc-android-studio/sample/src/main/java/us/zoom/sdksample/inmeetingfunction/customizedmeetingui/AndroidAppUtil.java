@@ -10,11 +10,14 @@ import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import us.zoom.androidlib.util.ZMLog;
+
 /**
  * Created by Jacky on 2017/12/27.
  */
 
 public class AndroidAppUtil {
+    private final static String TAG = us.zoom.androidlib.util.AndroidAppUtil.class.getSimpleName();
 
     public static boolean hasActivityForIntent(Context context, Intent intent) {
         if(context != null && intent != null) {
@@ -26,24 +29,23 @@ public class AndroidAppUtil {
     }
 
     public static List<ResolveInfo> queryActivitiesForIntent(Context context, Intent intent) {
-        if(context != null && intent != null) {
-            PackageManager pm = context.getPackageManager();
-            Object list = null;
-
-            try {
-                list = pm.queryIntentActivities(intent, 65536);
-            } catch (Exception var5) {
-                ;
-            }
-
-            if(list == null) {
-                list = new ArrayList();
-            }
-
-            return (List)list;
-        } else {
+        if(context == null || intent == null)
             return null;
+
+        PackageManager pm = context.getPackageManager();
+        List<ResolveInfo> list = null;
+        try {
+            list = pm.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        } catch (Exception e) {
+            if(us.zoom.androidlib.BuildConfig.DEBUG)
+                ZMLog.e(TAG, e, "queryActivitiesForIntent");
         }
+
+        if(list == null) {
+            list = new ArrayList<ResolveInfo>();
+        }
+
+        return list;
     }
 
     public static int dip2px(Context context, float value) {

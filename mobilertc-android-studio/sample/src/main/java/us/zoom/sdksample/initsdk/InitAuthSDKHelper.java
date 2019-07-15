@@ -34,7 +34,7 @@ public class InitAuthSDKHelper implements AuthConstants, ZoomSDKInitializeListen
     public void initSDK(Context context, InitAuthSDKCallback callback) {
         if(!mZoomSDK.isInitialized()) {
             mInitAuthSDKCallback = callback;
-            mZoomSDK.initialize(context, SDK_KEY, SDK_SECRET, WEB_DOMAIN, this);
+            mZoomSDK.initialize(context, SDK_KEY, SDK_SECRET, WEB_DOMAIN, this,true,5);
         }
     }
 
