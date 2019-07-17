@@ -134,6 +134,8 @@ Please refer to our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/ma
 
 * :one: `Emulator is not working`:
   * SDK releases before **v4.3.53571.0118** only supports emulators with ABI **arm series(armeabi-v7a, arm64-v8a)**. Starting from **v4.3.53571.0118**, both **arm series(armeabi-v7a, arm64-v8a)** and **x86 ABI** are supported.
+* :two: `java.lang.NoClassDefFoundError: Failed resolution of: Landroidx/fragment/app/FragmentActivity`:
+  * The Zoom SDK has adapted AndroidX since the release [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712), if you have not migrated your project to be a AndroidX project, you will receive the above error message. Upgrading your Android project to be a AndroidX project will fix this issue.
 * Not finding what you want? We are here to help! Please visit our [Zoom Developer Community Forum](https://devforum.zoom.us/) for further assistance.
 
 ## Support
