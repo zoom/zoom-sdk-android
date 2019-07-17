@@ -4,7 +4,7 @@
 </div>
 
 ## Latest SDK Notifications
-1. **Android 64-bit support is now available in the release [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712).**
+1. **Android 64-bit support is now available in the release [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712).**, please don't forget to upgrade your Android project to be a AndroidX project.
 2. **Variable Name Changes**: Since [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322), we have renamed the term "APP" to "SDK" in our demo to avoid confusion between the term "API" and "APP".
 3. Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail
 4. Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
