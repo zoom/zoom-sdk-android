@@ -7,10 +7,8 @@
 1. :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We understand that upgrading an existing Android project/product to AndroidX would need some time, and we heard your feedback. We hereby offer an Android SDK version that does not require AndroidX, you may find it (android-mobilertc_support_xxx.zip
 ) here: [https://github.com/zoom/zoom-sdk-android/releases](https://github.com/zoom/zoom-sdk-android/releases) The end-of-life date of offering and supporting this version will be 01/01/2020.**
-
-**Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
-
-**Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
+  **Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
+  **Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
 
 2. **Android 64-bit support is now available in the release [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712).**, please don't forget to upgrade your Android project to be a AndroidX project.
 3. **Variable Name Changes**: Since [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322), we have renamed the term "APP" to "SDK" in our demo to avoid confusion between the term "API" and "APP".
