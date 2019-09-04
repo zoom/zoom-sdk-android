@@ -1,7 +1,11 @@
 package us.zoom.sdksample.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentActivity;
+
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -16,6 +20,8 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
 
     LinearLayout settingContain;
 
+    LinearLayout rawDataSettingContain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +35,12 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
 
         settingContain = findViewById(R.id.settings_contain);
         settingContain.setVisibility(isCustomUI ? View.GONE : View.VISIBLE);
+
+
+        boolean hasLicense = ZoomSDK.getInstance().hasRawDataLicense();
+        rawDataSettingContain = findViewById(R.id.rawdata_settings_contain);
+        rawDataSettingContain.setVisibility(isCustomUI && hasLicense ? View.VISIBLE : View.GONE);
+
         for (int i = 0, count = settingContain.getChildCount(); i < count; i++) {
             View child = settingContain.getChildAt(i);
             if (null != child && child instanceof Switch) {
@@ -36,6 +48,13 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 initCheck((Switch) child);
             }
         }
+
+        Switch btnRawData = findViewById(R.id.btn_raw_data);
+        SharedPreferences sharedPreferences = getSharedPreferences("UI_Setting", Context.MODE_PRIVATE);
+        boolean enable = sharedPreferences.getBoolean("enable_rawdata", false);
+        btnRawData.setChecked(enable);
+        btnRawData.setOnCheckedChangeListener(this);
+
 
         btnCustomUI.setOnCheckedChangeListener(this);
 
@@ -117,7 +136,7 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
             }
 
             case R.id.btn_invite_option_enable_all: {
-                view.setChecked(ZoomMeetingUISettingHelper.getMeetingOptions().invite_options==InviteOptions.INVITE_ENABLE_ALL);
+                view.setChecked(ZoomMeetingUISettingHelper.getMeetingOptions().invite_options == InviteOptions.INVITE_ENABLE_ALL);
                 break;
             }
             case R.id.btn_no_video: {
@@ -141,6 +160,8 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
             case R.id.btn_custom_ui: {
                 ZoomSDK.getInstance().getMeetingSettingsHelper().setCustomizedMeetingUIEnabled(isChecked);
                 settingContain.setVisibility(isChecked ? View.GONE : View.VISIBLE);
+                boolean hasLicense = ZoomSDK.getInstance().hasRawDataLicense();
+                rawDataSettingContain.setVisibility(isChecked && hasLicense ? View.VISIBLE : View.GONE);
                 break;
             }
             case R.id.btn_auto_connect_audio: {
@@ -233,19 +254,22 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 ZoomMeetingUISettingHelper.getMeetingOptions().no_meeting_error_message = isChecked;
                 break;
             }
-            case R.id.btn_force_start_video:
-            {
+            case R.id.btn_force_start_video: {
                 ZoomSDK.getInstance().getMeetingSettingsHelper().enableForceAutoStartMyVideoWhenJoinMeeting(isChecked);
                 break;
             }
-            case R.id.btn_force_stop_video:
-            {
+            case R.id.btn_force_stop_video: {
                 ZoomSDK.getInstance().getMeetingSettingsHelper().enableForceAutoStopMyVideoWhenJoinMeeting(isChecked);
                 break;
             }
-            case R.id.btn_show_audio_select_dialog:
-            {
+            case R.id.btn_show_audio_select_dialog: {
                 ZoomSDK.getInstance().getMeetingSettingsHelper().disableAutoShowSelectJoinAudioDlgWhenJoinMeeting(isChecked);
+                break;
+            }
+
+            case R.id.btn_raw_data: {
+                SharedPreferences sharedPreferences = getSharedPreferences("UI_Setting", Context.MODE_PRIVATE);
+                sharedPreferences.edit().putBoolean("enable_rawdata", isChecked).commit();
                 break;
             }
 

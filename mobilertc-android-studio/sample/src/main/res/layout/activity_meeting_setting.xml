@@ -315,4 +315,44 @@
         </LinearLayout>
     </ScrollView>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/rawdata_settings_contain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Raw data Options"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/darker_gray" />
+
+            <Switch
+                android:id="@+id/btn_raw_data"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Render with raw data"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:thumb="@drawable/switch_custom_thumb_selector"
+                android:track="@drawable/switch_custom_track_selector" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

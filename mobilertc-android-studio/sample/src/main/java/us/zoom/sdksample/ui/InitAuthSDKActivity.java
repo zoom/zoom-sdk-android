@@ -10,6 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
+import us.zoom.sdk.InMeetingAudioController;
+import us.zoom.sdk.InMeetingChatMessage;
+import us.zoom.sdk.InMeetingEventHandler;
+import us.zoom.sdk.InMeetingServiceListener;
 import us.zoom.sdk.JoinMeetingParams;
 import us.zoom.sdk.ZoomApiError;
 import us.zoom.sdk.ZoomAuthenticationError;
@@ -87,6 +93,7 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
             Toast.makeText(this, "Failed to initialize Zoom SDK. Error: " + errorCode + ", internalErrorCode=" + internalErrorCode, Toast.LENGTH_LONG).show();
         } else {
             ZoomSDK.getInstance().getMeetingSettingsHelper().enable720p(true);
+            ZoomSDK.getInstance().getMeetingSettingsHelper().setVideoOnWhenMyShare(true);
             Toast.makeText(this, "Initialize Zoom SDK successfully.", Toast.LENGTH_LONG).show();
             if (mZoomSDK.tryAutoLoginZoom() == ZoomApiError.ZOOM_API_ERROR_SUCCESS) {
                 UserLoginCallback.getInstance().addListener(this);

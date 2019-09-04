@@ -34,8 +34,7 @@ public class EmailLoginUserStartMeetingHelper {
         }
 
         StartMeetingOptions opts =ZoomMeetingUISettingHelper.getStartMeetingOptions();
-
-
+        opts.no_video=false;
 
         StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
         params.meetingNo = meetingNo;
@@ -64,6 +63,7 @@ public class EmailLoginUserStartMeetingHelper {
         }
 
         InstantMeetingOptions opts = ZoomMeetingUISettingHelper.getInstantMeetingOptions();
+        opts.no_video=false;
 
         return meetingService.startInstantMeeting(context, opts);
     }

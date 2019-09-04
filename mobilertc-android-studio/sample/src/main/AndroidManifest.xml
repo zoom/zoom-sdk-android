@@ -125,6 +125,11 @@
             android:configChanges="screenSize"
             android:theme="@style/ZMTheme.SubWindow"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".inmeetingfunction.customizedmeetingui.RawDataMeetingActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait"/>
 
     </application>
     

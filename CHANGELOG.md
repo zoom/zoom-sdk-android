@@ -1,6 +1,51 @@
 # CHANGELOG
 
-## 2019-07-15 @ [4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712)
+## 2019-09-04 @ [v4.4.55968.0904](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55968.0904)
+
+## Note
+
+### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
+**Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We understand that upgrading an existing Android project/product to AndroidX would need some time, and we heard your feedback. We hereby offer an Android SDK version that does not require AndroidX, you may find it here: [https://github.com/zoom/zoom-sdk-android/releases](https://github.com/zoom/zoom-sdk-android/releases) The end-of-life date of offering and supporting this version will be 01/01/2020.**
+
+**Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
+
+**Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
+
+## Added
+* **Add an SDK version that does not require AndroidX (End-of-Life: 01/01/2020)**
+* Add support for Android Q (Android 10)
+* Add a new interface to hide the "Chat" button in Zoom UI
+* `MeetingSettingsHelper:disableChatUI(boolean disable)`
+* Add a new interface to keep the video on when sharing content with others
+* `MeetingSettingsHelper:setVideoOnWhenMyShare(boolean videoOnWhenMyShare)`
+* Add a new interface to hide the popup dialog when the host requests to unmute an attendee
+* `MeetingOptions.no_unmute_confirm_dialog`
+* Add a new interface for SDK initialization
+* `ZoomSDK:initialize(Context context, ZoomSDKInitializeListener listener, ZoomSDKInitParams params)`
+
+## Changed & Fixed
+* Fixed a compatibility issue with 64-bit `arm64-v8a` ABI.
+* Fixed an issue that the video is turned off by default when starting a meeting with ZAK
+* Fixed an issue that the system notification remains after the SDK app is closed from Recent Apps
+* Fixed an issue that the participant cannot annotate when the host is sharing
+* Fixed an issue that the PDF sharing is not working properly with 64-bit ABIs
+* Separate the main session user events from the breakout session
+* Updated the ProGuard rule
+
+## Deprecating
+
+We are going to deprecate the following interfaces in the near future. Please plan to use the latest interface accordingly.
+
+* `initialize(Context context, String appKey, String appSecret, ZoomSDKInitializeListener listener)`
+* `initialize(Context context, String appKey, String appSecret, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener)`
+* `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener)`
+* `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener, boolean enableLog)`
+* `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
+* `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener)`
+* `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog)`
+* `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
+
+## 2019-07-15 @ [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712)
 
 **Added**
 

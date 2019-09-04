@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdk.ZoomSDKInitParams;
 import us.zoom.sdk.ZoomSDKInitializeListener;
+import us.zoom.sdk.ZoomSDKRawDataMemoryMode;
 
 /**
  * Init and auth zoom sdk first before using SDK interfaces
@@ -32,22 +34,31 @@ public class InitAuthSDKHelper implements AuthConstants, ZoomSDKInitializeListen
      * init sdk method
      */
     public void initSDK(Context context, InitAuthSDKCallback callback) {
-        if(!mZoomSDK.isInitialized()) {
+        if (!mZoomSDK.isInitialized()) {
             mInitAuthSDKCallback = callback;
-            mZoomSDK.initialize(context, SDK_KEY, SDK_SECRET, WEB_DOMAIN, this,true,5);
+
+            ZoomSDKInitParams initParams = new ZoomSDKInitParams();
+            initParams.appKey = SDK_KEY;
+            initParams.appSecret = SDK_SECRET;
+            initParams.enableLog = true;
+            initParams.logSize = 50;
+            initParams.domain=AuthConstants.WEB_DOMAIN;
+            initParams.videoRawDataMemoryMode = ZoomSDKRawDataMemoryMode.ZoomSDKRawDataMemoryModeStack;
+            mZoomSDK.initialize(context, this, initParams);
         }
     }
 
     /**
      * init sdk callback
-     * @param errorCode defined in {@link us.zoom.sdk.ZoomError}
+     *
+     * @param errorCode         defined in {@link us.zoom.sdk.ZoomError}
      * @param internalErrorCode Zoom internal error code
      */
     @Override
     public void onZoomSDKInitializeResult(int errorCode, int internalErrorCode) {
         Log.i(TAG, "onZoomSDKInitializeResult, errorCode=" + errorCode + ", internalErrorCode=" + internalErrorCode);
 
-        if(mInitAuthSDKCallback != null) {
+        if (mInitAuthSDKCallback != null) {
             mInitAuthSDKCallback.onZoomSDKInitializeResult(errorCode, internalErrorCode);
         }
     }

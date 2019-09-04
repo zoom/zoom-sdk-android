@@ -126,6 +126,7 @@ public class MeetingShareHelper {
 
                 } else if (!mInMeetingService.isMyself(userId)) { //other start share and stop my share
                     mInMeetingShareController.stopShareView();
+                    mInMeetingShareController.stopShareScreen();
                 }
             }
         } else if (mInMeetingService.isMyself(userId)) {

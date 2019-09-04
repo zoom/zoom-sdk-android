@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="size_video_item_margin">5dp</dimen>
+    <dimen name="size_video_item">100dp</dimen>
+    <dimen name="video_bottom_margin">17dp</dimen>
+    <dimen name="chat_bottom_margin">13dp</dimen>
+    <dimen name="toolbar_bottom_margin">148dp</dimen>
+</resources>
