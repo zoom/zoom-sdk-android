@@ -1,8 +1,6 @@
 package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import us.zoom.sdk.InMeetingAnnotationController;
 import us.zoom.sdk.InMeetingAudioController;
@@ -43,7 +44,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
 
     private final int MENU_ANNOTATION_OFF = 11;
     private final int MENU_ANNOTATION_ON = 12;
-
+    private final int MENU_ANNOTATION_QA= 13;
     MeetingOptionBarCallBack mCallBack;
 
     View mContentView;
@@ -435,6 +436,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                     case MENU_ANNOTATION_OFF:
                     {
                         meetingAnnotationController.disableViewerAnnotation(true);
+                        break;
                     }
                 }
                 window.dismiss();

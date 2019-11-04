@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
-
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.InMeetingShareController;
 import us.zoom.sdk.MobileRTCSDKError;
@@ -94,9 +93,7 @@ public class MeetingShareHelper {
 
 
     public void stopShare() {
-        if (mInMeetingShareController.isSharingScreen()) {
-            mInMeetingShareController.stopShareScreen();
-        }
+        mInMeetingShareController.stopShareScreen();
         if (null != callBack) {
             MobileRTCShareView shareView = callBack.getShareView();
             if (shareView != null) {
@@ -120,16 +117,14 @@ public class MeetingShareHelper {
     }
 
     public void onShareActiveUser(long currentShareUserId, long userId) {
-        if (currentShareUserId > 0) {
-            if (mInMeetingService.isMyself(currentShareUserId)) {
-                if (userId < 0) { //My share stopped
-
-                } else if (!mInMeetingService.isMyself(userId)) { //other start share and stop my share
-                    mInMeetingShareController.stopShareView();
-                    mInMeetingShareController.stopShareScreen();
-                }
+        if (currentShareUserId > 0 && mInMeetingService.isMyself(currentShareUserId)) {
+            if (userId < 0 || !mInMeetingService.isMyself(userId)) { //My share stopped or other start share and stop my share
+                mInMeetingShareController.stopShareView();
+                mInMeetingShareController.stopShareScreen();
+                return;
             }
-        } else if (mInMeetingService.isMyself(userId)) {
+        }
+        if (mInMeetingService.isMyself(userId)) {
             if (mInMeetingShareController.isSharingOut()) {
                 if (mInMeetingShareController.isSharingScreen()) {
                     mInMeetingShareController.startShareScreenContent();

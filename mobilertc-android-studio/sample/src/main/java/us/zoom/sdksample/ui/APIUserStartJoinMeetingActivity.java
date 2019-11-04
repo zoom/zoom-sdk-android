@@ -285,6 +285,7 @@ public class APIUserStartJoinMeetingActivity extends Activity implements AuthCon
 	private void showMeetingUi() {
 		if (ZoomSDK.getInstance().getMeetingSettingsHelper().isCustomizedMeetingUIEnabled()) {
 			Intent intent = new Intent(this, MyMeetingActivity.class);
+			intent.putExtra("from",2);
 			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			this.startActivity(intent);
 		}
