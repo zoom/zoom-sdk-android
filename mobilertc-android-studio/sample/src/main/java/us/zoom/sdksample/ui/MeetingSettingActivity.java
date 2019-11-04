@@ -151,6 +151,12 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 view.setChecked(ZoomMeetingUISettingHelper.getMeetingOptions().no_meeting_error_message);
                 break;
             }
+            case R.id.btn_hide_screen_share_toolbar_annotation:
+                view.setChecked(ZoomSDK.getInstance().getMeetingSettingsHelper().isHideAnnotationInScreenShareToolbar());
+                break;
+            case R.id.btn_hide_screen_share_toolbar_stopshare:
+                view.setChecked(ZoomSDK.getInstance().getMeetingSettingsHelper().isHideStopShareInScreenShareToolbar());
+                break;
         }
     }
 
@@ -272,7 +278,12 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 sharedPreferences.edit().putBoolean("enable_rawdata", isChecked).commit();
                 break;
             }
-
+            case R.id.btn_hide_screen_share_toolbar_annotation:
+                ZoomSDK.getInstance().getMeetingSettingsHelper().hideAnnotationInScreenShareToolbar(isChecked);
+                break;
+            case R.id.btn_hide_screen_share_toolbar_stopshare:
+                ZoomSDK.getInstance().getMeetingSettingsHelper().hideStopShareInScreenShareToolbar(isChecked);
+                break;
         }
     }
 }

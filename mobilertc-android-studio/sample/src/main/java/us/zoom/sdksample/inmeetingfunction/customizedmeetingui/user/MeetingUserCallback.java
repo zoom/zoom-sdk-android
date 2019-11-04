@@ -15,6 +15,7 @@ public class MeetingUserCallback extends BaseCallback<MeetingUserCallback.UserEv
 
         void onMeetingUserLeave(List<Long> list);
 
+        void onSilentModeChanged(boolean inSilentMode);
     }
 
     static MeetingUserCallback instance;
@@ -56,5 +57,13 @@ public class MeetingUserCallback extends BaseCallback<MeetingUserCallback.UserEv
                 event.onMeetingUserLeave(list);
             }
         }
+
+        @Override
+        public void onSilentModeChanged(boolean inSilentMode) {
+            for (UserEvent event : callbacks) {
+                event.onSilentModeChanged(inSilentMode);
+            }
+        }
+
     };
 }

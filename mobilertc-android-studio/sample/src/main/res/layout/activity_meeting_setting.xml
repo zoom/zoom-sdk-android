@@ -312,6 +312,24 @@
                 android:thumb="@drawable/switch_custom_thumb_selector"
                 android:track="@drawable/switch_custom_track_selector" />
 
+            <Switch
+                android:id="@+id/btn_hide_screen_share_toolbar_annotation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="@string/settings_hide_screen_share_toolbar_annotation"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:thumb="@drawable/switch_custom_thumb_selector"
+                android:track="@drawable/switch_custom_track_selector" />
+            <Switch
+                android:id="@+id/btn_hide_screen_share_toolbar_stopshare"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="@string/settings_hide_screen_share_toolbar_stopshare"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:thumb="@drawable/switch_custom_thumb_selector"
+                android:track="@drawable/switch_custom_track_selector" />
         </LinearLayout>
     </ScrollView>
 

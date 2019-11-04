@@ -526,4 +526,9 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     public void onShareUserReceivingStatus(long userId) {
 
     }
+
+    @Override
+    public void onSilentModeChanged(boolean inSilentMode){
+
+    }
 }

@@ -38,6 +38,16 @@
         android:minWidth="150dp"
         android:text="API User" />
 
+    <Button
+        android:id="@+id/btnSettings"
+        android:onClick="onClickSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:minWidth="150dp"
+        android:visibility="gone"
+        android:text="Settings" />
+
     <LinearLayout
         android:id="@+id/layout_join"
         android:layout_width="match_parent"

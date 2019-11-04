@@ -6,8 +6,6 @@ import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.InMeetingEventHandler;
 import us.zoom.sdk.InMeetingServiceListener;
-import us.zoom.sdk.InMeetingUserInfo;
-import us.zoom.sdk.ZoomSDK;
 
 public abstract class SimpleInMeetingListener implements InMeetingServiceListener {
 
@@ -129,6 +127,11 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
 
     @Override
     public void onHostAskUnMute(long userId) {
+
+    }
+
+    @Override
+    public void onSilentModeChanged(boolean inSilentMode){
 
     }
 }

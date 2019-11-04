@@ -130,7 +130,12 @@
             android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
             android:theme="@style/ZMTheme.SubWindow"
             android:screenOrientation="portrait"/>
-
+        <activity android:name=".ui.QAActivity" />
+        <activity
+            android:name="us.zoom.sdksample.inmeetingfunction.zoommeetingui.CustomZoomUIActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false"
+            android:theme="@style/ZMTheme.SubWindow"/>
     </application>
     
 </manifest> 

@@ -1,7 +1,5 @@
 # CHANGELOG
 
-## 2019-09-04 @ [v4.4.55968.0904](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55968.0904)
-
 ## Note
 
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
@@ -10,6 +8,33 @@
 **Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
 
 **Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
+
+## 2019-11-04 @ [v4.4.56624.1028](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.56624.1028)
+
+## Added
+*    Add a new interface to hide the 'chat' button for zoom default UI
+*    Add a new interface to enable send video when my share start
+*    Add a new interface to hide the popup dialog when the host ask the attendee to unmute themselves
+*    Add a new interface for SDK initialization
+*    Add a new interface to hide the Q&A button and the POLL button
+*    Add a new interface to save shared bitmap
+*    Add a new interface to change the priority of the ongoing meeting notification
+
+## Changed & Fixed
+*    Modified a behavior that separating the main session user event from the event in the breakout session
+*    Updated the ProGuard rule.
+
+## Deprecated
+*    `initialize(Context context, String appKey, String appSecret, ZoomSDKInitializeListener listener)`
+*    `initialize(Context context, String appKey, String appSecret, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener, boolean enableLog)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, boolean autoRetryVerifyApp, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog)`
+*    `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
+
+## 2019-09-04 @ [v4.4.55968.0904](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55968.0904)
 
 ## Added
 * **Add an SDK version that does not require AndroidX (End-of-Life: 01/01/2020)**

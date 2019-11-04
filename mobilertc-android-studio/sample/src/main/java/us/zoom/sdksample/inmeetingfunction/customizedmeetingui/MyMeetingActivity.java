@@ -3,6 +3,7 @@ package us.zoom.sdksample.inmeetingfunction.customizedmeetingui;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,11 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -32,20 +28,33 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.zipow.videobox.dialog.ZMRealNameAuthDialog;
+
 import java.util.List;
 
-
+import us.zoom.androidlib.app.ZMActivity;
+import us.zoom.sdk.IZoomRetrieveSMSVerificationCodeHandler;
+import us.zoom.sdk.IZoomVerifySMSVerificationCodeHandler;
 import us.zoom.sdk.InMeetingEventHandler;
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.MobileRTCRenderInfo;
+import us.zoom.sdk.MobileRTCSMSVerificationError;
 import us.zoom.sdk.MobileRTCShareView;
 import us.zoom.sdk.MobileRTCVideoUnitRenderInfo;
 import us.zoom.sdk.MobileRTCVideoView;
 import us.zoom.sdk.MobileRTCVideoViewManager;
+import us.zoom.sdk.SmsListener;
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdk.ZoomSDKCountryCode;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioCallback;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioHelper;
@@ -58,15 +67,17 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.video.MeetingVide
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.video.MeetingVideoHelper;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingOptionBar;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingWindowHelper;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.RealNameAuthDialog;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.AttenderVideoAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.AnnotateToolbar;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.CustomShareView;
 import us.zoom.sdksample.ui.APIUserStartJoinMeetingActivity;
+import us.zoom.sdksample.ui.InitAuthSDKActivity;
 import us.zoom.sdksample.ui.LoginUserStartJoinMeetingActivity;
 
-public class MyMeetingActivity extends FragmentActivity implements MeetingVideoCallback.VideoEvent,
+public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallback.VideoEvent,
         MeetingAudioCallback.AudioEvent, MeetingShareCallback.ShareEvent,
-        MeetingUserCallback.UserEvent, MeetingCommonCallback.CommonEvent {
+        MeetingUserCallback.UserEvent, MeetingCommonCallback.CommonEvent, SmsListener {
 
     private final static String TAG = MyMeetingActivity.class.getSimpleName();
 
@@ -79,6 +90,8 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
     public final static int REQUEST_SHARE_SCREEN_PERMISSION = 1001;
 
     protected final static int REQUEST_SYSTEM_ALERT_WINDOW = 1002;
+
+    private int from = 0;
 
     private int currentLayoutType = -1;
     private final int LAYOUT_TYPE_PREVIEW = 0;
@@ -149,6 +162,9 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
             return;
         }
 
+        if (null != getIntent().getExtras()) {
+            from = getIntent().getExtras().getInt("from");
+        }
         meetingAudioHelper = new MeetingAudioHelper(audioCallBack);
         meetingVideoHelper = new MeetingVideoHelper(this, videoCallBack);
         meetingShareHelper = new MeetingShareHelper(this, shareCallBack);
@@ -646,7 +662,13 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
                 mDefaultVideoViewMgr.removeShareVideoUnit();
                 currentLayoutType = -1;
             }
-            showMainActivity();
+            if (from == 3) {
+                ZoomSDK.getInstance().getMeetingService().leaveCurrentMeeting(false);
+                finish();
+            } else {
+                showMainActivity();
+            }
+
         } else {
             showLeaveMeetingDialog();
         }
@@ -665,49 +687,56 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
 
 
     private void showMainActivity() {
-
-        Class clz=LoginUserStartJoinMeetingActivity.class;
-        if(!ZoomSDK.getInstance().isLoggedIn())
-        {
-            clz=APIUserStartJoinMeetingActivity.class;
+        Class clz = LoginUserStartJoinMeetingActivity.class;
+        if (from == 3) {
+            clz = InitAuthSDKActivity.class;
+            return;
+        } else if (from == 2) {
+            clz = APIUserStartJoinMeetingActivity.class;
         }
         Intent intent = new Intent(this, clz);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
+    Dialog builder;
+
     private void showPsswordDialog(final boolean needPassword, final boolean needDisplayName, final InMeetingEventHandler handler) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if (null != builder) {
+            builder.dismiss();
+        }
+        builder = new Dialog(this, us.zoom.videomeetings.R.style.ZMDialog);
         builder.setTitle("Need password or displayName");
-        View view = LayoutInflater.from(this).inflate(R.layout.layout_input_password_name, null);
-        builder.setView(view);
+        builder.setContentView(R.layout.layout_input_password_name);
 
-        final EditText pwd = view.findViewById(R.id.edit_pwd);
-        final EditText name = view.findViewById(R.id.edit_name);
-        pwd.setVisibility(needPassword ? View.VISIBLE : View.GONE);
-        name.setVisibility(needPassword ? View.VISIBLE : View.GONE);
+        final EditText pwd = builder.findViewById(R.id.edit_pwd);
+        final EditText name = builder.findViewById(R.id.edit_name);
+        builder.findViewById(R.id.layout_pwd).setVisibility(needPassword ? View.VISIBLE : View.GONE);
+        builder.findViewById(R.id.layout_name).setVisibility(needDisplayName ? View.VISIBLE : View.GONE);
 
-        builder.setNegativeButton("Leave", new DialogInterface.OnClickListener() {
+        builder.findViewById(R.id.btn_leave).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
+            public void onClick(View view) {
+                builder.dismiss();
                 mInMeetingService.leaveCurrentMeeting(true);
             }
         });
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.findViewById(R.id.btn_ok).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View view) {
                 String password = pwd.getText().toString();
                 String userName = name.getText().toString();
                 if (needPassword && TextUtils.isEmpty(password) || (needDisplayName && TextUtils.isEmpty(userName))) {
+                    builder.dismiss();
                     onMeetingNeedPasswordOrDisplayName(needPassword, needDisplayName, handler);
                     return;
                 }
+                builder.dismiss();
                 handler.setMeetingNamePassword(password, userName);
-
             }
         });
-        builder.create().show();
+        builder.show();
+        pwd.requestFocus();
     }
 
 
@@ -921,6 +950,12 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
     }
 
     @Override
+    public void onSilentModeChanged(boolean inSilentMode) {
+        if (inSilentMode)
+            meetingShareHelper.stopShare();
+    }
+
+    @Override
     public void onShareUserReceivingStatus(long userId) {
 
     }
@@ -978,16 +1013,39 @@ public class MyMeetingActivity extends FragmentActivity implements MeetingVideoC
         inMeetingEventHandler.setRegisterWebinarInfo("test", "test@example.com", false);
     }
 
+
+    @Override
+    public void onNeedRealNameAuthMeetingNotification(List<ZoomSDKCountryCode> supportCountryList, String privacyUrl, IZoomRetrieveSMSVerificationCodeHandler handler) {
+        Log.d(TAG, "onNeedRealNameAuthMeetingNotification:" + privacyUrl);
+        Log.d(TAG, "onNeedRealNameAuthMeetingNotification getRealNameAuthPrivacyURL:" + ZoomSDK.getInstance().getSmsService().getRealNameAuthPrivacyURL());
+        RealNameAuthDialog.show(this, handler);
+    }
+
+    @Override
+    public void onRetrieveSMSVerificationCodeResultNotification(MobileRTCSMSVerificationError result, IZoomVerifySMSVerificationCodeHandler handler) {
+        Log.d(TAG, "onRetrieveSMSVerificationCodeResultNotification:" + result);
+    }
+
+    @Override
+    public void onVerifySMSVerificationCodeResultNotification(MobileRTCSMSVerificationError result) {
+        Log.d(TAG, "onVerifySMSVerificationCodeResultNotification:" + result);
+    }
+
     private void unRegisterListener() {
-        MeetingAudioCallback.getInstance().removeListener(this);
-        MeetingVideoCallback.getInstance().removeListener(this);
-        MeetingShareCallback.getInstance().removeListener(this);
-        MeetingUserCallback.getInstance().removeListener(this);
-        MeetingCommonCallback.getInstance().removeListener(this);
+        try {
+            MeetingAudioCallback.getInstance().removeListener(this);
+            MeetingVideoCallback.getInstance().removeListener(this);
+            MeetingShareCallback.getInstance().removeListener(this);
+            MeetingUserCallback.getInstance().removeListener(this);
+            MeetingCommonCallback.getInstance().removeListener(this);
+            ZoomSDK.getInstance().getSmsService().removeListener(this);
+        }catch (Exception e){
+        }
     }
 
 
     private void registerListener() {
+        ZoomSDK.getInstance().getSmsService().addListener(this);
         MeetingAudioCallback.getInstance().addListener(this);
         MeetingVideoCallback.getInstance().addListener(this);
         MeetingShareCallback.getInstance().addListener(this);
