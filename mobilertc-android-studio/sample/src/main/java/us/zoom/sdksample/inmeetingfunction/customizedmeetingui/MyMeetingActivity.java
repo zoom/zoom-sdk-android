@@ -788,14 +788,12 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
                         .setPositiveButton("End", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                                mInMeetingService.leaveCurrentMeeting(true);
+                              leave(true);
                             }
                         }).setNeutralButton("Leave", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                        mInMeetingService.leaveCurrentMeeting(false);
+                        leave(false);
                     }
                 });
             } else {
@@ -803,8 +801,7 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
                         .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                                mInMeetingService.leaveCurrentMeeting(false);
+                                leave(false);
                             }
                         });
             }
@@ -813,13 +810,20 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
                     .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                            mInMeetingService.leaveCurrentMeeting(true);
+                           leave(false);
                         }
                     });
         }
         builder.setNegativeButton("Cancel", null).create();
         builder.create().show();
+    }
+
+    private void leave(boolean end) {
+        if (meetingShareHelper.isSharingOut()) {
+            meetingShareHelper.stopShare();
+        }
+        finish();
+        mInMeetingService.leaveCurrentMeeting(end);
     }
 
     private void showJoinFailDialog(int error) {
@@ -1010,9 +1014,14 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
 
     @Override
     public void onJoinWebinarNeedUserNameAndEmail(InMeetingEventHandler inMeetingEventHandler) {
-        inMeetingEventHandler.setRegisterWebinarInfo("test", "test@example.com", false);
+        long time=System.currentTimeMillis();
+        inMeetingEventHandler.setRegisterWebinarInfo("test", time+"@example.com", false);
     }
 
+    @Override
+    public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift) {
+        Log.d(TAG, "onFreeMeetingReminder:" + isOrignalHost +" "+ canUpgrade +" "+ isFirstGift);
+    }
 
     @Override
     public void onNeedRealNameAuthMeetingNotification(List<ZoomSDKCountryCode> supportCountryList, String privacyUrl, IZoomRetrieveSMSVerificationCodeHandler handler) {

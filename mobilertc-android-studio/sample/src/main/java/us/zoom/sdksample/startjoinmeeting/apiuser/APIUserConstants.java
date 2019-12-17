@@ -12,6 +12,6 @@ public interface APIUserConstants {
 	public final static String USER_ID = "Your user id";
 
     // TODO change it to your Zoom access token expired time
-	public final static long EXPIRED_TIME= 3600 * 24 * 7; //A week
+	public final static long EXPIRED_TIME= 3600 * 2; //two hours
 
 }

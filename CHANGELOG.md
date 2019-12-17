@@ -9,6 +9,31 @@
 
 **Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
 
+## 2019-12-16 @ [v4.4.57218.1211](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.57218.1211)
+
+## Added:
+* Add new interfaces for SDK initialization with JWT token.
+  * `ZoomSDKInitParams.jwtToken`
+* Add new interfaces for the Q&A feature in the webinar.
+  * `ZoomSDK.getInstance().getInMeetingService().getInMeetingQAController()`
+* Add a new interface to get the attendeeID while in the meeting.
+  * `ZoomSDK.getInstance().getInMeetingService().getParticipantId()`
+* Add a new interface to show/hide the "My Connected Time".
+  * `ZoomSDK.getInstance().getMeetingSettingsHelper().enableShowMyMeetingElapseTime(boolean show)`
+* Add a new interface for users to get the meeting password while in the meeting.
+  * `ZoomSDK.getInstance().getInMeetingService().getMeetingPassword()`
+* Add a callback to remind the user that the free meeting will be ended in 10 minutes.
+  * `InMeetingServiceListener onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift)`
+* Add a new callback for the event when the host asks to unmute the attendee's video.
+  * `InMeetingServiceListener onHostAskStartVideo(long userId)`
+
+## Changed & Fixed:
+* Fixed an issue that unable to share any files while using SDK with Android Q.
+* Fixed an issue that the meeting restarts for a few times after pressing the end meeting button.
+* Fixed an issue that the app crashes when sharing a PDF file and changing pages.
+* Fixed an issue that the shared view is not responding while annotating.
+* Fixed an issue that the host is unable to mute the attendee's audio.
+
 ## 2019-11-04 @ [v4.4.56624.1028](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.56624.1028)
 
 ## Added

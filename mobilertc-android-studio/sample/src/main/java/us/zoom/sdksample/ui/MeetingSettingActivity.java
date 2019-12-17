@@ -2,10 +2,13 @@ package us.zoom.sdksample.ui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
@@ -13,7 +16,12 @@ import android.widget.Switch;
 
 import us.zoom.sdk.InviteOptions;
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdk.ZoomSDKInitParams;
+import us.zoom.sdk.ZoomSDKInitializeListener;
+import us.zoom.sdk.ZoomSDKRawDataMemoryMode;
 import us.zoom.sdksample.R;
+import us.zoom.sdksample.initsdk.AuthConstants;
+import us.zoom.sdksample.initsdk.InitAuthSDKHelper;
 import us.zoom.sdksample.inmeetingfunction.zoommeetingui.ZoomMeetingUISettingHelper;
 
 public class MeetingSettingActivity extends FragmentActivity implements CompoundButton.OnCheckedChangeListener {
@@ -21,6 +29,8 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
     LinearLayout settingContain;
 
     LinearLayout rawDataSettingContain;
+
+    private static final String TAG=MeetingSettingActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +58,8 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 initCheck((Switch) child);
             }
         }
+
+        ((Switch)findViewById(R.id.btn_switch_domain)).setOnCheckedChangeListener(this);
 
         Switch btnRawData = findViewById(R.id.btn_raw_data);
         SharedPreferences sharedPreferences = getSharedPreferences("UI_Setting", Context.MODE_PRIVATE);
@@ -284,6 +296,38 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
             case R.id.btn_hide_screen_share_toolbar_stopshare:
                 ZoomSDK.getInstance().getMeetingSettingsHelper().hideStopShareInScreenShareToolbar(isChecked);
                 break;
+            case R.id.btn_switch_domain:
+            {
+              boolean success=  ZoomSDK.getInstance().switchDomain("https://www.zoomus.cn",true);
+                Log.d(TAG,"switchDomain:"+success);
+              if(success)
+              {
+                  ZoomSDKInitParams initParams = new ZoomSDKInitParams();
+                  initParams.appKey = "";
+                  initParams.appSecret = "";
+                  initParams.enableLog = true;
+                  initParams.logSize = 50;
+                  initParams.domain= "https://www.zoomus.cn";
+                  initParams.videoRawDataMemoryMode = ZoomSDKRawDataMemoryMode.ZoomSDKRawDataMemoryModeStack;
+                  if(TextUtils.isEmpty(initParams.appKey)||TextUtils.isEmpty(initParams.appSecret))
+                  {
+                      return;
+                  }
+
+                  ZoomSDK.getInstance().initialize(this, new ZoomSDKInitializeListener() {
+                      @Override
+                      public void onZoomSDKInitializeResult(int errorCode, int internalErrorCode) {
+                          Log.d(TAG,"onZoomSDKInitializeResult:"+errorCode+":"+internalErrorCode);
+                      }
+
+                      @Override
+                      public void onZoomAuthIdentityExpired() {
+                          Log.d(TAG,"onZoomAuthIdentityExpired:");
+                      }
+                  }, initParams);
+              }
+                break;
+            }
         }
     }
 }

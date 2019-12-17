@@ -20,6 +20,8 @@ public class UserLoginCallback implements ZoomSDKAuthenticationListener {
         void onZoomSDKLogoutResult(long result);
 
         void onZoomIdentityExpired();
+
+        void onZoomAuthIdentityExpired();
     }
 
     private UserLoginCallback() {
@@ -74,6 +76,18 @@ public class UserLoginCallback implements ZoomSDKAuthenticationListener {
         for(ZoomDemoAuthenticationListener listener : mListenerList) {
             if(listener != null) {
                 listener.onZoomIdentityExpired();
+            }
+        }
+    }
+
+    /**
+     * ZOOM jwt token is expired, please generate a new jwt token.
+     */
+    @Override
+    public void onZoomAuthIdentityExpired() {
+        for(ZoomDemoAuthenticationListener listener : mListenerList) {
+            if(listener != null) {
+                listener.onZoomAuthIdentityExpired();
             }
         }
     }

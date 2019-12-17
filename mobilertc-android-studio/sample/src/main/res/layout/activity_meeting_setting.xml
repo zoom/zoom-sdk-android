@@ -6,6 +6,17 @@
     android:paddingLeft="6dp">
 
     <Switch
+        android:id="@+id/btn_switch_domain"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/settings_switch_domain"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:thumb="@drawable/switch_custom_thumb_selector"
+        android:track="@drawable/switch_custom_track_selector"
+        android:visibility="gone"/>
+
+    <Switch
         android:id="@+id/btn_custom_ui"
         android:layout_width="match_parent"
         android:layout_height="60dp"

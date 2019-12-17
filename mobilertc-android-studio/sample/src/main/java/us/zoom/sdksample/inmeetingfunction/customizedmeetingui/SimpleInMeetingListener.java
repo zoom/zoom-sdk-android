@@ -131,7 +131,17 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
     }
 
     @Override
+    public void onHostAskStartVideo(long userId) {
+
+    }
+
+    @Override
     public void onSilentModeChanged(boolean inSilentMode){
+
+    }
+
+    @Override
+    public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift){
 
     }
 }

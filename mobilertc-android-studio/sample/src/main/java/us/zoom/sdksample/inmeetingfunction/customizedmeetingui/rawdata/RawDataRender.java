@@ -7,10 +7,11 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import us.zoom.internal.videoio.VideoIO;
-import us.zoom.internal.videoio.ZoomTextureViewRender;
+import us.zoom.rawdatarender.RawDataBufferType;
+import us.zoom.rawdatarender.ZoomTextureViewRender;
 import us.zoom.sdk.IZoomSDKVideoRawDataDelegate;
 import us.zoom.sdk.MobileRTCRawDataError;
+import us.zoom.sdk.MobileRTCSDKError;
 import us.zoom.sdk.ZoomSDKRawDataType;
 import us.zoom.sdk.ZoomSDKRenderer;
 import us.zoom.sdk.ZoomSDKVideoRawData;
@@ -18,9 +19,13 @@ import us.zoom.sdk.ZoomSDKVideoResolution;
 
 //note  use ZoomSurfaceViewRender for performance
 //use ZoomTextureViewRender for  ui animation
-public class RawDataCanvas extends ZoomTextureViewRender {
+public class RawDataRender extends ZoomTextureViewRender {
 
-    private static final String TAG = "RawDataCanvas";
+    private static final String TAG = "RawDataRenderer";
+
+    private static HandlerThread handlerThread;
+
+    private static Handler handler;
 
     private long mUserId = -1;
 
@@ -34,24 +39,21 @@ public class RawDataCanvas extends ZoomTextureViewRender {
 
     private ZoomSDKRawDataType cacheRawDataType;
 
-    private static HandlerThread handlerThread;
-    private static Handler handler;
 
-    public RawDataCanvas(Context context) {
+    public RawDataRender(Context context) {
         super(context);
         init();
     }
 
-    public RawDataCanvas(Context context, AttributeSet attrs) {
+    public RawDataRender(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
     private void init() {
-        setBufferType(VideoIO.BufferType.BYTE_BUFFER);
-        onInitialize();
-        onStart();
-        clearImage(true);
+        setBufferType(RawDataBufferType.BYTE_ARRAY);
+        initRender();
+        startRender();
         rawDataHelper = new ZoomSDKRenderer(videoRendererSink);
         rawDataHelper.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_360P);
 
@@ -70,11 +72,14 @@ public class RawDataCanvas extends ZoomTextureViewRender {
         return rawDataHelper.getResolution();
     }
 
-
+    /**
+     * recycle view : move out then move in sometime cache hit  without call onBindViewHolder
+     */
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        onStart();
+        // onDetachedFromWindow  unSubscribe video and stop render get better performance
+        startRender();
         if (null != cacheRawDataType && cacheUserId >= 0) {
             subscribe(cacheUserId, cacheRawDataType);
         }
@@ -86,8 +91,7 @@ public class RawDataCanvas extends ZoomTextureViewRender {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         // onDetachedFromWindow  unSubscribe video get better performance. eg recycleView
-        clearImage(0.0F, 0.0F, 0.0F, 1.0F);
-        onStop();
+        stopRender();
         if (null != mRawDataType && mUserId >= 0) {
             cacheUserId = mUserId;
             cacheRawDataType = mRawDataType;
@@ -104,9 +108,9 @@ public class RawDataCanvas extends ZoomTextureViewRender {
     IZoomSDKVideoRawDataDelegate videoRendererSink = new IZoomSDKVideoRawDataDelegate() {
 
         @Override
-        public void onRawDataStatusChanged(boolean isSending) {
-            if (!isSending) {
-                clearImage(true);
+        public void onUserRawDataStatusChanged(UserRawDataStatus status) {
+            if (status == UserRawDataStatus.RawData_Off) {
+                clearImage(0.0F, 0.0F, 0.0F, 1.0F);
             }
         }
 
@@ -173,7 +177,9 @@ public class RawDataCanvas extends ZoomTextureViewRender {
     }
 
     public MobileRTCRawDataError unSubscribe() {
-
+        if (!isSubscribeSuccess) {
+            return MobileRTCRawDataError.MobileRTCRawData_Success;
+        }
         MobileRTCRawDataError ret = rawDataHelper.unSubscribe();
         Log.d(TAG, "unSubscribe: ret=" + ret + ":" + "mUserId=" + mUserId);
         if (ret == MobileRTCRawDataError.MobileRTCRawData_Success) {

@@ -102,7 +102,7 @@ public class APIUserStartJoinMeetingActivity extends Activity implements AuthCon
 			MeetingService meetingService = zoomSDK.getMeetingService();
 			meetingService.removeListener(this);//unregister meetingServiceListener
 		}
-
+		MeetingWindowHelper.getInstance().removeOverlayListener();
 		super.onDestroy();
 	}
 
@@ -320,5 +320,11 @@ public class APIUserStartJoinMeetingActivity extends Activity implements AuthCon
 			if(apiUserInfo == null)
 				Toast.makeText(APIUserStartJoinMeetingActivity.this, "Faild to retrieve Api user info!", Toast.LENGTH_LONG).show();
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		MeetingWindowHelper.getInstance().onActivityResult(requestCode,this);
 	}
 }

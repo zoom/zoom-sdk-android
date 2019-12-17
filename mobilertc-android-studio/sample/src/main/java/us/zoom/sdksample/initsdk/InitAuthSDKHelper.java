@@ -38,8 +38,7 @@ public class InitAuthSDKHelper implements AuthConstants, ZoomSDKInitializeListen
             mInitAuthSDKCallback = callback;
 
             ZoomSDKInitParams initParams = new ZoomSDKInitParams();
-            initParams.appKey = SDK_KEY;
-            initParams.appSecret = SDK_SECRET;
+            initParams.jwtToken = SDK_JWTTOKEN;
             initParams.enableLog = true;
             initParams.logSize = 50;
             initParams.domain=AuthConstants.WEB_DOMAIN;
@@ -61,5 +60,14 @@ public class InitAuthSDKHelper implements AuthConstants, ZoomSDKInitializeListen
         if (mInitAuthSDKCallback != null) {
             mInitAuthSDKCallback.onZoomSDKInitializeResult(errorCode, internalErrorCode);
         }
+    }
+
+    @Override
+    public void onZoomAuthIdentityExpired() {
+        Log.e(TAG,"onZoomAuthIdentityExpired in init");
+    }
+
+    public void reset(){
+        mInitAuthSDKCallback = null;
     }
 }

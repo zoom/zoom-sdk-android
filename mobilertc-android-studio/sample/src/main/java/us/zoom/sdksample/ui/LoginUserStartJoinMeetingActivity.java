@@ -95,6 +95,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
             MeetingService meetingService = zoomSDK.getMeetingService();
             meetingService.removeListener(this);//unregister meetingServiceListener
         }
+        MeetingWindowHelper.getInstance().removeOverlayListener();
 
         super.onDestroy();
     }
@@ -292,6 +293,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
             } else {
                 intent = new Intent(this, RawDataMeetingActivity.class);
             }
+            intent.putExtra("from",1);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             this.startActivity(intent);
         }
@@ -316,7 +318,6 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
         if (result == ZoomAuthenticationError.ZOOM_AUTH_ERROR_SUCCESS) {
             Toast.makeText(this, "Logout successfully", Toast.LENGTH_SHORT).show();
             showLoginView();
-            finish();
         } else {
             Toast.makeText(this, "Logout failed result code = " + result, Toast.LENGTH_SHORT).show();
         }
@@ -327,9 +328,28 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
         ZoomSDK.getInstance().logoutZoom();
     }
 
-    private void showLoginView() {
-        Intent intent = new Intent(this, EmailUserLoginActivity.class);
-        startActivity(intent);
+    @Override
+    public void onZoomAuthIdentityExpired() {
+
     }
 
+    private void showLoginView() {
+        mEdtMeetingPassword.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (ZoomSDK.getInstance().isInitialized()) {
+                    Intent intent = new Intent(LoginUserStartJoinMeetingActivity.this, EmailUserLoginActivity.class);
+                    startActivity(intent);
+                }
+                finish();
+            }
+        },500);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        MeetingWindowHelper.getInstance().onActivityResult(requestCode,this);
+    }
 }

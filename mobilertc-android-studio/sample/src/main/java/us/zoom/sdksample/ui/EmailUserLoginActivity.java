@@ -81,6 +81,7 @@ public class EmailUserLoginActivity extends Activity implements UserLoginCallbac
 			Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(this, LoginUserStartJoinMeetingActivity.class);
 			startActivity(intent);
+			UserLoginCallback.getInstance().removeListener(this);
 			finish();
 		} else {
 			Toast.makeText(this, "Login failed result code = " + result, Toast.LENGTH_SHORT).show();
@@ -101,5 +102,10 @@ public class EmailUserLoginActivity extends Activity implements UserLoginCallbac
 	@Override
 	public void onZoomIdentityExpired() {
 		//Zoom identity expired, please re-login;
+	}
+
+	@Override
+	public void onZoomAuthIdentityExpired() {
+
 	}
 }

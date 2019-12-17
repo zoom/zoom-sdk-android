@@ -1,8 +1,10 @@
 package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
@@ -17,14 +19,21 @@ import java.lang.ref.SoftReference;
 import java.util.List;
 
 import us.zoom.androidlib.util.CompatUtils;
+import us.zoom.amdroidlib.util.OverlayHelper;
+import us.zoom.androidlib.util.OsUtil;
+import us.zoom.androidlib.util.ResourcesUtil;
+import us.zoom.androidlib.util.StringUtil;
+import us.zoom.androidlib.util.ZMLog;
 import us.zoom.sdk.InMeetingShareController;
 import us.zoom.sdk.MobileRTCVideoUnitRenderInfo;
 import us.zoom.sdk.MobileRTCVideoView;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.MyMeetingActivity;
+import us.zoom.videomeetings.BuildConfig;
 
 public class MeetingWindowHelper implements InMeetingShareController.InMeetingShareListener {
+    public final static int REQUEST_SYSTEM_ALERT_WINDOW = 1020;
 
     private boolean mbAddedView = false;
 
@@ -60,7 +69,7 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
         return instance;
     }
 
-    public void showMeetingWindow(final Context context) {
+    public void showMeetingWindow(final Activity context) {
 
         ZoomSDK.getInstance().getInMeetingService().getInMeetingShareController().addListener(this);
 
@@ -70,14 +79,43 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
             return;
         }
 
-
-        refContext = new SoftReference<>(context);
         if (mbAddedView) {
             windowView.setVisibility(View.VISIBLE);
             addVideoUnit();
             return;
         }
+        if(OsUtil.isAtLeastN() && ! Settings.canDrawOverlays(context)){
+            if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
+                OverlayHelper.getInstance().startListenOverlayPermissionChange(context);
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + context.getPackageName()));
+            context.startActivityForResult(intent,REQUEST_SYSTEM_ALERT_WINDOW);
+        }else{
+            showMiniMeetingWindow(context);
+        }
+    }
 
+    public void onActivityResult(int requestCode, Context context) {
+        if(refContext != null && refContext.get() != null && refContext.get() == context){
+            switch(requestCode) {
+                case REQUEST_SYSTEM_ALERT_WINDOW:
+                    if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
+                        OverlayHelper.getInstance().stopListenOverlayPermissionChange(context);
+                    if((OsUtil.isAtLeastN() && !Settings.canDrawOverlays(context)) && (!OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged() || !OverlayHelper.getInstance().ismCanDraw())){
+                        return;
+                    }
+                    showMiniMeetingWindow(context);
+                    break;
+            }
+        }
+    }
+    public void removeOverlayListener(){
+        if(refContext != null && refContext.get() != null && OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
+            OverlayHelper.getInstance().stopListenOverlayPermissionChange(refContext.get());
+    }
+
+    private void showMiniMeetingWindow(final Context context){
+        refContext = new SoftReference<>(context);
         if (null == mWindowManager) {
             mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         }
@@ -159,7 +197,7 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
 
     private WindowManager.LayoutParams getLayoutParams(Context context) {
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        if (Build.VERSION.SDK_INT >= 25 && Settings.canDrawOverlays(context)) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Settings.canDrawOverlays(context)) {
             lp.type = CompatUtils.getSystemAlertWindowType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         } else {
             lp.type = CompatUtils.getSystemAlertWindowType(WindowManager.LayoutParams.TYPE_TOAST);

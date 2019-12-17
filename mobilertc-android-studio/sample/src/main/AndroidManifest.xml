@@ -18,6 +18,8 @@
 
         <activity android:name="us.zoom.sdksample.ui.InitAuthSDKActivity"
             android:label="@string/this_app_name"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
             android:icon="@drawable/ic_launcher"
             android:theme="@style/ZMTheme.MainWindow" >
             <intent-filter>

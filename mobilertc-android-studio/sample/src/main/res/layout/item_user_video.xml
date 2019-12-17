@@ -7,7 +7,7 @@
     android:padding="1dp">
 
 
-    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataCanvas
+    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRender
         android:id="@+id/videoRawdataCanvas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

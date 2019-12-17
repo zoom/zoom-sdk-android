@@ -1,7 +1,9 @@
 package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +25,15 @@ import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.InMeetingVideoController;
 import us.zoom.sdk.InMeetingWebinarController;
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdksample.BuildConfig;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.SimpleMenuAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.SimpleMenuItem;
+import us.zoom.sdksample.ui.QAActivity;
 
 public class MeetingOptionBar extends FrameLayout implements View.OnClickListener {
 
+    private static final String TAG = "MeetingOptionBar";
     private final int MENU_DISCONNECT_AUDIO = 0;
     private final int MENU_SHOW_PLIST = 4;
 
@@ -44,7 +49,8 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
 
     private final int MENU_ANNOTATION_OFF = 11;
     private final int MENU_ANNOTATION_ON = 12;
-    private final int MENU_ANNOTATION_QA= 13;
+    private final int MENU_ANNOTATION_QA = 13;
+    private final int MENU_SWITCH_DOMAIN = 14;
     MeetingOptionBarCallBack mCallBack;
 
     View mContentView;
@@ -133,7 +139,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         mInMeetingVideoController = mInMeetingService.getInMeetingVideoController();
         mInMeetingAudioController = mInMeetingService.getInMeetingAudioController();
         mInMeetingWebinarController = mInMeetingService.getInMeetingWebinarController();
-        meetingAnnotationController=mInMeetingService.getInMeetingAnnotationController();
+        meetingAnnotationController = mInMeetingService.getInMeetingAnnotationController();
 
 
 //        mContentView.setOnClickListener(this);
@@ -362,12 +368,10 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         if (!isMySelfWebinarAttendee())
             menuAdapter.addItem((new SimpleMenuItem(MENU_SHOW_PLIST, "Paticipants")));
 
-        if(meetingAnnotationController.canDisableViewerAnnotation())
-        {
-            if(!meetingAnnotationController.isViewerAnnotationDisabled())
-            {
+        if (meetingAnnotationController.canDisableViewerAnnotation()) {
+            if (!meetingAnnotationController.isViewerAnnotationDisabled()) {
                 menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_OFF, "Disable Annotation")));
-            }else {
+            } else {
                 menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_ON, "Enable Annotation")));
             }
         }
@@ -383,6 +387,20 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                 menuAdapter.addItem((new SimpleMenuItem(MENU_DISALLOW_ATTENDEE_CHAT, "Disallow attendee chat")));
             } else {
                 menuAdapter.addItem((new SimpleMenuItem(MENU_AllOW_ATTENDEE_CHAT, "Allow attendee chat")));
+            }
+        }
+
+        if (BuildConfig.DEBUG) {
+            menuAdapter.addItem((new SimpleMenuItem(MENU_SWITCH_DOMAIN, "Switch Domain")));
+        }
+
+        if (BuildConfig.DEBUG) {
+            InMeetingUserInfo myUserInfo = mInMeetingService.getMyUserInfo();
+            if (myUserInfo != null && mInMeetingService.isWebinarMeeting()) {
+                if(mInMeetingService.getInMeetingQAController().isQAEnabled())
+                {
+                    menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_QA, "QA")));
+                }
             }
         }
 
@@ -428,14 +446,21 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                         }
                         break;
                     }
-                    case MENU_ANNOTATION_ON:
-                    {
+                    case MENU_ANNOTATION_ON: {
                         meetingAnnotationController.disableViewerAnnotation(false);
                         break;
                     }
-                    case MENU_ANNOTATION_OFF:
-                    {
+                    case MENU_ANNOTATION_OFF: {
                         meetingAnnotationController.disableViewerAnnotation(true);
+                        break;
+                    }
+                    case MENU_ANNOTATION_QA: {
+                        mContext.startActivity(new Intent(mContext, QAActivity.class));
+                        break;
+                    }
+                    case MENU_SWITCH_DOMAIN: {
+                        boolean success = ZoomSDK.getInstance().switchDomain("zoom.us", true);
+                        Log.d(TAG, "switchDomain:" + success);
                         break;
                     }
                 }

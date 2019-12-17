@@ -24,6 +24,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import us.zoom.sdk.InMeetingAudioController;
@@ -38,7 +39,7 @@ import us.zoom.sdk.ZoomSDKVideoResolution;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioHelper;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.AudioRawDataUtil;
-import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataCanvas;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRender;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.UserVideoAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.video.MeetingVideoHelper;
 
@@ -57,7 +58,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
 
     protected final static int REQUEST_SYSTEM_ALERT_WINDOW = 1002;
 
-    RawDataCanvas bigVideo;
+    RawDataRender bigVideo;
 
     View actionBarContainer;
 
@@ -129,6 +130,28 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        bigVideo.unSubscribe();
+        adapter.clear();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resumeSubscribe();
+    }
+
+    private void resumeSubscribe() {
+        subscribe(0, ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
+        adapter.clear();
+        List<Long> userInfoList = ZoomSDK.getInstance().getInMeetingService().getInMeetingUserList();
+        if (null != userInfoList && userInfoList.size() > 0) {
+            adapter.onUserJoin(userInfoList);
+        }
+    }
+
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
@@ -173,19 +196,19 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     private void startPreview() {
         bigVideo.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_720P);
         bigVideo.subscribe(0, ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
-        bigVideo.setVideoAspectModel(RawDataCanvas.VideoAspect_Full_Filled);
+        bigVideo.setVideoAspectModel(RawDataRender.VideoAspect_Full_Filled);
     }
 
     private void subscribe(long userId, ZoomSDKRawDataType type) {
         bigVideo.unSubscribe();
         if (type == ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO) {
             if (userId == ZoomSDK.getInstance().getInMeetingService().getMyUserID()) {
-                bigVideo.setVideoAspectModel(RawDataCanvas.VideoAspect_Full_Filled);
+                bigVideo.setVideoAspectModel(RawDataRender.VideoAspect_Full_Filled);
             } else {
-                bigVideo.setVideoAspectModel(RawDataCanvas.VideoAspect_PanAndScan);
+                bigVideo.setVideoAspectModel(RawDataRender.VideoAspect_PanAndScan);
             }
         } else {
-            bigVideo.setVideoAspectModel(RawDataCanvas.VideoAspect_PanAndScan);
+            bigVideo.setVideoAspectModel(RawDataRender.VideoAspect_PanAndScan);
         }
         bigVideo.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_720P);
         bigVideo.subscribe(userId, type);
@@ -219,6 +242,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
                 break;
             }
             case R.id.btn_leave: {
+                releaseResource();
                 ZoomSDK.getInstance().getMeetingService().leaveCurrentMeeting(false);
                 break;
             }
@@ -236,6 +260,12 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
                 break;
             }
         }
+    }
+
+    private void releaseResource()
+    {
+        bigVideo.unSubscribe();
+        adapter.clear();
     }
 
     private void changeResolution() {
@@ -365,8 +395,8 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     @Override
     public void onMeetingLeaveComplete(long ret) {
         audioRawDataUtil.unSubscribe();
+        releaseResource();
         finish();
-
     }
 
     @Override
@@ -379,7 +409,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
         }
 
         if (myUserId <= 0) {
-//            audioRawDataUtil.subscribeAudio();
+            audioRawDataUtil.subscribeAudio();
             myUserId = ZoomSDK.getInstance().getInMeetingService().getMyUserID();
             findViewById(R.id.text_connecting).setVisibility(View.GONE);
         }
@@ -477,6 +507,11 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     }
 
     @Override
+    public void onHostAskStartVideo(long userId) {
+
+    }
+
+    @Override
     public void onUserAudioTypeChanged(long userId) {
         if (ZoomSDK.getInstance().getInMeetingService().isMyself(userId)) {
             updateAudioButton();
@@ -528,7 +563,12 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     }
 
     @Override
-    public void onSilentModeChanged(boolean inSilentMode){
+    public void onSilentModeChanged(boolean inSilentMode) {
+
+    }
+
+    @Override
+    public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift) {
 
     }
 }

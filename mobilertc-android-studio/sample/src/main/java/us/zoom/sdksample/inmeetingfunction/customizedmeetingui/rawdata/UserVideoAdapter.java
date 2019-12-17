@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import us.zoom.internal.videoio.ZoomTextureViewRender;
+import us.zoom.rawdatarender.ZoomTextureViewRender;
 import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKRawDataType;
@@ -150,7 +150,7 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
     public void onViewRecycled(@NonNull BaseHolder holder) {
         super.onViewRecycled(holder);
         VideoHolder viewHolder = (VideoHolder) holder;
-        viewHolder.rawDataCanvas.unSubscribe();
+        viewHolder.rawDataRender.unSubscribe();
     }
 
     @Override
@@ -165,7 +165,7 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
 
         if (null != info) {
             if (!info.getVideoStatus().isSending()) {
-                viewHolder.rawDataCanvas.onVideoStatusChange(false);
+                viewHolder.rawDataRender.onVideoStatusChange(false);
             }
             viewHolder.userNameText.setText(info.getUserName());
         }
@@ -178,11 +178,11 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
     }
 
     private void subscribeVideo(long userId, VideoHolder viewHolder) {
-        viewHolder.rawDataCanvas.unSubscribe();
-        viewHolder.rawDataCanvas.setVideoAspectModel(ZoomTextureViewRender.VideoAspect_Full_Filled);
-        viewHolder.rawDataCanvas.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_90P);
-        viewHolder.rawDataCanvas.subscribe(userId, ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
-        viewHolder.rawDataCanvas.setTag(userId);
+        viewHolder.rawDataRender.unSubscribe();
+        viewHolder.rawDataRender.setVideoAspectModel(ZoomTextureViewRender.VideoAspect_Full_Filled);
+        viewHolder.rawDataRender.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_90P);
+        viewHolder.rawDataRender.subscribe(userId, ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
+        viewHolder.rawDataRender.setTag(userId);
     }
 
     @Override
@@ -201,7 +201,7 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
 
     class VideoHolder extends BaseHolder {
 
-        RawDataCanvas rawDataCanvas;
+        RawDataRender rawDataRender;
 
         View itemView;
 
@@ -211,12 +211,12 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
         VideoHolder(View view) {
             super(view);
             itemView = view;
-            rawDataCanvas = view.findViewById(R.id.videoRawdataCanvas);
+            rawDataRender = view.findViewById(R.id.videoRawdataCanvas);
 
 
-            rawDataCanvas.setVisibility(View.VISIBLE);
-            rawDataCanvas.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_90P);
-            rawDataCanvas.clearImage(true);
+            rawDataRender.setVisibility(View.VISIBLE);
+            rawDataRender.setRawDataResolution(ZoomSDKVideoResolution.VideoResolution_90P);
+            rawDataRender.clearImage(true);
 
             userNameText = view.findViewById(R.id.item_user_name);
 
@@ -224,9 +224,9 @@ public class UserVideoAdapter extends RecyclerView.Adapter<UserVideoAdapter.Base
                 @Override
                 public void onClick(View v) {
                     if (null != tapListener) {
-                        long userId = rawDataCanvas.getUserId();
-                        if (userId <= 0 && null != rawDataCanvas.getTag()) {
-                            userId = (long) rawDataCanvas.getTag();
+                        long userId = rawDataRender.getUserId();
+                        if (userId <= 0 && null != rawDataRender.getTag()) {
+                            userId = (long) rawDataRender.getTag();
                         }
                         if (userId > 0) {
                             if (userId == selectedVideoUserId) {

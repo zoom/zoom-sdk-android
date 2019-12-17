@@ -20,7 +20,6 @@ public class MeetingCommonCallback extends BaseCallback<MeetingCommonCallback.Co
 
         void onMeetingLeaveComplete(long ret);
 
-
         void onMeetingStatusChanged(MeetingStatus meetingStatus, int errorCode, int internalErrorCode);
 
         void onMeetingNeedPasswordOrDisplayName(boolean needPassword, boolean needDisplayName, InMeetingEventHandler handler);
@@ -28,6 +27,8 @@ public class MeetingCommonCallback extends BaseCallback<MeetingCommonCallback.Co
         void onMeetingNeedColseOtherMeeting(InMeetingEventHandler inMeetingEventHandler);
 
         void onJoinWebinarNeedUserNameAndEmail(InMeetingEventHandler inMeetingEventHandler);
+
+        void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift);
 
     }
 
@@ -109,6 +110,13 @@ public class MeetingCommonCallback extends BaseCallback<MeetingCommonCallback.Co
         @Override
         public void onSpotlightVideoChanged(boolean b) {
 
+        }
+
+        @Override
+        public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift) {
+            for (CommonEvent event : callbacks) {
+                event.onFreeMeetingReminder(isOrignalHost, canUpgrade, isFirstGift);
+            }
         }
     };
 

@@ -97,4 +97,9 @@ public class SSOUserLoginActivity extends Activity implements UserLoginCallback.
 	public void onZoomIdentityExpired() {
 		//Zoom identity expired, please re-login;
 	}
+
+	@Override
+	public void onZoomAuthIdentityExpired() {
+
+	}
 }
