@@ -35,6 +35,7 @@
   * `onMeetingActiveVideo`
 
 ## Changed & Fixed:
+* Enhanced security and upgraded OpenSSL to 1.0.2u.
 * Fixed an issue that pictures from device storage cannot be shared.
 
 ## 2019-12-16 @ [v4.4.57218.1211](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.57218.1211)
