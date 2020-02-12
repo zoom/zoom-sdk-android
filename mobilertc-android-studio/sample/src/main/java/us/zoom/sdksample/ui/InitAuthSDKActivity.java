@@ -76,10 +76,11 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
             mBtnWithoutLogin.setVisibility(View.VISIBLE);
             layoutJoin.setVisibility(View.VISIBLE);
 
-            View view = findViewById(R.id.btn_settings);
+            View view = findViewById(R.id.btnSettings);
             if (null != view) {
                 view.setVisibility(View.VISIBLE);
             }
+            ZoomSDK.getInstance().getMeetingService().addListener(this);
             ZoomSDK.getInstance().getMeetingSettingsHelper().enable720p(true);
         } else {
             mBtnEmailLogin.setVisibility(View.GONE);

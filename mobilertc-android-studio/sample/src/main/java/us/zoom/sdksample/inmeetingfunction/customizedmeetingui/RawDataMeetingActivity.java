@@ -571,4 +571,9 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift) {
 
     }
+
+    @Override
+    public void onMeetingActiveVideo(long userId) {
+
+    }
 }

@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
+        android:orientation="vertical"
         android:gravity="center">
 
         <TextView
@@ -64,6 +65,13 @@
             android:textColor="@color/zm_white"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/txtPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/zm_white"
+            android:textSize="15sp"
+            android:visibility="gone" />
     </LinearLayout>
 
 

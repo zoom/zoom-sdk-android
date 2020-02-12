@@ -428,7 +428,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         String items[] = new String[allCountries.size()];
         items = allCountries.toArray(items);
 
-       final List<Integer> selectedIndex=new ArrayList<>();
+        final List<Integer> selectedIndex=new ArrayList<>();
         boolean selectItems[] = new boolean[allCountries.size()];
         for (int i = 0; i < allCountries.size(); i++) {
             String item = allCountries.get(i);
@@ -441,7 +441,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         }
 
 
-        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.zm_lbl_edit_dial_in_country_19247)
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.zm_lbl_edit_dial_in_country_104883)
                 .setNegativeButton(R.string.zm_btn_cancel, null).setPositiveButton(R.string.zm_btn_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

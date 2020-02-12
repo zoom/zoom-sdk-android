@@ -51,6 +51,11 @@ public class MeetingVideoCallback extends BaseCallback<MeetingVideoCallback.Vide
             Log.d(TAG, "onSpotlightVideoChanged:" + on);
 
         }
+
+        @Override
+        public void onMeetingActiveVideo(long userId) {
+            Log.d(TAG, "onMeetingActiveVideo:" + userId);
+        }
     };
 
 }

@@ -103,6 +103,8 @@ public class AnnotateToolbar extends FrameLayout implements IColorChangedListene
 		mArrow = (ImageView) mView.findViewById(R.id.btnArrow);
 		mClear = (ImageView) mView.findViewById(R.id.btnClear);
 
+
+
 		mClear.setVisibility(VISIBLE);
 
 		mArrow.setVisibility(GONE);
@@ -115,6 +117,8 @@ public class AnnotateToolbar extends FrameLayout implements IColorChangedListene
 		mColorIndicator.setOnClickListener(this);
 		mArrow.setOnClickListener(this);
 		mClear.setOnClickListener(this);
+		mView.findViewById(R.id.btnRedo).setOnClickListener(this);
+		mView.findViewById(R.id.btnUndo).setOnClickListener(this);
 
 		mToolbars = mView.findViewById(R.id.drawingtools);
 		mToolbars.setVisibility(GONE);
@@ -242,6 +246,10 @@ public class AnnotateToolbar extends FrameLayout implements IColorChangedListene
 				updateLineWidthPromt();
 			}
 			return;
+		}else if(v.getId()==R.id.btnUndo){
+			mAnnotationController.undo();
+		}else if(v.getId()==R.id.btnRedo){
+			mAnnotationController.redo();
 		}
 
 		else if(v == mClear)

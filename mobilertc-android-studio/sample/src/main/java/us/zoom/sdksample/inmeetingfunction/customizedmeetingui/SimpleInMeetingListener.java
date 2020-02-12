@@ -144,4 +144,9 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
     public void onFreeMeetingReminder(boolean isOrignalHost, boolean canUpgrade, boolean isFirstGift){
 
     }
+
+    @Override
+    public void onMeetingActiveVideo(long userId) {
+
+    }
 }

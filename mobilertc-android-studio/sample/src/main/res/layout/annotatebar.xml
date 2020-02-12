@@ -103,6 +103,22 @@
                 android:visibility="gone"
                 android:gravity="center_vertical"
                 android:src="@drawable/zm_anno_clear" />
+
+            <ImageView
+                android:id="@+id/btnUndo"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_undo" />
+
+            <ImageView
+                android:id="@+id/btnRedo"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_redo" />
         </LinearLayout>
     </LinearLayout>
 

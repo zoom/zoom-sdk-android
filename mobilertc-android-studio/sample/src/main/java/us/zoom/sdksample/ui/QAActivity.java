@@ -656,4 +656,9 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
     public void onFreeMeetingReminder(boolean isHost, boolean canUpgrade, boolean isFirstGift) {
 
     }
+
+    @Override
+    public void onMeetingActiveVideo(long userId) {
+        
+    }
 }

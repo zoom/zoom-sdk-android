@@ -2,6 +2,7 @@ package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -68,6 +69,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
     private ImageView mVideoStatusImg;
     private ImageView mShareStatusImg;
     private TextView mMeetingNumberText;
+    private TextView mMeetingPasswordText;
 
     private TextView mMeetingAudioText;
     private TextView mMeetingVideoText;
@@ -171,6 +173,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         mBtnSwitchCamera.setOnClickListener(this);
 
         mMeetingNumberText = findViewById(R.id.meetingNumber);
+        mMeetingPasswordText = findViewById(R.id.txtPassword);
 
 
         findViewById(R.id.btnBack).setOnClickListener(this);
@@ -221,6 +224,17 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
     public void updateMeetingNumber(String text) {
         if (null != mMeetingNumberText) {
             mMeetingNumberText.setText(text);
+        }
+    }
+
+    public void updateMeetingPassword(String text) {
+        if (null != mMeetingPasswordText) {
+            if (!TextUtils.isEmpty(text)) {
+                mMeetingPasswordText.setVisibility(VISIBLE);
+                mMeetingPasswordText.setText(text);
+            }else {
+                mMeetingPasswordText.setVisibility(GONE);
+            }
         }
     }
 
@@ -397,8 +411,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         if (BuildConfig.DEBUG) {
             InMeetingUserInfo myUserInfo = mInMeetingService.getMyUserInfo();
             if (myUserInfo != null && mInMeetingService.isWebinarMeeting()) {
-                if(mInMeetingService.getInMeetingQAController().isQAEnabled())
-                {
+                if (mInMeetingService.getInMeetingQAController().isQAEnabled()) {
                     menuAdapter.addItem((new SimpleMenuItem(MENU_ANNOTATION_QA, "QA")));
                 }
             }

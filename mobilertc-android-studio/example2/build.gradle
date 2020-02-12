@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "us.zoom.sdkexample2"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
 		versionCode 1
         versionName "1.0"
@@ -23,6 +23,8 @@ android {
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
     implementation project(':commonlib')
     implementation project(':mobilertc')
 }

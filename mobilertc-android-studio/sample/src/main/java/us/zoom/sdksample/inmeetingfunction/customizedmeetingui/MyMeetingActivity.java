@@ -304,6 +304,7 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
         if (mMeetingService.getMeetingStatus() == MeetingStatus.MEETING_STATUS_INMEETING) {
             mConnectingText.setVisibility(View.GONE);
             meetingOptionBar.updateMeetingNumber(mInMeetingService.getCurrentMeetingNumber() + "");
+            meetingOptionBar.updateMeetingPassword(mInMeetingService.getMeetingPassword() + "");
             meetingOptionBar.refreshToolbar();
         } else {
             if (mMeetingService.getMeetingStatus() == MeetingStatus.MEETING_STATUS_CONNECTING) {
@@ -788,7 +789,7 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
                         .setPositiveButton("End", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                              leave(true);
+                                leave(true);
                             }
                         }).setNeutralButton("Leave", new DialogInterface.OnClickListener() {
                     @Override
@@ -810,7 +811,7 @@ public class MyMeetingActivity extends ZMActivity implements MeetingVideoCallbac
                     .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                           leave(false);
+                            leave(false);
                         }
                     });
         }
