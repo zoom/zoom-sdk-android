@@ -149,4 +149,14 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
     public void onMeetingActiveVideo(long userId) {
 
     }
+
+    @Override
+    public void onSinkAttendeeChatPriviledgeChanged(int privilege) {
+
+    }
+
+    @Override
+    public void onSinkAllowAttendeeChatNotification(int privilege) {
+
+    }
 }

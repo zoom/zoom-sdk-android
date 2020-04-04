@@ -133,6 +133,14 @@
             android:theme="@style/ZMTheme.SubWindow"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.QAActivity" />
+        <activity android:name=".ui.BreakoutRoomsAdminActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.BoEditActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait" />
         <activity
             android:name="us.zoom.sdksample.inmeetingfunction.zoommeetingui.CustomZoomUIActivity"
             android:configChanges="orientation|screenSize"

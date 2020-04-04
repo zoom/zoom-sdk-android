@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import us.zoom.sdk.InMeetingNotificationHandle;
 import us.zoom.sdk.JoinMeetingParams;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
@@ -90,6 +91,21 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
         }
     }
 
+    InMeetingNotificationHandle handle=new InMeetingNotificationHandle() {
+
+        @Override
+        public boolean handleReturnToConfNotify(Context context, Intent intent) {
+            intent = new Intent(context, MyMeetingActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            if(!(context instanceof Activity)) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
+            intent.setAction(InMeetingNotificationHandle.ACTION_RETURN_TO_CONF);
+            context.startActivity(intent);
+            return true;
+        }
+    };
+
     @Override
     public void onZoomSDKInitializeResult(int errorCode, int internalErrorCode) {
         Log.i(TAG, "onZoomSDKInitializeResult, errorCode=" + errorCode + ", internalErrorCode=" + internalErrorCode);
@@ -97,10 +113,10 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
         if (errorCode != ZoomError.ZOOM_ERROR_SUCCESS) {
             Toast.makeText(this, "Failed to initialize Zoom SDK. Error: " + errorCode + ", internalErrorCode=" + internalErrorCode, Toast.LENGTH_LONG).show();
         } else {
-            ZoomSDK.getInstance().getMeetingSettingsHelper().enable720p(true);
+            ZoomSDK.getInstance().getMeetingSettingsHelper().enable720p(false);
             ZoomSDK.getInstance().getMeetingSettingsHelper().enableShowMyMeetingElapseTime(true);
-            ZoomSDK.getInstance().getMeetingSettingsHelper().setVideoOnWhenMyShare(true);
             ZoomSDK.getInstance().getMeetingService().addListener(this);
+            ZoomSDK.getInstance().getMeetingSettingsHelper().setCustomizedNotificationData(null, handle);
             Toast.makeText(this, "Initialize Zoom SDK successfully.", Toast.LENGTH_LONG).show();
             if (mZoomSDK.tryAutoLoginZoom() == ZoomApiError.ZOOM_API_ERROR_SUCCESS) {
                 UserLoginCallback.getInstance().addListener(this);

@@ -311,11 +311,11 @@
                         android:id="@+id/selectCountry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="45dp"
-                        android:gravity="center_vertical"
-                        android:textSize="20sp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/zm_text_gray"></TextView>
+                        android:background="@color/zm_text_gray"
+                        android:gravity="center_vertical"
+                        android:minHeight="45dp"
+                        android:textSize="20sp"></TextView>
 
                     <TextView
                         android:id="@+id/edit_country"
@@ -454,6 +454,93 @@
                         android:layout_height="wrap_content"
                         android:hint="Meeting password"
                         android:maxLength="10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optionAlternativeHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alternative hosts"></TextView>
+
+                    <EditText
+                        android:id="@+id/edidAlternativeHost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:hint="Input user email list" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/optionEnableWaitingRoom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textWaitingRoom"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="Enable waiting room" />
+
+                    <CheckBox
+                        android:id="@+id/chkWaitingRoom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optionLanguageInterpretation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textLanguageInterpretation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="Language Interpretation" />
+
+                    <CheckBox
+                        android:id="@+id/chkLanguageInterpretation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optionPublicMeeting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textPublicMeeting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        android:text="List in the Public Event List" />
+
+                    <CheckBox
+                        android:id="@+id/chkPublicMeeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
 

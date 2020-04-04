@@ -91,6 +91,18 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
     private ScheduleForHostAdapter mAlterNativeHostdapter;
     private String mSelectScheduleForHostEmail = null;
 
+    private View mOptionPublicMeeting;
+    private CheckBox mChkPublicMeeting;
+
+    private View mOptionLanguageInterpretation;
+    private CheckBox mChkLanguageInterpretation;
+
+
+    private View mOptionEnableWaitingRoom;
+    private CheckBox mChkWaitingRoom;
+
+    private EditText mEditAlternativeHost;
+
     private PreMeetingService mPreMeetingService = null;
 
     MobileRTCDialinCountry mCountry;
@@ -133,6 +145,19 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         mOptionScheduleFor = findViewById(R.id.optionScheduleFor);
         mSpDwonScheduleFor = (Spinner) findViewById(R.id.spDwonScheduleFor);
 
+        mOptionEnableWaitingRoom = findViewById(R.id.optionEnableWaitingRoom);
+        mChkWaitingRoom = findViewById(R.id.chkWaitingRoom);
+
+        mOptionLanguageInterpretation = findViewById(R.id.optionLanguageInterpretation);
+        mChkLanguageInterpretation = findViewById(R.id.chkLanguageInterpretation);
+
+        mEditAlternativeHost = findViewById(R.id.edidAlternativeHost);
+      
+
+        mOptionPublicMeeting = findViewById(R.id.optionPublicMeeting);
+        mChkPublicMeeting = findViewById(R.id.chkPublicMeeting);
+
+
         mPanelAutoRecord = findViewById(R.id.panelAutoRecord);
         mChkAutoRecord = (CheckBox) findViewById(R.id.chkAutoRecord);
         mChkLocalRecord = (CheckBox) findViewById(R.id.chkLocalRecord);
@@ -147,7 +172,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         mTxtTimeZoneName = (TextView) findViewById(R.id.txtTimeZone);
 
         selectedCountryList = findViewById(R.id.selectCountry);
-        layoutCountry=findViewById(R.id.layout_country);
+        layoutCountry = findViewById(R.id.layout_country);
 
 
         if (ZoomSDK.getInstance().isInitialized()) {
@@ -303,14 +328,12 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         refreshSelectCountry();
     }
 
-    private void refreshSelectCountry()
-    {
+    private void refreshSelectCountry() {
         if (null != mCountry) {
 
-            StringBuilder sb=new StringBuilder();
-            for(String str:mCountry.getSelectedCountries())
-            {
-                sb.append(str+" ");
+            StringBuilder sb = new StringBuilder();
+            for (String str : mCountry.getSelectedCountries()) {
+                sb.append(str + " ");
             }
             selectedCountryList.setText(sb.toString());
         }
@@ -331,6 +354,19 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
             }
         });
 
+        mChkUsePMI.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mOptionLanguageInterpretation.setVisibility(View.GONE);
+                    mChkLanguageInterpretation.setChecked(false);
+                } else {
+                    mOptionLanguageInterpretation.setVisibility(View.VISIBLE);
+                    mChkLanguageInterpretation.setChecked(false);
+                }
+            }
+        });
+
         mChkVoip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -347,7 +383,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
                 if (isChecked) {
                     layoutCountry.setVisibility(View.VISIBLE);
                     mChk3rdPartyAudio.setChecked(false);
-                }else {
+                } else {
                     layoutCountry.setVisibility(View.GONE);
                 }
             }
@@ -428,7 +464,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         String items[] = new String[allCountries.size()];
         items = allCountries.toArray(items);
 
-        final List<Integer> selectedIndex=new ArrayList<>();
+        final List<Integer> selectedIndex = new ArrayList<>();
         boolean selectItems[] = new boolean[allCountries.size()];
         for (int i = 0; i < allCountries.size(); i++) {
             String item = allCountries.get(i);
@@ -446,10 +482,9 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        ArrayList<String> arrayList=new ArrayList<>();
+                        ArrayList<String> arrayList = new ArrayList<>();
 
-                        for(Integer index:selectedIndex)
-                        {
+                        for (Integer index : selectedIndex) {
                             arrayList.add(allCountries.get(index));
                         }
                         mCountry.setSelectedCountries(arrayList);
@@ -460,10 +495,9 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        if(!isChecked)
-                        {
+                        if (!isChecked) {
                             selectedIndex.remove(Integer.valueOf(which));
-                        }else {
+                        } else {
                             selectedIndex.add(Integer.valueOf(which));
                         }
                     }
@@ -495,6 +529,22 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         meetingItem.setAttendeeVideoOff(mChkAttendeeVideo.isChecked());
 
         meetingItem.setAvailableDialinCountry(mCountry);
+
+        meetingItem.setEnableMeetingToPublic(mChkPublicMeeting.isChecked());
+        meetingItem.setEnableLanguageInterpretation(mChkLanguageInterpretation.isChecked());
+        meetingItem.setEnableWaitingRoom(mChkWaitingRoom.isChecked());
+
+        String hosts = mEditAlternativeHost.getText().toString();
+        if (!TextUtils.isEmpty(hosts)) {
+            String[] emails = hosts.split(",");
+            if (null != emails) {
+                List<Alternativehost> list=new ArrayList<>(emails.length);
+                for (String email : emails) {
+                    list.add(new Alternativehost(email.trim()));
+                }
+                meetingItem.setAlternativeHostList(list);
+            }
+        }
 
         if (mChk3rdPartyAudio.isChecked()) {
             if (thirdPartyAudioInfo.length() == 0) {

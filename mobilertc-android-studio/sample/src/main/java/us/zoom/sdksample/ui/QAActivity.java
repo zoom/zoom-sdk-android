@@ -661,4 +661,14 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
     public void onMeetingActiveVideo(long userId) {
         
     }
+
+    @Override
+    public void onSinkAttendeeChatPriviledgeChanged(int i) {
+
+    }
+
+    @Override
+    public void onSinkAllowAttendeeChatNotification(int i) {
+
+    }
 }

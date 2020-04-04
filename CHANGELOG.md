@@ -9,7 +9,53 @@
 
 **Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
 
-## 2020-02-10 @ [v4.6.15086.0209](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.6.15086.0209)
+## 2020-04-04 @ [v4.6.15801.0403](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.6.15801.0403)
+
+## Added:
+* Add new interfaces for customizing [breakout room](https://support.zoom.us/hc/en-us/articles/206476093-Getting-Started-with-Breakout-Rooms), new interfaces can be found in the following classes:
+ * `InMeetingBOController`
+ * `IBOCreator`
+ * `IBOAssistant`
+ * `IBOAdmin`
+ * `IBOMeeting`
+ * `IBOData`
+ * `BOCtrlUserStatus`
+* Add new interfaces and options for schedule meeting
+* Add a new interface to allow customizing meeting notification
+ * In `MeetingSettingsHelper`
+   * `setCustomizedNotificationData(CustomizedNotificationData data,InMeetingNotificationHandle handle)`
+* Add a new interface for "Lower all hands"
+ * In `InMeetingService`
+   * `lowerAllHands()`
+* Add new interfaces to reclaim host
+ * In `InMeetingService`
+   * `canReclaimHost()`
+   * `reclaimHost()`
+* Add new interfaces to control views under gallery view in Zoom UI
+ * In `ZoomUIService`
+   * `switchToNextPage()`
+   * `switchToPreviousPage()`
+   * `switchToActiveSpeaker()`
+   * `switchToDriveScene()`
+   * `switchToVideoWall()`
+* Add an interface to allow webinar participants to pre-enter the registration information, and skip the pop-up
+ * In `ZoomUIService`
+   * `prePopulateWebinarRegistrationInfo(String email, String username)`
+* Add new interfaces and callbacks to configure the chat privilege of the meeting/webinar attendees and to get notified on the corresponding events.
+ * In `InMeetingChatController`
+   * `allowAttendeeChat(MobileRTCWebinarChatPriviledge priviledge)`
+   * `changeAttendeeChatPriviledge(MobileRTCMeetingChatPriviledge priviledge)`
+ * In `InMeetingServiceListener`
+   * `onSinkAttendeeChatPriviledgeChanged(int privilege)`
+   * `onSinkAllowAttendeeChatNotification(int privilege)`
+
+## Changed & Fixed:
+* Fixed an issue that the interface `setNoUserJoinOrLeaveTipEnabled` results in unexpected behavior
+* Fixed an issue that the SDK is not working on non-standard Android device
+* Fixed an issue that the interface `setVideoOnWhenMyShare` in `MeetingSettingsHelper` is not working properly
+
+
+## 2020-02-10 @ v4.6.15086.0209
 
 ## Added:
 * Add new features in Zoom default UI
@@ -38,7 +84,7 @@
 * Enhanced security and upgraded OpenSSL to 1.0.2u.
 * Fixed an issue that pictures from device storage cannot be shared.
 
-## 2019-12-16 @ [v4.4.57218.1211](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.57218.1211)
+## 2019-12-16 @ v4.4.57218.1211
 
 ## Added:
 * Add new interfaces for SDK initialization with JWT token.
@@ -63,7 +109,7 @@
 * Fixed an issue that the shared view is not responding while annotating.
 * Fixed an issue that the host is unable to mute the attendee's audio.
 
-## 2019-11-04 @ [v4.4.56624.1028](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.56624.1028)
+## 2019-11-04 @ v4.4.56624.1028
 
 ## Added
 *    Add a new interface to hide the 'chat' button for zoom default UI
@@ -88,7 +134,7 @@
 *    `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog)`
 *    `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
 
-## 2019-09-04 @ [v4.4.55968.0904](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55968.0904)
+## 2019-09-04 @ v4.4.55968.0904
 
 ## Added
 * **Add an SDK version that does not require AndroidX (End-of-Life: 01/01/2020)**
@@ -124,7 +170,7 @@ We are going to deprecate the following interfaces in the near future. Please pl
 * `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog)`
 * `initialize(Context context, String appKey, String appSecret, String domain, ZoomSDKInitializeListener listener, boolean enableLog, int logSize)`
 
-## 2019-07-15 @ [v4.4.55130.0712](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.4.55130.0712)
+## 2019-07-15 @ v4.4.55130.0712
 
 **Added**
 
@@ -152,7 +198,7 @@ We are going to deprecate the following interfaces in the near future. Please pl
 * Fixed an issue that the app occasionally crashes when trying to start live streaming
 * Fixed an issue that the setting of muting the attendee’s audio is not working
 
-## 2019-03-25 @ [v4.3.1.47200.0322](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.1.47200.0322)
+## 2019-03-25 @ v4.3.1.47200.0322
 
 **Added**
 
@@ -168,7 +214,7 @@ We are going to deprecate the following interfaces in the near future. Please pl
 * Fix an issue that the poll view does not show up and does not update during the webinar
 * Enhanced security
 
-## 2019-01-23 @ [v4.3.0.53571.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.3.0.53571.0118)
+## 2019-01-23 @ v4.3.0.53571.0118
 
 **Added**
 * Support for the x86 emulator.
@@ -199,7 +245,7 @@ We are going to deprecate the following interfaces in the near future. Please pl
 *	MeetingService.startMeeting(Context, String, String, int, String, String)
 *	MeetingService.startMeeting(Context, String, String, int, String, String, MeetingOptions)
 
-## 2018-10-24 @ [v4.1.34082.1024](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.34082.1024)
+## 2018-10-24 @ v4.1.34082.1024
 1. Added support for Android API Level 27;
 2. Added support to schedule meeting for a specified user;
 3. Added support to third party audio;
@@ -209,13 +255,13 @@ We are going to deprecate the following interfaces in the near future. Please pl
 7. Enhanced meeting scheduling feature;
 
 
-## 2018-09-11 @ [v4.1.32128.0910](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.32128.0910)
+## 2018-09-11 @ v4.1.32128.0910
 
 1. Schedule Meeting Feature Enhancement
 
 2. Bug fixes
 
-## 2018-08-20 @ [v4.1.30378.0817](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.30378.0817)
+## 2018-08-20 @ v4.1.30378.0817
 
 1. Custom Meeting UI (support basic meeting function, except for Webinar and Breakout Session)
 
@@ -242,7 +288,7 @@ InMeetingShareController for Share service;
 10. Bug fixes
 
 
-## 2018-07-26 @ [v4.1.28807.0726](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.28807.0726)
+## 2018-07-26 @ v4.1.28807.0726
 
 The start meeting logic for API users has changed. Please read below before upgrading to this version.
 
@@ -288,7 +334,7 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 
 7.Bugs fix
 
-## 2017-05-28 @ [v4.1.25388.0528](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.1.25388.0528)
+## 2017-05-28 @ v4.1.25388.0528
 
 **Added**
 
@@ -304,7 +350,7 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 
 6.Support set domain start with http:// or https://;
 
-## 2017-10-30 @ [v4.0.11726.1030](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.11726.1030)
+## 2017-10-30 @ v4.0.11726.1030
 
 **Added**
 	1. No longer support zoom mobilertc version for ADT(eclipse)
@@ -331,7 +377,7 @@ int ret = meetingService.startMeetingWithParams(this, params, opts);
 		scheduleMeeting was called
 		Fix zoom mobilertc meeting no_disconnect_audio option does not work issue
 
-## 2017-06-19 @ [v4.0.36490.0619](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.36490.0619)
+## 2017-06-19 @ v4.0.36490.0619
 
 **Added**
 
@@ -438,7 +484,7 @@ Add interfaces to get a list of participants’ profile and status in meeting
 	33. boolean spotLightVideo(boolean on, long userId)
         This method is used to spotlight the user's video or not.
 
-## 2017-03-13 @ [v4.0.26490.0313](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.26490.0313)
+## 2017-03-13 @ v4.0.26490.0313
 
 **Added**
 
@@ -476,7 +522,7 @@ Returns: success or failure
 Usage: Cancel a room system call out.
 Returns: success or failure
 
-## 2017-01-18 @ [v4.0.21754.0118](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.0.21754.0118)
+## 2017-01-18 @ v4.0.21754.0118
 
 **Added**
 

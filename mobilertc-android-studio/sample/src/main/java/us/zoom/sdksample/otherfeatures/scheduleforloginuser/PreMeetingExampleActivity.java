@@ -91,18 +91,20 @@ public class PreMeetingExampleActivity extends Activity implements OnClickListen
     @Override
 	public void onScheduleMeeting(int result, long meetingUniqueId) {
 		// No op
-		
+		Log.d(TAG,"onScheduleMeeting result:"+result+" meetingUniqueId:"+meetingUniqueId);
 	}
 
     @Override
     public void onUpdateMeeting(int result, long meetingUniqueId) {
 	    // No op
+		Log.d(TAG,"onUpdateMeeting result:"+result+" meetingUniqueId:"+meetingUniqueId);
     }
 
 
 	@Override
 	public void onDeleteMeeting(int result) {
 		// No op
+		Log.d(TAG,"onDeleteMeeting result:"+result);
 	}
 	
 	private void onClickBtnDelete(MeetingItem item) {

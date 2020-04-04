@@ -33,6 +33,8 @@ import us.zoom.sdk.InMeetingEventHandler;
 import us.zoom.sdk.InMeetingServiceListener;
 import us.zoom.sdk.InMeetingShareController;
 import us.zoom.sdk.InMeetingUserInfo;
+import us.zoom.sdk.MeetingServiceListener;
+import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKRawDataType;
 import us.zoom.sdk.ZoomSDKVideoResolution;
@@ -43,7 +45,7 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRe
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.UserVideoAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.video.MeetingVideoHelper;
 
-public class RawDataMeetingActivity extends FragmentActivity implements InMeetingServiceListener, InMeetingShareController.InMeetingShareListener, View.OnClickListener, UserVideoAdapter.ItemTapListener {
+public class RawDataMeetingActivity extends FragmentActivity implements InMeetingServiceListener, MeetingServiceListener,  InMeetingShareController.InMeetingShareListener, View.OnClickListener, UserVideoAdapter.ItemTapListener {
 
 
     private final static String TAG = RawDataMeetingActivity.class.getSimpleName();
@@ -125,7 +127,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
         userVideoList.setAdapter(adapter);
         setScrollListener();
         ZoomSDK.getInstance().getInMeetingService().addListener(this);
-
+        ZoomSDK.getInstance().getMeetingService().addListener(this);
         ZoomSDK.getInstance().getInMeetingService().getInMeetingShareController().addListener(this);
     }
 
@@ -297,6 +299,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     protected void onDestroy() {
         super.onDestroy();
         audioRawDataUtil.unSubscribe();
+        ZoomSDK.getInstance().getMeetingService().removeListener(this);
         ZoomSDK.getInstance().getInMeetingService().removeListener(this);
         ZoomSDK.getInstance().getInMeetingService().getInMeetingShareController().removeListener(this);
     }
@@ -366,6 +369,16 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
     };
 
     @Override
+    public void onMeetingStatusChanged(MeetingStatus meetingStatus, int errorCode, int internalErrorCode) {
+        if (meetingStatus == MeetingStatus.MEETING_STATUS_IN_WAITING_ROOM) {
+            myUserId = 0;
+            bigVideo.unSubscribe();
+            Toast.makeText(this, "In waiting room", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    @Override
     public void onMeetingNeedPasswordOrDisplayName(boolean needPassword, boolean needDisplayName, InMeetingEventHandler handler) {
 
     }
@@ -422,7 +435,12 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
             videoListContain.setVisibility(View.INVISIBLE);
         }
         if (userList.contains(bigVideo.getUserId())) {
-            subscribe(ZoomSDK.getInstance().getInMeetingService().getMyUserID(), ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
+            long myUserId = ZoomSDK.getInstance().getInMeetingService().getMyUserID();
+            if (myUserId != 0) {
+                subscribe(myUserId, ZoomSDKRawDataType.RAW_DATA_TYPE_VIDEO);
+            } else {
+                bigVideo.unSubscribe();
+            }
         }
     }
 
@@ -574,6 +592,16 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
 
     @Override
     public void onMeetingActiveVideo(long userId) {
+
+    }
+
+    @Override
+    public void onSinkAttendeeChatPriviledgeChanged(int i) {
+
+    }
+
+    @Override
+    public void onSinkAllowAttendeeChatNotification(int i) {
 
     }
 }
