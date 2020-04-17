@@ -50,7 +50,6 @@
    * `onSinkAllowAttendeeChatNotification(int privilege)`
 
 ## Changed & Fixed:
-* Fixed the UNC link issue
 * Fixed an issue that the interface `setNoUserJoinOrLeaveTipEnabled` results in unexpected behavior
 * Fixed an issue that the SDK is not working on non-standard Android device
 * Fixed an issue that the interface `setVideoOnWhenMyShare` in `MeetingSettingsHelper` is not working properly
