@@ -1,29 +1,19 @@
 # Zoom Android Software Development Kit (SDK)
+
 <div align="center">
 <img src="https://s3.amazonaws.com/user-content.stoplight.io/8987/1541013063688" width="400px" max-height="400px" style="margin:auto;"/>
 </div>
 
+## :rotating_light: Announcement :rotating_light:
+ The Client SDK hereby introduced the **AES 256-bit GCM encryption** as addressed in our [90-Day Security Plan](https://blog.zoom.us/wordpress/2020/04/22/zoom-hits-milestone-on-90-day-security-plan-releases-zoom-5-0/) to **our SDK version 4.6.21666.0427**. Please note that: This AES 256-bit GCM encryption is **backward INCOMPATIBLE, which means the older version of SDK will NOT be able to join a meeting with GCM encryption enabled,** and as mentioned in the [90-Day Security Plan](https://blog.zoom.us/wordpress/2020/04/22/zoom-hits-milestone-on-90-day-security-plan-releases-zoom-5-0/), **the system-wide account enablement of AES 256-bit GCM encryption will take place on May 30, 2020**. Please plan to upgrade your SDK accordingly, and we will soon take away the older version of SDK that are not compatible with GCM encryption. Thank you!
+
+
 ## Latest SDK Notifications
-1. Please add the following dependencies in your `build.gradle` file if you are using [v4.6.15086.0209]((https://github.com/zoom/zoom-sdk-android/releases/tag/v4.6.15086.0209) or later.
-```
-implementation 'androidx.appcompat:appcompat:1.0.0'
-implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-implementation 'com.google.android.material:material:1.0.0-rc01'
-```
-
-2. If you are using v4.4.55968.0904 (or later version), please ensure your **compileSdkVersion** and **buildToolsVersion** in your `build.gradle` file is **29+**.
-
-3.. :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
-**Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We understand that upgrading an existing Android project/product to AndroidX would need some time, and we heard your feedback. We hereby offer an Android SDK version that does not require AndroidX, you may find it (android-mobilertc_support_xxx.zip
-) here: [https://github.com/zoom/zoom-sdk-android/releases](https://github.com/zoom/zoom-sdk-android/releases) The end-of-life date of offering and supporting this version will be 01/01/2020.**
-  **Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
-  **Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
-
-4. **Android 64-bit support is now available in the release v4.4.55130.0712.**, please don't forget to upgrade your Android project to be a AndroidX project.
-5. **Variable Name Changes**: Since v4.3.1.47200.0322, we have renamed the term "APP" to "SDK" in our demo to avoid confusion between the term "API" and "APP".
-6. Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail
-7. Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
-8. Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
+1. :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
+**Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
+2. Please be aware that some of our interfaces are deprecated in the latest release, please check out our [CHANGELOG](https://github.com/zoom/zoom-sdk-android/blob/master/CHANGELOG.md) for more detail
+3. Encounter with issues? The answer might be waiting for you at [Frequently Asked Questions](https://marketplace.zoom.us/docs/sdk/native-sdks/android/get-help/faq#frequently-asked-questions) sections.
+4. Our brand new [Zoom Developer Community Forum](https://devforum.zoom.us/) is now online!!! Check it out! We are here to help! :D
 
 ## Full Documentation && Community Support
 You can find the full Zoom Android SDK documentation and the community support forum here:
@@ -63,6 +53,20 @@ Before you try out our SDK, you would need the following to get started:
 * **An Android device**:
   * OS: Android 4.0 (API Level 14) or later.
   * CPU: armeabi-v7a, x86, armeabi, arm64-v8a, x86_64
+* **Android Project**:
+  * Support **AndroidX**
+* **Gradle settings**:
+  * **compileSdkVersion**: 29+
+  * **buildToolsVersion**: 29+
+  * **minSdkVersion**: 21
+  * **Required dependencies**
+  ```
+  implementation 'androidx.multidex:multidex:2.0.0'
+  implementation 'androidx.recyclerview:recyclerview:1.0.0'
+  implementation 'androidx.appcompat:appcompat:1.0.0'
+  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+  implementation 'com.google.android.material:material:1.0.0-rc01'
+  ```
 
 
 ### Installing
@@ -136,6 +140,30 @@ Connect your Android device to your computer and simply press "Run" on selected 
 ## Documentation
 
 Please visit [[https://marketplace.zoom.us/docs/sdk/native-sdks/android](https://marketplace.zoom.us/docs/sdk/native-sdks/android)] for details of each features and functions.
+
+## Navigating SDK sample files
+
+The following table provides the link to the implementation of each features in our demo app:
+
+| UI mode            | Feature                                                      | Corresponding sample files                                   |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Essential features | SDK Initialization & Authentication                          | * [InitAuthSDKHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/initsdk/InitAuthSDKHelper.java) <br />* [InitAuthSDKCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/initsdk/InitAuthSDKCallback.java) |
+|                    | Authenticate with Zoom REST API and start a meeting as API user | * [ApiUserStartMeetingHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/apiuser/ApiUserStartMeetingHelper.java) <br />* [APIUserInfoHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/apiuser/APIUserInfoHelper.java) <br />* [APIUserInfo.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/apiuser/APIUserInfo.java) <br />* [APIUserConstants.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/apiuser/APIUserConstants.java) |
+|                    | Login with email & password                                  | * [EmailUserLoginHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/emailloginuser/EmailUserLoginHelper.java) <br />* [UserLoginCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/UserLoginCallback.java) |
+|                    | Login with SSO token                                         | * [SSOlUserLoginHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/ssologinuser/SSOlUserLoginHelper.java) <br />* [UserLoginCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/UserLoginCallback.java) |
+|                    | Start an instant meeting(For Logged-in user)                 | * [EmailLoginUserStartMeetingHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/emailloginuser/EmailLoginUserStartMeetingHelper.java) <br />* [SSOLoginUserStartMeetingHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/ssologinuser/SSOLoginUserStartMeetingHelper.java) |
+|                    | Join a meeting                                               | * [JoinMeetingHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/startjoinmeeting/joinmeetingonly/JoinMeetingHelper.java) |
+|                    | Schedule a meeting (For logged-in user)                      | * [ScheduleMeetingExampleActivity.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/otherfeatures/scheduleforloginuser/ScheduleMeetingExampleActivity.java) <br />* [PreMeetingExampleActivity.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/otherfeatures/scheduleforloginuser/PreMeetingExampleActivity.java) |
+|                    | Settings                                                     | * [MeetingSettingActivity.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/ui/MeetingSettingActivity.java) <br />* [ZoomMeetingUISettingHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/zoommeetingui/ZoomMeetingUISettingHelper.java) |
+|                    | Invitation                                                   | * [MyInviteActivity.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/otherfeatures/MyInviteActivity.java) <br />* [MyInviteContentGenerator.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/otherfeatures/MyInviteContentGenerator.java) |
+| Custom UI          | Basic UI management                                          | * [MyMeetingActivity.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/MyMeetingActivity.java) <br />* [SimpleInMeetingListener.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/SimpleInMeetingListener.java) |
+|                    | Video/Share View                                             | * [MeetingWindowHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/MeetingWindowHelper.java) <br />* [MeetingOptionBar.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/MeetingOptionBar.java) <br />* [VideoListLayout.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/VideoListLayout.java) <br />* [AttenderVideoAdapter.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/adapter/AttenderVideoAdapter.java) <br />* [ToolbarDragView.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/share/ToolbarDragView.java) <br />* [RCMouseView.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/share/RCMouseView.java) <br />* [RCFloatView.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/share/RCFloatView.java) <br />* [CustomShareView.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/share/CustomShareView.java) <br />* [AnnotateToolbar.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/view/share/AnnotateToolbar.java) |
+|                    | Basic callback                                               | * [MeetingCommonCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/other/MeetingCommonCallback.java) |
+|                    | Audio                                                        | * [MeetingAudioHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/audio/MeetingAudioHelper.java) <br />* [MeetingAudioCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/audio/MeetingAudioCallback.java) |
+|                    | Video                                                        | * [MeetingVideoHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/video/MeetingVideoHelper.java) <br />* [MeetingVideoCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/video/MeetingVideoCallback.java) |
+|                    | User                                                         | * [MeetingUserCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/user/MeetingUserCallback.java) |
+|                    | Share                                                        | * [MeetingShareHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/share/MeetingShareHelper.java) <br />* [MeetingShareCallback.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/share/MeetingShareCallback.java) |
+|                    | Remote Control                                               | * [MeetingRemoteControlHelper.java](https://github.com/zoom/zoom-sdk-android/blob/master/mobilertc-android-studio/sample/src/main/java/us/zoom/sdksample/inmeetingfunction/customizedmeetingui/remotecontrol/MeetingRemoteControlHelper.java) |
 
 ## SDK Reference
 

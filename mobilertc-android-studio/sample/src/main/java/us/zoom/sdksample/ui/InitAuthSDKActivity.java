@@ -12,14 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import us.zoom.sdk.InMeetingNotificationHandle;
 import us.zoom.sdk.JoinMeetingParams;
+import us.zoom.sdk.MeetingInviteMenuItem;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.ZoomApiError;
 import us.zoom.sdk.ZoomAuthenticationError;
 import us.zoom.sdk.ZoomError;
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdk.ZoomUIDelegate;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.initsdk.InitAuthSDKCallback;
 import us.zoom.sdksample.initsdk.InitAuthSDKHelper;
@@ -124,6 +128,21 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
             } else {
                 showProgressPanel(false);
             }
+
+            ZoomSDK.getInstance().getZoomUIService().setZoomUIDelegate(new ZoomUIDelegate() {
+                @Override
+                public boolean onClickInviteButton(Context context, List<MeetingInviteMenuItem> inviteMenuList) {
+
+                    inviteMenuList.add(new MeetingInviteMenuItem("SDK Contacts", R.drawable.zm_invite_contacts, new MeetingInviteMenuItem.MeetingInviteAction() {
+                        @Override
+                        public void onItemClick(Context context, MeetingInviteMenuItem.MeetingInviteItemInfo info) {
+                            Log.d(TAG,"onItemClick:"+info.getTopic()+":"+info.getContent()+":"+info.getMeetingUrl()+":"+info.getMeetingId());
+                        }
+                    }));
+
+                    return false;
+                }
+            });
         }
     }
 
@@ -288,6 +307,7 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
         {
             ZoomSDK.getInstance().getMeetingService().removeListener(this);
         }
+        ZoomSDK.getInstance().getZoomUIService().setZoomUIDelegate(null);
         InitAuthSDKHelper.getInstance().reset();
     }
 }

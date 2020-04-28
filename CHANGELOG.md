@@ -3,13 +3,25 @@
 ## Note
 
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
-**Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We understand that upgrading an existing Android project/product to AndroidX would need some time, and we heard your feedback. We hereby offer an Android SDK version that does not require AndroidX, you may find it here: [https://github.com/zoom/zoom-sdk-android/releases](https://github.com/zoom/zoom-sdk-android/releases) The end-of-life date of offering and supporting this version will be 01/01/2020.**
+**Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
-**Please use this version if you are not able to upgrade your project to AndroidX at the moment.**
+## 2020-04-27 @ v4.6.21666.0427
 
-**Please plan to upgrade your Android project to AndroidX before 01/01/2020.**
+## Added:
+* Added support for AES 256-bit GCM encryption.
+  * **Please plan to upgrade your SDK accordingly. See the announcement in [README](https://github.com/zoom/zoom-sdk-android) for more information**
+* Added a new interface to hide Reaction emoji
+  * `hideReactionsOnMeetingUI()`
+* Added a new interface to allow more customization of the invite action
+  * You could show your own invitation menu and handle the onClick event for the menu options
 
-## 2020-04-04 @ [v4.6.15801.0403](https://github.com/zoom/zoom-sdk-android/releases/tag/v4.6.15801.0403)
+## Changed & Fixed:
+* Upgraded OpenSSL to version 1.1.1e
+
+## Deprecated
+* Deprecated the interface to get user's email: `InMeetingUserInfo().getEmail()`
+
+## 2020-04-04 @ v4.6.15801.0403
 
 ## Added:
 * Add new interfaces for customizing [breakout room](https://support.zoom.us/hc/en-us/articles/206476093-Getting-Started-with-Breakout-Rooms), new interfaces can be found in the following classes:
