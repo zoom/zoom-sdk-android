@@ -5,7 +5,7 @@
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
-## 2020-04-28 @ v4.6.21666.0428
+## 2020-04-29 @ v4.6.21666.0429
 
 ## Added:
 * Added support for AES 256-bit GCM encryption.
@@ -17,6 +17,7 @@
 
 ## Changed & Fixed:
 * Upgraded OpenSSL to version 1.1.1e
+* Fixed an issue that sometimes user might not be able to use vanityId to join a meeting
 
 ## Deprecated
 * Deprecated the interface to get user's email: `InMeetingUserInfo().getEmail()`
