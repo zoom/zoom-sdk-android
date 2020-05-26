@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="zm_config_conf_activity">us.zoom.sdkexample2.MyMeetingActivity</string>
+        
+</resources>

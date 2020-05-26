@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/txtTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Topic: "/>
+    
+     <TextView
+        android:id="@+id/txtMeetingId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meeting ID: "/> 
+        
+    <TextView
+        android:id="@+id/txtIsRepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Is Repeat Meeting: "/>
+    
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date: "/>
+    
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time: "/>
+    
+    <Button
+          android:id="@+id/btnLeave"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:minWidth="80dp"
+          android:layout_gravity="center"
+          android:text="Leave" />
+
+</LinearLayout>

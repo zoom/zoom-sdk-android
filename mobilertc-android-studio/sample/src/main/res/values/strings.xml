@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_app_name">Zoom SDK Demo</string>
+    
+    <string name="invite_acitivity_name">Meeting Invite Example</string>
+
+    <string name="zm_rc_using_fingers_for_remote_control">Remotely control a desktop using gestures</string>
+    <string name="zm_rc_one_finger_tap">Tap with one finger</string>
+    <string name="zm_rc_one_finger_tap_description">Tap the screen with one finger to click the mouse</string>
+    <string name="zm_rc_one_finger_double_taps">Double tap with one finger</string>
+    <string name="zm_rc_one_finger_double_taps_description">Double tap with one finger to double click the mouse</string>
+    <string name="zm_rc_one_long_tap">Long press with one finger</string>
+    <string name="zm_rc_one_long_tap_description">Press the screen with one finger to right-click the mouse</string>
+    <string name="zm_rc_two_fingers_scroll">Swipe with two fingers</string>
+    <string name="zm_rc_two_fingers_scroll_description">Swipe with two fingers to scroll up and down</string>
+    <string name="zm_rc_two_fingers_pinch">Pinch with two fingers</string>
+    <string name="zm_rc_two_fingers_pinch_description">Pinch in and out with two fingers to zoom in and out</string>
+    <string name="zm_rc_mouse_icon">Mouse icon</string>
+    <string name="zm_rc_mouse_icon_description">Drag the mouse icon to move the remote mouse pointer</string>
+    <string name="zm_rc_tap_notice">Tap here to control %s\'s screen remotely</string>
+
+    <string name="alert_other_is_sharing">You cannot start screen share while the other participant is sharing.</string>
+
+    <string name="settings_custom_ui">Customized UI</string>
+    <string name="settings_switch_domain">Switch domain</string>
+    <string name="settings_hide_screen_share_toolbar_annotation">Hide annotation button in screen share</string>
+    <string name="settings_hide_screen_share_toolbar_stopshare">Hide stopshare button in screen share</string>
+
+</resources>

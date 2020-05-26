@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.ToolbarDragView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/btnAnnotate"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="6dp"
+            android:background="#00000000"
+            android:src="@drawable/zm_share_drawing_btn_normal2x" />
+
+        <LinearLayout
+            android:id="@+id/drawingtools"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/zm_annoter_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/shareEditBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/zm_description_btn_share_stop_draw"
+                android:src="@drawable/zm_share_drawing_btn_pressed2x" />
+
+            <ImageView
+                android:id="@+id/btnSpotlight"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_spotlight" />
+
+            <ImageView
+                android:id="@+id/btnPen"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_pen" />
+
+            <ImageView
+                android:id="@+id/btnHighlight"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_highlight" />
+
+            <ImageView
+                android:id="@+id/btnArrow"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_arrow" />
+
+            <RelativeLayout
+                android:id="@+id/btnColorIndicator"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="4dp" >
+
+                <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.ColorSelectedImage
+                    android:id="@+id/colorImage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/zm_anno_circle" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/btnErase"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_erase" />
+
+            <ImageView
+                android:id="@+id/btnClear"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_clear" />
+
+            <ImageView
+                android:id="@+id/btnUndo"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_undo" />
+
+            <ImageView
+                android:id="@+id/btnRedo"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:src="@drawable/zm_anno_redo" />
+        </LinearLayout>
+    </LinearLayout>
+
+</us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.ToolbarDragView>

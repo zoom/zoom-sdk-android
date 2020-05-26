@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zm_black"
+    android:orientation="vertical">
+
+
+    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRender
+        android:id="@+id/big_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRender>
+
+    <TextView
+        android:id="@+id/text_connecting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connect ..."
+        android:textColor="@color/zm_white"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:id="@+id/video_list_contain"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/video_list_bg"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userVideoList"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_video_item"
+            android:clipChildren="true">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/action_bar_container"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:background="@color/zm_gray_6C6C7F"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:id="@+id/btnAudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/audioStatusImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:src="@drawable/icon_meeting_audio" />
+
+            <TextView
+                android:id="@+id/text_audio"
+                style="@style/ZMTextView.ToolbarBtnLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shareStatusImage"
+                android:layout_centerHorizontal="true"
+                android:duplicateParentState="true"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="Audio" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnCamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/videotatusImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:src="@drawable/icon_meeting_video" />
+
+            <TextView
+                android:id="@+id/text_video"
+                style="@style/ZMTextView.ToolbarBtnLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shareStatusImage"
+                android:layout_centerHorizontal="true"
+                android:duplicateParentState="true"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="Video" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/btnSwitchCamera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:focusable="false"
+                android:src="@drawable/icon_switch_camera" />
+
+            <TextView
+                android:id="@+id/text_video"
+                style="@style/ZMTextView.ToolbarBtnLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shareStatusImage"
+                android:layout_centerHorizontal="true"
+                android:duplicateParentState="true"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="Switch" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/btn_switch_share"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="View Share"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/btn_leave"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Leave"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+</FrameLayout>

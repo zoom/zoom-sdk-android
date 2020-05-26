@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingTop="5dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="5dp"
+    android:descendantFocusability="blocksDescendants" >
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/actionPanel"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today 10am" />
+
+        <TextView
+            android:id="@+id/txtHostName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Host:" />
+
+        <TextView
+            android:id="@+id/txtTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topic: My Meeting" />
+
+        <TextView
+            android:id="@+id/txtMeetingNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meeting ID: 111-111-111" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:id="@+id/actionPanel">
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:minWidth="80dp"
+            android:text="Delete"
+            android:duplicateParentState="false" />
+
+    </LinearLayout>
+    
+</RelativeLayout>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <us.zoom.sdk.MobileRTCVideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false" />
+
+    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.CustomShareView
+        android:id="@+id/custom_share_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+    </us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.CustomShareView>
+
+</FrameLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edtMeetingNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meeting ID"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true"
+        android:maxLength="13">
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edtVanityUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vanity ID"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true">
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edtMeetingPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Meeting Password(For join meeting only)"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/btnStartMeeting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp"
+            android:text="Start this Meeting" />
+        
+        <Button
+            android:id="@+id/btnJoinMeeting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Join this Meeting" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progressPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtConnecting"
+            android:paddingLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retrieve API user token... "/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:minWidth="150dp"
+        android:onClick="onClickSettings"
+        android:text="Setting" />
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:minWidth="150dp"
+        android:onClick="onClickReturnMeeting"
+        android:text="Return Meeting" />
+</LinearLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <FrameLayout
+            android:id="@+id/meetingVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <FrameLayout
+            android:id="@+id/share_contain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:orientation="vertical">
+
+            <us.zoom.sdk.MobileRTCShareView
+                android:id="@+id/sharingView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.AnnotateToolbar
+                android:id="@+id/drawingView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:visibility="gone" />
+        </FrameLayout>
+
+
+        <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.VideoListLayout
+            android:id="@+id/videoListLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/videoList_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:src="@drawable/arrow_down_normal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/videoList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipChildren="true"
+                android:clipToPadding="true"
+                android:focusable="false" />
+        </us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.VideoListLayout>
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_join_bo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="Join Bo"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_request_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="Request for Help"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/connectingTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="top|left"
+        android:gravity="center"
+        android:text="Connecting..."
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/waitJoinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Wait host to start this meeting..."
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/waitingRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Please wait, the meeting host will let you in soon."
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"></FrameLayout>
+
+
+    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingOptionBar
+        android:id="@+id/meeting_option_contain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"></us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingOptionBar>
+
+
+</FrameLayout>

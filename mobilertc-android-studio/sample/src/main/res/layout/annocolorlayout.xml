@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/color_select"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#80000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="left|center"
+		    android:gravity="center"
+		    android:text="@string/zm_msg_line_width"
+		    android:textColor="#80FFFFFF" />
+
+		<TextView 
+		    android:id="@+id/txtLineWidth"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="left|center"
+		    android:text="3"
+		    android:textColor="#80FFFFFF"
+		    android:gravity="center"/>
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="left|center"
+		    android:text="@string/zm_msg_pixel"
+		    android:textColor="#80FFFFFF"
+		    android:gravity="center"/>
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:max="40"
+        	android:progress="3" />
+    </LinearLayout>
+
+    <us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.ColorTable
+        android:id="@+id/colorTable"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+    </us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.ColorTable>
+
+</LinearLayout>

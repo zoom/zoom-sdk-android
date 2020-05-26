@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        
+    <bool name="zm_config_invite_by_only_action_meeting_invite">false</bool>
+    
+    <bool name="zm_config_enter_meeting_from_lock_screen">false</bool> 
+    
+    <!-- Invitation content generator class. It must implement com.zipow.videobox.util.InviteContentGenerator -->
+    <string name="zm_config_invite_content_generator">us.zoom.sdkexample.MyInviteContentGenerator</string>
+
+    <string name="zm_config_conf_activity">us.zoom.sdksample.inmeetingfunction.zoommeetingui.CustomZoomUIActivity</string>
+
+    
+</resources>

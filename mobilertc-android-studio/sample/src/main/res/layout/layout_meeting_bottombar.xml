@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zm_top_toolbar_bg"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/btnAudio"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/audioStatusImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:src="@drawable/icon_meeting_audio" />
+
+        <TextView
+            android:id="@+id/text_audio"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shareStatusImage"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="Audio" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnCamera"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/videotatusImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:src="@drawable/icon_meeting_video" />
+
+        <TextView
+            android:id="@+id/text_video"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shareStatusImage"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="Video" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnShare"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/shareStatusImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:src="@drawable/icon_share_resume" />
+
+        <TextView
+            android:id="@+id/text_share"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shareStatusImage"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="Share" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btnPlist"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:src="@drawable/zm_btn_plist" />
+
+        <TextView
+            android:id="@+id/text_plist"
+
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shareStatusImage"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="Chats" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/moreActionImg"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:focusable="false"
+            android:src="@drawable/zm_btn_more" />
+
+        <TextView
+            android:id="@+id/text_more"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shareStatusImage"
+            android:layout_centerHorizontal="true"
+            android:duplicateParentState="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="More" />
+
+    </LinearLayout>
+
+</LinearLayout>
