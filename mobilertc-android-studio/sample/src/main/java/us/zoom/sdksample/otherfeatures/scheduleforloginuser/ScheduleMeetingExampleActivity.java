@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,7 +27,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import us.zoom.androidlib.util.TimeZoneUtil;
+import us.zoom.androidlib.utils.ZmTimeZoneUtils;
 import us.zoom.sdk.AccountService;
 import us.zoom.sdk.Alternativehost;
 import us.zoom.sdk.MeetingItem;
@@ -191,7 +190,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
 
     private void initDateAndTime() {
         mTimeZoneId = TimeZone.getDefault().getID();
-        mTxtTimeZoneName.setText(TimeZoneUtil.getFullName(mTimeZoneId));
+        mTxtTimeZoneName.setText(ZmTimeZoneUtils.getFullName(mTimeZoneId));
 
         Date timeFrom = new Date(System.currentTimeMillis() + 3600 * 1000);
         Date timeTo = new Date(System.currentTimeMillis() + 7200 * 1000);
@@ -326,6 +325,12 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
             }
         }
         refreshSelectCountry();
+
+        if (mPreMeetingService.isDisabledPMI()) {
+            findViewById(R.id.optionUsePMI).setVisibility(View.GONE);
+        } else {
+            findViewById(R.id.optionUsePMI).setVisibility(View.VISIBLE);
+        }
     }
 
     private void refreshSelectCountry() {
@@ -477,7 +482,7 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
         }
 
 
-        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.zm_lbl_edit_dial_in_country_104883)
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.zm_lbl_edit_dial_in_country_127873)
                 .setNegativeButton(R.string.zm_btn_cancel, null).setPositiveButton(R.string.zm_btn_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -582,6 +587,8 @@ public class ScheduleMeetingExampleActivity extends Activity implements PreMeeti
                 meetingItem.setScheduleForHostEmail(mSelectScheduleForHostEmail);
             }
         }
+
+
 
         meetingItem.setUsePmiAsMeetingID(mChkUsePMI.isChecked());
         meetingItem.setTimeZoneId(mTimeZoneId);

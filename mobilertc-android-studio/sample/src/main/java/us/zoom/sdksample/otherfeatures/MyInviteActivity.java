@@ -1,6 +1,6 @@
 package us.zoom.sdksample.otherfeatures;
 
-import us.zoom.androidlib.util.AndroidAppUtil;
+import us.zoom.androidlib.utils.ZmMimeTypeUtils;
 import us.zoom.sdksample.R;
 
 import android.app.Activity;
@@ -30,23 +30,23 @@ public class MyInviteActivity extends Activity {
 		if(uri != null)
 			txtUrl.setText("URL:" + uri.toString());
 		
-		String subject = intent.getStringExtra(AndroidAppUtil.EXTRA_SUBJECT);
+		String subject = intent.getStringExtra(ZmMimeTypeUtils.EXTRA_SUBJECT);
 		if(subject != null)
 			txtSubject.setText("Subject: " + subject);
 		
-		long meetingId = intent.getLongExtra(AndroidAppUtil.EXTRA_MEETING_ID, 0);
+		long meetingId = intent.getLongExtra(ZmMimeTypeUtils.EXTRA_MEETING_ID, 0);
 		if(meetingId > 0)
 			txtMeetingId.setText("Meeting ID: " + meetingId);
 		
-		String meetingPassword = intent.getStringExtra(AndroidAppUtil.EXTRA_MEETING_PSW);
+		String meetingPassword = intent.getStringExtra(ZmMimeTypeUtils.EXTRA_MEETING_PSW);
 		if(meetingPassword != null)
 			txtPassword.setText("Password: " + meetingPassword);
 		
-		String meetingRawPassword = intent.getStringExtra(AndroidAppUtil.EXTRA_MEETING_RAW_PSW);
+		String meetingRawPassword = intent.getStringExtra(ZmMimeTypeUtils.EXTRA_MEETING_RAW_PSW);
 		if(meetingRawPassword != null)
 			txtRawPassword.setText("Raw Password: " + meetingRawPassword);
 		
-		String text = intent.getStringExtra(AndroidAppUtil.EXTRA_TEXT);
+		String text = intent.getStringExtra(ZmMimeTypeUtils.EXTRA_TEXT);
 		if(text != null)
 			edtText.setText(text);
 	}

@@ -5,6 +5,61 @@
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
+## 2020-06-30 @ v5.0.24433.0616
+
+## Added:
+
+* Upgraded Zoom default UI to match Zoom client 5.0.
+* Added a new interface to catch crash dump(java and native):
+   * `ZoomSDKInitParams.enableGenerateDump`
+* Added a new callback for the event when the username has changed
+   * `InMeetingServiceListener.onUserNameChanged`
+* Added a new interface to check whether the PMI option is enabled on the account.
+   * `PreMeetingService.isDisabledPMI`
+* Added new status to the H323 callout status
+   * `CallOutRoomSystemStatus.CallOutRoomSystem_Busy`
+   * `CallOutRoomSystemStatus.CallOutRoomSystem_Decline`
+* Added new interfaces for the "Use Original Sound" option in the meeting settings.
+   * `MeetingSettingsHelper.enableMicOriginalInput`
+* Added a new interface to show/hide the "Disconnect audio" button.
+   * `ZoomUIService.hideDisconnectAudio`
+* Added a new interface related to setting 'Always show video preview when joining a video meeting' feature.
+   * `MeetingSettingsHelper.disableShowVideoPreviewWhenJoinMeeting`
+* Added a new interface to modify the 'meeting topic' in the 'meeting information' page.
+   * `InMeetingService.setMeetingTopic`
+* Added new interfaces to allow the host to send messages to the attendees in the waiting room.
+   * `InMeetingChatMessage.setChatToWaitingroom(boolean chatToWaitingroom)`
+   * `InMeetingChatMessage.isChatToWaitingroom()`
+* Added text avatar in the participant list.
+
+## Changed & Fixed:
+
+* Fixed an issue that the interface `setConfNotificatonChannelId` results in unexpected behavior on Android 8.0.
+* Fixed an issue that the local video screen in Zoom UI will freeze when switching the camera using the interface.
+* Fixed an issue that the presenter cannot colors in the annotation toolbar while sharing the screen.
+* Fixed an issue that the "Allow to talk" dialog will show up multiple times.
+* Temporary remove the USB camera support. (Follow Zoom client's change).
+* Temporary remove the "Unmute all" interface.
+   * `InMeetingAudioController.unmuteAllAttendeeAudio`
+* Re-define start meeting interface
+   * `startMeetingWithParams(Context context, StartMeetingParams param, MeetingOptions opts)`
+
+## Deprecated & Removed
+* `startMeeting(Context context, String meetingNo)`
+* `startMeeting(Context context, String meetingNo, MeetingOptions opts)`
+* `startMeeting(Context context, String userId, String zoomToken, int userType, String meetingNo, String displayName)`
+* `startMeeting(Context context, String userId, String zoomToken, int userType, String meetingNo, String displayName, MeetingOptions opts)`
+* `startMeetingWithParams(Context context, StartMeetingParams param)`
+* `startInstantMeeting(Context context)`
+* `startInstantMeeting(Context context, String userId, String zoomToken, int userType, String displayName);`
+* `startInstantMeeting(Context context, String userId, String zoomToken, int userType, String displayName, MeetingOptions opts);`
+* `joinMeeting(Context context, String meetingNo, String displayName)`
+* `joinMeeting(Context context, String meetingNo, String displayName, String password);`
+* `joinMeeting(Context context, String meetingNo, String displayName, MeetingOptions opts);`
+* `joinMeeting(Context context, String meetingNo, String displayName, String password, MeetingOptions opts);`
+* `joinMeetingWithParams(Context context, JoinMeetingParams param)`
+* `InMeetingAudioController.unmuteAllAttendeeAudio`
+
 ## 2020-04-29 @ v4.6.21666.0429
 
 ## Added:

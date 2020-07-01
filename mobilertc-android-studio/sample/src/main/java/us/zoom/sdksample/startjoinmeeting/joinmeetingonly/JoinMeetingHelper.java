@@ -15,7 +15,7 @@ public class JoinMeetingHelper {
 
     private ZoomSDK mZoomSDK;
 
-    private final static String DISPLAY_NAME = "ZoomUS SDK";
+    private final static String DISPLAY_NAME = "ZoomUS_SDK";
 
     private JoinMeetingHelper() {
         mZoomSDK = ZoomSDK.getInstance();

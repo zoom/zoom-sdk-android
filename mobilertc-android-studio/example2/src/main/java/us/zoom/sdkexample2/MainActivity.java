@@ -5,7 +5,7 @@ import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.StartMeetingOptions;
-import us.zoom.sdk.StartMeetingParams4APIUser;
+import us.zoom.sdk.StartMeetingParamsWithoutLogin;
 import us.zoom.sdk.ZoomError;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKInitParams;
@@ -206,9 +206,9 @@ public class MainActivity extends Activity implements Constants, MeetingServiceL
 		opts.no_bottom_toolbar = true;
 		opts.no_invite = true;
 
-		StartMeetingParams4APIUser params = new StartMeetingParams4APIUser();
+		StartMeetingParamsWithoutLogin params = new StartMeetingParamsWithoutLogin();
 		params.userId = USER_ID;
-		params.zoomToken = ZOOM_TOKEN;
+		params.zoomAccessToken = ZOOM_ACCESS_TOKEN;
 		params.meetingNo = MEETING_ID;
 		params.displayName = DISPLAY_NAME;
 

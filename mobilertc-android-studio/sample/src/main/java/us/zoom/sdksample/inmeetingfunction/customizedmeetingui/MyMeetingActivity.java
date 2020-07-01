@@ -32,12 +32,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import us.zoom.androidlib.app.ZMActivity;
+import us.zoom.amdroidlib.util.OverlayHelper;
+import us.zoom.androidlib.utils.ZmOsUtils;
 import us.zoom.androidlib.widget.ZMAlertDialog;
 import us.zoom.sdk.IBOAssistant;
 import us.zoom.sdk.IBOAttendee;
@@ -77,14 +79,14 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.RealNameAuth
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.AttenderVideoAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.AnnotateToolbar;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.CustomShareView;
-import us.zoom.sdksample.ui.APIUserStartJoinMeetingActivity;
 import us.zoom.sdksample.ui.BreakoutRoomsAdminActivity;
 import us.zoom.sdksample.ui.InitAuthSDKActivity;
 import us.zoom.sdksample.ui.LoginUserStartJoinMeetingActivity;
+import us.zoom.sdksample.ui.APIUserStartJoinMeetingActivity;
 
 import static us.zoom.sdk.MobileRTCSDKError.SDKERR_SUCCESS;
 
-public class MyMeetingActivity extends ZMActivity implements View.OnClickListener, MeetingVideoCallback.VideoEvent,
+public class MyMeetingActivity extends FragmentActivity implements View.OnClickListener, MeetingVideoCallback.VideoEvent,
         MeetingAudioCallback.AudioEvent, MeetingShareCallback.ShareEvent,
         MeetingUserCallback.UserEvent, MeetingCommonCallback.CommonEvent, SmsListener {
 
@@ -99,6 +101,8 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
     public final static int REQUEST_SHARE_SCREEN_PERMISSION = 1001;
 
     protected final static int REQUEST_SYSTEM_ALERT_WINDOW = 1002;
+
+    protected final static int REQUEST_SYSTEM_ALERT_WINDOW_FOR_MINIWINDOW = 1003;
 
     private int from = 0;
 
@@ -156,6 +160,12 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
     MeetingOptionBar meetingOptionBar;
 
     private GestureDetector gestureDetector;
+
+    public static final int JOIN_FROM_UNLOGIN=1;
+
+    public static  final int JOIN_FROM_APIUSER=2;
+
+    public static  final int JOIN_FROM_LOGIN=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -634,6 +644,25 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        clearSubscribe();
+    }
+
+    private void clearSubscribe(){
+        if(null!=mDefaultVideoViewMgr)
+        {
+            mDefaultVideoViewMgr.removeActiveVideoUnit();
+        }
+        List<Long> userList=ZoomSDK.getInstance().getInMeetingService().getInMeetingUserList();
+        if(null!=userList)
+        {
+            mAdapter.removeUserList(userList);
+        }
+        currentLayoutType=-1;
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (null != remoteControlHelper) {
@@ -645,7 +674,7 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
     MeetingOptionBar.MeetingOptionBarCallBack callBack = new MeetingOptionBar.MeetingOptionBarCallBack() {
         @Override
         public void onClickBack() {
-            onBackPressed();
+            onClickMiniWindow();
         }
 
         @Override
@@ -718,26 +747,39 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
     };
 
 
-    @Override
-    public void onBackPressed() {
+    private void onClickMiniWindow()
+    {
         if (mMeetingService.getMeetingStatus() == MeetingStatus.MEETING_STATUS_INMEETING) {
             //stop share
             if (currentLayoutType == LAYOUT_TYPE_VIEW_SHARE) {
                 mDefaultVideoViewMgr.removeShareVideoUnit();
                 currentLayoutType = -1;
             }
-            if (from == 3) {
-                ZoomSDK.getInstance().getMeetingService().leaveCurrentMeeting(false);
-                finish();
-            } else {
-                showMainActivity();
+
+            List<Long> userList = ZoomSDK.getInstance().getInMeetingService().getInMeetingUserList();
+            if (null == userList || userList.size()<2) {
+                showLeaveMeetingDialog();
+                return;
             }
 
+            if(ZmOsUtils.isAtLeastN() && ! Settings.canDrawOverlays(this)){
+                if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
+                    OverlayHelper.getInstance().startListenOverlayPermissionChange(this);
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + this.getPackageName()));
+                startActivityForResult(intent,REQUEST_SYSTEM_ALERT_WINDOW_FOR_MINIWINDOW);
+            }else {
+                showMainActivity();
+            }
         } else {
             showLeaveMeetingDialog();
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        showLeaveMeetingDialog();
+    }
 
     private void updateVideoListMargin(boolean hidden) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoListLayout.getLayoutParams();
@@ -752,15 +794,15 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
 
     private void showMainActivity() {
         Class clz = LoginUserStartJoinMeetingActivity.class;
-        if (from == 3) {
+        if (from == JOIN_FROM_UNLOGIN) {
             clz = InitAuthSDKActivity.class;
-            return;
-        } else if (from == 2) {
+        } else if (from == JOIN_FROM_APIUSER) {
             clz = APIUserStartJoinMeetingActivity.class;
         }
         Intent intent = new Intent(this, clz);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
+        clearSubscribe();
     }
 
     Dialog builder;
@@ -829,6 +871,16 @@ public class MyMeetingActivity extends ZMActivity implements View.OnClickListene
             case REQUEST_SYSTEM_ALERT_WINDOW:
                 meetingShareHelper.startShareScreenSession(mScreenInfoData);
                 break;
+            case REQUEST_SYSTEM_ALERT_WINDOW_FOR_MINIWINDOW:
+            {
+                if(resultCode==RESULT_OK)
+                {
+                    showMainActivity();
+                }else {
+                    showLeaveMeetingDialog();
+                }
+                break;
+            }
         }
     }
 

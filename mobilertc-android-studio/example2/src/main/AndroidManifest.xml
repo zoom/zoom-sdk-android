@@ -7,11 +7,7 @@
 
     <uses-feature android:glEsVersion="0x00020000"/>
     
-    <permission android:name="us.zoom.sdkexample2.permission.KUBI_MESSAGE"
-        android:protectionLevel="signature" />
-    
-    <uses-permission android:name="us.zoom.sdkexample2.permission.KUBI_MESSAGE" />
-    
+
     <application android:label="@string/this_app_name"
         android:icon="@drawable/ic_launcher">
         

@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.zipow.videobox.fragment.SelectCountryCodeFragment;
@@ -37,12 +38,12 @@ import java.util.Locale;
 
 import us.zoom.androidlib.app.ZMActivity;
 import us.zoom.androidlib.app.ZMDialogFragment;
-import us.zoom.androidlib.util.CountryCodeUtil;
 import us.zoom.androidlib.util.EventAction;
 import us.zoom.androidlib.util.IUIElement;
-import us.zoom.androidlib.util.PhoneNumberUtil;
-import us.zoom.androidlib.util.StringUtil;
-import us.zoom.androidlib.util.UIUtil;
+import us.zoom.androidlib.utils.ZmCountryRegionUtils;
+import us.zoom.androidlib.utils.ZmKeyboardUtils;
+import us.zoom.androidlib.utils.ZmPhoneNumberUtils;
+import us.zoom.androidlib.utils.ZmStringUtils;
 import us.zoom.androidlib.widget.WaitingDialog;
 import us.zoom.androidlib.widget.ZMAlertDialog;
 import us.zoom.androidlib.widget.ZMSpanny;
@@ -78,7 +79,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
         this.verifySMSVerificationCodeHandler = verifySMSVerificationCodeHandler;
     }
 
-    public static RealNameAuthDialog show(@NonNull ZMActivity activity, IZoomRetrieveSMSVerificationCodeHandler handler) {
+    public static RealNameAuthDialog show(@NonNull FragmentActivity activity, IZoomRetrieveSMSVerificationCodeHandler handler) {
         FragmentManager fm = activity.getSupportFragmentManager();
         if (fm == null)
             return null;
@@ -199,8 +200,8 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
         if (mSelectedCountryCode == null)
             return;
         String countryCode = mSelectedCountryCode.countryCode;
-        String number = PhoneNumberUtil.getPhoneNumber(mEdtNumber.getText().toString());
-        if (StringUtil.isEmptyOrNull(countryCode) || StringUtil.isEmptyOrNull(number))
+        String number = ZmPhoneNumberUtils.getPhoneNumber(mEdtNumber.getText().toString());
+        if (ZmStringUtils.isEmptyOrNull(countryCode) || ZmStringUtils.isEmptyOrNull(number))
             return;
         if (null == retrieveSMSVerificationCodeHandler) {
             retrieveSMSVerificationCodeHandler = ZoomSDK.getInstance().getSmsService().getResendSMSVerificationCodeHandler();
@@ -268,7 +269,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
     private void closeDialog() {
         ZMActivity activity = (ZMActivity) getActivity();
         if (activity != null) {
-            UIUtil.closeSoftKeyboard(getActivity(), getView());
+            ZmKeyboardUtils.closeSoftKeyboard(getActivity(), getView());
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         }
         dismiss();
@@ -315,14 +316,14 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
         if (mSelectedCountryCode == null)
             return;
         String countryCode = mSelectedCountryCode.countryCode;
-        String number = PhoneNumberUtil.getPhoneNumber(mEdtNumber.getText().toString());
+        String number = ZmPhoneNumberUtils.getPhoneNumber(mEdtNumber.getText().toString());
         String code = mEdtCode.getText().toString();
-        if (StringUtil.isEmptyOrNull(countryCode) || StringUtil.isEmptyOrNull(number) || StringUtil.isEmptyOrNull(code))
+        if (ZmStringUtils.isEmptyOrNull(countryCode) || ZmStringUtils.isEmptyOrNull(number) || ZmStringUtils.isEmptyOrNull(code))
             return;
         Activity activity = getActivity();
 
         if (activity != null) {
-            UIUtil.closeSoftKeyboard(getActivity(), getView());
+            ZmKeyboardUtils.closeSoftKeyboard(getActivity(), getView());
         }
 
         WaitingDialog dialog = WaitingDialog.newInstance(us.zoom.videomeetings.R.string.zm_msg_waiting);
@@ -346,7 +347,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
             return;
         Activity activity = getActivity();
         if (activity != null) {
-            UIUtil.closeSoftKeyboard(getActivity(), getView());
+            ZmKeyboardUtils.closeSoftKeyboard(getActivity(), getView());
         }
 
         ArrayList<SelectCountryCodeFragment.CountryCodeItem> filterCountryCodes = new ArrayList<>();
@@ -367,7 +368,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
     private void onClickPrivacy() {
         String privacyUrl = ZoomSDK.getInstance().getSmsService().getRealNameAuthPrivacyURL();
         Log.i(TAG, "onClickPrivacy, privacyUrl=" + privacyUrl);
-        if (StringUtil.isEmptyOrNull(privacyUrl))
+        if (ZmStringUtils.isEmptyOrNull(privacyUrl))
             return;
 
         ZMWebPageUtil.startWebPage(this, privacyUrl, getString(us.zoom.videomeetings.R.string.zm_title_privacy_policy));
@@ -434,7 +435,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
     private void onPhoneNumberChanged() {
         if (mEdtCode == null || mEdtNumber == null || mZMVerifyCodeView == null || mBtnVerify == null)
             return;
-        String number = PhoneNumberUtil.getPhoneNumber(mEdtNumber.getText().toString());
+        String number = ZmPhoneNumberUtils.getPhoneNumber(mEdtNumber.getText().toString());
         String code = mEdtCode.getText().toString();
         boolean readyForNumber = number.length() > 4;
         boolean readyForCode = (code.length() == 6);
@@ -447,7 +448,7 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
     private void onCodeChanged() {
         if (mEdtCode == null || mEdtNumber == null || mZMVerifyCodeView == null || mBtnVerify == null)
             return;
-        String number = PhoneNumberUtil.getPhoneNumber(mEdtNumber.getText().toString());
+        String number = ZmPhoneNumberUtils.getPhoneNumber(mEdtNumber.getText().toString());
         String code = mEdtCode.getText().toString();
         mBtnVerify.setEnabled(number.length() > 4 && (code.length() == 6));
 
@@ -457,8 +458,8 @@ public class RealNameAuthDialog extends ZMDialogFragment implements View.OnClick
         Activity activity = getActivity();
         if (activity == null)
             return;
-        String isoCountryCode = CountryCodeUtil.CN_ISO_COUNTRY_CODE;
-        String phoneCountryCode = CountryCodeUtil.isoCountryCode2PhoneCountryCode(isoCountryCode);
+        String isoCountryCode = ZmCountryRegionUtils.CN_ISO_COUNTRY_CODE;
+        String phoneCountryCode = ZmCountryRegionUtils.isoCountryCode2PhoneCountryCode(isoCountryCode);
         Locale locale = new Locale("", isoCountryCode.toLowerCase(Locale.US));
         String countryName = locale.getDisplayCountry();
         mSelectedCountryCode = new SelectCountryCodeFragment.CountryCodeItem(phoneCountryCode, isoCountryCode, countryName);

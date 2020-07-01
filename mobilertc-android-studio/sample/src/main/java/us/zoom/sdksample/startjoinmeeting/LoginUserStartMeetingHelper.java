@@ -1,28 +1,30 @@
-package us.zoom.sdksample.startjoinmeeting.ssologinuser;
+package us.zoom.sdksample.startjoinmeeting;
 
 import android.content.Context;
 
 import us.zoom.sdk.InstantMeetingOptions;
+import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.StartMeetingParams;
 import us.zoom.sdk.StartMeetingParams4NormalUser;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdksample.inmeetingfunction.zoommeetingui.ZoomMeetingUISettingHelper;
 
-public class SSOLoginUserStartMeetingHelper {
-    private final static String TAG = "SSOLoginUserStart";
+public class LoginUserStartMeetingHelper {
+    private final static String TAG = "LoginUserStartMeetingHelper";
 
-    private static SSOLoginUserStartMeetingHelper mSSOLoginUserStartMeetingHelper;
+    private static LoginUserStartMeetingHelper mEmailLoginUserStartMeetingHelper;
 
     private ZoomSDK mZoomSDK;
 
-    private SSOLoginUserStartMeetingHelper() {
+    private LoginUserStartMeetingHelper() {
         mZoomSDK = ZoomSDK.getInstance();
     }
 
-    public synchronized static SSOLoginUserStartMeetingHelper getInstance() {
-        mSSOLoginUserStartMeetingHelper = new SSOLoginUserStartMeetingHelper();
-        return mSSOLoginUserStartMeetingHelper;
+    public synchronized static LoginUserStartMeetingHelper getInstance() {
+        mEmailLoginUserStartMeetingHelper = new LoginUserStartMeetingHelper();
+        return mEmailLoginUserStartMeetingHelper;
     }
 
     public int startMeetingWithNumber(Context context, String meetingNo) {
@@ -33,21 +35,7 @@ public class SSOLoginUserStartMeetingHelper {
         }
 
         StartMeetingOptions opts =ZoomMeetingUISettingHelper.getStartMeetingOptions();
-
-//		opts.no_driving_mode = true;  //for disable zoom meeting ui driving mode
-//		opts.no_invite = true; // for hide invite button on participant view
-//		opts.no_meeting_end_message = true; // for disable to show meeting end dialog when meeting is end.
-//		opts.no_titlebar = true; // for hide title bar on zoom meeting ui
-//		opts.no_bottom_toolbar = true; // for hide bottom bar on zoom meeting ui
-//		opts.no_dial_in_via_phone = true;
-//		opts.no_dial_out_to_phone = true;
-//		opts.no_disconnect_audio = true;
-//		opts.no_share = true;
-//		opts.invite_options = InviteOptions.INVITE_ENABLE_ALL;
-//		opts.no_audio = true;
-//		opts.no_video = true;
-//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
-//		opts.no_meeting_error_message = true;
+        opts.no_video=false;
 
         StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
         params.meetingNo = meetingNo;
@@ -63,7 +51,6 @@ public class SSOLoginUserStartMeetingHelper {
 
         StartMeetingOptions opts = ZoomMeetingUISettingHelper.getStartMeetingOptions();
 
-
         StartMeetingParams4NormalUser params = new StartMeetingParams4NormalUser();
         params.vanityID = vanityId;
         return meetingService.startMeetingWithParams(context, params, opts);
@@ -76,7 +63,9 @@ public class SSOLoginUserStartMeetingHelper {
             return ret;
         }
 
-        InstantMeetingOptions opts = ZoomMeetingUISettingHelper.getInstantMeetingOptions();
+        StartMeetingOptions opts = ZoomMeetingUISettingHelper.getStartMeetingOptions();
+        opts.no_video=false;
+        opts.no_audio=false;
 
         return meetingService.startInstantMeeting(context, opts);
     }

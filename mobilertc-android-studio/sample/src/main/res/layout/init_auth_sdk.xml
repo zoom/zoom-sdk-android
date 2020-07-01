@@ -48,6 +48,17 @@
         android:visibility="gone"
         android:text="Settings" />
 
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:minWidth="150dp"
+        android:onClick="onClickReturnMeeting"
+        android:visibility="gone"
+        android:text="Return Meeting" />
+
     <LinearLayout
         android:id="@+id/layout_join"
         android:layout_width="match_parent"

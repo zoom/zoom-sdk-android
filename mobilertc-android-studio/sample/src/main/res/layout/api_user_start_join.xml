@@ -6,6 +6,27 @@
     android:orientation="vertical" >
 
     <EditText
+        android:id="@+id/editUserId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User Id"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true"
+        >
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editZak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="zoom access token(zak)"
+        android:imeOptions="actionNext|flagNoExtractUi"
+        android:focusable="true">
+    </EditText>
+
+
+    <EditText
         android:id="@+id/edtMeetingNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +88,7 @@
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="gone">
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleSmall"

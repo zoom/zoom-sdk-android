@@ -305,7 +305,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/zm_lbl_select_dial_in_countries_104883" />
+                        android:text="@string/zm_lbl_select_dial_in_countries_127873" />
 
                     <TextView
                         android:id="@+id/selectCountry"
@@ -325,7 +325,7 @@
                         android:background="@color/zm_text_gray"
                         android:gravity="center_vertical"
                         android:onClick="onClickEditCountry"
-                        android:text="@string/zm_btn_edit_country_104883"
+                        android:text="@string/zm_btn_edit_country_127873"
                         android:textColor="@color/zm_black"
                         android:textSize="20sp" />
                 </LinearLayout>

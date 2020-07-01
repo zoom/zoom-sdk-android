@@ -19,8 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import us.zoom.androidlib.util.AccessibilityUtil;
-import us.zoom.androidlib.util.UIUtil;
+import us.zoom.androidlib.utils.ZmAccessibilityUtils;
+import us.zoom.androidlib.utils.ZmKeyboardUtils;
+import us.zoom.androidlib.utils.ZmUIUtils;
 import us.zoom.sdk.InMeetingRemoteController;
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.ZoomSDK;
@@ -58,7 +59,7 @@ public class RCFloatView extends LinearLayout implements View.OnClickListener {
     Runnable mFirstFocusRunnabel = new Runnable() {
         @Override
         public void run() {
-            AccessibilityUtil.sendAccessibilityFocusEvent(mIvRCControl);
+            ZmAccessibilityUtils.sendAccessibilityFocusEvent(mIvRCControl);
         }
     };
 
@@ -227,7 +228,7 @@ public class RCFloatView extends LinearLayout implements View.OnClickListener {
 
         if (isFirst && show) {
             mHandler.removeCallbacks(mFirstFocusRunnabel);
-            mHandler.postDelayed(mFirstFocusRunnabel, AccessibilityUtil.DELAY_SEND_FOCUS_EVENT);
+            mHandler.postDelayed(mFirstFocusRunnabel, ZmAccessibilityUtils.DELAY_SEND_FOCUS_EVENT);
         }
     }
 
@@ -262,9 +263,9 @@ public class RCFloatView extends LinearLayout implements View.OnClickListener {
 
     private void showKeyboard(boolean show) {
         if (show)
-            UIUtil.openSoftKeyboard(getContext(), mHiddenEditText);
+            ZmKeyboardUtils.openSoftKeyboard(getContext(), mHiddenEditText);
         else
-            UIUtil.closeSoftKeyboard(getContext(), mHiddenEditText);
+            ZmKeyboardUtils.closeSoftKeyboard(getContext(), mHiddenEditText);
     }
 
     private String getMessage() {

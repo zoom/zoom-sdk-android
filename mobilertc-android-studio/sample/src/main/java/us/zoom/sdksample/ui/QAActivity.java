@@ -671,4 +671,9 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
     public void onSinkAllowAttendeeChatNotification(int i) {
 
     }
+
+    @Override
+    public void onUserNameChanged(long userId, String name) {
+
+    }
 }

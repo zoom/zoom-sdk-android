@@ -13,7 +13,7 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.MyMeetingActivity
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.RawDataMeetingActivity;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingWindowHelper;
 import us.zoom.sdksample.otherfeatures.scheduleforloginuser.PreMeetingExampleActivity;
-import us.zoom.sdksample.startjoinmeeting.emailloginuser.EmailLoginUserStartMeetingHelper;
+import us.zoom.sdksample.startjoinmeeting.LoginUserStartMeetingHelper;
 import us.zoom.sdksample.startjoinmeeting.joinmeetingonly.JoinMeetingHelper;
 
 import android.app.Activity;
@@ -41,7 +41,6 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
     private Button mBtnLoginOut;
     private Button mBtnSettings;
     private Button mReturnMeeting;
-    private final static int STYPE = MeetingService.USER_TYPE_API_USER;
     private final static String DISPLAY_NAME = "ZoomUS SDK";
 
     private boolean mbPendingStartMeeting = false;
@@ -196,9 +195,9 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
 
         int ret = -1;
         if (vanityId.length() != 0) {
-            ret = EmailLoginUserStartMeetingHelper.getInstance().startMeetingWithVanityId(this, vanityId);
+            ret = LoginUserStartMeetingHelper.getInstance().startMeetingWithVanityId(this, vanityId);
         } else {
-            ret = EmailLoginUserStartMeetingHelper.getInstance().startMeetingWithNumber(this, meetingNo);
+            ret = LoginUserStartMeetingHelper.getInstance().startMeetingWithNumber(this, meetingNo);
         }
         Log.i(TAG, "onClickBtnStartMeeting, ret=" + ret);
     }
@@ -211,7 +210,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
             return;
         }
 
-        int ret = EmailLoginUserStartMeetingHelper.getInstance().startInstanceMeeting(this);
+        int ret = LoginUserStartMeetingHelper.getInstance().startInstanceMeeting(this);
 
         Log.i(TAG, "onClickBtnLoginUserStartInstant, ret=" + ret);
     }
@@ -293,7 +292,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
             } else {
                 intent = new Intent(this, RawDataMeetingActivity.class);
             }
-            intent.putExtra("from",1);
+            intent.putExtra("from",MyMeetingActivity.JOIN_FROM_LOGIN);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             this.startActivity(intent);
         }

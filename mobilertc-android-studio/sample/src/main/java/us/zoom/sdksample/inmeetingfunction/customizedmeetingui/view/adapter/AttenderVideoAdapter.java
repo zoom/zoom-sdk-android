@@ -126,6 +126,10 @@ public class AttenderVideoAdapter extends RecyclerView.Adapter<AttenderVideoAdap
     }
 
     public void removeUserList(List<Long> list) {
+        if(null==list)
+        {
+            return;
+        }
         for (Long userId : list) {
             if (userList.indexOf(userId) >= 0) {
                 int index = userList.indexOf(userId);

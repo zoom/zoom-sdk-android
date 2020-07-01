@@ -29,7 +29,9 @@ public class UserLoginCallback implements ZoomSDKAuthenticationListener {
     }
 
     public synchronized static UserLoginCallback getInstance() {
-        mUserLoginCallback = new UserLoginCallback();
+        if (null == mUserLoginCallback) {
+            mUserLoginCallback = new UserLoginCallback();
+        }
         return mUserLoginCallback;
     }
 

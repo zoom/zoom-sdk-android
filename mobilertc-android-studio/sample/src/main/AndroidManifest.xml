@@ -6,11 +6,7 @@
       android:installLocation="auto">
 
     <uses-feature android:glEsVersion="0x00020000"/>
-    
-    <permission android:name="us.zoom.sdksample.permission.KUBI_MESSAGE"
-        android:protectionLevel="signature" />
-    
-    <uses-permission android:name="us.zoom.sdksample.permission.KUBI_MESSAGE" />
+
     
     <application android:label="@string/this_app_name"
         android:name="androidx.multidex.MultiDexApplication"
@@ -101,19 +97,19 @@
         <activity android:name="us.zoom.sdksample.otherfeatures.MyWaitJoinActivity"
                   android:icon="@drawable/ic_launcher"
                   android:theme="@style/ZMTheme.MainWindow" >
-            <intent-filter>
+<!--            <intent-filter>
                 <action android:name="us.zoom.sdkexample.intent.action.JoinBeforeHost" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
                 
         <activity android:name="us.zoom.sdksample.otherfeatures.MyCallMeByPhoneActivity"
                   android:icon="@drawable/ic_launcher"
                   android:theme="@style/ZMTheme.MainWindow" >
-            <intent-filter>
+<!--            <intent-filter>
                 <action android:name="us.zoom.sdkexample.intent.action.CallMyPhone" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity

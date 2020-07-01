@@ -17,7 +17,7 @@ import us.zoom.androidlib.util.ZMLog;
  */
 
 public class AndroidAppUtil {
-    private final static String TAG = us.zoom.androidlib.util.AndroidAppUtil.class.getSimpleName();
+    private final static String TAG = "AndroidAppUtil";
 
     public static boolean hasActivityForIntent(Context context, Intent intent) {
         if(context != null && intent != null) {
