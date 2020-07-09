@@ -5,6 +5,11 @@
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
+## 2020-07-09 @ v5.0.24437.0708
+
+## Changed & Fixed
+* Fixed an issue that API user is not able to start some kind of pre-scheduled meetings with tokens.
+
 ## 2020-06-30 @ v5.0.24433.0616
 
 ## Added:
