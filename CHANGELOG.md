@@ -32,9 +32,6 @@
    * `MeetingSettingsHelper.disableShowVideoPreviewWhenJoinMeeting`
 * Added a new interface to modify the 'meeting topic' in the 'meeting information' page.
    * `InMeetingService.setMeetingTopic`
-* Added new interfaces to allow the host to send messages to the attendees in the waiting room.
-   * `InMeetingChatMessage.setChatToWaitingroom(boolean chatToWaitingroom)`
-   * `InMeetingChatMessage.isChatToWaitingroom()`
 * Added text avatar in the participant list.
 
 ## Changed & Fixed:
