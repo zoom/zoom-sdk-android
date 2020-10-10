@@ -4,6 +4,13 @@
     android:layout_height="fill_parent"
     android:padding="10dp"
     android:orientation="vertical" >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
     <EditText
         android:id="@+id/editUserId"
@@ -122,4 +129,6 @@
         android:minWidth="150dp"
         android:onClick="onClickReturnMeeting"
         android:text="Return Meeting" />
+    </LinearLayout>
+</ScrollView>
 </LinearLayout>

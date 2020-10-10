@@ -2,6 +2,7 @@ package us.zoom.sdksample.inmeetingfunction.customizedmeetingui;
 
 import java.util.List;
 
+import us.zoom.sdk.FreeMeetingNeedUpgradeType;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.InMeetingEventHandler;
@@ -85,12 +86,22 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
     }
 
     @Override
+    public void onUserVideoStatusChanged(long userId, VideoStatus status) {
+
+    }
+
+    @Override
     public void onMicrophoneStatusError(InMeetingAudioController.MobileRTCMicrophoneError mobileRTCMicrophoneError) {
 
     }
 
     @Override
     public void onUserAudioStatusChanged(long l) {
+
+    }
+
+    @Override
+    public void onUserAudioStatusChanged(long userId, AudioStatus audioStatus) {
 
     }
 
@@ -162,6 +173,26 @@ public abstract class SimpleInMeetingListener implements InMeetingServiceListene
 
     @Override
     public void onUserNameChanged(long userId, String name) {
+
+    }
+
+    @Override
+    public void onFreeMeetingNeedToUpgrade(FreeMeetingNeedUpgradeType type, String gifUrl) {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStart() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStop() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToProMeeting() {
 
     }
 }

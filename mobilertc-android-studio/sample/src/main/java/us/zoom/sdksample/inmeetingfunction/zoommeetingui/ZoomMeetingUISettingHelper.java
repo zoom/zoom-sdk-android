@@ -5,10 +5,26 @@ import us.zoom.sdk.InstantMeetingOptions;
 import us.zoom.sdk.JoinMeetingOptions;
 import us.zoom.sdk.MeetingOptions;
 import us.zoom.sdk.StartMeetingOptions;
+import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.VirtualVideoSource;
 
 public class ZoomMeetingUISettingHelper {
 
     private static StartMeetingOptions meetingOptions = new StartMeetingOptions();
+
+    public static boolean useExternalVideoSource=false;
+
+    public static VirtualVideoSource virtualVideoSource;
+
+
+    public static void changeVideoSource(boolean useVideoSource) {
+        if (null == virtualVideoSource) {
+            virtualVideoSource = new VirtualVideoSource();
+        }
+        useExternalVideoSource=useVideoSource;
+        ZoomSDK.getInstance().getVideoSourceHelper().setExternalVideoSource(useVideoSource ? virtualVideoSource : null);
+    }
+
 
 
     public static StartMeetingOptions getMeetingOptions() {

@@ -80,7 +80,9 @@ Before you try out our SDK, you would need the following to get started:
   implementation 'androidx.recyclerview:recyclerview:1.0.0'
   implementation 'androidx.appcompat:appcompat:1.0.0'
   implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-  implementation 'com.google.android.material:material:1.0.0-rc01'
+  implementation 'com.google.android.material:material:1.2.0-alpha02'
+  implementation 'com.google.android:flexbox:2.0.1'
+  implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
   ```
 
 

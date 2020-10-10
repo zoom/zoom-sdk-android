@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import us.zoom.androidlib.app.ZMActivity;
+import us.zoom.sdk.FreeMeetingNeedUpgradeType;
 import us.zoom.sdk.IAnswerItem;
 import us.zoom.sdk.IQAItemInfo;
 import us.zoom.sdk.InMeetingAudioController;
@@ -115,6 +116,8 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
 
                 menu.add("StartLiveAnswer");
                 menu.add("EndLiveAnswer");
+                menu.add("DeleteQuestion");
+                menu.add("DeleteAnswer");
 
 
                 String[] ts = new String[menu.size()];
@@ -159,6 +162,20 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
                             }
                             case 8: {
                                 result = qaController.endLiving(item.itemInfo.getQuestionID());
+                                break;
+                            }
+                            case 9: {
+                                result = qaController.deleteQuestion(item.itemInfo.getQuestionID());
+                                break;
+                            }
+                            case 10: {
+                                if(null!=item.itemInfo.getAnswerList()){
+                                    List<IAnswerItem>  answerItems= item.itemInfo.getAnswerList();
+                                    if(!answerItems.isEmpty()){
+                                        result = qaController.deleteAnswer( answerItems.get(0).getAnswerID());
+                                    }
+                                }
+
                                 break;
                             }
                         }
@@ -675,5 +692,45 @@ public class QAActivity extends ZMActivity implements InMeetingQAController.InMe
     @Override
     public void onUserNameChanged(long userId, String name) {
 
+    }
+
+    @Override
+    public void onUserVideoStatusChanged(long userId, VideoStatus status) {
+
+    }
+
+    @Override
+    public void onUserAudioStatusChanged(long userId, AudioStatus audioStatus) {
+
+    }
+
+    @Override
+    public void onFreeMeetingNeedToUpgrade(FreeMeetingNeedUpgradeType type, String gifUrl) {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStart() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStop() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToProMeeting() {
+
+    }
+
+    @Override
+    public void onDeleteQuestion(List<String> questionList) {
+        refresh();
+    }
+
+    @Override
+    public void onDeleteAnswer(List<String> answerList) {
+        refresh();
     }
 }

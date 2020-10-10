@@ -1,6 +1,7 @@
 package us.zoom.sdksample.inmeetingfunction.customizedmeetingui;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,10 +9,12 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -27,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import us.zoom.sdk.FreeMeetingNeedUpgradeType;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.InMeetingEventHandler;
@@ -38,11 +42,13 @@ import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKRawDataType;
 import us.zoom.sdk.ZoomSDKVideoResolution;
+import us.zoom.sdk.ZoomSDKVideoSourceHelper;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioHelper;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.AudioRawDataUtil;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.RawDataRender;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.UserVideoAdapter;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.VirtualVideoSource;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.video.MeetingVideoHelper;
 
 public class RawDataMeetingActivity extends FragmentActivity implements InMeetingServiceListener, MeetingServiceListener,  InMeetingShareController.InMeetingShareListener, View.OnClickListener, UserVideoAdapter.ItemTapListener {
@@ -86,6 +92,8 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
 
     private View switchToShare;
 
+    VirtualVideoSource virtualVideoSource;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +121,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
         findViewById(R.id.btnAudio).setOnClickListener(this);
         findViewById(R.id.btn_leave).setOnClickListener(this);
         findViewById(R.id.btnSwitchCamera).setOnClickListener(this);
+        findViewById(R.id.btn_switch_source).setOnClickListener(this);
 
         switchToShare = findViewById(R.id.btn_switch_share);
         switchToShare.setOnClickListener(this);
@@ -261,6 +270,20 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
                 }
                 break;
             }
+            case R.id.btn_switch_source: {
+                ZoomSDKVideoSourceHelper sourceHelper = ZoomSDK.getInstance().getVideoSourceHelper();
+                if (null == v.getTag() ||!((boolean) v.getTag())) {
+                    if (null == virtualVideoSource) {
+                        virtualVideoSource = new VirtualVideoSource();
+                    }
+                    v.setTag(true);
+                    sourceHelper.setExternalVideoSource(virtualVideoSource);
+                } else {
+                    v.setTag(false);
+                    sourceHelper.setExternalVideoSource(null);
+                }
+                break;
+            }
         }
     }
 
@@ -311,8 +334,7 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
         switch (requestCode) {
             case REQUEST_SHARE_SCREEN_PERMISSION:
                 if (resultCode != RESULT_OK) {
-                    if (us.zoom.videomeetings.BuildConfig.DEBUG)
-                        Log.d(TAG, "onActivityResult REQUEST_SHARE_SCREEN_PERMISSION no ok ");
+                    Log.d(TAG, "onActivityResult REQUEST_SHARE_SCREEN_PERMISSION no ok ");
                     break;
                 }
 //                startShareScreen(data);
@@ -380,7 +402,47 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
 
     @Override
     public void onMeetingNeedPasswordOrDisplayName(boolean needPassword, boolean needDisplayName, InMeetingEventHandler handler) {
+        showPsswordDialog(needPassword, needDisplayName, handler);
+    }
 
+    Dialog builder;
+
+    private void showPsswordDialog(final boolean needPassword, final boolean needDisplayName, final InMeetingEventHandler handler) {
+        if (null != builder) {
+            builder.dismiss();
+        }
+        builder = new Dialog(this, us.zoom.videomeetings.R.style.ZMDialog);
+        builder.setTitle("Need password or displayName");
+        builder.setContentView(R.layout.layout_input_password_name);
+
+        final EditText pwd = builder.findViewById(R.id.edit_pwd);
+        final EditText name = builder.findViewById(R.id.edit_name);
+        builder.findViewById(R.id.layout_pwd).setVisibility(needPassword ? View.VISIBLE : View.GONE);
+        builder.findViewById(R.id.layout_name).setVisibility(needDisplayName ? View.VISIBLE : View.GONE);
+
+        builder.findViewById(R.id.btn_leave).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.dismiss();
+                ZoomSDK.getInstance().getInMeetingService().leaveCurrentMeeting(true);
+            }
+        });
+        builder.findViewById(R.id.btn_ok).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String password = pwd.getText().toString();
+                String userName = name.getText().toString();
+                if (needPassword && TextUtils.isEmpty(password) || (needDisplayName && TextUtils.isEmpty(userName))) {
+                    builder.dismiss();
+                    onMeetingNeedPasswordOrDisplayName(needPassword, needDisplayName, handler);
+                    return;
+                }
+                builder.dismiss();
+                handler.setMeetingNamePassword(password, userName);
+            }
+        });
+        builder.show();
+        pwd.requestFocus();
     }
 
     @Override
@@ -607,6 +669,36 @@ public class RawDataMeetingActivity extends FragmentActivity implements InMeetin
 
     @Override
     public void onUserNameChanged(long userId, String name) {
+
+    }
+
+    @Override
+    public void onUserVideoStatusChanged(long userId, VideoStatus status) {
+
+    }
+
+    @Override
+    public void onUserAudioStatusChanged(long userId, AudioStatus audioStatus) {
+        
+    }
+
+    @Override
+    public void onFreeMeetingNeedToUpgrade(FreeMeetingNeedUpgradeType type, String gifUrl) {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStart() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToGiftFreeTrialStop() {
+
+    }
+
+    @Override
+    public void onFreeMeetingUpgradeToProMeeting() {
 
     }
 }

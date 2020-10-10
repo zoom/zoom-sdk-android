@@ -12,12 +12,13 @@ public interface AuthConstants {
 	 * You can generate a jwttoken on the https://jwt.io/
 	 * with this payload:
 	 * {
+	 *
 	 *     "appKey": "string", // app key
 	 *     "iat": long, // access token issue timestamp
 	 *     "exp": long, // access token expire time
 	 *     "tokenExp": long // token expire time
 	 * }
 	 */
-	public final static String SDK_JWTTOKEN = YOUR JWTTOKEN;
+	public final static String SDK_JWTTOKEN = JWT_TOKEN;
 
 }

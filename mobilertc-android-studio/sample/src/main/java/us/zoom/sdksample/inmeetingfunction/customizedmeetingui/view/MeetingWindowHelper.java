@@ -18,7 +18,6 @@ import android.view.WindowManager;
 import java.lang.ref.SoftReference;
 import java.util.List;
 
-import us.zoom.amdroidlib.util.OverlayHelper;
 import us.zoom.androidlib.utils.ZmCommonUtils;
 import us.zoom.androidlib.utils.ZmOsUtils;
 import us.zoom.sdk.InMeetingShareController;
@@ -81,8 +80,6 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
             return;
         }
         if(ZmOsUtils.isAtLeastN() && ! Settings.canDrawOverlays(context)){
-            if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
-                OverlayHelper.getInstance().startListenOverlayPermissionChange(context);
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + context.getPackageName()));
             context.startActivityForResult(intent,REQUEST_SYSTEM_ALERT_WINDOW);
@@ -95,9 +92,7 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
         if(refContext != null && refContext.get() != null && refContext.get() == context){
             switch(requestCode) {
                 case REQUEST_SYSTEM_ALERT_WINDOW:
-                    if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
-                        OverlayHelper.getInstance().stopListenOverlayPermissionChange(context);
-                    if((ZmOsUtils.isAtLeastN() && !Settings.canDrawOverlays(context)) && (!OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged() || !OverlayHelper.getInstance().ismCanDraw())){
+                    if((ZmOsUtils.isAtLeastN() && !Settings.canDrawOverlays(context))){
                         return;
                     }
                     showMiniMeetingWindow(context);
@@ -106,8 +101,6 @@ public class MeetingWindowHelper implements InMeetingShareController.InMeetingSh
         }
     }
     public void removeOverlayListener(){
-        if(refContext != null && refContext.get() != null && OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
-            OverlayHelper.getInstance().stopListenOverlayPermissionChange(refContext.get());
     }
 
     private void showMiniMeetingWindow(final Context context){

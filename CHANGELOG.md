@@ -5,6 +5,65 @@
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
+## 2020-10-09 @ v5.2.41735.0928
+
+## Added
+* Added Android 11 support
+* Upgraded Zoom default UI to match Zoom client 5.2.1.
+* Added new interfaces to enable mini meeting window.
+  * `ZoomUIService.enableMinimizeMeeting(boolean enable)`
+* Added new interfaces to delete QA questions.
+  * `InMeetingQAController.deleteQuestion(String questionID)`
+* Added new interfaces to delete QA answers.
+  * `InMeetingQAController.deleteAnswer(String answerID)`
+* Added new interfaces for the feature "Allow participants to unmute Themselves".
+  * `InMeetingService.allowParticipantsToUnmuteSelf(boolean allow)`
+* Added new interfaces for the feature "Allow participants to rename Themselves"
+  * `InMeetingService.allowParticipantsToRename(boolean allow)`
+* Added new interfaces to get participant ID.
+  * `InMeetingUserInfo.getParticipantID()`
+* Added new interfaces to get current breakout room name.
+  * `IBOData.getCurrentBoName()`
+* Added new interfaces to get chat message type.
+  * `InMeetingChatMessage.getChatMessageType()`
+* Added new interfaces to join webinar with token.
+  * `JoinMeetingParams.webinarToken`
+* Added new callbacks for free meeting upgrade.
+  * In `InMeetingServiceListener`:
+    * `onFreeMeetingNeedToUpgrade`
+    * `onFreeMeetingUpgradeToGiftFreeTrialStart`
+    * `onFreeMeetingUpgradeToGiftFreeTrialStop`
+    * `onFreeMeetingUpgradeToProMeeting`
+* Added new callbacks for the host/cohost asked to mute/unmute video.
+  * In `InMeetingServiceListener`:
+    * `onHostAskStartVideo`
+    * `onUserVideoStatusChanged`
+    * `VideoStatus.Video_Mute_ByHost`
+* Added new callbacks for the event when user deletes a question.
+  * `InMeetingQAController.onDeleteQuestion(List<String> questionList)`
+* Added new callbacks for the event when user deletes an answer.
+  * `InMeetingQAController. onDeleteAnswer(List<String> answerList)`
+* Added Vietnamese and Italian language support.
+
+##  Changed & Fixed
+* SDK now requires that the following dependencies need to be added to your SDK project
+   * implementation 'com.google.android.material:material:1.2.0-alpha02'
+   * implementation 'com.google.android:flexbox:2.0.1'
+   * implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+* Refine the breakout room interfaces.
+* Updated the proguard rules
+* Fixed the Bluetooth connectivity issue.
+* Fixed an issue that webinar attendees cannot get other's screen share.
+* Fixed an issue that switching domain while in meeting results in error.
+* Fixed an issue that customizing the notification channel ID results in error.
+* Fixed an issue that the meeting UI does not respect the screen orientation settings.
+* Fixed an issue that the "More" menu is not shown/hidden correctly.
+
+## Deprecated & Removed:
+* `MobileRTCSDKError allowAttendeeChat()`
+* `MobileRTCSDKError disallowAttendeeChat()`
+
+
 ## 2020-07-09 @ v5.0.24437.0708
 
 ## Changed & Fixed

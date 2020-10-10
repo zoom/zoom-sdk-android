@@ -152,6 +152,18 @@
             android:visibility="gone" />
 
         <TextView
+            android:id="@+id/btn_switch_source"
+            style="@style/ZMTextView.ToolbarBtnLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Switch Source"
+            android:textSize="14sp" />
+
+        <TextView
             android:id="@+id/btn_leave"
             style="@style/ZMTextView.ToolbarBtnLabel"
             android:layout_width="match_parent"

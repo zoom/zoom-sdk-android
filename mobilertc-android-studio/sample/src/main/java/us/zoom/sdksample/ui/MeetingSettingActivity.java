@@ -46,6 +46,19 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
         settingContain = findViewById(R.id.settings_contain);
         settingContain.setVisibility(isCustomUI ? View.GONE : View.VISIBLE);
 
+        Switch btnVideoSource = (Switch)findViewById(R.id.btn_external_video_source);
+        btnVideoSource.setChecked(ZoomMeetingUISettingHelper.useExternalVideoSource);
+
+
+        btnVideoSource.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ZoomMeetingUISettingHelper.changeVideoSource(isChecked);
+            }
+        });
+
+
+
 
         boolean hasLicense = ZoomSDK.getInstance().hasRawDataLicense();
         rawDataSettingContain = findViewById(R.id.rawdata_settings_contain);
@@ -91,7 +104,7 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 break;
             }
             case R.id.btn_auto_switch_video: {
-                view.setChecked(ZoomSDK.getInstance().getMeetingSettingsHelper().isSwitchVideoLayoutAccordingToUserCountEnabled());
+//                view.setChecked(ZoomSDK.getInstance().getMeetingSettingsHelper().isSwitchVideoLayoutAccordingToUserCountEnabled());
                 break;
             }
             case R.id.btn_gallery_video: {
@@ -199,7 +212,7 @@ public class MeetingSettingActivity extends FragmentActivity implements Compound
                 break;
             }
             case R.id.btn_auto_switch_video: {
-                ZoomSDK.getInstance().getMeetingSettingsHelper().setSwitchVideoLayoutAccordingToUserCountEnabled(isChecked);
+//                ZoomSDK.getInstance().getMeetingSettingsHelper().setSwitchVideoLayoutAccordingToUserCountEnabled(isChecked);
                 break;
             }
             case R.id.btn_gallery_video: {

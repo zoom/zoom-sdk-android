@@ -22,6 +22,7 @@
     <string name="alert_other_is_sharing">You cannot start screen share while the other participant is sharing.</string>
 
     <string name="settings_custom_ui">Customized UI</string>
+    <string name="settings_video_source">External Video Source</string>
     <string name="settings_switch_domain">Switch domain</string>
     <string name="settings_hide_screen_share_toolbar_annotation">Hide annotation button in screen share</string>
     <string name="settings_hide_screen_share_toolbar_stopshare">Hide stopshare button in screen share</string>

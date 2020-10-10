@@ -20,6 +20,7 @@ import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.initsdk.AuthConstants;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.MyMeetingActivity;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.SimpleZoomUIDelegate;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingWindowHelper;
 import us.zoom.sdksample.startjoinmeeting.apiuser.ApiUserStartMeetingHelper;
 
@@ -87,6 +88,14 @@ public class APIUserStartJoinMeetingActivity extends Activity implements AuthCon
         super.onResume();
         isResumed = true;
         refreshUI();
+        ZoomSDK.getInstance().getZoomUIService().setZoomUIDelegate(new SimpleZoomUIDelegate() {
+            @Override
+            public void afterMeetingMinimized(Activity activity) {
+                Intent intent = new Intent(activity, APIUserStartJoinMeetingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -111,10 +120,7 @@ public class APIUserStartJoinMeetingActivity extends Activity implements AuthCon
 
 
     public void onClickReturnMeeting(View view) {
-        MeetingWindowHelper.getInstance().hiddenMeetingWindow(true);
-        Intent intent = new Intent(this, MyMeetingActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(intent);
+        UIUtil.returnToMeeting(this);
     }
 
     public void onClickSettings(View view) {

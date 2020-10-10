@@ -26,6 +26,17 @@
         android:thumb="@drawable/switch_custom_thumb_selector"
         android:track="@drawable/switch_custom_track_selector" />
 
+    <Switch
+        android:id="@+id/btn_external_video_source"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/settings_video_source"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:thumb="@drawable/switch_custom_thumb_selector"
+        android:track="@drawable/switch_custom_track_selector"
+        />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

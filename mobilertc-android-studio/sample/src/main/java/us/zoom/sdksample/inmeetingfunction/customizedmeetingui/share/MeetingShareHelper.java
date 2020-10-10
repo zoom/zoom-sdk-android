@@ -242,7 +242,7 @@ public class MeetingShareHelper {
         }
         MobileRTCShareView shareView = callBack.getShareView();
         shareView.setVisibility(View.VISIBLE);
-        shareView.setShareWebview("www.zoom.us");
+        shareView.setShareWebview("www.zoom.us",true);
     }
 
     private void startShareWhiteBoard() {

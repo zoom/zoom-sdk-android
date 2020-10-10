@@ -2,6 +2,8 @@ package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -27,8 +29,14 @@ import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.InMeetingVideoController;
 import us.zoom.sdk.InMeetingWebinarController;
 import us.zoom.sdk.ZoomSDK;
+import us.zoom.sdk.ZoomSDKPreProcessRawData;
+import us.zoom.sdk.ZoomSDKPreProcessor;
+import us.zoom.sdk.ZoomSDKVideoSourceHelper;
 import us.zoom.sdksample.BuildConfig;
 import us.zoom.sdksample.R;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.VirtualVideoSource;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.WaterMarkData;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.YUVConvert;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.SimpleMenuAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.SimpleMenuItem;
 import us.zoom.sdksample.ui.QAActivity;
@@ -56,6 +64,9 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
     private final int MENU_CREATE_BO = 15;
     private final int MENU_LOWER_ALL_HANDS = 16;
     private final int MENU_RECLAIM_HOST = 17;
+
+    private final int MENU_VIRTUAL_SOURCE = 18;
+    private final int MENU_INTERNAL_SOURCE = 19;
     MeetingOptionBarCallBack mCallBack;
 
     View mContentView;
@@ -393,6 +404,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         return false;
     }
 
+    VirtualVideoSource virtualVideoSource;
     private void showMoreMenuPopupWindow() {
         final SimpleMenuAdapter menuAdapter = new SimpleMenuAdapter(mContext);
         if (mInMeetingAudioController.isAudioConnected()) {
@@ -451,6 +463,10 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                 menuAdapter.addItem((new SimpleMenuItem(MENU_CREATE_BO, "Breakout Rooms")));
             }
         }
+
+        menuAdapter.addItem((new SimpleMenuItem(MENU_VIRTUAL_SOURCE, "Virtual source")));
+
+        menuAdapter.addItem((new SimpleMenuItem(MENU_INTERNAL_SOURCE, "Internal source")));
 
         if (isMySelfHostCohost()) {
             menuAdapter.addItem((new SimpleMenuItem(MENU_LOWER_ALL_HANDS, "Lower All Hands")));
@@ -537,6 +553,29 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                         }
                         break;
                     }
+                    case MENU_VIRTUAL_SOURCE:
+                    {
+                        ZoomSDKVideoSourceHelper sourceHelper = ZoomSDK.getInstance().getVideoSourceHelper();
+                        if (null == virtualVideoSource) {
+                            virtualVideoSource = new VirtualVideoSource();
+                        }
+                        sourceHelper.setExternalVideoSource(virtualVideoSource);
+                       break;
+                    }
+                    case MENU_INTERNAL_SOURCE:{
+                        ZoomSDKVideoSourceHelper sourceHelper=ZoomSDK.getInstance().getVideoSourceHelper();
+                        Bitmap waterMark = BitmapFactory.decodeResource(getResources(), R.drawable.zm_watermark_sdk);
+                        byte[] yuv = YUVConvert.convertBitmapToYuv(waterMark);
+                        final WaterMarkData data = new WaterMarkData(waterMark.getWidth(), waterMark.getHeight(), yuv);
+
+                        sourceHelper.setPreProcessor(new ZoomSDKPreProcessor() {
+                            @Override
+                            public void onPreProcessRawData(ZoomSDKPreProcessRawData rawData) {
+                                YUVConvert.addWaterMark(rawData, data, 140, 120, true);
+                            }
+                        });
+                        break;
+                    }
                 }
                 window.dismiss();
             }
@@ -549,6 +588,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
             mCallBack.showMoreMenu(window);
         }
     }
+
 
     public boolean isShowing() {
         return getVisibility() == VISIBLE;

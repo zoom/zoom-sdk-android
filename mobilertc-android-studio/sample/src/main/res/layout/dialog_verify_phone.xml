@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zoom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/panelTitle"
+        style="@style/ZMTitleBar.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <View
+            android:id="@+id/panelTitleRight"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/btnClose"
+            style="@style/ZMButton.NoBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="60dp"
+            android:text="@string/zm_btn_cancel" />
+
+        <TextView
+            android:id="@+id/txtTopic"
+            style="@style/ZMTextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/zm_title_verify_phone_number_109213"
+            android:textColor="@color/zm_v2_txt_primary" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country Code" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edtNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/zm_hint_phone_number_109213" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zm_btn_send"
+            android:text="@string/zm_btn_send"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zm_hint_verification_code_109213" />
+
+    <Button
+        android:id="@+id/btnVerify"
+        style="@style/ZMButton.HappyPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="@dimen/zm_setting_item_group_spacing"
+        android:layout_marginRight="16dp"
+        android:enabled="false"
+        android:minHeight="41dp"
+        android:text="@string/zm_btn_verify_109213" />
+
+</LinearLayout>

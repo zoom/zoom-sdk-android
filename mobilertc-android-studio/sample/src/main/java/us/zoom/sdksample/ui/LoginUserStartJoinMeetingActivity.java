@@ -11,7 +11,9 @@ import us.zoom.sdksample.initsdk.AuthConstants;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.MyMeetingActivity;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.RawDataMeetingActivity;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.SimpleZoomUIDelegate;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingWindowHelper;
+import us.zoom.sdksample.inmeetingfunction.zoommeetingui.ZoomMeetingUISettingHelper;
 import us.zoom.sdksample.otherfeatures.scheduleforloginuser.PreMeetingExampleActivity;
 import us.zoom.sdksample.startjoinmeeting.LoginUserStartMeetingHelper;
 import us.zoom.sdksample.startjoinmeeting.joinmeetingonly.JoinMeetingHelper;
@@ -28,6 +30,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 public class LoginUserStartJoinMeetingActivity extends Activity implements AuthConstants, MeetingServiceListener, ZoomSDKAuthenticationListener {
 
@@ -78,6 +82,14 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
         super.onResume();
         isResumed = true;
         refreshUI();
+        ZoomSDK.getInstance().getZoomUIService().setZoomUIDelegate(new SimpleZoomUIDelegate() {
+            @Override
+            public void afterMeetingMinimized(Activity activity) {
+                Intent intent = new Intent(activity, LoginUserStartJoinMeetingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -216,10 +228,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
     }
 
     public void onClickReturnMeeting(View view) {
-        MeetingWindowHelper.getInstance().hiddenMeetingWindow(true);
-        Intent intent = new Intent(this, MyMeetingActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivity(intent);
+        UIUtil.returnToMeeting(this);
     }
 
     public void onClickBtnPreMeeting(View view) {
@@ -254,6 +263,9 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
             onClickBtnStartMeeting(null);
         }
         if (meetingStatus == MeetingStatus.MEETING_STATUS_CONNECTING) {
+            if (ZoomMeetingUISettingHelper.useExternalVideoSource) {
+                ZoomMeetingUISettingHelper.changeVideoSource(true);
+            }
             showMeetingUi();
         }
         refreshUI();
@@ -349,6 +361,6 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
     @Override
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        MeetingWindowHelper.getInstance().onActivityResult(requestCode,this);
+        MeetingWindowHelper.getInstance().onActivityResult(requestCode, this);
     }
 }

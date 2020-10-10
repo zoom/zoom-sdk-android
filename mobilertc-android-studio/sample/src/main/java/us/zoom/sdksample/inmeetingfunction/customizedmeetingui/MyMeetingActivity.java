@@ -38,11 +38,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import us.zoom.amdroidlib.util.OverlayHelper;
-import us.zoom.androidlib.utils.ZmOsUtils;
-import us.zoom.androidlib.widget.ZMAlertDialog;
+import us.zoom.sdk.IBOAdmin;
 import us.zoom.sdk.IBOAssistant;
 import us.zoom.sdk.IBOAttendee;
+import us.zoom.sdk.IBOAttendeeEvent;
 import us.zoom.sdk.IBOData;
 import us.zoom.sdk.IBODataEvent;
 import us.zoom.sdk.IBOMeeting;
@@ -61,11 +60,13 @@ import us.zoom.sdk.MobileRTCVideoUnitRenderInfo;
 import us.zoom.sdk.MobileRTCVideoView;
 import us.zoom.sdk.MobileRTCVideoViewManager;
 import us.zoom.sdk.SmsListener;
+import us.zoom.sdk.SmsService;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKCountryCode;
 import us.zoom.sdksample.R;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioCallback;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.audio.MeetingAudioHelper;
+import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.bo.BOEventCallback;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.other.MeetingCommonCallback;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.remotecontrol.MeetingRemoteControlHelper;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.share.MeetingShareCallback;
@@ -79,16 +80,17 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.RealNameAuth
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.adapter.AttenderVideoAdapter;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.AnnotateToolbar;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.share.CustomShareView;
+import us.zoom.sdksample.ui.APIUserStartJoinMeetingActivity;
 import us.zoom.sdksample.ui.BreakoutRoomsAdminActivity;
 import us.zoom.sdksample.ui.InitAuthSDKActivity;
 import us.zoom.sdksample.ui.LoginUserStartJoinMeetingActivity;
-import us.zoom.sdksample.ui.APIUserStartJoinMeetingActivity;
+import us.zoom.sdksample.ui.UIUtil;
 
 import static us.zoom.sdk.MobileRTCSDKError.SDKERR_SUCCESS;
 
 public class MyMeetingActivity extends FragmentActivity implements View.OnClickListener, MeetingVideoCallback.VideoEvent,
         MeetingAudioCallback.AudioEvent, MeetingShareCallback.ShareEvent,
-        MeetingUserCallback.UserEvent, MeetingCommonCallback.CommonEvent, SmsListener {
+        MeetingUserCallback.UserEvent, MeetingCommonCallback.CommonEvent, SmsListener, BOEventCallback.BOEvent {
 
     private final static String TAG = MyMeetingActivity.class.getSimpleName();
 
@@ -120,7 +122,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
     private View mWaitJoinView;
     private View mWaitRoomView;
     private TextView mConnectingText;
-    private Button mBtnJoinBo;
+    private Button mBtnJoinBo, mBtnRequestHelp;
 
     private LinearLayout videoListLayout;
 
@@ -142,6 +144,8 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
     private MeetingService mMeetingService;
 
     private InMeetingService mInMeetingService;
+
+    private SmsService smsService;
 
     private Intent mScreenInfoData;
 
@@ -214,6 +218,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
 
         mConnectingText = (TextView) findViewById(R.id.connectingTxt);
         mBtnJoinBo = (Button) findViewById(R.id.btn_join_bo);
+        mBtnRequestHelp = findViewById(R.id.btn_request_help);
 
         mVideoListView = (RecyclerView) findViewById(R.id.videoList);
         mVideoListView.bringToFront();
@@ -225,6 +230,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         mVideoListView.setAdapter(mAdapter);
 
         mBtnJoinBo.setOnClickListener(this);
+        mBtnRequestHelp.setOnClickListener(this);
 
         refreshToolbar();
     }
@@ -301,7 +307,10 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
                 IBOAttendee boAttendee = boController.getBOAttendeeHelper();
                 if (boAttendee != null)
                     boAttendee.joinBo();
-            break;
+                break;
+            case R.id.btn_request_help:
+                attendeeRequestHelp();
+                break;
         }
     }
 
@@ -384,7 +393,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         mDefaultVideoViewMgr = mDefaultVideoView.getVideoViewManager();
         if (mDefaultVideoViewMgr != null) {
             int newLayoutType = getNewVideoMeetingLayout();
-            if (currentLayoutType != newLayoutType) {
+            if (currentLayoutType != newLayoutType || newLayoutType == LAYOUT_TYPE_WEBINAR_ATTENDEE) {
                 removeOldLayout(currentLayoutType);
                 currentLayoutType = newLayoutType;
                 addNewLayout(newLayoutType);
@@ -654,10 +663,11 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         {
             mDefaultVideoViewMgr.removeActiveVideoUnit();
         }
-        List<Long> userList=ZoomSDK.getInstance().getInMeetingService().getInMeetingUserList();
-        if(null!=userList)
-        {
-            mAdapter.removeUserList(userList);
+        if (null != mInMeetingService) {
+            List<Long> userList = mInMeetingService.getInMeetingUserList();
+            if (null != userList) {
+                mAdapter.removeUserList(userList);
+            }
         }
         currentLayoutType=-1;
     }
@@ -762,9 +772,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
                 return;
             }
 
-            if(ZmOsUtils.isAtLeastN() && ! Settings.canDrawOverlays(this)){
-                if(OverlayHelper.getInstance().isNeedListenOverlayPermissionChanged())
-                    OverlayHelper.getInstance().startListenOverlayPermissionChange(this);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && ! Settings.canDrawOverlays(this)){
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                         Uri.parse("package:" + this.getPackageName()));
                 startActivityForResult(intent,REQUEST_SYSTEM_ALERT_WINDOW_FOR_MINIWINDOW);
@@ -862,8 +870,7 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         switch (requestCode) {
             case REQUEST_SHARE_SCREEN_PERMISSION:
                 if (resultCode != RESULT_OK) {
-                    if (us.zoom.videomeetings.BuildConfig.DEBUG)
-                        Log.d(TAG, "onActivityResult REQUEST_SHARE_SCREEN_PERMISSION no ok ");
+                    Log.d(TAG, "onActivityResult REQUEST_SHARE_SCREEN_PERMISSION no ok ");
                     break;
                 }
                 startShareScreen(data);
@@ -1191,6 +1198,30 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         Log.d(TAG, "onVerifySMSVerificationCodeResultNotification:" + result);
     }
 
+    @Override
+    public void onHelpRequestReceived(final String strUserID) {
+        InMeetingBOController boController = mInMeetingService.getInMeetingBOController();
+        final IBOAdmin iboAdmin = boController.getBOAdminHelper();
+        if (iboAdmin != null) {
+            String[] boAndUser = UIUtil.getBoNameUserNameByUserId(boController, strUserID);
+            if (boAndUser == null || boAndUser.length != 2)
+                return;
+            new AlertDialog.Builder(MyMeetingActivity.this)
+                    .setMessage(boAndUser[1] + " in " + boAndUser[0] + " asked for help.")
+                    .setCancelable(false)
+                    .setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            iboAdmin.ignoreUserHelpRequest(strUserID);
+                        }
+                    })
+                    .setPositiveButton("Join Breakout Room", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            iboAdmin.joinBOByUserRequest(strUserID);
+                        }
+                    }).create().show();
+        }
+    }
+
     private void unRegisterListener() {
         try {
             MeetingAudioCallback.getInstance().removeListener(this);
@@ -1198,7 +1229,10 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
             MeetingShareCallback.getInstance().removeListener(this);
             MeetingUserCallback.getInstance().removeListener(this);
             MeetingCommonCallback.getInstance().removeListener(this);
-            ZoomSDK.getInstance().getSmsService().removeListener(this);
+            BOEventCallback.getInstance().removeEvent(this);
+            if(null!=smsService){
+                smsService.removeListener(this);
+            }
             ZoomSDK.getInstance().getInMeetingService().getInMeetingBOController().removeListener(mBOControllerListener);
         }catch (Exception e){
         }
@@ -1206,7 +1240,10 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
 
 
     private void registerListener() {
-        ZoomSDK.getInstance().getSmsService().addListener(this);
+        smsService=ZoomSDK.getInstance().getSmsService();
+        if(null!=smsService){
+            smsService.addListener(this);
+        }
         ZoomSDK.getInstance().getInMeetingService().getInMeetingBOController().addListener(mBOControllerListener);
         MeetingAudioCallback.getInstance().addListener(this);
         MeetingVideoCallback.getInstance().addListener(this);
@@ -1218,18 +1255,21 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
 
     private SimpleInMeetingBOControllerListener mBOControllerListener = new SimpleInMeetingBOControllerListener() {
 
-        ZMAlertDialog dialog;
+        AlertDialog dialog;
         @Override
         public void onHasAttendeeRightsNotification(final IBOAttendee iboAttendee) {
             super.onHasAttendeeRightsNotification(iboAttendee);
             Log.d(TAG, "onHasAttendeeRightsNotification");
+            iboAttendee.setEvent(iboAttendeeEvent);
             InMeetingBOController boController = mInMeetingService.getInMeetingBOController();
             if (boController.isInBOMeeting()) {
                 mBtnJoinBo.setVisibility(View.GONE);
-                meetingOptionBar.updateMeetingNumber(iboAttendee.GetBoName());
+                mBtnRequestHelp.setVisibility(iboAttendee.isHostInThisBO() ? View.GONE : View.VISIBLE);
+                meetingOptionBar.updateMeetingNumber(iboAttendee.getBoName());
             } else {
-                ZMAlertDialog.Builder builder = new ZMAlertDialog.Builder(MyMeetingActivity.this)
-                        .setMessage("The host is inviting you to join Breakout Room: " + iboAttendee.GetBoName())
+                mBtnRequestHelp.setVisibility(View.GONE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyMeetingActivity.this)
+                        .setMessage("The host is inviting you to join Breakout Room: " + iboAttendee.getBoName())
                         .setNegativeButton("Later", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 mBtnJoinBo.setVisibility(View.VISIBLE);
@@ -1261,6 +1301,13 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
             }
             mBtnJoinBo.setVisibility(View.GONE);
         }
+
+        @Override
+        public void onHasAdminRightsNotification(IBOAdmin iboAdmin) {
+            super.onHasAdminRightsNotification(iboAdmin);
+            Log.d(TAG, "onHasAdminRightsNotification");
+            BOEventCallback.getInstance().addEvent(MyMeetingActivity.this);
+        }
     };
 
     private IBODataEvent iboDataEvent = new IBODataEvent() {
@@ -1268,10 +1315,11 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         public void onBOInfoUpdated(String strBOID) {
             InMeetingBOController boController = mInMeetingService.getInMeetingBOController();
             IBOData iboData = boController.getBODataHelper();
-            if(iboData != null){
-                IBOMeeting iboMeeting = iboData.getBOMeetingByID(strBOID);
-                if(iboMeeting != null && boController.isInBOMeeting())
-                    meetingOptionBar.updateMeetingNumber(iboMeeting.getBoName());
+            if (iboData != null) {
+                String boName = iboData.getCurrentBoName();
+                if (!TextUtils.isEmpty(boName)) {
+                    meetingOptionBar.updateMeetingNumber(boName);
+                }
             }
         }
 
@@ -1281,5 +1329,48 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         }
     };
 
+    private IBOAttendeeEvent iboAttendeeEvent = new IBOAttendeeEvent() {
+        @Override
+        public void onHelpRequestHandleResultReceived(ATTENDEE_REQUEST_FOR_HELP_RESULT eResult) {
+            if(eResult == ATTENDEE_REQUEST_FOR_HELP_RESULT.RESULT_IGNORE) {
+                new AlertDialog.Builder(MyMeetingActivity.this)
+                        .setMessage("The host is currently helping others. Please try again later.")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        }).create().show();
+            }
+        }
+
+        @Override
+        public void onHostJoinedThisBOMeeting() {
+            mBtnRequestHelp.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onHostLeaveThisBOMeeting() {
+            mBtnRequestHelp.setVisibility(View.VISIBLE);
+        }
+    };
+
+    private void attendeeRequestHelp() {
+        InMeetingBOController boController = mInMeetingService.getInMeetingBOController();
+        final IBOAttendee boAttendee = boController.getBOAttendeeHelper();
+        if (boAttendee != null) {
+            new AlertDialog.Builder(this)
+                    .setMessage("You can invite the host to this Breakout Room for assistance.")
+                    .setCancelable(false)
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setPositiveButton("Ask for Help", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            boAttendee.requestForHelp();
+                        }
+                    }).create().show();
+        }
+    }
 }
 

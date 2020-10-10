@@ -57,4 +57,9 @@ public abstract class SimpleInMeetingBOControllerListener implements InMeetingBO
     public void onLostDataHelperRightsNotification() {
 
     }
+
+    @Override
+    public void onNewBroadcastMessageReceived(String message) {
+
+    }
 }

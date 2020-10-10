@@ -23,8 +23,10 @@ import java.util.List;
 
 import us.zoom.androidlib.app.ZMActivity;
 import us.zoom.sdk.IBOAdmin;
+import us.zoom.sdk.IBOAdminEvent;
 import us.zoom.sdk.IBOAssistant;
 import us.zoom.sdk.IBOAttendee;
+import us.zoom.sdk.IBOAttendeeEvent;
 import us.zoom.sdk.IBOCreator;
 import us.zoom.sdk.IBOData;
 import us.zoom.sdk.IBODataEvent;
@@ -231,6 +233,22 @@ public class BreakoutRoomsAdminActivity extends ZMActivity implements InMeetingB
     @Override
     public void onHasAttendeeRightsNotification(IBOAttendee iboAttendee) {
         Log.d(TAG, "onHasAttendeeRightsNotification");
+        iboAttendee.setEvent(new IBOAttendeeEvent() {
+            @Override
+            public void onHelpRequestHandleResultReceived(ATTENDEE_REQUEST_FOR_HELP_RESULT eResult) {
+                Log.d(TAG, "onHelpRequestHandleResultReceived:"+eResult);
+            }
+
+            @Override
+            public void onHostJoinedThisBOMeeting() {
+                Log.d(TAG, "onHostJoinedThisBOMeeting:");
+            }
+
+            @Override
+            public void onHostLeaveThisBOMeeting() {
+                Log.d(TAG, "onHostLeaveThisBOMeeting:");
+            }
+        });
     }
 
     @Override
@@ -261,6 +279,11 @@ public class BreakoutRoomsAdminActivity extends ZMActivity implements InMeetingB
     @Override
     public void onLostDataHelperRightsNotification() {
         Log.d(TAG, "onLostDataHelperRightsNotification");
+    }
+
+    @Override
+    public void onNewBroadcastMessageReceived(String message) {
+        Log.d(TAG, "onNewBroadcastMessageReceived:"+message);
     }
 
     public static class BoListAdapter extends BaseAdapter {
