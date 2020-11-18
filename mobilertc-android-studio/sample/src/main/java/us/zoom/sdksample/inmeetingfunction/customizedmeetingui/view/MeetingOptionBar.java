@@ -20,14 +20,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.zipow.videobox.ptapp.PTApp;
+
+import java.util.List;
+
+import us.zoom.sdk.IInterpretationLanguage;
+import us.zoom.sdk.IMeetingInterpretationControllerEvent;
 import us.zoom.sdk.InMeetingAnnotationController;
 import us.zoom.sdk.InMeetingAudioController;
 import us.zoom.sdk.InMeetingBOController;
+import us.zoom.sdk.InMeetingInterpretationController;
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.InMeetingShareController;
 import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.InMeetingVideoController;
 import us.zoom.sdk.InMeetingWebinarController;
+import us.zoom.sdk.MobileRTCSDKError;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKPreProcessRawData;
 import us.zoom.sdk.ZoomSDKPreProcessor;
@@ -67,6 +75,12 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
 
     private final int MENU_VIRTUAL_SOURCE = 18;
     private final int MENU_INTERNAL_SOURCE = 19;
+
+    private final int MENU_INTERPRETATION = 20;
+
+    private final int MENU_INTERPRETATION_ADMIN = 21;
+
+
     MeetingOptionBarCallBack mCallBack;
 
     View mContentView;
@@ -97,6 +111,8 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
     private InMeetingAudioController mInMeetingAudioController;
     private InMeetingWebinarController mInMeetingWebinarController;
     private InMeetingAnnotationController meetingAnnotationController;
+
+    private InMeetingInterpretationController meetingInterpretationController;
 
     private Context mContext;
 
@@ -164,6 +180,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         mInMeetingWebinarController = mInMeetingService.getInMeetingWebinarController();
         meetingAnnotationController = mInMeetingService.getInMeetingAnnotationController();
 
+        meetingInterpretationController = mInMeetingService.getInMeetingInterpretationController();
 
 //        mContentView.setOnClickListener(this);
         mBottomBar = findViewById(R.id.bottom_bar);
@@ -395,7 +412,16 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         return false;
     }
 
-    private boolean isMySelfHostCohost(){
+
+    private boolean isMySelfHost() {
+        InMeetingUserInfo myUserInfo = mInMeetingService.getMyUserInfo();
+        if (myUserInfo != null) {
+            return myUserInfo.getInMeetingUserRole() == InMeetingUserInfo.InMeetingUserRole.USERROLE_HOST;
+        }
+        return false;
+    }
+
+    private boolean isMySelfHostCohost() {
         InMeetingUserInfo myUserInfo = mInMeetingService.getMyUserInfo();
         if (myUserInfo != null) {
             return myUserInfo.getInMeetingUserRole() == InMeetingUserInfo.InMeetingUserRole.USERROLE_HOST
@@ -445,7 +471,7 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
         }
 
         if (BuildConfig.DEBUG) {
-            menuAdapter.addItem((new SimpleMenuItem(MENU_SWITCH_DOMAIN, "Switch Domain")));
+//            menuAdapter.addItem((new SimpleMenuItem(MENU_SWITCH_DOMAIN, "Switch Domain")));
         }
 
         if (BuildConfig.DEBUG) {
@@ -457,6 +483,21 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
             }
         }
 
+        if (BuildConfig.DEBUG) {
+            InMeetingInterpretationController interpretationController = ZoomSDK.getInstance().getInMeetingService().getInMeetingInterpretationController();
+            if (interpretationController.isInterpretationEnabled() && !interpretationController.isInterpreter()
+                    && interpretationController.isInterpretationStarted()) {
+                menuAdapter.addItem((new SimpleMenuItem(MENU_INTERPRETATION, "Language Interpretation")));
+            }
+        }
+
+        if (BuildConfig.DEBUG) {
+            InMeetingInterpretationController interpretationController=   ZoomSDK.getInstance().getInMeetingService().getInMeetingInterpretationController();
+            if (interpretationController.isInterpretationEnabled()&&isMySelfHost()) {
+                menuAdapter.addItem((new SimpleMenuItem(MENU_INTERPRETATION_ADMIN, "Interpretation")));
+            }
+        }
+
         if (isMySelfMeetingHostBoModerator()) {
             InMeetingBOController boController = mInMeetingService.getInMeetingBOController();
             if (boController.isBOEnabled()) {
@@ -464,9 +505,8 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
             }
         }
 
-        menuAdapter.addItem((new SimpleMenuItem(MENU_VIRTUAL_SOURCE, "Virtual source")));
-
-        menuAdapter.addItem((new SimpleMenuItem(MENU_INTERNAL_SOURCE, "Internal source")));
+//        menuAdapter.addItem((new SimpleMenuItem(MENU_VIRTUAL_SOURCE, "Virtual source")));
+//        menuAdapter.addItem((new SimpleMenuItem(MENU_INTERNAL_SOURCE, "Internal source")));
 
         if (isMySelfHostCohost()) {
             menuAdapter.addItem((new SimpleMenuItem(MENU_LOWER_ALL_HANDS, "Lower All Hands")));
@@ -574,6 +614,19 @@ public class MeetingOptionBar extends FrameLayout implements View.OnClickListene
                                 YUVConvert.addWaterMark(rawData, data, 140, 120, true);
                             }
                         });
+                        break;
+                    }
+                    case MENU_INTERPRETATION: {
+                        InMeetingInterpretationController interpre = ZoomSDK.getInstance().getInMeetingService().getInMeetingInterpretationController();
+                        Log.d(TAG, "isStart:" + interpre.isInterpretationStarted() + " isInterpreter:" + interpre.isInterpreter());
+
+                        if(interpre.isInterpretationStarted()&&!interpre.isInterpreter()){
+                            MeetingInterpretationDialog.show(mContext);
+                        }
+                        break;
+                    }
+                    case MENU_INTERPRETATION_ADMIN:{
+                        MeetingInterpretationAdminDialog.show(mContext);
                         break;
                     }
                 }

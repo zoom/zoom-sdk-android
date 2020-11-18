@@ -92,18 +92,18 @@ public class VirtualVideoSource implements ZoomSDKVideoSource {
         virtualHandler.post(new Runnable() {
             @Override
             public void run() {
-                // Context context = VideoBoxApplication.getInstance();
-                // Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.frame_one);
-                // byte[] bytes = YUVConvert.convertBitmapToYuv(bitmap);
-                // ByteBuffer byteBuffer = ByteBuffer.allocateDirect(bytes.length);
-                // byteBuffer.put(bytes);
-                // frame = new VideoFrame(byteBuffer, bitmap.getWidth(), bitmap.getHeight());
+                Context context = VideoBoxApplication.getInstance();
+                Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.frame_one);
+                byte[] bytes = YUVConvert.convertBitmapToYuv(bitmap);
+                ByteBuffer byteBuffer = ByteBuffer.allocateDirect(bytes.length);
+                byteBuffer.put(bytes);
+                frame = new VideoFrame(byteBuffer, bitmap.getWidth(), bitmap.getHeight());
 
-                // bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.frame_two);
-                // bytes = YUVConvert.convertBitmapToYuv(bitmap);
-                // byteBuffer = ByteBuffer.allocateDirect(bytes.length);
-                // byteBuffer.put(bytes);
-                // frameTwo = new VideoFrame(byteBuffer, bitmap.getWidth(), bitmap.getHeight());
+                bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.frame_two);
+                bytes = YUVConvert.convertBitmapToYuv(bitmap);
+                byteBuffer = ByteBuffer.allocateDirect(bytes.length);
+                byteBuffer.put(bytes);
+                frameTwo = new VideoFrame(byteBuffer, bitmap.getWidth(), bitmap.getHeight());
             }
         });
         Log.d(TAG, "onInitialize");

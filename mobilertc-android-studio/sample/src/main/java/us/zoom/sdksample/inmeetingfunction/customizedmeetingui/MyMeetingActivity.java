@@ -45,10 +45,13 @@ import us.zoom.sdk.IBOAttendeeEvent;
 import us.zoom.sdk.IBOData;
 import us.zoom.sdk.IBODataEvent;
 import us.zoom.sdk.IBOMeeting;
+import us.zoom.sdk.IInterpretationLanguage;
+import us.zoom.sdk.IMeetingInterpretationControllerEvent;
 import us.zoom.sdk.IZoomRetrieveSMSVerificationCodeHandler;
 import us.zoom.sdk.IZoomVerifySMSVerificationCodeHandler;
 import us.zoom.sdk.InMeetingBOController;
 import us.zoom.sdk.InMeetingEventHandler;
+import us.zoom.sdk.InMeetingInterpretationController;
 import us.zoom.sdk.InMeetingService;
 import us.zoom.sdk.InMeetingUserInfo;
 import us.zoom.sdk.MeetingService;
@@ -125,6 +128,8 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
     private Button mBtnJoinBo, mBtnRequestHelp;
 
     private LinearLayout videoListLayout;
+
+    private View layout_lans;
 
     private boolean mMeetingFailed = false;
 
@@ -224,6 +229,8 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         mVideoListView.bringToFront();
 
         videoListLayout = findViewById(R.id.videoListLayout);
+
+        layout_lans=findViewById(R.id.layout_lans);
 
         mVideoListView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         mAdapter = new AttenderVideoAdapter(this, getWindowManager().getDefaultDisplay().getWidth(), pinVideoListener);
@@ -640,6 +647,9 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
     @Override
     protected void onResume() {
         super.onResume();
+        if(mMeetingService == null || mInMeetingService == null){
+            return;
+        }
         MeetingWindowHelper.getInstance().hiddenMeetingWindow(false);
         checkShowVideoLayout();
         meetingVideoHelper.checkVideoRotation(this);
@@ -649,12 +659,18 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
     @Override
     protected void onPause() {
         super.onPause();
+        if(mMeetingService == null || mInMeetingService == null){
+            return;
+        }
         mDefaultVideoView.onPause();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        if(mMeetingService == null || mInMeetingService == null){
+            return;
+        }
         clearSubscribe();
     }
 
@@ -1251,6 +1267,8 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
         MeetingUserCallback.getInstance().addListener(this);
         MeetingCommonCallback.getInstance().addListener(this);
 
+        InMeetingInterpretationController meetingInterpretationController= ZoomSDK.getInstance().getInMeetingService().getInMeetingInterpretationController();
+        meetingInterpretationController.setEvent(event);
     }
 
     private SimpleInMeetingBOControllerListener mBOControllerListener = new SimpleInMeetingBOControllerListener() {
@@ -1372,5 +1390,120 @@ public class MyMeetingActivity extends FragmentActivity implements View.OnClickL
                     }).create().show();
         }
     }
+
+
+
+    private IMeetingInterpretationControllerEvent event = new IMeetingInterpretationControllerEvent() {
+        @Override
+        public void onInterpretationStart() {
+
+            Log.d(TAG, "onInterpretationStart:");
+            updateLanguage();
+        }
+
+        @Override
+        public void onInterpretationStop() {
+            Log.d(TAG, "onInterpretationStop:");
+            updateLanguage();
+        }
+
+        @Override
+        public void onInterpreterListChanged() {
+            Log.d(TAG, "onInterpreterListChanged:");
+        }
+
+        @Override
+        public void onInterpreterRoleChanged(int userID, boolean isInterpreter) {
+            Log.d(TAG, "onInterpreterRoleChanged:" + userID + ":" + isInterpreter);
+            boolean isMyself = ZoomSDK.getInstance().getInMeetingService().isMyself(userID);
+            if (isMyself) {
+                if(isInterpreter){
+                    Toast.makeText(getBaseContext(),R.string.zm_msg_interpreter_88102,Toast.LENGTH_SHORT).show();
+                }
+                updateLanguage();
+            }
+        }
+
+        private void updateLanguage() {
+            final InMeetingInterpretationController controller = ZoomSDK.getInstance().getInMeetingService().getInMeetingInterpretationController();
+            if(controller.isInterpretationEnabled()&&controller.isInterpretationStarted()&&controller.isInterpreter()){
+                layout_lans.setVisibility(View.VISIBLE);
+            }else {
+                layout_lans.setVisibility(View.GONE);
+                return;
+            }
+            final TextView button1 = layout_lans.findViewById(R.id.btn_lan1);
+            final TextView button2 = layout_lans.findViewById(R.id.btn_lan2);
+
+            List<Integer> list = controller.getInterpreterLans();
+            int lanId = controller.getInterpreterActiveLan();
+            if (null != list && list.size() >= 2) {
+                IInterpretationLanguage language1 = controller.getInterpretationLanguageByID(list.get(0));
+                IInterpretationLanguage language2 = controller.getInterpretationLanguageByID(list.get(1));
+
+                if (null != language1) {
+                    button1.setText(language1.getLanguageName());
+                }
+                if (null != language2) {
+                    button2.setText(language2.getLanguageName());
+                }
+
+                if (lanId == list.get(0)) {
+                    button1.setSelected(true);
+                    button2.setSelected(false);
+                } else if(lanId==list.get(1)) {
+                    button2.setSelected(true);
+                    button1.setSelected(false);
+                }else{
+                    button2.setSelected(false);
+                    button1.setSelected(false);
+                }
+            }
+
+            button1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<Integer> lans = controller.getInterpreterLans();
+                    if (null != lans && lans.size() >= 2) {
+                        controller.setInterpreterActiveLan(lans.get(0));
+                    }
+                    button2.setSelected(false);
+                    button1.setSelected(true);
+                }
+            });
+
+
+
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<Integer> lans = controller.getInterpreterLans();
+                    if (null != lans && lans.size() >= 2) {
+                        controller.setInterpreterActiveLan(lans.get(1));
+                    }
+                    button1.setSelected(false);
+                    button2.setSelected(true);
+                }
+            });
+        }
+
+        @Override
+        public void onInterpreterActiveLanguageChanged(int userID, int activeLanID) {
+            Log.d(TAG, "onInterpreterActiveLanguageChanged:" + userID + ":" + activeLanID);
+        }
+
+        @Override
+        public void onInterpreterLanguageChanged(int lanID1, int lanID2) {
+            Log.d(TAG, "onInterpreterLanguageChanged:" + lanID1 + ":" + lanID2);
+            updateLanguage();
+        }
+
+        @Override
+        public void onAvailableLanguageListUpdated(List<IInterpretationLanguage> pAvailableLanguageList) {
+            Log.d(TAG, "onAvailableLanguageListUpdated:" + pAvailableLanguageList);
+            updateLanguage();
+        }
+    };
+
 }
 

@@ -12,11 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import us.zoom.sdk.CustomizedMiniMeetingViewSize;
+import java.util.List;
+
 import us.zoom.sdk.CustomizedNotificationData;
 import us.zoom.sdk.InMeetingNotificationHandle;
 import us.zoom.sdk.JoinMeetingOptions;
 import us.zoom.sdk.JoinMeetingParams;
+import us.zoom.sdk.MeetingInviteMenuItem;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
 import us.zoom.sdk.ZoomApiError;
@@ -28,7 +30,6 @@ import us.zoom.sdksample.initsdk.InitAuthSDKCallback;
 import us.zoom.sdksample.initsdk.InitAuthSDKHelper;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.MyMeetingActivity;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.RawDataMeetingActivity;
-import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.VirtualVideoSource;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.SimpleZoomUIDelegate;
 import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingWindowHelper;
 import us.zoom.sdksample.inmeetingfunction.zoommeetingui.ZoomMeetingUISettingHelper;
@@ -197,6 +198,7 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
 
     @Override
     public void onZoomIdentityExpired() {
+        Log.e(TAG,"onZoomIdentityExpired");
         if (mZoomSDK.isLoggedIn()) {
             mZoomSDK.logoutZoom();
         }
@@ -204,7 +206,7 @@ public class InitAuthSDKActivity extends Activity implements InitAuthSDKCallback
 
     @Override
     public void onZoomAuthIdentityExpired() {
-        Log.e(TAG,"onZoomAuthIdentityExpired");
+        Log.d(TAG,"onZoomAuthIdentityExpired");
     }
 
     public void onClickJoin(View view) {

@@ -10,7 +10,7 @@ import us.zoom.sdksample.inmeetingfunction.customizedmeetingui.rawdata.VirtualVi
 
 public class ZoomMeetingUISettingHelper {
 
-    private static StartMeetingOptions meetingOptions = new StartMeetingOptions();
+    private static JoinMeetingOptions meetingOptions = new JoinMeetingOptions();
 
     public static boolean useExternalVideoSource=false;
 
@@ -27,23 +27,7 @@ public class ZoomMeetingUISettingHelper {
 
 
 
-    public static StartMeetingOptions getMeetingOptions() {
-        //options setting sample : MeetingSettingActivity
-        //		opts.no_driving_mode = true;  //for disable zoom meeting ui driving mode
-//		opts.no_invite = true; // for hide invite button on participant view
-//		opts.no_meeting_end_message = true; // for disable to show meeting end dialog when meeting is end.
-//		opts.no_titlebar = true; // for hide title bar on zoom meeting ui
-//		opts.no_bottom_toolbar = true; // for hide bottom bar on zoom meeting ui
-//		opts.no_dial_in_via_phone = true;
-//		opts.no_dial_out_to_phone = true;
-//		opts.no_disconnect_audio = true;
-//		opts.no_share = true;
-//		opts.invite_options = InviteOptions.INVITE_ENABLE_ALL;
-//		opts.no_audio = true;
-//		opts.no_video = true;
-//		opts.meeting_views_options = MeetingViewsOptions.NO_BUTTON_SHARE + MeetingViewsOptions.NO_BUTTON_VIDEO;
-//		opts.no_meeting_error_message = true;
-
+    public static JoinMeetingOptions getMeetingOptions() {
         return meetingOptions;
     }
 
@@ -65,17 +49,20 @@ public class ZoomMeetingUISettingHelper {
         opts.no_driving_mode = meetingOptions.no_driving_mode;
         opts.no_invite = meetingOptions.no_invite;
         opts.no_meeting_end_message = meetingOptions.no_meeting_end_message;
+        opts.no_meeting_error_message = meetingOptions.no_meeting_error_message;
         opts.no_titlebar = meetingOptions.no_titlebar;
         opts.no_bottom_toolbar = meetingOptions.no_bottom_toolbar;
         opts.no_dial_in_via_phone = meetingOptions.no_dial_in_via_phone;
         opts.no_dial_out_to_phone = meetingOptions.no_dial_out_to_phone;
         opts.no_disconnect_audio = meetingOptions.no_disconnect_audio;
         opts.no_share = meetingOptions.no_share;
-        opts.invite_options = meetingOptions.invite_options;
         opts.no_video = meetingOptions.no_video;
         opts.meeting_views_options = meetingOptions.meeting_views_options;
-        opts.no_meeting_error_message = meetingOptions.no_meeting_error_message;
+        opts.invite_options = meetingOptions.invite_options;
         opts.participant_id = meetingOptions.participant_id;
+        opts.custom_meeting_id = meetingOptions.custom_meeting_id;
+        opts.no_unmute_confirm_dialog=meetingOptions.no_unmute_confirm_dialog;
+        opts.no_webinar_register_dialog=meetingOptions.no_webinar_register_dialog;
         return opts;
     }
 

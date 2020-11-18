@@ -1,9 +1,14 @@
 package us.zoom.sdksample.ui;
 
+import us.zoom.sdk.DirectShareStatus;
+import us.zoom.sdk.IDirectShareServiceHelper;
+import us.zoom.sdk.IDirectShareServiceHelperEvent;
+import us.zoom.sdk.IDirectShareViaMeetingIDOrPairingCodeHandler;
 import us.zoom.sdk.MeetingError;
 import us.zoom.sdk.MeetingService;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
+import us.zoom.sdk.PreMeetingService;
 import us.zoom.sdk.ZoomAuthenticationError;
 import us.zoom.sdk.ZoomSDK;
 import us.zoom.sdk.ZoomSDKAuthenticationListener;
@@ -25,6 +30,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +51,7 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
     private Button mBtnLoginOut;
     private Button mBtnSettings;
     private Button mReturnMeeting;
+    private Button mBtnDirectShare;
     private final static String DISPLAY_NAME = "ZoomUS SDK";
 
     private boolean mbPendingStartMeeting = false;
@@ -64,6 +71,8 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
         mBtnLoginOut = (Button) findViewById(R.id.btnLogout);
         mBtnSettings = findViewById(R.id.btn_settings);
         mReturnMeeting = findViewById(R.id.btn_return);
+
+        mBtnDirectShare=findViewById(R.id.btnShare);
 
         registerListener();
     }
@@ -90,6 +99,13 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
                 activity.startActivity(intent);
             }
         });
+
+        PreMeetingService preMeetingService= ZoomSDK.getInstance().getPreMeetingService();
+        if(null==preMeetingService||!preMeetingService.getDirectShareService().canStartDirectShare()){
+            mBtnDirectShare.setVisibility(View.GONE);
+        }else {
+            mBtnDirectShare.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -235,6 +251,57 @@ public class LoginUserStartJoinMeetingActivity extends Activity implements AuthC
         Intent intent = new Intent(this, PreMeetingExampleActivity.class);
         startActivity(intent);
     }
+    public void onClickDirectShare(View view) {
+        final IDirectShareServiceHelper shareServiceHelper= ZoomSDK.getInstance().getPreMeetingService().getDirectShareService();
+        if(shareServiceHelper.isDirectShareInProgress()){
+            Toast.makeText(getBaseContext(),"isDirectShareInProgress",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String meetingNumber=mEdtMeetingNo.getText().toString();
+
+       final String pairCode=mEdtVanityId.getText().toString();
+        if(TextUtils.isEmpty(meetingNumber)&&TextUtils.isEmpty(pairCode)){
+            Toast.makeText(getBaseContext(),"meetingNumber or pairCode is null",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long number=0;
+        if(TextUtils.isEmpty(pairCode)){
+            try{
+                number=Long.parseLong(meetingNumber);
+            }catch (Exception e){
+                return;
+            }
+        }
+        final long tempNumber=number;
+        shareServiceHelper.setEvent( new IDirectShareServiceHelperEvent() {
+            @Override
+            public void onDirectShareStatusUpdate(DirectShareStatus status,final IDirectShareViaMeetingIDOrPairingCodeHandler handler) {
+                if(null!=handler){
+                    if(status==DirectShareStatus.DirectShare_Need_MeetingID_Or_PairingCode){
+                        if(tempNumber!=0){
+                            handler.tryWithMeetingNumber(tempNumber);
+                        }else {
+                            String code=pairCode.toUpperCase();
+                            Toast.makeText(getBaseContext(),"Code:"+code,Toast.LENGTH_SHORT).show();
+                            handler.tryWithPairingCode(code);
+                        }
+
+                    }else if(status==DirectShareStatus.DirectShare_WrongMeetingID_Or_SharingKey){
+                        Toast.makeText(getBaseContext(),"Wrong Id or Key:",Toast.LENGTH_SHORT).show();
+                        handler.cancel();
+                    }else if(status==DirectShareStatus.DirectShare_Other_Error||status==DirectShareStatus.DirectShare_NetWork_Error){
+                        Toast.makeText(getBaseContext(),"Error:"+status,Toast.LENGTH_SHORT).show();
+                        handler.cancel();
+                    }
+                }
+                Log.d(TAG,"status:"+status+" :"+shareServiceHelper.isDirectShareInProgress());
+            }
+        });
+        shareServiceHelper.startDirectShare();
+    }
+
 
     public void onClickBtnLogout(View view) {
         ZoomSDK zoomSDK = ZoomSDK.getInstance();

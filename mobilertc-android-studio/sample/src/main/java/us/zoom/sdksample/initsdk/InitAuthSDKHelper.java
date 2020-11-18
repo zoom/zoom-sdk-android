@@ -41,7 +41,7 @@ public class InitAuthSDKHelper implements AuthConstants, ZoomSDKInitializeListen
             initParams.jwtToken = SDK_JWTTOKEN;
             initParams.enableLog = true;
             initParams.enableGenerateDump =true;
-            initParams.logSize = 50;
+            initParams.logSize = 5;
             initParams.domain=AuthConstants.WEB_DOMAIN;
             initParams.videoRawDataMemoryMode = ZoomSDKRawDataMemoryMode.ZoomSDKRawDataMemoryModeStack;
             mZoomSDK.initialize(context, this, initParams);

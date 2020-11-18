@@ -122,4 +122,44 @@
         android:visibility="invisible"></us.zoom.sdksample.inmeetingfunction.customizedmeetingui.view.MeetingOptionBar>
 
 
+    <LinearLayout
+        android:id="@+id/layout_lans"
+        android:background="@drawable/zm_bg_float_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:padding="2dp"
+        android:visibility="gone"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/btn_lan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/selector_lans"
+            android:padding="10dp"
+            android:textColor="@color/lan_text_selector"
+            android:text="English"
+            android:textSize="18dp"
+            android:textStyle="bold"></Button>
+
+
+        <Button
+            android:id="@+id/btn_lan2"
+            style="@style/ZMTextView.Small.OnGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_lans"
+            android:focusable="true"
+            android:textColor="@color/lan_text_selector"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:textSize="18dp"
+            android:text="English"
+            android:textStyle="bold"></Button>
+
+    </LinearLayout>
+
+
 </FrameLayout>

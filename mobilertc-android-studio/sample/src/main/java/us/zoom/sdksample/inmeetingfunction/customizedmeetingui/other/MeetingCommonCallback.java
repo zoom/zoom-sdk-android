@@ -1,6 +1,12 @@
 package us.zoom.sdksample.inmeetingfunction.customizedmeetingui.other;
 
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.zipow.videobox.VideoBoxApplication;
+
+import us.zoom.sdk.InMeetingChatMessage;
 import us.zoom.sdk.InMeetingEventHandler;
 import us.zoom.sdk.MeetingServiceListener;
 import us.zoom.sdk.MeetingStatus;
@@ -117,6 +123,12 @@ public class MeetingCommonCallback extends BaseCallback<MeetingCommonCallback.Co
             for (CommonEvent event : callbacks) {
                 event.onFreeMeetingReminder(isOrignalHost, canUpgrade, isFirstGift);
             }
+        }
+
+        @Override
+        public void onChatMessageReceived(InMeetingChatMessage inMeetingChatMessage) {
+            Toast.makeText(VideoBoxApplication.getNonNullInstance(),inMeetingChatMessage.getContent(),Toast.LENGTH_LONG).show();
+            Log.d("MeetingCommonCallback",inMeetingChatMessage.getSenderDisplayName()+":"+inMeetingChatMessage.getContent());
         }
     };
 

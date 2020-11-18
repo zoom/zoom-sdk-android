@@ -5,6 +5,84 @@
 ### :red_circle: Non-AndroidX Version (EOL: 01/01/2020)
 **Per Google's suggestions and guidance, we have upgraded our regular Android SDK to support AndroidX. We used to offer a non-AndroidX version to help you migrate to the AndroidX project. However, the previous non-AndroidX version has reached its End-of-Life (01/01/20). Please plan to upgrade your Android project to AndroidX to use the latest Android SDK**
 
+## 2020-11-17 @ v5.2.42043.1112
+
+## Added:
+* Added new feature for supporting language interpreters within meetings. For more information regarding this feature, please visit https://support.zoom.us/hc/en-us/articles/360034919791-Language-interpretation-in-meetings-and-webinars  
+The new interfaces can be found in `InMeetingInterpretationController.java`
+   * `- InMeetingInterpretationController getInMeetingInterpretationController()`
+
+   * New interface in `IInterpretationLanguage.java`
+     * `- int getLanguageID()`
+     * `- String getLanguageAbbreviations()`
+     * `- String getLanguageName()`
+
+   * New interface in `IInterpreter.java`
+     * `- long getUserID()`
+     * `- int getLanguageID1()`
+     * `- int getLanguageID2()`
+
+   * New interface in `IMeetingInterpretationControllerEvent.java`
+     * `- void onInterpretationStart()`
+     * `- void onInterpretationStop()`
+     * `- void onInterpreterRoleChanged(int userID, boolean isInterpreter)`
+     * `- void onInterpreterActiveLanguageChanged(int userID, int activeLanID)`
+     * `- void onInterpreterLanguageChanged(int lanID1, int lanID2)`
+     * `- void onAvailableLanguageListUpdated(List<IInterpretationLanguage> pAvailableLanguageList)`
+
+   * New interface for `InMeetingInterpretationController.java`
+     * `- void setEvent(IMeetingInterpretationControllerEvent event)`
+     * `- boolean isInterpretationEnabled()`
+     * `- boolean isInterpretationStarted()`
+     * `- boolean isInterpreter()`
+     * `- IInterpretationLanguage getInterpretationLanguageByID(int lanID)`
+     * `- List<IInterpretationLanguage> getAllLanguageList()`
+     * `- List<IInterpreter> getInterpreterList()`
+     * `- boolean addInterpreter(long  userID, int lanID1, int lanID2)`
+     * `- boolean removeInterpreter(long  userID)`
+     * `- boolean modifyInterpreter(long  userID, int lanID1, int lanID2)`
+     * `- MobileRTCSDKError startInterpretation()`
+     * `- MobileRTCSDKError stopInterpretation()`
+     * `- List<IInterpretationLanguage> getAvailableLanguageList()`
+     * `- MobileRTCSDKError joinLanguageChannel(int lanID)`
+     * `- int getJoinedLanguageID()`
+     * `- MobileRTCSDKError turnOffMajorAudio()`
+     * `- MobileRTCSDKError turnOnMajorAudio()`
+     * `- boolean isMajorAudioTurnOff()`
+     * `- List<Integer> getInterpreterLans();`
+     * `- MobileRTCSDKError setInterpreterActiveLan(int activeLanID);`
+     * `- int getInterpreterActiveLan()`
+
+* Add interfaces to support Direct share. For info about this feature, please visit: https://support.zoom.us/hc/en-us/articles/214629303-Direct-sharing-in-Zoom-Rooms
+   New interface for `IDirectShareServiceHelper.java`
+   * `- void setEvent(IDirectShareServiceHelperEvent listener)`
+   * `- boolean canStartDirectShare()`
+   * `- boolean isDirectShareInProgress()`
+   * `- MobileRTCSDKError startDirectShare()`
+   * `- MobileRTCSDKError stopDirectShare()`
+
+   New interface for `IDirectShareViaMeetingIDOrPairingCodeHandler.java`
+   * `- MobileRTCSDKError tryWithMeetingNumber(long meetingNumber)`
+   * `- MobileRTCSDKError tryWithPairingCode(String pairingCode)`
+   * `- MobileRTCSDKError cancel()`
+
+   The added callback interface in `IDirectShareServiceHelperEvent.java`
+   * `- void onDirectShareStatusUpdate(DirectShareStatus status, IDirectShareViaMeetingIDOrPairingCodeHandler handler)  `
+
+* Added new callback to notify the end-user that their video subscription failed when using Custom Meeting UI
+   The added callback interface in `ICustomizedVideoSink.java`
+   * `- void onSubscribeUserFail(int errorCode, int size, long userId)`
+
+* Added methods to enable/disable copying Zoom URL when long-pressing meeting ID
+   New method in `MeetingSettingsHelper.java`
+   * `- void disableCopyMeetingUrl(boolean disable)`
+
+## Changed & Fixed:
+* Fixed an issue that disabling the bottom toolbar hides the end meeting button.
+* Fixed an issue that the `raiseMyHand` or `lowerHand` is not working properly when in a webinar.
+* Fixed an issue that the option to hide the meeting password is not working.
+* Fixed an issue that the option `no_dial_in_via_phone` and `no_dial_out_to_phone` do not hide the dial-in/dial-out menu.
+
 ## 2020-10-09 @ v5.2.41735.0928
 
 ## Added
