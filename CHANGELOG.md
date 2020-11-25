@@ -77,6 +77,8 @@ The new interfaces can be found in `InMeetingInterpretationController.java`
    New method in `MeetingSettingsHelper.java`
    * `- void disableCopyMeetingUrl(boolean disable)`
 
+* Removed the watermark by default. If you wish to retain the Zoom watermark, please contact us via developersupport@zoom.us.
+
 ## Changed & Fixed:
 * Fixed an issue that disabling the bottom toolbar hides the end meeting button.
 * Fixed an issue that the `raiseMyHand` or `lowerHand` is not working properly when in a webinar.
